@@ -1,0 +1,1414 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>医学・医療インタラクティブシラバス学習プラットフォーム</title>
+    <meta name="description" content="医学・医療カリキュラムの全章・GIO・SBOを網羅した統合型インタラクティブ学習システム">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+JP:wght@300;400;500;700&family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="lang-ja">
+    <div class="glowing-bg">
+        <div class="glow-orb orb-1"></div>
+        <div class="glow-orb orb-2"></div>
+        <div class="glow-orb orb-3"></div>
+    </div>
+
+    <!-- MAIN PLATFORM LAYOUT -->
+    <div class="app-layout">
+
+        <!-- SIDEBAR: CURRICULUM TREE NAVIGATION (MULTI-CHAPTER & MULTI-GIO) -->
+        <aside class="sidebar-nav">
+            <div class="sidebar-header">
+                <span class="subject-label"><i class="fa-solid fa-laptop-medical"></i> 専門教育課程</span>
+                <h2 class="subject-title">医学・医療カリキュラム</h2>
+            </div>
+
+            <div class="curriculum-tree">
+
+                <!-- CHAPTER 1: 医学・医療総論 -->
+                <div class="chapter-group active" id="group-chap1">
+                    <div class="chapter-group-header">
+                        <i class="fa-solid fa-book-bookmark"></i>
+                        <span>章1 医学・医療総論</span>
+                        <i class="fa-solid fa-chevron-down arrow-icon-chap"></i>
+                    </div>
+
+                    <div class="gio-container">
+                        <!-- GIO 1.1 -->
+                        <div class="gio-group active" id="group-gio11">
+                            <div class="gio-group-header">
+                                <i class="fa-solid fa-folder-open folder-icon"></i>
+                                <span>GIO 1.1 社会における医療の役割</span>
+                                <i class="fa-solid fa-chevron-down arrow-icon"></i>
+                            </div>
+                            <div class="sbo-list">
+                                <button class="sbo-nav-link active" data-sbo="sbo111">
+                                    <span class="sbo-num">SBO 1.1.1</span>
+                                    <span class="sbo-name">健康の定義と医療政策</span>
+                                </button>
+                                <button class="sbo-nav-link" data-sbo="sbo112">
+                                    <span class="sbo-num">SBO 1.1.2</span>
+                                    <span class="sbo-name">個人と社会─多様な価値観の調和</span>
+                                </button>
+                                <button class="sbo-nav-link" data-sbo="sbo113">
+                                    <span class="sbo-num">SBO 1.1.3</span>
+                                    <span class="sbo-name">医療需要の量的増加と質的多様化への対応</span>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- GIO 1.2 -->
+                        <div class="gio-group" id="group-gio12">
+                            <div class="gio-group-header">
+                                <i class="fa-solid fa-folder folder-icon"></i>
+                                <span>GIO 1.2 医師のプロフェッショナリズム</span>
+                                <i class="fa-solid fa-chevron-down arrow-icon"></i>
+                            </div>
+                            <div class="sbo-list">
+                                <button class="sbo-nav-link" data-sbo="sbo121">
+                                    <span class="sbo-num">SBO 1.2.1</span>
+                                    <span class="sbo-name">医の倫理の変遷</span>
+                                </button>
+                                <button class="sbo-nav-link" data-sbo="sbo122">
+                                    <span class="sbo-num">SBO 1.2.2</span>
+                                    <span class="sbo-name">個人情報保護と情報開示</span>
+                                </button>
+                                <button class="sbo-nav-link" data-sbo="sbo123">
+                                    <span class="sbo-num">SBO 1.2.3</span>
+                                    <span class="sbo-name">患者が参画する医療</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CHAPTER 2: 基礎医学の基本 -->
+                <div class="chapter-group" id="group-chap2">
+                    <div class="chapter-group-header">
+                        <i class="fa-solid fa-dna"></i>
+                        <span>章2 基礎医学の基本</span>
+                        <i class="fa-solid fa-chevron-down arrow-icon-chap"></i>
+                    </div>
+
+                    <div class="gio-container">
+                        <!-- GIO 2.1 -->
+                        <div class="gio-group" id="group-gio21">
+                            <div class="gio-group-header">
+                                <i class="fa-solid fa-folder folder-icon"></i>
+                                <span>GIO 2.1 人体の構造と機能</span>
+                                <i class="fa-solid fa-chevron-down arrow-icon"></i>
+                            </div>
+                            <div class="sbo-list">
+                                <button class="sbo-nav-link" data-sbo="sbo211">
+                                    <span class="sbo-num">SBO 2.1.1</span>
+                                    <span class="sbo-name">解剖学の基本構造</span>
+                                </button>
+                                <button class="sbo-nav-link" data-sbo="sbo212">
+                                    <span class="sbo-num">SBO 2.1.2</span>
+                                    <span class="sbo-name">生理学とホメオスタシス</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CHAPTER 3: 臨床医学へのアプローチ -->
+                <div class="chapter-group" id="group-chap3">
+                    <div class="chapter-group-header">
+                        <i class="fa-solid fa-user-doctor"></i>
+                        <span>章3 臨床医学へのアプローチ</span>
+                        <i class="fa-solid fa-chevron-down arrow-icon-chap"></i>
+                    </div>
+
+                    <div class="gio-container">
+                        <!-- GIO 3.1 -->
+                        <div class="gio-group" id="group-gio31">
+                            <div class="gio-group-header">
+                                <i class="fa-solid fa-folder folder-icon"></i>
+                                <span>GIO 3.1 診断と治療のプロセス</span>
+                                <i class="fa-solid fa-chevron-down arrow-icon"></i>
+                            </div>
+                            <div class="sbo-list">
+                                <button class="sbo-nav-link" data-sbo="sbo311">
+                                    <span class="sbo-num">SBO 3.1.1</span>
+                                    <span class="sbo-name">主要症候と身体診察</span>
+                                </button>
+                                <button class="sbo-nav-link" data-sbo="sbo312">
+                                    <span class="sbo-num">SBO 3.1.2</span>
+                                    <span class="sbo-name">臨床推論の基本</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </aside>
+
+        <!-- MAIN VIEWPORT CONTENT -->
+        <main class="main-viewport">
+            <!-- HEADER -->
+            <header class="app-header">
+                <div class="header-breadcrumb">
+                    <span class="crumb" id="crumb-chap">章1 医学・医療総論</span>
+                    <i class="fa-solid fa-chevron-right separator"></i>
+                    <span class="crumb" id="crumb-gio">GIO 1.1 社会における医療の役割</span>
+                    <i class="fa-solid fa-chevron-right separator"></i>
+                    <span class="crumb active" id="crumb-sbo">SBO 1.1.1 健康の定義と医療政策－何を目標とするか</span>
+                </div>
+                <div class="header-controls">
+                    <button id="lang-toggle-btn" class="glass-btn" style="background: rgba(255, 255, 255, 0.05); color: var(--accent-teal); border: 1px solid var(--accent-teal); cursor: pointer; border-radius: 4px; padding: 6px 12px; font-size: 0.8rem; font-family: inherit; display: flex; align-items: center; gap: 6px; transition: all 0.3s ease;">
+                        <i class="fa-solid fa-globe"></i>
+                        <span class="lang-ja">日本語 ➔ Tiếng Việt</span>
+                        <span class="lang-vi">Tiếng Việt ➔ 日本語</span>
+                    </button>
+                </div>
+            </header>
+
+            <!-- HERO SECTION -->
+            <section id="hero" class="hero-section">
+                <div class="container">
+                    <div class="curriculum-badges">
+                        <span class="chapter-badge" id="hero-chap-badge">章1 医学・医療総論</span>
+                        <span class="gio-badge" id="hero-gio-badge">GIO 1.1 社会における医療の役割</span>
+                        <span class="sbo-badge" id="hero-sbo-badge">SBO 1.1.1</span>
+                    </div>
+                    <h1 class="hero-title" id="hero-main-title">健康の定義と医療政策<br><span class="hero-subheading">－何を目標とするか</span></h1>
+                    <p class="hero-subtitle" id="hero-sub-desc">保健、医療、福祉の関わりについて説明できる。</p>
+                    <div class="scroll-indicator">
+                        <span>学習を開始する</span>
+                        <i class="fa-solid fa-chevron-down"></i>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SBO 1.1.1 CONTENT WRAPPER -->
+            <div id="sbo111" class="sbo-section-wrapper active">
+
+
+                <section id="section-1948" class="section">
+                    <div class="container">
+                        <div class="section-badge">
+                            <span class="lang-ja">1948年</span>
+                            <span class="lang-vi">Năm 1948</span>
+                        </div>
+                        <h2 class="section-title">
+                            <span class="lang-ja">WHO憲章の土台</span>
+                            <span class="lang-vi">Nền tảng của Hiến chương WHO</span>
+                        </h2>
+                        <p class="section-desc">
+                            <span class="lang-ja">「健康とは、単に病気あるいは虚弱でないことではない」</span>
+                            <span class="lang-vi">"Sức khỏe không chỉ đơn thuần là không có bệnh hay ốm yếu"</span>
+                        </p>
+
+                        <div class="grid-2col">
+                            <div class="card glass-card triangle-card">
+                                <div class="interactive-triangle-container">
+                                    <svg viewBox="0 0 300 260" class="interactive-triangle">
+                                        <polygon points="150,30 270,230 30,230" class="tri-bg" />
+                                        <polygon points="150,110 210,210 90,210" class="tri-inner-bg" />
+                                        <line x1="150" y1="30" x2="150" y2="150" class="tri-line" />
+                                        <line x1="270" y1="230" x2="150" y2="150" class="tri-line" />
+                                        <line x1="30" y1="230" x2="150" y2="150" class="tri-line" />
+                                        <circle cx="150" cy="30" r="14" class="tri-node active" id="node-mental" data-target="mental" />
+                                        <circle cx="270" cy="230" r="14" class="tri-node" id="node-social" data-target="social" />
+                                        <circle cx="30" cy="230" r="14" class="tri-node" id="node-physical" data-target="physical" />
+                                        <text x="150" y="70" class="tri-label" text-anchor="middle" data-target="mental">
+                                            <tspan class="lang-ja">精神的 (Mental)</tspan>
+                                            <tspan class="lang-vi">Tinh thần (Mental)</tspan>
+                                        </text>
+                                        <text x="235" y="200" class="tri-label" text-anchor="middle" data-target="social">
+                                            <tspan class="lang-ja">社会的 (Social)</tspan>
+                                            <tspan class="lang-vi">Xã hội (Social)</tspan>
+                                        </text>
+                                        <text x="65" y="200" class="tri-label" text-anchor="middle" data-target="physical">
+                                            <tspan class="lang-ja">身体的 (Physical)</tspan>
+                                            <tspan class="lang-vi">Thể chất (Physical)</tspan>
+                                        </text>
+                                    </svg>
+                                    <div class="center-badge">
+                                        <span class="lang-ja">完全に良好な状態</span>
+                                        <span class="lang-vi">Hoàn toàn khỏe mạnh</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="card glass-card info-card" id="triangle-info-card">
+                                <h3 id="info-title"><i class="fa-solid fa-brain"></i> <span class="lang-ja">精神的健康 (Mental Health)</span><span class="lang-vi">Sức khỏe tinh thần (Mental Health)</span></h3>
+                                <p id="info-body">精神的な健康とは、自身の感情を認識・コントロールし、ストレスに対処でき、自立して意思決定を行える状態です。単に精神疾患がないことではなく、心が満たされ、自己肯定感があることが含まれます。</p>
+                                <div class="tip-box">
+                                    <i class="fa-solid fa-circle-info"></i>
+                                    <span>
+                                        <span class="lang-ja">三角形の頂点を選択すると、それぞれの定義が表示されます。</span>
+                                        <span class="lang-vi">Hãy chọn các đỉnh của tam giác để hiển thị định nghĩa tương ứng.</span>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="paradigm-shift" class="section">
+                    <div class="container">
+                        <div class="section-badge">
+                            <span class="lang-ja">1998年 新提案</span>
+                            <span class="lang-vi">Năm 1998 Đề xuất mới</span>
+                        </div>
+                        <h2 class="section-title">
+                            <span class="lang-ja">パラダイムの転換点</span>
+                            <span class="lang-vi">Bước chuyển dịch hệ hình</span>
+                        </h2>
+                        <p class="section-desc">
+                            <span class="lang-ja">社会の成熟と医療の高度化に伴い、健康の定義は進化を求められました。</span>
+                            <span class="lang-vi">Cùng với sự phát triển của xã hội và sự tiến bộ của y học hiện đại, định nghĩa về sức khỏe đã đòi hỏi phải có sự cải tiến.</span>
+                        </p>
+
+                        <div class="shift-visualizer">
+                            <div class="shift-box source-box">
+                                <span class="year-label">
+                                    <span class="lang-ja">1948年</span>
+                                    <span class="lang-vi">Năm 1948</span>
+                                </span>
+                                <div class="static-indicator">
+                                    <div class="static-shape">▲</div>
+                                </div>
+                                <h4>
+                                    <span class="lang-ja">「静的な状態」</span>
+                                    <span class="lang-vi">"Trạng thái tĩnh"</span>
+                                </h4>
+                                <p>
+                                    <span class="lang-ja">病気か健康かの二者択一、完全に固定された良好状態の追求</span>
+                                    <span class="lang-vi">Sự lựa chọn nhị phân giữa bệnh tật và sức khỏe, hướng tới trạng thái khỏe mạnh cố định hoàn toàn.</span>
+                                </p>
+                            </div>
+
+                            <div class="arrow-container">
+                                <div class="flow-line">
+                                    <div class="flow-dot"></div>
+                                </div>
+                                <i class="fa-solid fa-right-long shift-arrow"></i>
+                            </div>
+
+                            <div class="shift-box target-box">
+                                <span class="year-label">
+                                    <span class="lang-ja">1998年〜</span>
+                                    <span class="lang-vi">Từ năm 1998~</span>
+                                </span>
+                                <div class="dynamic-indicator">
+                                    <div class="portal-effect"></div>
+                                </div>
+                                <h4>
+                                    <span class="lang-ja">「広範かつ動的な概念」</span>
+                                    <span class="lang-vi">"Khái niệm rộng rãi và động"</span>
+                                </h4>
+                                <p>
+                                    <span class="lang-ja">変化し続ける日常のプロセス、QOLと尊厳の統合</span>
+                                    <span class="lang-vi">Tiến trình liên tục thay đổi hàng ngày, tích hợp chất lượng cuộc sống (QOL) và phẩm giá con người.</span>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="evolution-dynamic" class="section">
+                    <div class="container">
+                        <div class="section-badge">
+                            <span class="lang-ja">進化 1</span>
+                            <span class="lang-vi">Tiến hóa 1</span>
+                        </div>
+                        <h2 class="section-title">
+                            <span class="lang-ja">動的（Dynamic）であること</span>
+                            <span class="lang-vi">Tính chất động (Dynamic)</span>
+                        </h2>
+                        <p class="section-desc">
+                            <span class="lang-ja">健康と疾病は「別個のもの」ではなく、地続きの「連続体（スペクトラム）」。</span>
+                            <span class="lang-vi">Sức khỏe và bệnh tật không phải là hai thứ tách biệt, mà là một "dải liên tục (spectrum)" nối liền nhau.</span>
+                        </p>
+
+                        <div class="card glass-card slider-card">
+                            <div class="spectrum-labels">
+                                <span class="label-left">
+                                    <span class="lang-ja">重い病気 (Illness)</span>
+                                    <span class="lang-vi">Bệnh nặng (Illness)</span>
+                                </span>
+                                <span class="label-center">
+                                    <span class="lang-ja">日常生活状態</span>
+                                    <span class="lang-vi">Trạng thái sinh hoạt hàng ngày</span>
+                                </span>
+                                <span class="label-right">
+                                    <span class="lang-ja">最適な健康 (Wellness)</span>
+                                    <span class="lang-vi">Sức khỏe tối ưu (Wellness)</span>
+                                </span>
+                            </div>
+
+                            <div class="interactive-slider-container">
+                                <div class="slider-track-glow" id="slider-glow"></div>
+                                <input type="range" min="0" max="100" value="70" class="health-slider" id="health-slider">
+                            </div>
+
+                            <div class="slider-result" id="slider-result-container">
+                                <h3 id="slider-status-title">良好な状態</h3>
+                                <p id="slider-status-desc">静的に固定された状態ではなく、刻々と変化するプロセスを歩んでいます。</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="evolution-spiritual" class="section">
+                    <div class="container">
+                        <div class="section-badge">
+                            <span class="lang-ja">進化 2</span>
+                            <span class="lang-vi">Tiến hóa 2</span>
+                        </div>
+                        <h2 class="section-title">
+                            <span class="lang-ja">スピリチュアル（Spiritual / 崇高的）な側面</span>
+                            <span class="lang-vi">Khía cạnh tâm linh (Spiritual / Cao cả)</span>
+                        </h2>
+                        <p class="section-desc">
+                            <span class="lang-ja">宗教的な意味ではなく、「人間の尊厳と生きる意味」の根幹を支える要素です。</span>
+                            <span class="lang-vi">Không mang ý nghĩa tôn giáo, mà là yếu tố cốt lõi hỗ trợ "phẩm giá con người và ý nghĩa cuộc sống".</span>
+                        </p>
+
+                        <div class="grid-2col">
+                            <div class="rings-visualizer-container">
+                                <div class="spinning-rings-container">
+                                    <div class="ring-element ring-outer" data-layer="physical">
+                                        <span class="ring-label">
+                                            <span class="lang-ja">身体的</span>
+                                            <span class="lang-vi">Thể chất</span>
+                                        </span>
+                                    </div>
+                                    <div class="ring-element ring-mid" data-layer="mental">
+                                        <span class="ring-label">
+                                            <span class="lang-ja">精神的</span>
+                                            <span class="lang-vi">Tinh thần</span>
+                                        </span>
+                                    </div>
+                                    <div class="ring-element ring-inner" data-layer="social">
+                                        <span class="ring-label">
+                                            <span class="lang-ja">社会的</span>
+                                            <span class="lang-vi">Xã hội</span>
+                                        </span>
+                                    </div>
+                                    <div class="ring-element ring-core" data-layer="spiritual">
+                                        <div class="core-glow"></div>
+                                        <span class="ring-label core-label">
+                                            <span class="lang-ja">スピリチュアル</span>
+                                            <span class="lang-vi">Tâm linh</span>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="card glass-card info-card" id="spiritual-info-card">
+                                <h3 id="spiritual-title">
+                                    <i class="fa-solid fa-dharmachakra"></i> 
+                                    <span class="lang-ja">スピリチュアルな側面とは</span>
+                                    <span class="lang-vi">Khía cạnh tâm linh là gì</span>
+                                </h3>
+                                <p id="spiritual-body">
+                                    <span class="lang-ja">ホリスティック（包括的）な健康のコアであり、自分自身の尊厳を見出し、生かされている実感や人生の意味・目標（Quality of Life）を実感できる本質的な要素です。</span>
+                                    <span class="lang-vi">Là hạt nhân của sức khỏe toàn diện, yếu tố bản chất giúp tìm kiếm phẩm giá bản thân, cảm nhận ý nghĩa cuộc sống và chất lượng cuộc sống (QOL).</span>
+                                </p>
+                                <div class="tip-box">
+                                    <i class="fa-solid fa-eye"></i>
+                                    <span>
+                                        <span class="lang-ja">リングをマウスホバーまたはクリックすると、レイヤー別の解説が表示されます。</span>
+                                        <span class="lang-vi">Di chuột hoặc nhấp vào các vòng tròn để xem giải thích từng lớp.</span>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="comparison" class="section">
+                    <div class="container">
+                        <h2 class="section-title">
+                            <span class="lang-ja">健康概念の比較</span>
+                            <span class="lang-vi">So sánh khái niệm sức khỏe</span>
+                        </h2>
+                        <p class="section-desc">
+                            <span class="lang-ja">従来型モデルと現代型モデルの違い</span>
+                            <span class="lang-vi">Sự khác biệt giữa mô hình truyền thống và hiện đại</span>
+                        </p>
+
+                        <div class="card glass-card table-card">
+                            <div class="comparison-grid">
+                                <div class="grid-header">
+                                    <span class="lang-ja">項目</span>
+                                    <span class="lang-vi">Hạng mục</span>
+                                </div>
+                                <div class="grid-header col-legacy">
+                                    <span class="lang-ja">[1948年（従来）]</span>
+                                    <span class="lang-vi">[Năm 1948 (Truyền thống)]</span>
+                                </div>
+                                <div class="grid-header col-modern">
+                                    <span class="lang-ja">[1998年〜（現代）]</span>
+                                    <span class="lang-vi">[Từ năm 1998~ (Hiện đại)]</span>
+                                </div>
+
+                                <div class="grid-cell row-title">
+                                    <span class="lang-ja">状態の捉え方</span>
+                                    <span class="lang-vi">Cách nhìn nhận trạng thái</span>
+                                </div>
+                                <div class="grid-cell col-legacy">
+                                    <span class="lang-ja">静的 (完全に良好)</span>
+                                    <span class="lang-vi">Tĩnh (Hoàn toàn tốt)</span>
+                                </div>
+                                <div class="grid-cell col-modern highlighted-cell">
+                                    <i class="fa-solid fa-arrow-right-long"></i> 
+                                    <span class="lang-ja">動的 (刻々と変化・連続体)</span>
+                                    <span class="lang-vi">Động (Thay đổi từng khắc, dải liên tục)</span>
+                                </div>
+
+                                <div class="grid-cell row-title">
+                                    <span class="lang-ja">構成要素</span>
+                                    <span class="lang-vi">Các yếu tố cấu thành</span>
+                                </div>
+                                <div class="grid-cell col-legacy">
+                                    <span class="lang-ja">身体・精神・社会</span>
+                                    <span class="lang-vi">Thể chất, tinh thần, xã hội</span>
+                                </div>
+                                <div class="grid-cell col-modern highlighted-cell">
+                                    <i class="fa-solid fa-arrow-right-long"></i> 
+                                    <span class="lang-ja">+ スピリチュアル (尊厳・QOL)</span>
+                                    <span class="lang-vi">+ Tâm linh (Phẩm giá, QOL)</span>
+                                </div>
+
+                                <div class="grid-cell row-title">
+                                    <span class="lang-ja">病気との関係</span>
+                                    <span class="lang-vi">Mối quan hệ với bệnh tật</span>
+                                </div>
+                                <div class="grid-cell col-legacy">
+                                    <span class="lang-ja">病気 vs 健康 (二項対立)</span>
+                                    <span class="lang-vi">Bệnh tật vs Sức khỏe (Nhị phân)</span>
+                                </div>
+                                <div class="grid-cell col-modern highlighted-cell">
+                                    <i class="fa-solid fa-arrow-right-long"></i> 
+                                    <span class="lang-ja">病気を抱えながらも追求できるもの</span>
+                                    <span class="lang-vi">Thứ vẫn có thể hướng tới ngay cả khi đang mang bệnh</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- NEW SECTION: PREVENTIVE MEDICINE & SPECIFIC HEALTH CHECKUPS -->
+                <section id="preventive-medicine" class="section">
+                    <div class="container">
+                        <div class="section-badge">
+                            <span class="lang-ja">予防医学・特定健診</span>
+                            <span class="lang-vi">Y học dự phòng & Khám sức khỏe đặc thù</span>
+                        </div>
+                        <h2 class="section-title">
+                            <span class="lang-ja">予防医学の3段階と特定健診の階層化</span>
+                            <span class="lang-vi">3 cấp độ y học dự phòng và phân tầng khám sức khỏe đặc thù</span>
+                        </h2>
+                        <p class="section-desc">
+                            <span class="lang-ja">予防医学の基本原則と、メタボリックシンドロームに着目した特定保健指導のクラス分け</span>
+                            <span class="lang-vi">Nguyên tắc cơ bản của y học dự phòng và phân loại hướng dẫn sức khỏe đặc thù tập trung vào hội chứng chuyển hóa</span>
+                        </p>
+
+                        <div class="grid-2col">
+                            <!-- 3 Levels of Preventive Medicine -->
+                            <div class="card glass-card">
+                                <h3>
+                                    <span class="lang-ja">予防医学の3段階 (3 Levels of Preventive Medicine)</span>
+                                    <span class="lang-vi">3 cấp độ của Y học dự phòng (3 Levels of Preventive Medicine)</span>
+                                </h3>
+                                <p class="small-desc">
+                                    <span class="lang-ja">レベルをクリックして対策の具体例を表示します。</span>
+                                    <span class="lang-vi">Nhấp vào từng cấp độ để hiển thị ví dụ cụ thể về biện pháp ứng phó.</span>
+                                </p>
+                                <div class="social-budget-chart">
+                                    <div class="chart-segment segment-pension active" data-prev-lvl="1" style="border-left: 6px solid #10b981;">
+                                        <span class="segment-label">
+                                            <span class="lang-ja">一次予防 (Primary Prevention)</span>
+                                            <span class="lang-vi">Dự phòng cấp 1 (Primary Prevention)</span>
+                                        </span>
+                                    </div>
+                                    <div class="chart-segment segment-medical" data-prev-lvl="2" style="border-left: 6px solid #f59e0b;">
+                                        <span class="segment-label">
+                                            <span class="lang-ja">二次予防 (Secondary Prevention)</span>
+                                            <span class="lang-vi">Dự phòng cấp 2 (Secondary Prevention)</span>
+                                        </span>
+                                    </div>
+                                    <div class="chart-segment segment-welfare" data-prev-lvl="3" style="border-left: 6px solid #ef4444;">
+                                        <span class="segment-label">
+                                            <span class="lang-ja">三次予防 (Tertiary Prevention)</span>
+                                            <span class="lang-vi">Dự phòng cấp 3 (Tertiary Prevention)</span>
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="card glass-card info-card" id="prev-lvl-info" style="margin-top:16px; background: rgba(0,0,0,0.15);">
+                                    <h4 id="prev-lvl-title">一次予防：健康増進・疾病予防</h4>
+                                    <p id="prev-lvl-body">健康な人を対象に、生活習慣の改善、栄養管理、運動習慣、予防接種、安全な住環境整備等を通じて、病気になることを未然に防ぎます。</p>
+                                </div>
+                            </div>
+
+                            <!-- Specific Health Checkups (特定健診) Simulator -->
+                            <div class="card glass-card">
+                                <h3>
+                                    <span class="lang-ja">特定健診の階層化シミュレーター (Risk Stratification)</span>
+                                    <span class="lang-vi">Trình mô phỏng phân tầng rủi ro khám sức khỏe đặc thù (Risk Stratification)</span>
+                                </h3>
+                                <p class="small-desc">
+                                    <span class="lang-ja">患者の健診データをチェックして、保健指導の階層を自動判定します。</span>
+                                    <span class="lang-vi">Kiểm tra dữ liệu khám sức khỏe của bệnh nhân để tự động đánh giá mức độ hướng dẫn sức khỏe.</span>
+                                </p>
+
+                                <div class="stratification-simulator">
+                                    <div class="sim-input-group">
+                                        <label class="checklist-item">
+                                            <input type="checkbox" class="strat-checkbox" id="check-waist">
+                                            <span class="checkbox-custom"></span>
+                                            <span class="item-text">
+                                                <span class="lang-ja">腹囲：男性 85cm以上 / 女性 90cm以上 (内臓脂肪蓄積)</span>
+                                                <span class="lang-vi">Vòng bụng: Nam ≥ 85cm / Nữ ≥ 90cm (Tích tụ mỡ nội tạng)</span>
+                                            </span>
+                                        </label>
+                                        <label class="checklist-item" style="margin-top: 8px;">
+                                            <input type="checkbox" class="strat-checkbox" id="check-bmi">
+                                            <span class="checkbox-custom"></span>
+                                            <span class="item-text">
+                                                <span class="lang-ja">BMI 25以上 (肥満基準)</span>
+                                                <span class="lang-vi">BMI ≥ 25 (Tiêu chuẩn béo phì)</span>
+                                            </span>
+                                        </label>
+                                        <label class="checklist-item" style="margin-top: 8px;">
+                                            <input type="checkbox" class="strat-checkbox" id="check-age65">
+                                            <span class="checkbox-custom"></span>
+                                            <span class="item-text">
+                                                <span class="lang-ja">年齢：65歳〜74歳 (前期高齢者)</span>
+                                                <span class="lang-vi">Tuổi: 65 ~ 74 tuổi (Người cao tuổi giai đoạn đầu)</span>
+                                            </span>
+                                        </label>
+                                    </div>
+
+                                    <div class="sim-input-group" style="margin-top: 12px; padding-top: 12px; border-top: 1px solid rgba(255,255,255,0.05);">
+                                        <p class="small-desc">
+                                            <span class="lang-ja">追加リスク因子 (血圧・血糖・脂質・喫煙):</span>
+                                            <span class="lang-vi">Yếu tố nguy cơ bổ sung (Huyết áp, đường huyết, mỡ máu, hút thuốc):</span>
+                                        </p>
+                                        <label class="checklist-item">
+                                            <input type="checkbox" class="strat-checkbox" id="check-bp">
+                                            <span class="checkbox-custom"></span>
+                                            <span class="item-text">
+                                                <span class="lang-ja">血圧：収縮期130以上 または 拡張期85以上</span>
+                                                <span class="lang-vi">Huyết áp: Tâm thu ≥ 130 hoặc Tâm trương ≥ 85</span>
+                                            </span>
+                                        </label>
+                                        <label class="checklist-item" style="margin-top: 8px;">
+                                            <input type="checkbox" class="strat-checkbox" id="check-bs">
+                                            <span class="checkbox-custom"></span>
+                                            <span class="item-text">
+                                                <span class="lang-ja">血糖：空腹時血糖100以上 または HbA1c 5.6%以上</span>
+                                                <span class="lang-vi">Đường huyết: Đường huyết đói ≥ 100 hoặc HbA1c ≥ 5.6%</span>
+                                            </span>
+                                        </label>
+                                        <label class="checklist-item" style="margin-top: 8px;">
+                                            <input type="checkbox" class="strat-checkbox" id="check-lipid">
+                                            <span class="checkbox-custom"></span>
+                                            <span class="item-text">
+                                                <span class="lang-ja">脂質：中性脂肪150以上 または HDL 40未満</span>
+                                                <span class="lang-vi">Mỡ máu: Triglyceride ≥ 150 hoặc HDL < 40</span>
+                                            </span>
+                                        </label>
+                                        <label class="checklist-item" style="margin-top: 8px;">
+                                            <input type="checkbox" class="strat-checkbox" id="check-smoke">
+                                            <span class="checkbox-custom"></span>
+                                            <span class="item-text">
+                                                <span class="lang-ja">喫煙歴：あり（上記リスクが1つ以上ある場合のみカウント）</span>
+                                                <span class="lang-vi">Tiền sử hút thuốc: Có (chỉ tính khi có ít nhất 1 yếu tố nguy cơ trên)</span>
+                                            </span>
+                                        </label>
+                                    </div>
+
+                                    <div class="simulator-feedback" id="strat-feedback" style="display:block; margin-top:20px; background: rgba(255,255,255,0.02);">
+                                        <h4 id="strat-feedback-title" style="color: var(--accent-teal);">判定：情報提供 (Information Provision)</h4>
+                                        <p id="strat-feedback-body">内臓脂肪蓄積の基準に該当しないか、追加のリスク因子がありません。現状の健康生活を維持するための情報提供のみを行います。</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                
+
+                <!-- POLICY TRANSITION & INTEGRATED COMMUNITY CARE DEEP DIVE -->
+                </section>
+
+                <section id="summary" class="section summary-section">
+                    <div class="container text-center">
+                        <div class="final-glow-sphere"></div>
+                        <h2 class="section-title">
+                            <span class="lang-ja">現代の「健康」とは</span>
+                            <span class="lang-vi">Khái niệm "Sức khỏe" hiện đại</span>
+                        </h2>
+                        <p class="summary-statement">
+                            <span class="lang-ja">単なる病気の有無にとどまらず、<br><strong>人間の尊厳</strong>と<strong>生活の質 (QOL)</strong> を支える、<br>広範かつ動的なプロセスである。</span>
+                            <span class="lang-vi">Không chỉ đơn thuần là có bệnh hay không,<br>mà là một tiến trình rộng lớn và năng động,<br>nâng đỡ <strong>phẩm giá con người</strong> và <strong>chất lượng cuộc sống (QOL)</strong>.</span>
+                        </p>
+                    </div>
+                </section>
+            </div>
+
+            <!-- SBO 1.1.2 CONTENT WRAPPER -->
+            <div id="sbo112" class="sbo-section-wrapper">
+
+                <!-- SECTION 1: PRIVACY EVOLUTION -->
+                <section id="privacy-shift" class="section">
+                    <div class="container">
+                        <div class="section-badge">医療プライバシーの進化</div>
+                        <h2 class="section-title">医療プライバシーのパラダイムシフト</h2>
+                        <p class="section-desc">患者は単に「保護される対象」から、自身の医療データの「情報の管理者」へと変化しています。</p>
+
+                        <!-- Concept Switcher Tabs -->
+                        <div class="age-copay-simulator">
+                            <div class="age-tab-container">
+                                <button class="age-tab active" data-privacy-tab="passive">
+                                    <i class="fa-solid fa-lock"></i>
+                                    <span>消極的プライバシー</span>
+                                </button>
+                                <button class="age-tab" data-privacy-tab="active">
+                                    <i class="fa-solid fa-sliders"></i>
+                                    <span>積極的プライバシー</span>
+                                </button>
+                                <button class="age-tab" data-privacy-tab="compare">
+                                    <i class="fa-solid fa-table-list"></i>
+                                    <span>概念の構造的比較</span>
+                                </button>
+                            </div>
+
+                            <div class="card glass-card privacy-detail-card" style="margin-top: 20px;">
+                                <div id="privacy-tab-content-passive" class="privacy-tab-pane active">
+                                    <div class="grid-2col">
+                                        <div class="illustration-box text-center">
+                                            <i class="fa-solid fa-vault" style="font-size: 5rem; color: var(--text-muted); margin-bottom: 20px;"></i>
+                                            <h4>消極的・受動的な権利</h4>
+                                        </div>
+                                        <div>
+                                            <h3>従来のプライバシー：外部との遮断と「守秘義務」による保護</h3>
+                                            <p style="margin-top: 10px;">「そっとしておいてもらう権利」や「知られたくないことを知られずにいる権利」です。</p>
+                                            <div class="tip-box" style="margin-top: 15px;">
+                                                <i class="fa-solid fa-user-shield"></i>
+                                                <span><strong>医療者の役割（守秘義務）：</strong>情報は厳重に隠され保護されます。患者はデータの流れに対して能動的な役割を持ちません。</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div id="privacy-tab-content-active" class="privacy-tab-pane">
+                                    <div class="grid-2col">
+                                        <div class="illustration-box text-center">
+                                            <i class="fa-solid fa-user-gear" style="font-size: 5rem; color: var(--accent-teal); margin-bottom: 20px;"></i>
+                                            <h4>積極的・能動的な権利</h4>
+                                        </div>
+                                        <div>
+                                            <h3>現代のプライバシー：自己情報コントロール権の確立</h3>
+                                            <p style="margin-top: 10px;">「自己に関する情報の流れを自らコントロールする権利」です。単に情報を隠すのではなく、自分の情報を知ったうえで、自分の行動態度を決定します。</p>
+                                            <div class="tip-box" style="margin-top: 15px; border-left-color: var(--accent-teal);">
+                                                <i class="fa-solid fa-key"></i>
+                                                <span><strong>要配慮個人情報：</strong>病歴や治療情報は厳格に扱われ、原則として本人の同意（オプトイン方式）が流通の前提となります。</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div id="privacy-tab-content-compare" class="privacy-tab-pane">
+                                    <table class="comparison-table">
+                                        <thead>
+                                            <tr>
+                                                <th>比較項目</th>
+                                                <th style="color: var(--text-muted);">消極的プライバシー</th>
+                                                <th style="color: var(--accent-teal);">積極的プライバシー</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>概念の性質</td>
+                                                <td>消極的・受動的</td>
+                                                <td>積極的・能動的</td>
+                                            </tr>
+                                            <tr>
+                                                <td>プライバシーの定義</td>
+                                                <td>知られずにいる権利</td>
+                                                <td>情報の流れを自ら統制する権利</td>
+                                            </tr>
+                                            <tr>
+                                                <td>患者の立ち位置</td>
+                                                <td>庇護される対象</td>
+                                                <td>情報の主体・決定者</td>
+                                            </tr>
+                                            <tr>
+                                                <td>医療者の主たる義務</td>
+                                                <td>守秘義務</td>
+                                                <td>開示の原則と適正管理</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="seesaw-section" class="section">
+                    <div class="container">
+                        <div class="section-badge">転換の引き金</div>
+                        <h2 class="section-title">パターナリズムの終焉と情報化社会</h2>
+                        <p class="section-desc">医師主導の「お任せ医療」から、患者が自身の治療を「自己決定」する時代への移行。</p>
+
+                        <div class="card glass-card text-center" style="padding: 40px 20px;">
+                            <div class="seesaw-container" style="display: flex; justify-content: space-around; align-items: center; max-width: 600px; margin: 0 auto 30px auto; position: relative;">
+                                <div id="paternalism-weight" class="seesaw-box active" style="transition: transform 0.5s ease; padding: 20px; border-radius: 8px; background: rgba(255,255,255,0.02); border: 1px solid var(--border-color); width: 45%;">
+                                    <i class="fa-solid fa-user-doctor" style="font-size: 2.5rem; margin-bottom: 10px; color: var(--text-muted);"></i>
+                                    <h4>パターナリズム</h4>
+                                    <p class="small-desc" style="margin-top: 5px;">医師主導の「お任せ医療」</p>
+                                </div>
+                                <div style="font-size: 2rem; color: var(--text-muted);"><i class="fa-solid fa-right-left"></i></div>
+                                <div id="selfdec-weight" class="seesaw-box" style="transition: transform 0.5s ease; padding: 20px; border-radius: 8px; background: rgba(255,255,255,0.02); border: 1px solid var(--border-color); width: 45%;">
+                                    <i class="fa-solid fa-clipboard-question" style="font-size: 2.5rem; margin-bottom: 10px; color: var(--accent-teal);"></i>
+                                    <h4>自己決定と情報化</h4>
+                                    <p class="small-desc" style="margin-top: 5px;">インフォームド・コンセント</p>
+                                </div>
+                            </div>
+                            <p style="max-width: 700px; margin: 0 auto; line-height: 1.6;">
+                                患者が自身の治療を<strong>「自己決定」</strong>するためには、自らの医療情報を正確に把握する積極的なアプローチ（インフォームドコンセントと情報共有ニーズの増大）が不可欠となりました。
+                            </p>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="three-actions" class="section">
+                    <div class="container">
+                        <div class="section-badge">自己情報コントロール権</div>
+                        <h2 class="section-title">コントロール権を構成する3つのアクション</h2>
+                        <p class="section-desc">自己情報コントロール権は、患者による3つの具体的なアクションで構成されます。</p>
+
+                        <div class="principles-grid">
+                            <div class="card glass-card principle-card-interactive active" data-action-card="access">
+                                <div class="principle-icon" style="color: var(--accent-teal);"><i class="fa-solid fa-folder-open"></i></div>
+                                <h3>アクセス権</h3>
+                                <p>自己情報の開示を求める権利。診療録の傷病名や検査データを自ら閲覧・請求し、把握する権利です。</p>
+                            </div>
+
+                            <div class="card glass-card principle-card-interactive" data-action-card="control">
+                                <div class="principle-icon" style="color: var(--accent-teal);"><i class="fa-solid fa-toggle-on"></i></div>
+                                <h3>支配・制御権</h3>
+                                <p>情報の流通を支配する権利。自身の情報が不適切に流通することを忌避し、他院への情報提供においても本人の同意を必須とします。</p>
+                            </div>
+
+                            <div class="card glass-card principle-card-interactive" data-action-card="correct">
+                                <div class="principle-icon" style="color: var(--accent-teal);"><i class="fa-solid fa-pen-to-square"></i></div>
+                                <h3>訂正権</h3>
+                                <p>誤りの訂正を求める権利。誤解を招く誤った情報や不完全な記録に対し、本人の尊厳を守るために訂正や排除を求めます。</p>
+                            </div>
+                        </div>
+
+                        <!-- Healthcare Provider Responsibility -->
+                        <div class="card glass-card" style="margin-top: 30px; border-left: 6px solid var(--accent-gold);">
+                            <h3>医療者の新たな責務：情報開示の原則と「例外」の配慮</h3>
+                            <p style="margin-top: 10px; line-height: 1.6; text-align: left;">
+                                <strong>開示の原則：</strong>求められた情報は原則としてすべて本人に開示し、患者の自己決定を支援します。<br>
+                                <strong>例外的な制限：</strong>開示が患者に重大な心理的悪影響を及ぼす明確な理由がある場合は、例外として一部を秘匿できます。<br>
+                                <strong>「知りたくない権利」の保障：</strong>患者には「知る権利」だけでなく、「知らされたくない情報の開示を拒む権利（忌避する権利）」もあります。非言語的サインを読み取る配慮が不可欠です。
+                            </p>
+                        </div>
+                    </div>
+                </section>
+
+
+                <!-- SECTION 2: PRIMARY VS SECONDARY USE -->
+                <section id="data-divergence" class="section">
+                    <div class="container">
+                        <div class="section-badge">医療データの分岐点</div>
+                        <h2 class="section-title">「一次利用」と「二次利用」の境界線</h2>
+                        <p class="section-desc">個人の尊厳（プライバシー）と社会の医療発展を調和させるための合意メカニズム。</p>
+
+                        <!-- Seesaw Scale showing Balance -->
+                        <div class="card glass-card text-center" style="margin-bottom: 30px; padding: 30px 20px;">
+                            <h3 style="margin-bottom: 20px;"><i class="fa-solid fa-scale-balanced"></i> 現代医療における最大の課題</h3>
+                            <div style="display: flex; justify-content: space-around; align-items: center; max-width: 700px; margin: 0 auto 20px auto;">
+                                <div style="text-align: left; width: 42%;">
+                                    <h4 style="color: var(--accent-teal);"><i class="fa-solid fa-shield-halved"></i> 自己情報コントロール権</h4>
+                                    <p class="small-desc" style="margin-top: 5px;">自分の情報を知り、流通を自ら制御する積極的・能動的権利。徹底したプライバシー保護の要求。</p>
+                                </div>
+                                <div style="font-size: 2.5rem; color: var(--text-muted);">⚖️</div>
+                                <div style="text-align: right; width: 42%;">
+                                    <h4 style="color: var(--accent-gold);"><i class="fa-solid fa-square-virus"></i> 公衆衛生・疫学の発展</h4>
+                                    <p class="small-desc" style="margin-top: 5px;">超少子高齢化（2025年問題）を乗り越えるためのビッグデータ活用とエビデンス創出の希求。</p>
+                                </div>
+                            </div>
+                            <div class="tip-box" style="margin-top: 20px;">
+                                <i class="fa-solid fa-circle-info"></i>
+                                <span>「守秘（保護）」と「公開（公益的活用）」という多様な価値観の調和が求められます。</span>
+                            </div>
+                        </div>
+
+                        <!-- Interactive Mechanism Split Card -->
+                        <div class="grid-2col">
+                            <div class="loop-visualizer-container">
+                                <svg viewBox="0 0 400 180" class="interactive-loop-svg">
+                                    <!-- Left loop path -->
+                                    <path d="M 150 90 C 100 20, 20 20, 20 90 C 20 160, 100 160, 150 90" fill="none" stroke="var(--border-card)" stroke-width="4" stroke-linecap="round" />
+                                    <!-- Right loop path -->
+                                    <path d="M 250 90 C 300 20, 380 20, 380 90 C 380 160, 300 160, 250 90" fill="none" stroke="var(--border-card)" stroke-width="4" stroke-linecap="round" />
+
+
+                                    <!-- Left glow path active -->
+                                    <path d="M 150 90 C 100 20, 20 20, 20 90 C 20 160, 100 160, 150 90" fill="none" stroke="var(--accent-teal)" stroke-width="6" stroke-linecap="round" stroke-dasharray="100 400" stroke-dashoffset="0" class="flow-glow-left" />
+                                    <!-- Right glow path active -->
+                                    <path d="M 250 90 C 300 20, 380 20, 380 90 C 380 160, 300 160, 250 90" fill="none" stroke="var(--accent-gold)" stroke-width="6" stroke-linecap="round" stroke-dasharray="100 400" stroke-dashoffset="0" class="flow-glow-right" />
+
+                                    <!-- Left Interactive node -->
+                                    <circle cx="90" cy="90" r="30" fill="rgba(45, 212, 191, 0.1)" stroke="var(--accent-teal)" stroke-width="2" class="loop-node active" id="node-primary-use" style="cursor: pointer;" />
+                                    <text x="90" y="94" fill="var(--accent-teal)" font-size="10" font-weight="600" text-anchor="middle" pointer-events="none">Primary</text>
+
+                                    <!-- Right Interactive node -->
+                                    <circle cx="310" cy="90" r="30" fill="rgba(245, 158, 11, 0.1)" stroke="var(--accent-gold)" stroke-width="2" class="loop-node" id="node-secondary-use" style="cursor: pointer;" />
+                                    <text x="310" y="94" fill="var(--accent-gold)" font-size="10" font-weight="600" text-anchor="middle" pointer-events="none">Secondary</text>
+
+                                    <!-- Middle Interactive intersection node -->
+                                    <circle cx="200" cy="90" r="22" fill="rgba(255, 255, 255, 0.05)" stroke="var(--text-muted)" stroke-width="2" class="loop-node" id="node-crossover" style="cursor: pointer;" />
+                                    <text x="200" y="94" fill="var(--text-primary)" font-size="9" font-weight="600" text-anchor="middle" pointer-events="none">Loop</text>
+                                </svg>
+                            </div>
+
+                            <div class="card glass-card info-card" id="loop-detail-card" style="max-width: 600px; margin: 0 auto; text-align: left;">
+                                <h3 id="loop-detail-title"><i class="fa-solid fa-stethoscope"></i> Primary Use (一次利用)</h3>
+                                <p id="loop-detail-body" style="margin-top: 10px; line-height: 1.6;">
+                                    個人の尊厳を守る安全な「一次利用」が、精緻な臨床データを生み出します。
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+            </div>
+
+
+            <!-- SBO 1.1.3 CONTENT WRAPPER -->
+            <div id="sbo113" class="sbo-section-wrapper">
+                <section id="policy-transition" class="section">
+                    <div class="container">
+                        <div class="section-badge">医療政策の深掘り</div>
+                        <h2 class="section-title">医療パラダイムの転換：なぜ「地域包括ケア」が必然なのか</h2>
+                        <p class="section-desc">少子高齢化から2025年問題、そして未来の医療システムへの因果連鎖</p>
+
+                        <!-- Sub-section 1: Origin - Demographics & Disease Structure (Slide 2) -->
+                        <div class="card glass-card sub-module-card">
+                            <div class="sub-module-badge">起点：同時変化</div>
+                            <h3>人口動態と疾病構造の「同時変化」</h3>
+                            <div class="grid-2col">
+                                <div class="chart-desc-box">
+                                    <p>日本の疾病構造は、かつての「治す」急性感染症から、現在では生涯付き合い継続管理を行う「付き合う」生活習慣病などの慢性疾患へとシフトしました。</p>
+                                    <div class="dynamic-list">
+                                        <div class="d-list-item"><i class="fa-solid fa-earth-asia"></i> <strong>世界最速の少子高齢化</strong></div>
+                                        <div class="d-list-item"><i class="fa-solid fa-arrows-spin"></i> <strong>疾病構造の転換（急性から慢性へ）</strong></div>
+                                        <div class="d-list-item"><i class="fa-solid fa-circle-exclamation"></i> <strong>本質的な課題:</strong> 慢性疾患には、一時的な入院ではなく、保健・医療・福祉にまたがる生涯にわたる継続的な管理必要。</div>
+                                    </div>
+                                </div>
+                                <div class="visual-placeholder">
+                                    <div class="shift-chart-visual">
+                                        <div class="chart-bar c-blue">急性感染症「治す医療」</div>
+                                        <div class="chart-bar c-gold">慢性疾患「付き合う医療」</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Sub-section 2: Limit Point - 2025 Problem (Slide 3) -->
+                        <div class="card glass-card sub-module-card" style="margin-top: 32px;">
+                            <div class="sub-module-badge alert-badge">限界点：2025年問題</div>
+                            <h3>既存システムを崩壊させる「2025年問題」</h3>
+                            <div class="grid-2col">
+                                <div class="visual-placeholder">
+                                    <div class="funnel-container">
+                                        <div class="funnel-top">団塊の世代<br>(75歳以上急増)</div>
+                                        <div class="funnel-neck"><i class="fa-solid fa-lock"></i> 医療・介護資源</div>
+                                        <div class="funnel-bottom">支え手 (現役世代の急減)</div>
+                                    </div>
+                                </div>
+                                <div class="chart-desc-box">
+                                    <div class="d-list-item"><strong>Needの爆発的増加:</strong> 2025年、団塊の世代（1947〜1949年生まれ）がすべて75歳以上に到達し、医療・介護需要が急増。</div>
+                                    <div class="d-list-item"><strong>支え手の絶対的不足:</strong> システムを支える生産年齢人口の同時かつ急速な減少。</div>
+                                    <div class="d-list-item-highlight">
+                                        <i class="fa-solid fa-triangle-exclamation"></i>
+                                        <span><strong>ミスマッチの顕在化:</strong> 「顕在化した疾病を有する病気の人」のみを対象に設計された現在の構造では、需要の量的拡大と質的多様化に耐えきれません。</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Sub-section 3: Structural Reform Details (Slide 4) -->
+                        <div class="card glass-card sub-module-card" style="margin-top: 32px;">
+                            <div class="sub-module-badge">構造改革のシフト</div>
+                            <h3>「病院完結型」から「地域完結型」へのパラダイムシフト</h3>
+                            <div class="comparison-cards-container">
+                                <div class="comp-box-col">
+                                    <div class="comp-card-header legacy-card">旧パラダイム（病院完結型）</div>
+                                    <ul class="comp-list">
+                                        <li><strong>モデル:</strong> 病院完結型</li>
+                                        <li><strong>目的:</strong> 疾病の「治療」</li>
+                                        <li><strong>場所:</strong> 施設による分断</li>
+                                        <li><strong>対象:</strong> 患者という「点」</li>
+                                        <li><strong>主体:</strong> 医師主導・パターナリズム</li>
+                                    </ul>
+                                </div>
+                                <div class="comp-box-col">
+                                    <div class="comp-card-header modern-card">新パラダイム（地域完結型）</div>
+                                    <ul class="comp-list">
+                                        <li><strong>モデル:</strong> 地域完結型</li>
+                                        <li><strong>目的:</strong> 高高齢者の尊厳保持と「自分らしい暮らし」の継続</li>
+                                        <li><strong>場所:</strong> 住み慣れた地域・おおむね30分圏内</li>
+                                        <li><strong>対象:</strong> 生活者という「線・面」</li>
+                                        <li><strong>主体:</strong> 多職種チームと患者参画</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Sub-section 3b: Bed Function Division (Slide 4) -->
+                        <div class="card glass-card sub-module-card" style="margin-top: 32px;">
+                            <div class="sub-module-badge">供給体制の再編</div>
+                            <h3>地域医療構想と病床の機能分化</h3>
+                            <p class="small-desc">2025年に向けた医療資源の適正化。約24万床の地域密着型配置への移行を目指し、限られた資源を最適化します。</p>
+
+                            <div class="bed-division-container" style="margin-top: 25px;">
+                                <div class="bed-steps" style="display: flex; gap: 12px; align-items: flex-end; justify-content: center; height: 180px; margin-bottom: 20px;">
+                                    <div class="bed-step active" data-bed="highly-acute" style="height: 170px; background: var(--bg-card); border: 1px solid var(--border-card); flex: 1; border-radius: 8px; padding: 16px; display: flex; flex-direction: column; justify-content: space-around; align-items: center; cursor: pointer; transition: all 0.3s ease;">
+                                        <i class="fa-solid fa-hospital" style="font-size: 1.75rem; color: #3b82f6;"></i>
+                                        <span class="bed-label" style="font-weight:700; color: #3b82f6; font-size: 0.9rem;">高度急性期</span>
+                                    </div>
+                                    <div class="bed-step" data-bed="acute" style="height: 145px; background: var(--bg-card); border: 1px solid var(--border-card); flex: 1; border-radius: 8px; padding: 16px; display: flex; flex-direction: column; justify-content: space-around; align-items: center; cursor: pointer; transition: all 0.3s ease;">
+                                        <i class="fa-solid fa-house-medical" style="font-size: 1.75rem; color: #60a5fa;"></i>
+                                        <span class="bed-label" style="font-weight:700; color: #60a5fa; font-size: 0.9rem;">急性期</span>
+                                    </div>
+                                    <div class="bed-step" data-bed="convalescent" style="height: 120px; background: var(--bg-card); border: 1px solid var(--border-card); flex: 1; border-radius: 8px; padding: 16px; display: flex; flex-direction: column; justify-content: space-around; align-items: center; cursor: pointer; transition: all 0.3s ease;">
+                                        <i class="fa-solid fa-kit-medical" style="font-size: 1.75rem; color: var(--accent-gold);"></i>
+                                        <span class="bed-label" style="font-weight:700; color: var(--accent-gold); font-size: 0.9rem;">回復期</span>
+                                    </div>
+                                    <div class="bed-step" data-bed="chronic" style="height: 95px; background: var(--bg-card); border: 1px solid var(--border-card); flex: 1; border-radius: 8px; padding: 16px; display: flex; flex-direction: column; justify-content: space-around; align-items: center; cursor: pointer; transition: all 0.3s ease;">
+                                        <i class="fa-solid fa-bed-pulse" style="font-size: 1.75rem; color: #10b981;"></i>
+                                        <span class="bed-label" style="font-weight:700; color: #10b981; font-size: 0.9rem;">慢性期</span>
+                                    </div>
+                                    <div class="bed-step" data-bed="community-home" style="height: 70px; background: rgba(16, 185, 129, 0.05); border: 1px solid rgba(16, 185, 129, 0.2); flex: 1; border-radius: 8px; padding: 10px 16px; display: flex; flex-direction: column; justify-content: center; align-items: center; cursor: pointer; transition: all 0.3s ease; gap: 4px;">
+                                        <i class="fa-solid fa-house-chimney-user" style="font-size: 1.25rem; color: #34d399;"></i>
+                                        <span class="bed-label" style="font-weight:700; color: #34d399; font-size: 0.85rem; white-space: nowrap;">在宅医療</span>
+                                    </div>
+                                </div>
+
+                                <div class="card glass-card" id="bed-info-card" style="margin-top: 20px; text-align: left; padding: 16px;">
+                                    <h4 id="bed-info-title" style="color: #3b82f6;">高度急性期 (Highly Acute Phase)</h4>
+                                    <p id="bed-info-desc" style="margin-top: 8px; font-size: 0.9rem; line-height: 1.6;">急性期の患者に対して、状態の早期安定化に向け、高度先進医療や集中的な治療（ICU等）を提供する病床機能です。</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Sub-section 4: Solution - 5 Pillars Ecosystem (Slide 5) -->
+                        <div class="card glass-card sub-module-card" style="margin-top: 32px;">
+                            <div class="sub-module-badge">解決策：新たな生態系</div>
+                            <h3>「地域包括ケアシステム」という新たな生態系</h3>
+                            <p class="small-desc">健康、医療、介護は分断されたものではなく、「人生の一連の経過」である。</p>
+
+                            <div class="grid-2col">
+                                <div class="pillars-wheel-container">
+                                    <div class="pillars-wheel">
+                                        <div class="wheel-center-housing active" data-petal="housing">
+                                            <i class="fa-solid fa-house"></i>
+                                            <span>住まい</span>
+                                        </div>
+                                        <div class="wheel-petal petal-iryou" data-petal="iryou">医療</div>
+                                        <div class="wheel-petal petal-kaigo" data-petal="kaigo">介護</div>
+                                        <div class="wheel-petal petal-yobou" data-petal="yobou">予防</div>
+                                        <div class="wheel-petal petal-shien" data-petal="shien">生活支援</div>
+                                    </div>
+                                </div>
+                                <div class="card glass-card info-card" id="petal-info-card" style="margin-top:0;">
+                                    <h3 id="petal-title"><i class="fa-solid fa-house"></i> 住まい (Housing)</h3>
+                                    <p id="petal-body">生活の基盤。個人の尊厳保持と、安心できる居住空間を確保し、すべてのケアのベースを支える土台となるレイヤーです。</p>
+                                    <div class="tip-box">
+                                        <i class="fa-solid fa-circle-nodes"></i>
+                                        <span>5つの柱をクリックして詳細を表示します。</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Sub-section 5: Data Health Reform & 4 Pillars (Slide 6) -->
+                        <div class="card glass-card sub-module-card" style="margin-top: 32px;">
+                            <div class="sub-module-badge">連携の鍵：デジタル変革</div>
+                            <h3>分断の壁を越える「データヘルス改革」と4つの柱</h3>
+                            <p class="small-desc">データヘルス改革の4つの柱：①医療・介護情報のデジタル化、②データベース(NDB/介護DB)の連結・整備、③PHR(個人健康記録)の推進、④データ分析に基づく健康寿命の延伸。</p>
+                            <div class="grid-2col">
+                                <div class="data-reform-nodes">
+                                    <div class="reform-node active" data-node="ndb">NDB (ナショナルデータベース)</div>
+                                    <div class="reform-node" data-node="kaigodb">介護DB (介護データ)</div>
+                                    <div class="reform-node" data-node="phr">PHR (個人健康データ)</div>
+                                </div>
+                                <div class="card glass-card info-card" id="node-info-card" style="margin-top:0;">
+                                    <h3 id="node-title">マクロの最適化 (NDB / 介護DB)</h3>
+                                    <p id="node-body">レセプトや健康診断データのビッグデータ連結によるエビデンス創出、医療資源の最適配分、および効果的な疾病予防戦略を展開します。</p>
+                                    <div class="tip-box">
+                                        <i class="fa-solid fa-database"></i>
+                                        <span>ノードをクリックしてデータ統合の意義を学習します。</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Sub-section 5b: Power Dynamics (Slide 7) -->
+                        <div class="card glass-card sub-module-card" style="margin-top: 32px;">
+                            <div class="sub-module-badge">力学の変化</div>
+                            <h3>パターナリズムから患者参画へ</h3>
+                            <p class="small-desc">医師主導の「お任せ医療」から、多職種が連携し患者自身が決定に参加する「チーム医療」への変化。</p>
+
+                            <div class="grid-2col" style="margin-top: 25px; align-items: stretch;">
+                                <div class="card glass-card text-center" style="padding: 20px; display: flex; flex-direction: column; justify-content: space-between;">
+                                    <h4 style="color: var(--text-muted);"><i class="fa-solid fa-user-doctor"></i> 医師主導のお任せ医療</h4>
+                                    <div style="margin: 30px auto; width: 100px; height: 100px; border-radius: 50%; background: rgba(255,255,255,0.02); border: 1px solid var(--border-card); display: flex; align-items: center; justify-content: center; position: relative;">
+                                        <i class="fa-solid fa-arrow-down" style="font-size: 2rem; color: var(--text-muted); position: absolute; top: 35px; animation: bounce 2s infinite;"></i>
+                                        <i class="fa-solid fa-hospital-user" style="font-size: 1.5rem; color: var(--text-secondary); position: absolute; bottom: 10px;"></i>
+                                        <i class="fa-solid fa-user-doctor" style="font-size: 1.5rem; color: var(--text-muted); position: absolute; top: 10px;"></i>
+                                    </div>
+                                    <p style="font-size: 0.85rem; line-height: 1.6;">医師が治療方針を決定し、患者はそれを受動的に受け入れるパターナリズム（paternalism）モデルです。</p>
+                                </div>
+
+                                <div class="card glass-card text-center" style="padding: 20px; display: flex; flex-direction: column; justify-content: space-between; border-color: var(--accent-teal);">
+                                    <h4 style="color: var(--accent-teal);"><i class="fa-solid fa-users-gear"></i> チーム医療とパートナーシップ</h4>
+                                    <div class="team-medicine-visual" style="margin: 20px auto; width: 140px; height: 140px; position: relative;">
+                                        <!-- Patient in center -->
+                                        <div class="team-member active" data-member="patient" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 45px; height: 45px; border-radius: 50%; background: var(--accent-gold-glow); border: 2px solid var(--accent-gold); display: flex; align-items: center; justify-content: center; z-index: 10; cursor: pointer; transition: all 0.3s ease;">
+                                            <i class="fa-solid fa-user" style="color: var(--accent-gold);"></i>
+                                        </div>
+                                        <!-- Doctor -->
+                                        <div class="team-member" data-member="doctor" style="position: absolute; top: 0%; left: 50%; transform: translateX(-50%); width: 34px; height: 34px; border-radius: 50%; background: rgba(255,255,255,0.05); border: 1px solid var(--border-card); display: flex; align-items: center; justify-content: center; cursor: pointer; transition: all 0.3s ease;">
+                                            <i class="fa-solid fa-user-doctor" style="font-size: 0.9rem;"></i>
+                                        </div>
+                                        <!-- Nurse -->
+                                        <div class="team-member" data-member="nurse" style="position: absolute; top: 50%; right: 0%; transform: translateY(-50%); width: 34px; height: 34px; border-radius: 50%; background: rgba(255,255,255,0.05); border: 1px solid var(--border-card); display: flex; align-items: center; justify-content: center; cursor: pointer; transition: all 0.3s ease;">
+                                            <i class="fa-solid fa-user-nurse" style="font-size: 0.9rem;"></i>
+                                        </div>
+                                        <!-- Pharmacist -->
+                                        <div class="team-member" data-member="pharmacist" style="position: absolute; bottom: 0%; left: 50%; transform: translateX(-50%); width: 34px; height: 34px; border-radius: 50%; background: rgba(255,255,255,0.05); border: 1px solid var(--border-card); display: flex; align-items: center; justify-content: center; cursor: pointer; transition: all 0.3s ease;">
+                                            <i class="fa-solid fa-pills" style="font-size: 0.9rem;"></i>
+                                        </div>
+                                        <!-- Caregiver -->
+                                        <div class="team-member" data-member="caregiver" style="position: absolute; top: 50%; left: 0%; transform: translateY(-50%); width: 34px; height: 34px; border-radius: 50%; background: rgba(255,255,255,0.05); border: 1px solid var(--border-card); display: flex; align-items: center; justify-content: center; cursor: pointer; transition: all 0.3s ease;">
+                                            <i class="fa-solid fa-hands-holding" style="font-size: 0.9rem;"></i>
+                                        </div>
+                                    </div>
+                                    <div class="card glass-card" id="team-info-box" style="margin-top: 10px; padding: 10px; font-size: 0.8rem; text-align: left; background: rgba(255,255,255,0.01);">
+                                        <h5 id="team-info-title" style="color: var(--accent-gold);">患者 (Patient) - 主体者</h5>
+                                        <p id="team-info-desc" style="color: var(--text-secondary); margin-top: 4px;">医療の決定における主役であり、自らの価値観に基づき選択します（インフォームドコンセント、自己決定）。</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Sub-section 6: Causal Loop Pathway (Slide 7) -->
+                        <div class="card glass-card sub-module-card" style="margin-top: 32px;">
+                            <div class="sub-module-badge">因果連鎖の全体最適化</div>
+                            <h3>医療政策のゴールに至る因果連鎖</h3>
+                            <p class="small-desc">各ステップをクリックすると、構造改革の因果連鎖の詳細が表示されます。</p>
+
+                            <div class="causal-chain-flow">
+                                <div class="causal-step active" data-step="origin">
+                                    <span class="step-num">起点</span>
+                                    <h4>少子高齢化</h4>
+                                </div>
+                                <div class="causal-step-arrow"><i class="fa-solid fa-angle-right"></i></div>
+                                <div class="causal-step" data-step="limit">
+                                    <span class="step-num">限界</span>
+                                    <h4>2025年問題</h4>
+                                </div>
+                                <div class="causal-step-arrow"><i class="fa-solid fa-angle-right"></i></div>
+                                <div class="causal-step" data-step="solution">
+                                    <span class="step-num">解決</span>
+                                    <h4>地域包括ケアシステム</h4>
+                                </div>
+                            </div>
+
+                            <div class="causal-detail-container" id="causal-detail-box">
+                                <h4 id="causal-detail-title">【起点】少子高齢化と疾病構造の同時変化</h4>
+                                <p id="causal-detail-body">急速な高齢化と、急性感染症（治療して治す）から慢性疾患（生活に寄り添い付き合う）への構造変化がパラダイムシフトの根本的原因です。</p>
+                            </div>
+                        </div>
+
+                        <!-- Sub-section 7: Conclusion (Slide 9) -->
+                        <div class="card glass-card" style="margin-top: 32px; padding: 30px; border-left: 6px solid var(--accent-teal); text-align: left;">
+                            <div class="section-badge" style="background: rgba(6, 182, 212, 0.1); color: var(--accent-teal);">結論</div>
+                            <h3 style="margin-top: 10px; margin-bottom: 15px;"><i class="fa-solid fa-compass"></i> 「治す医療」から「治し、支える医療」へ</h3>
+                            <p style="line-height: 1.8; font-size: 1rem;">
+                                医療政策の目標は、病気の治療から、<strong>健康寿命の延伸と自分らしい暮らしの完遂</strong>へと広がりました。<br>
+                                従来の病院という要塞を解き放ち、多様なデータを血液として地域全体をひとつの「エコシステム」へと進化させることが、これからの医療・介護・福祉の真髄です。
+                            </p>
+                            <div style="display: flex; gap: 15px; margin-top: 20px; flex-wrap: wrap;">
+                                <div style="background: rgba(255,255,255,0.03); border: 1px solid var(--border-card); border-radius: 8px; padding: 12px; flex: 1; min-width: 200px;">
+                                    <h5 style="color: var(--text-muted);">かつての目標</h5>
+                                    <h4 style="color: var(--text-secondary); margin-top: 4px;">病気を治療する (Cure)</h4>
+                                </div>
+                                <div style="background: rgba(6, 182, 212, 0.05); border: 1px solid rgba(6, 182, 212, 0.2); border-radius: 8px; padding: 12px; flex: 1; min-width: 200px;">
+                                    <h5 style="color: var(--accent-teal);">これからの目標</h5>
+                                    <h4 style="color: var(--accent-teal); margin-top: 4px;">地域で支え合う (Care & Support)</h4>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </section>
+
+
+            </div>
+            <!-- SBO 1.2.1 CONTENT WRAPPER -->
+            <div id="sbo121" class="sbo-section-wrapper">
+                <section class="section">
+                    <div class="container">
+                        <div class="section-badge">プロフェッショナリズム</div>
+                        <h2 class="section-title">医師の義務とジュネーブ宣言</h2>
+                        <p class="section-desc">患者最優先の倫理態度と、現代のプロフェッショナリズム契約を学びます。</p>
+
+                        <div class="grid-2col">
+                            <div class="card glass-card checklist-card">
+                                <h3>ジュネーブ宣言（医師の宣誓）チェックリスト</h3>
+                                <p class="small-desc">以下の態度・責務を選択し、誓いを確定してください。</p>
+
+                                <div class="oath-checklist">
+                                    <label class="checklist-item">
+                                        <input type="checkbox" class="oath-checkbox" data-weight="20">
+                                        <span class="checkbox-custom"></span>
+                                        <span class="item-text">患者の健康と福祉を第一の考慮事項とすること</span>
+                                    </label>
+                                    <label class="checklist-item">
+                                        <input type="checkbox" class="oath-checkbox" data-weight="20">
+                                        <span class="checkbox-custom"></span>
+                                        <span class="item-text">患者の自律性と尊厳を尊重すること</span>
+                                    </label>
+                                    <label class="checklist-item">
+                                        <input type="checkbox" class="oath-checkbox" data-weight="20">
+                                        <span class="checkbox-custom"></span>
+                                        <span class="item-text">人命を最大限に尊重すること</span>
+                                    </label>
+                                    <label class="checklist-item">
+                                        <input type="checkbox" class="oath-checkbox" data-weight="20">
+                                        <span class="checkbox-custom"></span>
+                                        <span class="item-text">患者の秘密を決して漏らさないこと</span>
+                                    </label>
+                                    <label class="checklist-item">
+                                        <input type="checkbox" class="oath-checkbox" data-weight="20">
+                                        <span class="checkbox-custom"></span>
+                                        <span class="item-text">同僚や指導者を敬い、敬意を払うこと</span>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div class="card glass-card score-card text-center">
+                                <h3>プロコミットメント度</h3>
+                                <div class="score-circle-container">
+                                    <div class="score-circle" id="oath-score-circle">
+                                        <span id="oath-score-value">0%</span>
+                                    </div>
+                                </div>
+                                <h4 id="oath-status-label" style="color: var(--text-muted);">未実施</h4>
+                                <p id="oath-status-desc" class="small-desc">チェックボックスを選択して医師の義務と態度への誓約度を測定してください。</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <!-- SBO 1.2.2 CONTENT WRAPPER -->
+            <div id="sbo122" class="sbo-section-wrapper">
+                <section class="section">
+                    <div class="container">
+                        <div class="section-badge">医療コミュニケーション</div>
+                        <h2 class="section-title">患者との信頼関係構築 (Rapport)</h2>
+                        <p class="section-desc">共感的なコミュニケーションとアクティブリスニングの手法をロールプレイングで身につけます。</p>
+
+                        <div class="card glass-card simulator-box">
+                            <div class="case-header">
+                                <span class="case-tag">場面: がん治療の説明を受けた患者との対話</span>
+                                <h3>患者「これから先の生活がとても不安です…」</h3>
+                            </div>
+                            <p class="case-narrative">
+                                「医師からがん治療の方針（手術と抗がん剤）について説明を受けた患者さんが、うつむきながら不安を吐露されました。医師としての返答を選択してください。」
+                            </p>
+
+                            <div class="dilemma-options">
+                                <button class="comm-btn" data-score="10">
+                                    <span class="opt-badge">返答 A</span>
+                                    <span class="opt-text">「データ上、この治療をすれば8割は完治しますので心配いりません。頑張りましょう。」</span>
+                                </button>
+                                <button class="comm-btn" data-score="30">
+                                    <span class="opt-badge">返答 B</span>
+                                    <span class="opt-text">「これから先の生活が不安、とおっしゃるのですね。具体的にどのような点が一番ご不安ですか？」</span>
+                                </button>
+                                <button class="comm-btn" data-score="20">
+                                    <span class="opt-badge">返答 C</span>
+                                    <span class="opt-text">「不安を解消するために、抗不安薬を処方しますので処方箋をお出ししておきますね。」</span>
+                                </button>
+                            </div>
+
+                            <div class="simulator-feedback" id="comm-feedback" style="display:none;">
+                                <h4 id="comm-feedback-heading">コミュニケーション評価</h4>
+                                <p id="comm-feedback-body">評価詳細がここに表示されます。</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <!-- SBO 2.1.1 CONTENT WRAPPER -->
+            <div id="sbo211" class="sbo-section-wrapper">
+                <section class="section">
+                    <div class="container">
+                        <div class="section-badge">解剖学 (Anatomy)</div>
+                        <h2 class="section-title">人体の解剖学的系統構造</h2>
+                        <p class="section-desc">人体の各器官系（神経系、循環器系、消化器系）の構造と配置を立体的に理解します。</p>
+
+                        <div class="grid-2col">
+                            <div class="card glass-card systems-card">
+                                <h3>器官系統セレクター</h3>
+                                <p class="small-desc">系統を選択すると、その構造と機能の詳細が表示されます。</p>
+
+                                <div class="social-budget-chart">
+                                    <div class="chart-segment segment-pension active" data-system="nervous" style="border-left: 6px solid #3b82f6;">
+                                        <span class="segment-label"><i class="fa-solid fa-brain"></i> 神経系 (Nervous System)</span>
+                                    </div>
+                                    <div class="chart-segment segment-medical" data-system="cardio" style="border-left: 6px solid #ef4444;">
+                                        <span class="segment-label"><i class="fa-solid fa-heart-pulse"></i> 循環器系 (Cardiovascular System)</span>
+                                    </div>
+                                    <div class="chart-segment segment-welfare" data-system="digestive" style="border-left: 6px solid #10b981;">
+                                        <span class="segment-label"><i class="fa-solid fa-stomach"></i> 消化器系 (Digestive System)</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="card glass-card info-card" id="system-info-card">
+                                <h3 id="system-title"><i class="fa-solid fa-brain"></i> 神経系 (Nervous System)</h3>
+                                <p id="system-body">脳、脊髄の中枢神経系と、自律神経や感覚運動神経を含む末梢神経系から成り、体内外の情報伝達・解析・生体反射コントロールを担う極めて高度な情報回路です。</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <!-- SBO 2.1.2 CONTENT WRAPPER -->
+            <div id="sbo212" class="sbo-section-wrapper">
+                <section class="section">
+                    <div class="container">
+                        <div class="section-badge">生理学 (Physiology)</div>
+                        <h2 class="section-title">体温調節と恒常性 (Homeostasis)</h2>
+                        <p class="section-desc">外部環境の変動に対し、自律神経系を通じて体内の環境（体温など）を一定に保つ仕組みをシミュレートします。</p>
+
+                        <div class="card glass-card slider-card">
+                            <div class="spectrum-labels">
+                                <span class="label-left"><i class="fa-solid fa-snowflake"></i> 寒冷環境 (10°C)</span>
+                                <span class="label-center">基準室温 (22°C)</span>
+                                <span class="label-right"><i class="fa-solid fa-sun"></i> 酷暑環境 (40°C)</span>
+                            </div>
+
+                            <div class="interactive-slider-container">
+                                <div class="slider-track-glow" id="temp-glow" style="background: linear-gradient(90deg, #3b82f6 0%, #e2e8f0 50%, #ef4444 100%);"></div>
+                                <input type="range" min="10" max="40" value="22" class="health-slider" id="temp-slider">
+                            </div>
+
+                            <div class="slider-result" id="temp-result-container">
+                                <h3 id="temp-status-title" style="color: #e2e8f0;">体温恒常性（維持）</h3>
+                                <p id="temp-status-desc">快適な室温です。自律神経は特別な調節行動を必要とせず、安定して核心体温 37.0°C を維持しています。</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <!-- SBO 3.1.1 CONTENT WRAPPER -->
+            <div id="sbo311" class="sbo-section-wrapper">
+                <section class="section">
+                    <div class="container">
+                        <div class="section-badge">臨床症候学</div>
+                        <h2 class="section-title">主要症候の分析と診察手順</h2>
+                        <p class="section-desc">発熱、頭痛、咳嗽などの主訴に基づき、鑑別疾患を絞り込むための身体診察の要点を学習します。</p>
+
+                        <div class="grid-2col">
+                            <div class="card glass-card symptom-picker-card">
+                                <h3>主訴（シンプトム）の選択</h3>
+                                <p class="small-desc">診察室に来院した患者の主たる症状を選択してください。</p>
+
+                                <div class="social-budget-chart">
+                                    <div class="chart-segment segment-pension active" data-symptom="fever" style="border-left: 6px solid #ef4444;">
+                                        <span class="segment-label"><i class="fa-solid fa-temperature-high"></i> 急性発熱 (Acute Fever)</span>
+                                    </div>
+                                    <div class="chart-segment segment-medical" data-symptom="headache" style="border-left: 6px solid #a855f7;">
+                                        <span class="segment-label"><i class="fa-solid fa-head-side-virus"></i> 突発性頭痛 (Sudden Headache)</span>
+                                    </div>
+                                    <div class="chart-segment segment-welfare" data-symptom="cough" style="border-left: 6px solid #3b82f6;">
+                                        <span class="segment-label"><i class="fa-solid fa-wind"></i> 慢性咳嗽 (Chronic Cough)</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="card glass-card info-card" id="symptom-info-card">
+                                <h3 id="symptom-title"><i class="fa-solid fa-temperature-high"></i> 急性発熱に対する身体診察</h3>
+                                <p id="symptom-body">体温測定に加え、咽頭の発赤や扁桃の腫脹、リンパ節腫脹の有無を確認。呼吸音の聴診を並行して行い、髄膜刺激症状（項部硬直など）を確認して感染部位を鑑別診断します。</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <!-- SBO 3.1.2 CONTENT WRAPPER -->
+            <div id="sbo312" class="sbo-section-wrapper">
+                <section class="section">
+                    <div class="container">
+                        <div class="section-badge">臨床推論 (Clinical Reasoning)</div>
+                        <h2 class="section-title">臨床推論チャレンジ・シミュレーター</h2>
+                        <p class="section-desc">患者の病歴とバイタルサインから適切な診断アプローチを推論する体験型学習です。</p>
+
+                        <div class="card glass-card simulator-box">
+                            <div class="case-header">
+                                <span class="case-tag" style="background: rgba(239, 68, 68, 0.15); color: #ef4444; border: 1px solid #ef4444;">緊急度: 高</span>
+                                <h3>患者「急に左胸から肩にかけて締め付けられるような激しい痛みが…」</h3>
+                            </div>
+                            <p class="case-narrative">
+                                「62歳男性。冷や汗を伴う突然の胸部圧迫感を主訴に来院。血圧 145/90 mmHg、脈拍 92回/分。最も緊急に行うべき初期検査と鑑別診断のアプローチを選択してください。」
+                            </p>
+
+                            <div class="dilemma-choices">
+                                <button class="reasoning-btn" data-reason="1">
+                                    <span class="btn-num">A</span>
+                                    <span>心筋酵素パネル (血液検査) の結果を待つ</span>
+                                </button>
+                                <button class="reasoning-btn" data-reason="2">
+                                    <span class="btn-num">B</span>
+                                    <span>直ちに12誘導心電図 (ECG) を実施し ST変化を確認</span>
+                                </button>
+                                <button class="reasoning-btn" data-reason="3">
+                                    <span class="btn-num">C</span>
+                                    <span>肺塞栓症を疑い、緊急CT造影検査へ搬送</span>
+                                </button>
+                            </div>
+
+                            <div class="case-feedback" id="reasoning-feedback" style="display:none;">
+                                <h4 id="reason-feedback-heading"></h4>
+                                <p id="reason-feedback-body"></p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div><!-- END sbo312 wrapper -->
+
+    </main><!-- END main-viewport -->
+    </div><!-- END app-layout -->
+
+    <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,12 @@
+# Temporary files
+part1.txt
+part2.txt
+index_clean.html
+sbo_data_fixed.js
+
+# Custom utility scripts
+extract_initial_html.ps1
+extract_last_clean_html.ps1
+find_all_writes.ps1
+check_log_lines.ps1
+rebuild_html_from_parts.ps1
