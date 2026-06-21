@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', () => {
+﻿document.addEventListener('DOMContentLoaded', () => {
     // Language Switcher Setup
     if (!document.body.classList.contains('lang-vi') && !document.body.classList.contains('lang-ja')) {
         document.body.classList.add('lang-ja');
@@ -280,6 +280,11 @@ document.addEventListener('DOMContentLoaded', () => {
         if (typeof updateStratification === 'function') {
             updateStratification();
         }
+
+        // 6. SBO 1.2.1 Oath checklist text update on language toggle
+        if (typeof updateOathScore === 'function') {
+            updateOathScore();
+        }
     }
 
     const sboHeaderData = {
@@ -301,7 +306,7 @@ document.addEventListener('DOMContentLoaded', () => {
             chapter: '章1 医学・医療総論',
             gio: 'GIO 1.1 社会における医療の役割',
             badge: 'SBO 1.1.3',
-            title: '<span class="lang-ja">医療需要の量的増加と質的多様化への対応</span><span class="lang-vi">Đáp ứng sự gia tăng về lượng & đa dạng hóa về chất của nhu cầu y tế</span>',
+            title: '<span class="lang-ja">医療需要の量的増加と質的多様化<br><span class="hero-subheading">－超高齢社会への対応</span></span><span class="lang-vi">Gia tăng & Đa dạng hóa nhu cầu y tế<br><span class="hero-subheading">－Đáp ứng với xã hội siêu già hóa</span></span>',
             desc: '<span class="lang-ja">超高齢化社会に対応した医療需要を説明できる。</span><span class="lang-vi">Có thể giải thích nhu cầu y tế đáp ứng với xã hội siêu già hóa.</span>'
         },
         sbo121: {
@@ -434,6 +439,33 @@ document.addEventListener('DOMContentLoaded', () => {
     } else {
         activateSBO('sbo111', true);
     }
+
+    // --- Sidebar Accordion Toggle Logic ---
+    const chapterHeaders = document.querySelectorAll('.chapter-group-header');
+    chapterHeaders.forEach(header => {
+        header.addEventListener('click', () => {
+            const group = header.parentElement;
+            if (group) {
+                group.classList.toggle('active');
+            }
+        });
+    });
+
+    const gioHeaders = document.querySelectorAll('.gio-group-header');
+    gioHeaders.forEach(header => {
+        header.addEventListener('click', () => {
+            const group = header.parentElement;
+            if (group) {
+                const isActive = group.classList.toggle('active');
+                const folderIcon = group.querySelector('.folder-icon');
+                if (folderIcon) {
+                    folderIcon.className = isActive 
+                        ? 'fa-solid fa-folder-open folder-icon' 
+                        : 'fa-solid fa-folder folder-icon';
+                }
+            }
+        });
+    });
 
     // --- 5. SBO 1.1.2: Dynamic Social Security Chart ---
     const budgetSegments = document.querySelectorAll('.chart-segment');
@@ -590,7 +622,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const oathStatusLabel = document.getElementById('oath-status-label');
     const oathStatusDesc = document.getElementById('oath-status-desc');
 
-    const updateOathScore = () => {
+    function updateOathScore() {
         let score = 0;
         oathCheckboxes.forEach(cb => {
             if (cb.checked) {
@@ -600,34 +632,38 @@ document.addEventListener('DOMContentLoaded', () => {
 
         if (oathScoreValue) {
             oathScoreValue.textContent = `${score}%`;
+            const isVi = document.body.classList.contains('lang-vi');
 
             if (score === 0) {
                 oathScoreValue.style.color = 'var(--text-muted)';
                 oathScoreCircle.style.borderColor = 'rgba(255,255,255,0.05)';
-                oathStatusLabel.textContent = '未実施';
+                oathStatusLabel.textContent = isVi ? 'Chưa thực hiện' : '未実施';
                 oathStatusLabel.style.color = 'var(--text-muted)';
-                oathStatusDesc.textContent = 'チェックボックスを選択して医師の義務と態度への誓約度を測定してください。';
+                oathStatusDesc.textContent = isVi ? 'Hãy chọn các ô kiểm để đo lường mức độ cam kết với nghĩa vụ và thái độ của bác sĩ.' : 'チェックボックスを選択して医師の義務と態度への誓約度を測定してください。';
             } else if (score < 100) {
                 oathScoreValue.style.color = 'var(--accent-gold)';
                 oathScoreCircle.style.borderColor = 'var(--accent-gold)';
                 oathScoreCircle.style.boxShadow = '0 0 15px var(--accent-gold-glow)';
-                oathStatusLabel.textContent = '宣誓進行中';
+                oathStatusLabel.textContent = isVi ? 'Đang thực hiện' : '宣誓進行中';
                 oathStatusLabel.style.color = 'var(--accent-gold)';
-                oathStatusDesc.textContent = '医師としてのプロフェッショナルな自覚を高めています。すべての責務を確認してください。';
+                oathStatusDesc.textContent = isVi ? 'Đang nâng cao nhận thức chuyên nghiệp của bác sĩ. Vui lòng kiểm tra tất cả các nghĩa vụ.' : '医師としてのプロフェッショナルな自覚を高めています。すべての責務を確認してください。';
             } else {
                 oathScoreValue.style.color = 'var(--accent-teal)';
                 oathScoreCircle.style.borderColor = 'var(--accent-teal)';
                 oathScoreCircle.style.boxShadow = '0 0 20px var(--accent-teal-glow)';
-                oathStatusLabel.textContent = '宣誓完了！';
+                oathStatusLabel.textContent = isVi ? 'Hoàn thành tuyên thệ!' : '宣誓完了！';
                 oathStatusLabel.style.color = 'var(--accent-teal)';
-                oathStatusDesc.textContent = 'プロフェッショナル精神が最大限にコミットされました。この倫理誓約を生涯維持しましょう。';
+                oathStatusDesc.textContent = isVi ? 'Tinh thần chuyên nghiệp đã được cam kết tối đa. Hãy duy trì lời thề đạo đức này suốt đời.' : 'プロフェッショナル精神が最大限にコミットされました。この倫理誓約を生涯維持しましょう。';
             }
         }
-    };
+    }
 
     oathCheckboxes.forEach(cb => {
         cb.addEventListener('change', updateOathScore);
     });
+
+    // Make updateOathScore available globally in DOMContentLoaded scope
+    window.updateOathScore = updateOathScore;
 
 
     // --- 9. SBO 1.2.2: Communication Rapport Dialogue Logic ---

@@ -2298,6 +2298,153 @@ body.lang-vi .lang-ja {
 
 /* Ensure Vietnamese text uses Inter to avoid font diacritic distortion from Outfit */
 body.lang-vi, 
-body.lang-vi * {
+body.lang-vi *:not([class*="fa-"]):not(.fa):not(.fas):not(.far):not(.fab) {
     font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif !important;
 }
+
+#team-info-box {
+    margin-top: 15px !important;
+    padding: 16px !important;
+    font-size: 0.95rem !important;
+    text-align: left !important;
+    background: rgba(255, 255, 255, 0.02) !important;
+    min-height: 120px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#team-info-title {
+    font-size: 1.05rem !important;
+    margin-bottom: 6px !important;
+    font-weight: 700 !important;
+}
+
+#team-info-desc {
+    line-height: 1.6 !important;
+}
+
+/* Causal Chain Styles */
+.causal-chain {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+}
+
+.chain-node {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid var(--border-card);
+    border-radius: 8px;
+    padding: 14px 16px;
+    position: relative;
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.chain-node:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.trigger-node {
+    border-left: 4px solid #ef4444;
+}
+.trigger-node:hover {
+    border-color: #fca5a5;
+    box-shadow: 0 4px 15px rgba(239, 68, 68, 0.15);
+}
+
+.transition-node {
+    border-left: 4px solid var(--accent-gold);
+}
+.transition-node:hover {
+    border-color: #fef08a;
+    box-shadow: 0 4px 15px rgba(234, 179, 8, 0.15);
+}
+
+.crisis-node {
+    border-left: 4px solid var(--accent-teal);
+    background: rgba(6, 182, 212, 0.03);
+}
+.crisis-node:hover {
+    border-color: #a5f3fc;
+    box-shadow: 0 4px 15px rgba(6, 182, 212, 0.15);
+}
+
+.node-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.75rem;
+    font-weight: 700;
+}
+
+.node-step {
+    color: var(--text-muted);
+    font-family: monospace;
+    font-size: 0.85rem;
+}
+
+.node-tag {
+    padding: 2px 8px;
+    border-radius: 12px;
+    text-transform: uppercase;
+    font-size: 0.7rem;
+}
+
+.tag-red {
+    background: rgba(239, 68, 68, 0.15);
+    color: #fca5a5;
+}
+
+.tag-gold {
+    background: rgba(234, 179, 8, 0.15);
+    color: #fef08a;
+}
+
+.tag-teal {
+    background: rgba(6, 182, 212, 0.15);
+    color: #a5f3fc;
+}
+
+.node-title {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: #fff;
+    text-align: left;
+}
+
+.node-desc {
+    font-size: 0.82rem;
+    color: var(--text-secondary);
+    line-height: 1.5;
+    margin: 0;
+    text-align: left;
+}
+
+.chain-connector {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 8px 0;
+    color: var(--text-muted);
+    font-size: 1.1rem;
+}
+
+.text-danger-pulse {
+    color: #ef4444;
+    animation: danger-pulse-arrow 1.5s infinite alternate;
+}
+
+@keyframes danger-pulse-arrow {
+    from {
+        opacity: 0.5;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1.1);
+    }
+}
