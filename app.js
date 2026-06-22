@@ -299,6 +299,9 @@ document.addEventListener('DOMContentLoaded', () => {
         if (typeof updateSbo123Step === 'function') {
             updateSbo123Step();
         }
+        if (typeof updateReorgDetail === 'function') {
+            updateReorgDetail();
+        }
     }
 
     const sboHeaderData = {
@@ -409,6 +412,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const crumbSbo = document.getElementById('crumb-sbo');
     const heroChapBadge = document.getElementById('hero-chap-badge');
     const heroGioBadge = document.getElementById('hero-gio-badge');
+    const heroSboBadge = document.getElementById('hero-sbo-badge');
     const heroMainTitle = document.getElementById('hero-main-title');
     const heroSubDesc = document.getElementById('hero-sub-desc');
 
@@ -447,6 +451,9 @@ document.addEventListener('DOMContentLoaded', () => {
         setTimeout(() => {
             heroChapBadge.textContent = data.chapter;
             heroGioBadge.textContent = data.gio;
+            if (heroSboBadge) {
+                heroSboBadge.textContent = data.badge;
+            }
             heroMainTitle.innerHTML = data.title;
             heroSubDesc.innerHTML = data.desc;
             heroContainer.style.opacity = '1';
@@ -1881,6 +1888,70 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     });
+
+    // --- GIO 1.1 SBO 1.1.3: Reorganization steps interaction ---
+    const reorgSteps = document.querySelectorAll('[data-step-reorg]');
+    const reorgTitle = document.getElementById('reorg-detail-title');
+    const reorgBody = document.getElementById('reorg-detail-body');
+    const reorgCard = document.getElementById('reorg-detail-box');
+
+    const reorgData = {
+        'step1': {
+            titleJa: '【Step 1】データ収集：病床機能報告制度 (2014年開始)',
+            titleVi: '【Step 1】Thu thập dữ liệu: Chế độ báo cáo chức năng giường bệnh (Bắt đầu từ 2014)',
+            bodyJa: '全病院が自院の現在の病床機能（高度急性期・急性期・回復期・慢性期）と将来の予定を都道府県へ報告し、地域の医療体制を可視化します。',
+            bodyVi: 'Tất cả các bệnh viện phải báo cáo chức năng giường bệnh hiện tại (cấp tính cao, cấp tính, hồi phục, mãn tính) và kế hoạch tương lai cho tỉnh thành để trực quan hóa hệ thống y tế địa phương.'
+        },
+        'step2': {
+            titleJa: '【Step 2】分析と構想：将来の必要病床量の推計',
+            titleVi: '【Step 2】Phân tích & Lên phương án: Ước tính số lượng giường bệnh cần thiết trong tương lai',
+            bodyJa: '2025年などのマイルストーンにおける地域の医療需要を数理モデルで推計し、4区分ごとの必要ベッド数を算出します。',
+            bodyVi: 'Sử dụng mô hình toán học để ước tính nhu cầu y tế của địa phương vào các mốc thời gian như năm 2025, từ đó tính toán số lượng giường bệnh cần thiết cho mỗi loại trong số 4 phân loại.'
+        },
+        'step3': {
+            titleJa: '【Step 3】協議の促進：地域医療構想調整会議',
+            titleVi: '【Step 3】Thúc đẩy thỏa thuận: Hội nghị điều phối Tầm nhìn y tế khu vực',
+            bodyJa: '地域の医療関係者、保険者、住民代表が集まり、データに基づいて各病院の役割分担や病床転換について主体的に話し合います。',
+            bodyVi: 'Các bên liên quan đến y tế địa phương, bên bảo hiểm và đại diện người dân họp lại để thảo luận chủ động về việc phân chia vai trò của từng bệnh viện và chuyển đổi giường bệnh dựa trên dữ liệu.'
+        },
+        'step4': {
+            titleJa: '【Step 4】財政的後押し：地域医療介護総合確保基金',
+            titleVi: '【Step 4】Thúc đẩy tài chính: Quỹ bảo đảm tích hợp dịch vụ y tế và chăm sóc dài hạn địa phương',
+            bodyJa: '病床削減やダウンサイジング、機能転換に伴う費用（退職金支援や設備改修など）を支援するための公的基金を活用します。',
+            bodyVi: 'Sử dụng quỹ công để hỗ trợ các chi phí (như trợ cấp thôi việc hoặc cải tạo trang thiết bị) phát sinh từ việc giảm số lượng giường bệnh, thu nhỏ quy mô hoặc chuyển đổi chức năng giường bệnh.'
+        }
+    };
+
+    function updateReorgDetail() {
+        const activeStep = document.querySelector('[data-step-reorg].active');
+        if (!activeStep || !reorgTitle || !reorgBody) return;
+        const isVi = document.body.classList.contains('lang-vi');
+        const key = activeStep.getAttribute('data-step-reorg');
+        const data = reorgData[key];
+        if (data) {
+            reorgTitle.textContent = isVi ? data.titleVi : data.titleJa;
+            reorgBody.textContent = isVi ? data.bodyVi : data.bodyJa;
+        }
+    }
+
+    reorgSteps.forEach(step => {
+        step.addEventListener('click', () => {
+            reorgSteps.forEach(s => s.classList.remove('active'));
+            step.classList.add('active');
+            
+            if (reorgCard) {
+                reorgCard.style.opacity = '0.3';
+                setTimeout(() => {
+                    updateReorgDetail();
+                    reorgCard.style.opacity = '1';
+                }, 200);
+            } else {
+                updateReorgDetail();
+            }
+        });
+    });
+
+    window.updateReorgDetail = updateReorgDetail;
 
     // --- GIO 1.1 SBO 1.1.3: Bed steps interaction ---
     const bedSteps = document.querySelectorAll('.bed-step');
