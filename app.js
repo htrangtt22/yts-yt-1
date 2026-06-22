@@ -303,98 +303,98 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const sboHeaderData = {
         sbo111: {
-            chapter: '章1 医学・医療総論',
+            chapter: 'Chapter 1 医学・医療総論',
             gio: 'GIO 1.1 社会における医療の役割',
             badge: 'SBO 1.1.1',
             title: '<span class="lang-ja">健康の定義と医療政策<br><span class="hero-subheading">－何を目標とするか</span></span><span class="lang-vi">Định nghĩa sức khỏe và chính sách y tế<br><span class="hero-subheading">－Mục tiêu hướng tới là gì</span></span>',
             desc: '<span class="lang-ja">保健、医療、福祉の関わりについて説明できる。</span><span class="lang-vi">Có thể giải thích mối quan hệ giữa bảo vệ sức khỏe, y tế và phúc lợi.</span>'
         },
         sbo112: {
-            chapter: '章1 医学・医療総論',
+            chapter: 'Chapter 1 医学・医療総論',
             gio: 'GIO 1.1 社会における医療の役割',
             badge: 'SBO 1.1.2',
             title: '<span class="lang-ja">個人と社会<br><span class="hero-subheading">－多様な価値観の調和</span></span><span class="lang-vi">Cá nhân và xã hội<br><span class="hero-subheading">－Sự điều hòa các giá trị đa dạng</span></span>',
             desc: '<span class="lang-ja">医療に対する社会のニーズの動向について説明できる。</span><span class="lang-vi">Có thể giải thích xu hướng nhu cầu xã hội đối với y tế.</span>'
         },
         sbo113: {
-            chapter: '章1 医学・医療総論',
+            chapter: 'Chapter 1 医学・医療総論',
             gio: 'GIO 1.1 社会における医療の役割',
             badge: 'SBO 1.1.3',
             title: '<span class="lang-ja">医療需要の量的増加と質的多様化<br><span class="hero-subheading">－超高齢社会への対応</span></span><span class="lang-vi">Gia tăng & Đa dạng hóa nhu cầu y tế<br><span class="hero-subheading">－Đáp ứng với xã hội siêu già hóa</span></span>',
             desc: '<span class="lang-ja">超高齢化社会に対応した医療需要を説明できる。</span><span class="lang-vi">Có thể giải thích nhu cầu y tế đáp ứng với xã hội siêu già hóa.</span>'
         },
         sbo121: {
-            chapter: '章1 医学・医療総論',
+            chapter: 'Chapter 1 医学・医療総論',
             gio: 'GIO 1.2 医師のプロフェッショナリズム',
             badge: 'SBO 1.2.1',
             title: '<span class="lang-ja">医の倫理の変遷<br><span class="hero-subheading">－歴史的規範と現代的展開</span></span><span class="lang-vi">Lịch sử biến đổi của y đức<br><span class="hero-subheading">－Chuẩn mực lịch sử và sự phát triển hiện đại</span></span>',
             desc: '<span class="lang-ja">ヒポクラテスの誓い、ジュネーブ宣言、ヘルシンキ宣言、リスボン宣言などの変遷を説明できる。</span><span class="lang-vi">Có thể giải thích sự phát triển lịch sử của đạo đức y khoa (Lời thề Hippocrates, Tuyên ngôn Geneva, Tuyên ngôn Helsinki, Tuyên ngôn Lisbon, v.v.).</span>'
         },
         sbo122: {
-            chapter: '章1 医学・医療総論',
+            chapter: 'Chapter 1 医学・医療総論',
             gio: 'GIO 1.2 医師のプロフェッショナリズム',
             badge: 'SBO 1.2.2',
             title: '<span class="lang-ja">個人情報保護と情報開示<br><span class="hero-subheading">－消極的から積極的プライバシーへ</span></span><span class="lang-vi">Bảo vệ thông tin cá nhân và công bố thông tin<br><span class="hero-subheading">－Từ quyền riêng tư thụ động sang chủ động</span></span>',
             desc: '<span class="lang-ja">個人情報の保護と開示の重要性を理解し、アクセス権、支配・制御権、訂正権について説明できる。</span><span class="lang-vi">Hiểu được tầm quan trọng của việc bảo vệ và công bố thông tin cá nhân, có thể giải thích về quyền truy cập, kiểm soát và chỉnh sửa.</span>'
         },
         sbo123: {
-            chapter: '章1 医学・医療総論',
+            chapter: 'Chapter 1 医学・医療総論',
             gio: 'GIO 1.2 医師のプロフェッショナリズム',
             badge: 'SBO 1.2.3',
             title: '<span class="lang-ja">患者が参画する医療<br><span class="hero-subheading">－自己決定・インフォームドコンセント・チーム医療</span></span><span class="lang-vi">Y tế với sự tham gia của bệnh nhân<br><span class="hero-subheading">－Tự quyết định, đồng thuận và điều trị nhóm</span></span>',
             desc: '<span class="lang-ja">患者の権利、インフォームドコンセント、セカンドオピニオン、多職種連携を説明できる。</span><span class="lang-vi">Có thể giải thích về quyền của bệnh nhân, đồng thuận (Informed Consent), ý kiến thứ hai (Second Opinion) và sự hợp tác đa ngành.</span>'
         },
         sbo211: {
-            chapter: '章2 保健・医療・福祉と社会の関わり',
+            chapter: 'Chapter 2 保健・医療・福祉と社会の関わり',
             gio: 'GIO 2.1 社会保障・医療提供体制',
             badge: 'SBO 2.1.1',
             title: '<span class="lang-ja">日本の社会保障制度<br><span class="hero-subheading">－健康・医療・福祉の全体像</span></span><span class="lang-vi">Hệ thống an sinh xã hội Nhật Bản<br><span class="hero-subheading">－Toàn cảnh về Sức khỏe, Y tế và Phúc lợi</span></span>',
             desc: '<span class="lang-ja">日本の社会保障制度（年金・医療・福祉・公衆衛生）の基本構造と役割を説明できる。</span><span class="lang-vi">Có thể giải thích cấu trúc cơ bản và vai trò của hệ thống an sinh xã hội Nhật Bản (hưu trí, y tế, phúc lợi, y tế công cộng).</span>'
         },
         sbo212: {
-            chapter: '章2 保健・医療・福祉と社会の関わり',
+            chapter: 'Chapter 2 保健・医療・福祉と社会の関わり',
             gio: 'GIO 2.1 社会保障・医療提供体制',
             badge: 'SBO 2.1.2',
             title: '<span class="lang-ja">日本の医療提供体制<br><span class="hero-subheading">－地域完結型システムへの再構築</span></span><span class="lang-vi">Hệ thống cung cấp dịch vụ y tế Nhật Bản<br><span class="hero-subheading">－Tái cơ cấu hướng tới hệ thống hoàn thiện tại địa phương</span></span>',
             desc: '<span class="lang-ja">2025年問題に伴う病床機能分化と、地域包括ケアシステムの全体像を説明できる。</span><span class="lang-vi">Có thể giải thích sự phân hóa chức năng giường bệnh đi kèm với vấn đề năm 2025 và toàn cảnh hệ thống chăm sóc toàn diện khu vực.</span>'
         },
         sbo213: {
-            chapter: '章2 保健・医療・福祉と社会の関わり',
+            chapter: 'Chapter 2 保健・医療・福祉と社会の関わり',
             gio: 'GIO 2.1 社会保障・医療提供体制',
             badge: 'SBO 2.1.3',
             title: '<span class="lang-ja">日本の医療保険制度<br><span class="hero-subheading">－国民皆保険の仕組みと持続可能性</span></span><span class="lang-vi">Hệ thống bảo hiểm y tế Nhật Bản<br><span class="hero-subheading">－Cơ chế bảo hiểm toàn dân và tính bền vững</span></span>',
             desc: '<span class="lang-ja">職域・地域保険の仕組みと、少子高齢化における医療保険財政の持続可能性を説明できる。</span><span class="lang-vi">Có thể giải thích cơ chế bảo hiểm nghề nghiệp/khu vực và tính bền vững tài chính bảo hiểm y tế trong bối cảnh ít con già hóa dân số.</span>'
         },
         sbo214: {
-            chapter: '章2 保健・医療・福祉と社会の関わり',
+            chapter: 'Chapter 2 保健・医療・福祉と社会の関わり',
             gio: 'GIO 2.1 社会保障・医療提供体制',
             badge: 'SBO 2.1.4',
             title: '<span class="lang-ja">保険診療報酬制度<br><span class="hero-subheading">－保険診療の仕組みと診療報酬の構造</span></span><span class="lang-vi">Chế độ thanh toán chi phí khám chữa bệnh bảo hiểm<br><span class="hero-subheading">－Cơ chế khám chữa bệnh bảo hiểm và cấu trúc viện phí</span></span>',
             desc: '<span class="lang-ja">保険医療機関における診療報酬（医科）の算定ルールと基本的仕組みを説明できる。</span><span class="lang-vi">Có thể giải thích quy tắc tính điểm và cơ chế cơ bản của giá dịch vụ y tế (khoa y) tại các cơ sở y tế bảo hiểm.</span>'
         },
         sbo311: {
-            chapter: '章3 基礎医学の基本',
+            chapter: 'Chapter 3 基礎医学の基本',
             gio: 'GIO 3.1 人体の構造と機能',
             badge: 'SBO 3.1.1',
             title: '<span class="lang-ja">解剖学の基本構造<br><span class="hero-subheading">－人体の器官系統分類</span></span><span class="lang-vi">Cấu trúc cơ bản của giải phẫu học<br><span class="hero-subheading">－Phân loại hệ thống cơ quan của cơ thể con người</span></span>',
             desc: '<span class="lang-ja">主要器官系（神経系・循環器系・消化器系）の解剖的配置と機能分類を説明できる。</span><span class="lang-vi">Giải thích được vị trí giải phẫu và phân loại chức năng của các hệ cơ quan chính (thần kinh, tuần hoàn, tiêu hóa).</span>'
         },
         sbo312: {
-            chapter: '章3 基礎医学の基本',
+            chapter: 'Chapter 3 基礎医学の基本',
             gio: 'GIO 3.1 人体の構造と機能',
             badge: 'SBO 3.1.2',
             title: '<span class="lang-ja">生理学とホメオスタシス<br><span class="hero-subheading">－体内環境の維持と体温調節</span></span><span class="lang-vi">Sinh lý học và cân bằng nội môi<br><span class="hero-subheading">－Duy trì môi trường bên trong và điều hòa thân nhiệt</span></span>',
             desc: '<span class="lang-ja">自律神経や効果器を通じた生体の自己調節恒常性フィードバックを説明できる。</span><span class="lang-vi">Giải thích được phản hồi cân bằng tự điều chỉnh của cơ thể thông qua hệ thần kinh tự chủ và các cơ quan hiệu ứng.</span>'
         },
         sbo411: {
-            chapter: '章4 臨床医学へのアプローチ',
+            chapter: 'Chapter 4 臨床医学へのアプローチ',
             gio: 'GIO 4.1 診断と治療のプロセス',
             badge: 'SBO 4.1.1',
             title: '<span class="lang-ja">主要症候と身体診察<br><span class="hero-subheading">－主訴から見出す鑑別診断</span></span><span class="lang-vi">Triệu chứng chính và khám thực thể<br><span class="hero-subheading">－Chẩn đoán phân biệt từ lời khai của bệnh nhân</span></span>',
             desc: '<span class="lang-ja">発熱・頭痛・咳嗽に対する主観的病歴聴取と客観的診察プロセスを説明できる。</span><span class="lang-vi">Giải thích được quy trình khám thực thể khách quan và khai thác bệnh sử chủ quan đối với sốt, đau đầu, ho.</span>'
         },
         sbo412: {
-            chapter: '章4 臨床医学へのアプローチ',
+            chapter: 'Chapter 4 臨床医学へのアプローチ',
             gio: 'GIO 4.1 診断と治療のプロセス',
             badge: 'SBO 4.1.2',
             title: '<span class="lang-ja">臨床推論チャレンジ<br><span class="hero-subheading">－緊急疾患の早期鑑別と意思決定</span></span><span class="lang-vi">Thách thức suy luận lâm sàng<br><span class="hero-subheading">－Phân biệt sớm bệnh khẩn cấp và đưa ra quyết định</span></span>',
