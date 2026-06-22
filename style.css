@@ -346,6 +346,7 @@ header {
     border-radius: 12px;
     border-left: 3px solid var(--accent-teal);
     font-size: 0.85rem;
+    line-height: 1.6;
     color: var(--text-secondary);
 }
 
@@ -1214,7 +1215,7 @@ header {
 
 /* SBO 1.1.3: Case Study Simulator */
 .simulator-box {
-    max-width: 800px;
+    max-width: 100%;
     margin: 0 auto;
 }
 
@@ -2447,4 +2448,85 @@ body.lang-vi *:not([class*="fa-"]):not(.fa):not(.fas):not(.far):not(.fab) {
         opacity: 1;
         transform: scale(1.1);
     }
-}
+}
+
+/* SBO 1.2.2 Timeline Steps */
+.timeline-steps {
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    margin-bottom: 30px;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.timeline-line {
+    position: absolute;
+    top: 42px;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: rgba(255, 255, 255, 0.1);
+    z-index: 1;
+}
+
+.step-dot {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: var(--bg-dark);
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    z-index: 2;
+    padding: 0;
+}
+
+.step-dot:hover {
+    border-color: var(--accent-gold);
+    color: #fff;
+    box-shadow: 0 0 10px rgba(234, 179, 8, 0.3);
+}
+
+.step-dot.active {
+    border-color: var(--accent-teal);
+    color: #fff;
+    background: var(--accent-teal);
+    box-shadow: 0 0 12px var(--accent-teal-glow);
+}
+
+
+/* Section Divider Styles */
+.section-divider {
+    border: none;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.08), transparent);
+    margin: 40px 0;
+}
+
+/* SBO 1.1.2 & 1.2.2 Simulator Button Specific Active Styles */
+#sbo122-sim-yes.active, #sbo112-sim-yes.active {
+    background: rgba(239, 68, 68, 0.08) !important;
+    border-color: #ef4444 !important;
+    color: var(--text-primary) !important;
+}
+#sbo122-sim-yes.active .opt-badge, #sbo112-sim-yes.active .opt-badge {
+    background: rgba(239, 68, 68, 0.2) !important;
+    color: #ef4444 !important;
+}
+
+#sbo122-sim-no.active, #sbo112-sim-no.active {
+    background: rgba(6, 182, 212, 0.08) !important;
+    border-color: var(--accent-teal) !important;
+    color: var(--text-primary) !important;
+}
+#sbo122-sim-no.active .opt-badge, #sbo112-sim-no.active .opt-badge {
+    background: var(--accent-teal-glow) !important;
+    color: var(--accent-teal) !important;
+}

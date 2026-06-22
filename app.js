@@ -1,4 +1,4 @@
-﻿document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', () => {
     // Language Switcher Setup
     if (!document.body.classList.contains('lang-vi') && !document.body.classList.contains('lang-ja')) {
         document.body.classList.add('lang-ja');
@@ -285,6 +285,20 @@
         if (typeof updateOathScore === 'function') {
             updateOathScore();
         }
+
+        // 7. SBO 1.2.2 Interactive components update on language toggle
+        if (typeof updateSbo122Pillar === 'function') {
+            updateSbo122Pillar();
+        }
+        if (typeof updateSbo122Step === 'function') {
+            updateSbo122Step();
+        }
+        if (typeof updateSbo123Matrix === 'function') {
+            updateSbo123Matrix();
+        }
+        if (typeof updateSbo123Step === 'function') {
+            updateSbo123Step();
+        }
     }
 
     const sboHeaderData = {
@@ -331,30 +345,58 @@
             desc: '<span class="lang-ja">患者の権利、インフォームドコンセント、セカンドオピニオン、多職種連携を説明できる。</span><span class="lang-vi">Có thể giải thích về quyền của bệnh nhân, đồng thuận (Informed Consent), ý kiến thứ hai (Second Opinion) và sự hợp tác đa ngành.</span>'
         },
         sbo211: {
-            chapter: '章2 基礎医学の基本',
-            gio: 'GIO 2.1 人体の構造と機能',
+            chapter: '章2 保健・医療・福祉と社会の関わり',
+            gio: 'GIO 2.1 社会保障・医療提供体制',
             badge: 'SBO 2.1.1',
+            title: '<span class="lang-ja">日本の社会保障制度<br><span class="hero-subheading">－健康・医療・福祉の全体像</span></span><span class="lang-vi">Hệ thống an sinh xã hội Nhật Bản<br><span class="hero-subheading">－Toàn cảnh về Sức khỏe, Y tế và Phúc lợi</span></span>',
+            desc: '<span class="lang-ja">日本の社会保障制度（年金・医療・福祉・公衆衛生）の基本構造と役割を説明できる。</span><span class="lang-vi">Có thể giải thích cấu trúc cơ bản và vai trò của hệ thống an sinh xã hội Nhật Bản (hưu trí, y tế, phúc lợi, y tế công cộng).</span>'
+        },
+        sbo212: {
+            chapter: '章2 保健・医療・福祉と社会の関わり',
+            gio: 'GIO 2.1 社会保障・医療提供体制',
+            badge: 'SBO 2.1.2',
+            title: '<span class="lang-ja">日本の医療提供体制<br><span class="hero-subheading">－地域完結型システムへの再構築</span></span><span class="lang-vi">Hệ thống cung cấp dịch vụ y tế Nhật Bản<br><span class="hero-subheading">－Tái cơ cấu hướng tới hệ thống hoàn thiện tại địa phương</span></span>',
+            desc: '<span class="lang-ja">2025年問題に伴う病床機能分化と、地域包括ケアシステムの全体像を説明できる。</span><span class="lang-vi">Có thể giải thích sự phân hóa chức năng giường bệnh đi kèm với vấn đề năm 2025 và toàn cảnh hệ thống chăm sóc toàn diện khu vực.</span>'
+        },
+        sbo213: {
+            chapter: '章2 保健・医療・福祉と社会の関わり',
+            gio: 'GIO 2.1 社会保障・医療提供体制',
+            badge: 'SBO 2.1.3',
+            title: '<span class="lang-ja">日本の医療保険制度<br><span class="hero-subheading">－国民皆保険の仕組みと持続可能性</span></span><span class="lang-vi">Hệ thống bảo hiểm y tế Nhật Bản<br><span class="hero-subheading">－Cơ chế bảo hiểm toàn dân và tính bền vững</span></span>',
+            desc: '<span class="lang-ja">職域・地域保険の仕組みと、少子高齢化における医療保険財政の持続可能性を説明できる。</span><span class="lang-vi">Có thể giải thích cơ chế bảo hiểm nghề nghiệp/khu vực và tính bền vững tài chính bảo hiểm y tế trong bối cảnh ít con già hóa dân số.</span>'
+        },
+        sbo214: {
+            chapter: '章2 保健・医療・福祉と社会の関わり',
+            gio: 'GIO 2.1 社会保障・医療提供体制',
+            badge: 'SBO 2.1.4',
+            title: '<span class="lang-ja">保険診療報酬制度<br><span class="hero-subheading">－保険診療の仕組みと診療報酬の構造</span></span><span class="lang-vi">Chế độ thanh toán chi phí khám chữa bệnh bảo hiểm<br><span class="hero-subheading">－Cơ chế khám chữa bệnh bảo hiểm và cấu trúc viện phí</span></span>',
+            desc: '<span class="lang-ja">保険医療機関における診療報酬（医科）の算定ルールと基本的仕組みを説明できる。</span><span class="lang-vi">Có thể giải thích quy tắc tính điểm và cơ chế cơ bản của giá dịch vụ y tế (khoa y) tại các cơ sở y tế bảo hiểm.</span>'
+        },
+        sbo311: {
+            chapter: '章3 基礎医学の基本',
+            gio: 'GIO 3.1 人体の構造と機能',
+            badge: 'SBO 3.1.1',
             title: '<span class="lang-ja">解剖学の基本構造<br><span class="hero-subheading">－人体の器官系統分類</span></span><span class="lang-vi">Cấu trúc cơ bản của giải phẫu học<br><span class="hero-subheading">－Phân loại hệ thống cơ quan của cơ thể con người</span></span>',
             desc: '<span class="lang-ja">主要器官系（神経系・循環器系・消化器系）の解剖的配置と機能分類を説明できる。</span><span class="lang-vi">Giải thích được vị trí giải phẫu và phân loại chức năng của các hệ cơ quan chính (thần kinh, tuần hoàn, tiêu hóa).</span>'
         },
-        sbo212: {
-            chapter: '章2 基礎医学の基本',
-            gio: 'GIO 2.1 人体の構造と機能',
-            badge: 'SBO 2.1.2',
+        sbo312: {
+            chapter: '章3 基礎医学の基本',
+            gio: 'GIO 3.1 人体の構造と機能',
+            badge: 'SBO 3.1.2',
             title: '<span class="lang-ja">生理学とホメオスタシス<br><span class="hero-subheading">－体内環境の維持と体温調節</span></span><span class="lang-vi">Sinh lý học và cân bằng nội môi<br><span class="hero-subheading">－Duy trì môi trường bên trong và điều hòa thân nhiệt</span></span>',
             desc: '<span class="lang-ja">自律神経や効果器を通じた生体の自己調節恒常性フィードバックを説明できる。</span><span class="lang-vi">Giải thích được phản hồi cân bằng tự điều chỉnh của cơ thể thông qua hệ thần kinh tự chủ và các cơ quan hiệu ứng.</span>'
         },
-        sbo311: {
-            chapter: '章3 臨床医学へのアプローチ',
-            gio: 'GIO 3.1 診断と治療のプロセス',
-            badge: 'SBO 3.1.1',
+        sbo411: {
+            chapter: '章4 臨床医学へのアプローチ',
+            gio: 'GIO 4.1 診断と治療のプロセス',
+            badge: 'SBO 4.1.1',
             title: '<span class="lang-ja">主要症候と身体診察<br><span class="hero-subheading">－主訴から見出す鑑別診断</span></span><span class="lang-vi">Triệu chứng chính và khám thực thể<br><span class="hero-subheading">－Chẩn đoán phân biệt từ lời khai của bệnh nhân</span></span>',
             desc: '<span class="lang-ja">発熱・頭痛・咳嗽に対する主観的病歴聴取と客観的診察プロセスを説明できる。</span><span class="lang-vi">Giải thích được quy trình khám thực thể khách quan và khai thác bệnh sử chủ quan đối với sốt, đau đầu, ho.</span>'
         },
-        sbo312: {
-            chapter: '章3 臨床医学へのアプローチ',
-            gio: 'GIO 3.1 診断と治療のプロセス',
-            badge: 'SBO 3.1.2',
+        sbo412: {
+            chapter: '章4 臨床医学へのアプローチ',
+            gio: 'GIO 4.1 診断と治療のプロセス',
+            badge: 'SBO 4.1.2',
             title: '<span class="lang-ja">臨床推論チャレンジ<br><span class="hero-subheading">－緊急疾患の早期鑑別と意思決定</span></span><span class="lang-vi">Thách thức suy luận lâm sàng<br><span class="hero-subheading">－Phân biệt sớm bệnh khẩn cấp và đưa ra quyết định</span></span>',
             desc: '<span class="lang-ja">胸痛を主訴とする患者に対する正確な診断ステップと臨床の論理的推論を説明できる。</span><span class="lang-vi">Giải thích được các bước chẩn đoán chính xác và suy luận lâm sàng logic đối với bệnh nhân bị đau ngực.</span>'
         }
@@ -367,7 +409,6 @@
     const crumbSbo = document.getElementById('crumb-sbo');
     const heroChapBadge = document.getElementById('hero-chap-badge');
     const heroGioBadge = document.getElementById('hero-gio-badge');
-    const heroSboBadge = document.getElementById('hero-sbo-badge');
     const heroMainTitle = document.getElementById('hero-main-title');
     const heroSubDesc = document.getElementById('hero-sub-desc');
 
@@ -398,7 +439,7 @@
 
         crumbChap.textContent = data.chapter;
         crumbGio.textContent = data.gio;
-        crumbSbo.textContent = `${data.badge} ${link.querySelector('.sbo-name').textContent}`;
+        crumbSbo.textContent = link.querySelector('.sbo-name').textContent;
 
         const heroContainer = document.querySelector('#hero .container');
         heroContainer.style.opacity = '0.3';
@@ -406,7 +447,6 @@
         setTimeout(() => {
             heroChapBadge.textContent = data.chapter;
             heroGioBadge.textContent = data.gio;
-            heroSboBadge.textContent = data.badge;
             heroMainTitle.innerHTML = data.title;
             heroSubDesc.innerHTML = data.desc;
             heroContainer.style.opacity = '1';
@@ -666,45 +706,516 @@
     window.updateOathScore = updateOathScore;
 
 
-    // --- 9. SBO 1.2.2: Communication Rapport Dialogue Logic ---
-    const commBtns = document.querySelectorAll('.comm-btn');
-    const commFeedback = document.getElementById('comm-feedback');
-    const commFeedbackHeading = document.getElementById('comm-feedback-heading');
-    const commFeedbackBody = document.getElementById('comm-feedback-body');
+    // --- 9. SBO 1.2.2: Transparent Vault Interactive Logic ---
 
-    const commFeedbackData = {
-        '10': {
-            heading: '評価: 機械的 / 不十分な共感 (Score: 10/30)',
-            body: '生存率のデータのみを提示して安心させようとする姿勢は、患者の抱える心理的不安や個別性を無視したアプローチとなり、むしろ患者の孤独感や防衛反応を強めてしまいます。データよりまず感情を受け止めることが優先されます。'
+    // 9a. SBO 1.2.2 Pillar Selector Logic
+    const sbo122PillarSegments = document.querySelectorAll('[data-sbo122-pillar]');
+    const sbo122PillarTitle = document.getElementById('sbo122-pillar-title');
+    const sbo122PillarBody = document.getElementById('sbo122-pillar-body');
+    const sbo122PillarTip = document.getElementById('sbo122-pillar-tip');
+
+    const sbo122PillarsData = {
+        access: {
+            title: {
+                ja: '<i class="fa-solid fa-folder-open"></i> アクセス権 (Access Right)',
+                vi: '<i class="fa-solid fa-folder-open"></i> Quyền truy cập (Access Right)'
+            },
+            body: {
+                ja: '自己情報の「開示」を求める権利です。カルテ（診療録）や検査データ、画像等、自己の健康や診療に関するすべての情報を閲覧し、請求（コピー等の交付）することができます。',
+                vi: 'Quyền yêu cầu "công khai" thông tin của bản thân. Người bệnh có quyền xem và yêu cầu cung cấp bản sao của tất cả các thông tin liên quan đến sức khỏe và điều trị của mình, bao gồm bệnh án, dữ liệu xét nghiệm và chẩn đoán hình ảnh.'
+            },
+            tip: {
+                ja: '<strong>実務の鍵：</strong> 診療記録開示ガイドラインに基づき、原則すべての開示に対応します。',
+                vi: '<strong>Từ khóa thực tế:</strong> Dựa trên hướng dẫn công khai bệnh án, cơ sở y tế về nguyên tắc phải phản hồi tất cả các yêu cầu.'
+            },
+            color: 'var(--accent-teal)'
         },
-        '20': {
-            heading: '評価: 早すぎる解決策の提示 (Score: 20/30)',
-            body: '薬物の処方は一時的な対応策にはなりますが、患者が「不安である」と告白した背景にある個人のストーリーや生活への懸念を引き出す対話のプロセスが省略されています。薬を出す前に、まず感情に共感を示すことが基本です。'
+        control: {
+            title: {
+                ja: '<i class="fa-solid fa-sliders"></i> 制御権 (Control Right)',
+                vi: '<i class="fa-solid fa-sliders"></i> Quyền kiểm soát (Control Right)'
+            },
+            body: {
+                ja: '自己に関する情報の「流通」を支配する権利です。目的外利用の拒否、本人の同意のない第三者提供の差し止め請求、情報の破棄等を求めることができます。',
+                vi: 'Quyền kiểm soát "sự lưu thông" thông tin liên quan đến bản thân. Bệnh nhân có quyền từ chối sử dụng thông tin ngoài mục đích công bố, yêu cầu dừng cung cấp cho bên thứ ba khi chưa đồng ý, hoặc yêu cầu hủy bỏ thông tin.'
+            },
+            tip: {
+                ja: '<strong>実務の鍵：</strong> 第三者提供の制限（オプトイン必須）や目的外利用の禁止を管理します。',
+                vi: '<strong>Từ khóa thực tế:</strong> Quản lý chặt chẽ việc giới hạn cung cấp cho bên thứ ba (bắt buộc Opt-in) và cấm sử dụng ngoài mục đích.'
+            },
+            color: 'var(--accent-gold)'
         },
-        '30': {
-            heading: '評価: 卓越した共感・アクティブリスニング (Score: 30/30) [最適解]',
-            body: '正解です！患者の「生活が不安である」という発言を正確にリフレクション（反射・オウム返し）し、自身の共感的態度を表明した上で、オープンクエスチョンを用いて患者が具体的な不安を語るための場を開く優れたアプローチです。ラポール形成の基本です。'
+        correction: {
+            title: {
+                ja: '<i class="fa-solid fa-file-pen"></i> 訂正権 (Correction Right)',
+                vi: '<i class="fa-solid fa-file-pen"></i> Quyền hiệu đính (Correction Right)'
+            },
+            body: {
+                ja: '誤った情報や不完全な記録に対して「訂正・追加・削除」を求める権利です。プライバシーの保護や不利益の防止、自己の尊厳を守るために不可欠です。',
+                vi: 'Quyền yêu cầu "hiệu đính, bổ sung hoặc xóa bỏ" đối với các thông tin sai lệch hoặc hồ sơ không hoàn chỉnh. Điều này là tối quan trọng để bảo vệ quyền riêng tư, tránh các bất lợi và bảo vệ nhân phẩm.'
+            },
+            tip: {
+                ja: '<strong>実務の鍵：</strong> 事実関係の検証に基づき、カルテ等の客観的誤記や虚偽記載の速やかな訂正に応じます。',
+                vi: '<strong>Từ khóa thực tế:</strong> Dựa trên việc kiểm chứng các dữ kiện thực tế, nhanh chóng hiệu đính các lỗi nhập liệu khách quan hoặc ghi chép sai lệch trong bệnh án.'
+            },
+            color: '#ef4444'
         }
     };
 
-    commBtns.forEach(btn => {
-        btn.addEventListener('click', () => {
-            commBtns.forEach(b => b.classList.remove('active'));
-            btn.classList.add('active');
+    function updateSbo122Pillar() {
+        const isVi = document.body.classList.contains('lang-vi');
+        const activeSegment = document.querySelector('[data-sbo122-pillar].active');
+        if (activeSegment) {
+            const key = activeSegment.getAttribute('data-sbo122-pillar');
+            const data = sbo122PillarsData[key];
+            if (data && sbo122PillarTitle && sbo122PillarBody) {
+                sbo122PillarTitle.innerHTML = isVi ? data.title.vi : data.title.ja;
+                sbo122PillarTitle.style.color = data.color;
+                sbo122PillarBody.textContent = isVi ? data.body.vi : data.body.ja;
+                if (sbo122PillarTip) {
+                    sbo122PillarTip.style.borderLeftColor = data.color;
+                    const tipIcon = sbo122PillarTip.querySelector('i');
+                    if (tipIcon) tipIcon.style.color = data.color;
+                    const tipSpan = sbo122PillarTip.querySelector('span');
+                    if (tipSpan) tipSpan.innerHTML = isVi ? data.tip.vi : data.tip.ja;
+                }
+            }
+        }
+    }
 
-            const scoreKey = btn.getAttribute('data-score');
-            const data = commFeedbackData[scoreKey];
+    sbo122PillarSegments.forEach(segment => {
+        segment.addEventListener('click', () => {
+            sbo122PillarSegments.forEach(s => s.classList.remove('active'));
+            segment.classList.add('active');
 
-            if (data && commFeedback) {
-                commFeedback.style.display = 'block';
-                commFeedbackHeading.textContent = data.heading;
-                commFeedbackBody.innerHTML = data.body;
+            const infoCard = document.getElementById('sbo122-pillar-info-card');
+            if (infoCard) {
+                infoCard.style.opacity = '0.3';
+                setTimeout(() => {
+                    updateSbo122Pillar();
+                    infoCard.style.opacity = '1';
+                }, 200);
+            } else {
+                updateSbo122Pillar();
             }
         });
     });
 
+    window.updateSbo122Pillar = updateSbo122Pillar;
 
-    // --- 10. SBO 2.1.1: Organ Systems Selector Logic ---
+
+    // 9b. SBO 1.2.2 Disclosure Flowchart Simulator Logic
+    const simYesBtn = document.getElementById('sbo122-sim-yes');
+    const simNoBtn = document.getElementById('sbo122-sim-no');
+    const simFeedback = document.getElementById('sbo122-sim-feedback');
+
+    const simResponses = {
+        yes: {
+            title: {
+                ja: '【例外措置】開示の保留・配慮（開示制限）',
+                vi: '【Biện pháp Ngoại lệ】 Tạm hoãn / Cân nhắc công khai (Hạn chế công khai)'
+            },
+            body: {
+                ja: '正解です！患者の「知る権利」は非常に強力ですが、絶対的なものではありません。情報の開示により、患者本人に重大な心理的悪影響（病状の激変、絶望による自傷他害の恐れ等）を及ぼすことが明らかである場合は、例外措置として一時的に開示を保留・制限することが法的に認められています。スタッフ（主治医や多職種）の意見を聴き、慎重に決定します。',
+                vi: 'Chính xác! Quyền được biết của bệnh nhân rất mạnh mẽ nhưng không phải là tuyệt đối. Nếu việc công khai thông tin rõ ràng có nguy cơ gây ra tác động tâm lý tiêu cực nghiêm trọng cho bệnh nhân (làm bệnh tình chuyển biến xấu, nguy cơ tự hại hoặc hại người khác do tuyệt vọng, v.v.), pháp luật cho phép tạm hoãn hoặc hạn chế công khai như một biện pháp ngoại lệ. Cần tham khảo ý kiến của nhân viên y tế (bác sĩ điều trị và hội đồng đa ngành) trước khi đưa ra quyết định cẩn trọng.'
+            },
+            background: 'rgba(239, 68, 68, 0.1)',
+            border: '1px solid #ef4444'
+        },
+        no: {
+            title: {
+                ja: '【適切な開示の実行】原則開示の遵守',
+                vi: '【Thực thi công khai phù hợp】 Tuân thủ nguyên tắc công khai'
+            },
+            body: {
+                ja: '正解です！重大な悪影響を及ぼす恐れがない限り、開示請求には原則としてすべて応じます（知る権利・アクセス権の保障）。必要に応じて職員が介入して専門的な内容の説明を補足し、所定の手続き（本人確認等）を経て写し（カルテコピー等）を速やかに提供します。',
+                vi: 'Chính xác! Trừ khi có nguy cơ gây ảnh hưởng tiêu cực nghiêm trọng, về nguyên tắc cơ sở y tế phải đáp ứng tất cả các yêu cầu công khai (bảo đảm quyền được biết và quyền truy cập). Nhân viên y tế sẽ can thiệp để giải thích bổ sung các nội dung chuyên môn nếu cần, và nhanh chóng cung cấp bản sao (bản chụp hồ sơ bệnh án, v.v.) sau khi thực hiện các thủ tục quy định (xác minh danh tính, v.v.).'
+            },
+            background: 'rgba(6, 182, 212, 0.1)',
+            border: '1px solid var(--accent-teal)'
+        }
+    };
+
+    function handleSimClick(choice, event) {
+        const btn = event.currentTarget;
+        const container = btn.closest('.simulator-box');
+        if (!container) return;
+        const yesBtn = container.querySelector('#sbo122-sim-yes, #sbo112-sim-yes');
+        const noBtn = container.querySelector('#sbo122-sim-no, #sbo112-sim-no');
+        const feedback = container.querySelector('.simulator-feedback');
+        if (!feedback) return;
+
+        const isVi = document.body.classList.contains('lang-vi');
+        const data = simResponses[choice];
+
+        if (choice === 'yes') {
+            if (yesBtn) yesBtn.classList.add('active');
+            if (noBtn) noBtn.classList.remove('active');
+        } else {
+            if (noBtn) noBtn.classList.add('active');
+            if (yesBtn) yesBtn.classList.remove('active');
+        }
+
+        feedback.style.display = 'block';
+        feedback.style.background = data.background;
+        feedback.style.border = data.border;
+        
+        feedback.innerHTML = `
+            <h4 style="font-weight: bold; margin-top: 0; color: ${choice === 'yes' ? '#fca5a5' : '#a5f3fc'};">
+                <i class="fa-solid ${choice === 'yes' ? 'fa-triangle-exclamation' : 'fa-circle-check'}"></i> 
+                ${isVi ? data.title.vi : data.title.ja}
+            </h4>
+            <p class="small-desc" style="margin: 0; line-height: 1.6; color: var(--text-secondary);">
+                ${isVi ? data.body.vi : data.body.ja}
+            </p>
+        `;
+    }
+
+    const allSimYes = document.querySelectorAll('#sbo122-sim-yes, #sbo112-sim-yes');
+    const allSimNo = document.querySelectorAll('#sbo122-sim-no, #sbo112-sim-no');
+
+    allSimYes.forEach(btn => {
+        btn.addEventListener('click', (e) => handleSimClick('yes', e));
+    });
+    allSimNo.forEach(btn => {
+        btn.addEventListener('click', (e) => handleSimClick('no', e));
+    });
+
+
+    // 9c. SBO 1.2.2: 8 Legal Duties Timeline Step Interaction
+    const stepDots = document.querySelectorAll('[data-sbo122-step]');
+    const sbo122StepTitle = document.getElementById('sbo122-step-title');
+    const sbo122StepPhase = document.getElementById('sbo122-step-phase');
+    const sbo122StepDesc = document.getElementById('sbo122-step-desc');
+
+    const sbo122StepsData = {
+        '1': {
+            title: { ja: '1. 利用目的の特定・通知', vi: '1. Xác định & Thông báo mục đích sử dụng' },
+            phase: { ja: '取得フェーズ', vi: 'Giai đoạn Thu thập' },
+            phaseClass: 'tag-red',
+            desc: {
+                ja: '患者データの利用目的（診療、家族への説明、会計業務等）を具体的に特定し、院内掲示やホームページで公表します。特定された範囲を超えて利用する場合は、原則として患者本人の同意が必須となります。',
+                vi: 'Xác định cụ thể mục đích sử dụng dữ liệu bệnh nhân (điều trị, giải thích cho gia đình, nghiệp vụ thanh toán, v.v.) và công bố tại bảng tin bệnh viện hoặc trang web. Trường hợp sử dụng vượt quá phạm vi đã công bố, về nguyên tắc phải có sự đồng ý của bệnh nhân.'
+            }
+        },
+        '2': {
+            title: { ja: '2. 適正な取得', vi: '2. Thu nhập hợp lệ' },
+            phase: { ja: '取得フェーズ', vi: 'Giai đoạn Thu thập' },
+            phaseClass: 'tag-red',
+            desc: {
+                ja: '偽りその他不正な手段によって個人情報を取得してはなりません。また、医療分野においては病歴等の要配慮個人情報を取得するため、原則オプトイン（事前同意）による適正な手順を踏むことが義務付けられています。',
+                vi: 'Không được thu thập thông tin cá nhân bằng các thủ đoạn gian lận hoặc bất hợp pháp. Ngoài ra, trong y tế, khi thu thập thông tin nhạy cảm như lịch sử bệnh án, việc thực hiện đúng quy trình thông qua cơ chế Opt-in (đồng ý trước) là bắt buộc.'
+            }
+        },
+        '3': {
+            title: { ja: '3. 正確性の確保', vi: '3. Đảm bảo tính chính xác' },
+            phase: { ja: '運用・保管フェーズ', vi: 'Giai đoạn Vận hành/Lưu trữ' },
+            phaseClass: 'tag-gold',
+            desc: {
+                ja: '提供する医療の質や安全を担保するため、患者の個人データを正確かつ最新の内容に保つよう努めなければなりません。カルテへの誤記や検査結果の取り違え等は重大な医療事故に直結します。',
+                vi: 'Duy trì dữ liệu cá nhân của bệnh nhân chính xác và cập nhật mới nhất để đảm bảo chất lượng và an toàn y tế. Lỗi ghi chép bệnh án hoặc nhầm lẫn kết quả xét nghiệm sẽ trực tiếp dẫn đến các tai nạn y khoa nghiêm trọng.'
+            }
+        },
+        '4': {
+            title: { ja: '4. 安全管理措置', vi: '4. Biện pháp quản lý an toàn' },
+            phase: { ja: '運用・保管フェーズ', vi: 'Giai đoạn Vận hành/Lưu trữ' },
+            phaseClass: 'tag-gold',
+            desc: {
+                ja: '個人データの漏洩、滅失、改ざんを防止するため、必要かつ適切な安全管理措置（技術的・物理的・組織的な多層防御）を講じる義務があります。システムログの監視やアクセス権限の厳格化が含まれます。',
+                vi: 'Có nghĩa vụ áp dụng các biện pháp quản lý an toàn cần thiết và phù hợp (phòng thủ đa tầng về mặt kỹ thuật, vật lý và tổ chức) nhằm ngăn chặn việc rò rỉ, mất mát hoặc sửa đổi trái phép dữ liệu cá nhân. Bao gồm giám sát log hệ thống và phân quyền truy cập chặt chẽ.'
+            }
+        },
+        '5': {
+            title: { ja: '5. 苦情対応体制', vi: '5. Tiếp nhận & Giải quyết khiếu nại' },
+            phase: { ja: '運用・保管フェーズ', vi: 'Giai đoạn Vận hành/Lưu trữ' },
+            phaseClass: 'tag-gold',
+            desc: {
+                ja: '個人情報の取り扱いに関する苦情の適切かつ迅速な処理に努める義務があります。院内に相談窓口を設置し、手続きを分かりやすく明示することが求められます。',
+                vi: 'Có nghĩa vụ nỗ lực xử lý phù hợp và nhanh chóng các khiếu nại liên quan đến việc xử lý thông tin cá nhân. Bệnh viện cần thiết lập ban/quầy tư vấn chuyên trách và nêu rõ quy trình xử lý để người bệnh dễ tiếp cận.'
+            }
+        },
+        '6': {
+            title: { ja: '6. 開示・訂正対応', vi: '6. Xử lý yêu cầu công khai/hiệu đính' },
+            phase: { ja: '運用・保管フェーズ', vi: 'Giai đoạn Vận hành/Lưu trữ' },
+            phaseClass: 'tag-gold',
+            desc: {
+                ja: '患者本人からのカルテ開示、誤記の訂正、利用停止等の請求に対して、法的な基準に則って適切かつ誠実に対応する義務があります。拒否する場合は合理的な理由の説明が必要です。',
+                vi: 'Có nghĩa vụ phản hồi phù hợp và trung thực theo tiêu chuẩn pháp lý đối với các yêu cầu từ bệnh nhân về công khai bệnh án, hiệu đính sai sót, hoặc tạm dừng sử dụng thông tin. Trường hợp từ chối cần có giải trình lý do hợp lý.'
+            }
+        },
+        '7': {
+            title: { ja: '7. 外部提供の制限', vi: '7. Hạn chế cung cấp ra bên ngoài' },
+            phase: { ja: '提供・破棄フェーズ', vi: 'Giai đoạn Cung cấp/Hủy bỏ' },
+            phaseClass: 'tag-teal',
+            desc: {
+                ja: '委託先の適切な監督を行うとともに、本人の事前同意を得ない第三者提供の制限ルールを厳守する義務があります。要配慮個人情報であるため、通常の個人情報で認められるオプトアウト提供は不可です。',
+                vi: 'Có nghĩa vụ giám sát phù hợp bên nhận ủy thác công việc và tuân thủ nghiêm ngặt quy định hạn chế cung cấp cho bên thứ ba khi chưa có sự đồng ý của bản thân. Vì là thông tin cá nhân đặc biệt nhạy cảm, cơ chế tự động cung cấp Opt-out thông thường không được áp dụng.'
+            }
+        },
+        '8': {
+            title: { ja: '8. 不要データの消去', vi: '8. Xóa dữ liệu không cần thiết' },
+            phase: { ja: '提供・破棄フェーズ', vi: 'Giai đoạn Cung cấp/Hủy bỏ' },
+            phaseClass: 'tag-teal',
+            desc: {
+                ja: '法令（医師法等）で義務付けられた法定保存期間（カルテは完結の日から5年間、病院日誌は2年間等）を過ぎ、利用する必要がなくなった個人データは、速やかに、かつ復元不可能な方法で廃棄・消去しなければなりません。',
+                vi: 'Sự hoàn thành của dữ liệu cá nhân sau khi hết thời hạn lưu trữ theo luật định (bệnh án lưu trữ ít nhất 5 năm kể từ ngày điều trị xong, nhật ký bệnh viện lưu trữ 2 năm, v.v.) và không còn nhu cầu sử dụng, cơ sở y tế phải nhanh chóng tiêu hủy/xóa bỏ dữ liệu cá nhân đó bằng phương pháp không thể khôi phục.'
+            }
+        }
+    };
+
+    function updateSbo122Step() {
+        const isVi = document.body.classList.contains('lang-vi');
+        const activeDot = document.querySelector('.step-dot.active');
+        if (activeDot) {
+            const stepNum = activeDot.getAttribute('data-sbo122-step');
+            const data = sbo122StepsData[stepNum];
+            if (data && sbo122StepTitle && sbo122StepPhase && sbo122StepDesc) {
+                sbo122StepTitle.textContent = isVi ? data.title.vi : data.title.ja;
+                sbo122StepPhase.className = `node-tag ${data.phaseClass}`;
+                sbo122StepPhase.innerHTML = `
+                    <span class="lang-ja">${data.phase.ja}</span>
+                    <span class="lang-vi">${data.phase.vi}</span>
+                `;
+                sbo122StepDesc.textContent = isVi ? data.desc.vi : data.desc.ja;
+            }
+        }
+    }
+
+    stepDots.forEach(dot => {
+        dot.addEventListener('click', () => {
+            stepDots.forEach(d => {
+                d.classList.remove('active');
+                d.style.borderColor = 'rgba(255,255,255,0.1)';
+            });
+            dot.classList.add('active');
+            dot.style.borderColor = 'var(--accent-teal)';
+
+            const stepCard = document.getElementById('sbo122-step-card');
+            if (stepCard) {
+                stepCard.style.opacity = '0.3';
+                setTimeout(() => {
+                    updateSbo122Step();
+                    stepCard.style.opacity = '1';
+                }, 200);
+            } else {
+                updateSbo122Step();
+            }
+        });
+    });
+
+    window.updateSbo122Step = updateSbo122Step;
+
+
+    // --- SBO 1.2.3: Interactive Matrix and Stepper Logic ---
+    const sbo123MatrixData = {
+        paternalism: {
+            headerJa: 'パターナリズム (父権主義) の特徴',
+            headerVi: 'Đặc trưng Chủ nghĩa gia trưởng (Paternalism)',
+            rows: [
+                {
+                    labelJa: '意思決定者',
+                    labelVi: 'Người quyết định',
+                    valJa: '医師（「医師がすべてを決定し、指示する」）',
+                    valVi: 'Bác sĩ ("Bác sĩ quyết định tất cả và chỉ định")'
+                },
+                {
+                    labelJa: '情報の流れ',
+                    labelVi: 'Luồng thông tin',
+                    valJa: '医療者による情報の独占と不透明性',
+                    valVi: 'Độc quyền thông tin bởi nhân viên y tế, thiếu minh bạch'
+                },
+                {
+                    labelJa: '患者の役割',
+                    labelVi: 'Vai trò bệnh nhân',
+                    valJa: '受動的なサービス受け手・指示への従属',
+                    valVi: 'Người nhận dịch vụ thụ động, tuân thủ chỉ định'
+                },
+                {
+                    labelJa: '関係性の基盤',
+                    labelVi: 'Nền tảng quan hệ',
+                    valJa: '医師の「守秘義務」と「裁量権」',
+                    valVi: 'Nghĩa vụ bảo mật và quyền tự quyết/tự ý của bác sĩ'
+                }
+            ]
+        },
+        'patient-centered': {
+            headerJa: '患者中心の医療 (共創の医療) の特徴',
+            headerVi: 'Đặc trưng Y tế lấy bệnh nhân làm trung tâm',
+            rows: [
+                {
+                    labelJa: '意思決定者',
+                    labelVi: 'Người quyết định',
+                    valJa: '患者と医療者の共同意思決定 (インフォームド・チョイス/SDM)',
+                    valVi: 'Quyết định chung giữa bệnh nhân và y bác sĩ (Informed Choice / SDM)'
+                },
+                {
+                    labelJa: '情報の流れ',
+                    labelVi: 'Luồng thông tin',
+                    valJa: '積極的な情報開示と透明性の確保 (自己情報コントロール権)',
+                    valVi: 'Công khai thông tin tích cực, minh bạch (Quyền tự kiểm soát thông tin)'
+                },
+                {
+                    labelJa: '患者の役割',
+                    labelVi: 'Vai trò bệnh nhân',
+                    valJa: '医療チームの能動的な一員としての参画 (Patient Engagement)',
+                    valVi: 'Tham gia tích cực với vai trò thành viên của đội ngũ y tế (Patient Engagement)'
+                },
+                {
+                    labelJa: '関係性の基盤',
+                    labelVi: 'Nền tảng quan hệ',
+                    valJa: '「患者の権利」の尊重と相互のパートナーシップ',
+                    valVi: 'Tôn trọng "Quyền của bệnh nhân" và quan hệ đối tác song phương'
+                }
+            ]
+        }
+    };
+
+    const sbo123StepsData = {
+        '1': {
+            titleJa: 'Step 1: 事実に基づく説明',
+            titleVi: 'Bước 1: Giải thích dựa trên sự thật',
+            descJa: '疾患名、進行度、治療プロセス、生じうる合併症・副作用のリスク、および代替療法（治療を行わない選択肢も含む）に関する客観的な情報の提供。',
+            descVi: 'Cung cấp thông tin khách quan về tên bệnh, giai đoạn, quy trình điều trị, rủi ro biến chứng/tác dụng phụ có thể xảy ra, và các giải pháp thay thế (bao gồm cả lựa chọn không điều trị).'
+        },
+        '2': {
+            titleJa: 'Step 2: 十分な理解の促進',
+            titleVi: 'Bước 2: Thúc đẩy thấu hiểu đầy đủ',
+            descJa: '専門用語や一方的な説明を排除し、図や資料を用いて患者と家族が現状を正しく、かつ十分理解できるよう双方向で確認するプロセス。',
+            descVi: 'Loại bỏ thuật ngữ chuyên môn hoặc giải thích một chiều, sử dụng hình vẽ và tài liệu để bệnh nhân và gia đình hiểu đúng và đủ về thực trạng thông qua tương tác hai chiều.'
+        },
+        '3': {
+            titleJa: 'Step 3: 未来の展望と人生観の照らし合わせ',
+            titleVi: 'Bước 3: Đối chiếu triển vọng tương lai với nhân sinh quan',
+            descJa: '理解した客観的な事実（治療リスクや予後）を、患者自身が大切にする「生活の質(QOL)」、「家族との時間」、「仕事」などの固有の価値観と照らし合わせる。',
+            descVi: 'Đối chiếu các sự thật khách quan đã hiểu (rủi ro điều trị, tiên lượng) với các giá trị riêng biệt của bệnh nhân như "chất lượng cuộc sống (QOL)", "thời gian bên gia đình", "công việc".'
+        },
+        '4': {
+            titleJa: 'Step 4: 主体的な自己決定と同意',
+            titleVi: 'Bước 4: Chủ động tự quyết định và đồng thuận',
+            descJa: '医療者からの提案をそのまま受け入れるのではなく、自らの意思で最も納得のいく医療行為に同意、あるいは拒否・選択する共同意思決定（Shared Decision Making）。',
+            descVi: 'Không chỉ nhận đề xuất từ y bác sĩ một cách thụ động, mà bằng ý chí của mình, đồng ý hoặc từ chối, chọn phương án y tế hài lòng nhất (Shared Decision Making).'
+        }
+    };
+
+    const sbo123TabBtns = document.querySelectorAll('.sbo123-tab-btn');
+    const sbo123MatrixHeader = document.getElementById('sbo123-matrix-header');
+    const sbo123MatrixBody = document.getElementById('sbo123-matrix-body');
+
+    function updateSbo123Matrix() {
+        const activeTabBtn = document.querySelector('.sbo123-tab-btn.active');
+        if (!activeTabBtn || !sbo123MatrixBody) return;
+        const isVi = document.body.classList.contains('lang-vi');
+        const tab = activeTabBtn.getAttribute('data-tab');
+        const data = sbo123MatrixData[tab];
+
+        if (data) {
+            if (sbo123MatrixHeader) {
+                sbo123MatrixHeader.textContent = isVi ? data.headerVi : data.headerJa;
+            }
+            sbo123MatrixBody.innerHTML = '';
+            data.rows.forEach(row => {
+                const tr = document.createElement('tr');
+                tr.style.borderBottom = '1px solid rgba(255, 255, 255, 0.05)';
+                tr.innerHTML = `
+                    <td style="padding: 12px; font-weight: bold; color: #94a3b8;">
+                        <span class="lang-ja">${row.labelJa}</span>
+                        <span class="lang-vi">${row.labelVi}</span>
+                    </td>
+                    <td style="padding: 12px; color: #e2e8f0;">
+                        <span class="lang-ja">${row.valJa}</span>
+                        <span class="lang-vi">${row.valVi}</span>
+                    </td>
+                `;
+                sbo123MatrixBody.appendChild(tr);
+            });
+            // trigger translation toggle on new elements
+            document.querySelectorAll('#sbo123-matrix-body .lang-ja').forEach(el => {
+                el.style.display = isVi ? 'none' : 'inline-block';
+            });
+            document.querySelectorAll('#sbo123-matrix-body .lang-vi').forEach(el => {
+                el.style.display = isVi ? 'inline-block' : 'none';
+            });
+        }
+    }
+
+    sbo123TabBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            sbo123TabBtns.forEach(b => {
+                b.classList.remove('active');
+                b.style.background = 'rgba(255, 255, 255, 0.05)';
+                b.style.borderColor = 'rgba(255, 255, 255, 0.1)';
+                b.style.color = '#e2e8f0';
+            });
+            btn.classList.add('active');
+            const tab = btn.getAttribute('data-tab');
+            if (tab === 'paternalism') {
+                btn.style.background = 'rgba(239, 68, 68, 0.2)';
+                btn.style.borderColor = '#ef4444';
+                btn.style.color = '#ef4444';
+            } else {
+                btn.style.background = 'rgba(16, 185, 129, 0.2)';
+                btn.style.borderColor = '#10b981';
+                btn.style.color = '#10b981';
+            }
+            updateSbo123Matrix();
+        });
+    });
+
+    const icSteps = document.querySelectorAll('.ic-step');
+    const icProgress = document.getElementById('ic-progress');
+    const icStepTitle = document.getElementById('ic-step-title');
+    const icStepDesc = document.getElementById('ic-step-desc');
+
+    function updateSbo123Step() {
+        const isVi = document.body.classList.contains('lang-vi');
+        const activeStep = document.querySelector('.ic-step.active');
+        if (activeStep) {
+            const stepNum = activeStep.getAttribute('data-step');
+            const data = sbo123StepsData[stepNum];
+            if (data && icStepTitle && icStepDesc) {
+                icStepTitle.textContent = isVi ? data.titleVi : data.titleJa;
+                icStepDesc.textContent = isVi ? data.descVi : data.descJa;
+            }
+            if (icProgress) {
+                const percent = ((parseInt(stepNum) - 1) / 3) * 100;
+                icProgress.style.width = `${percent}%`;
+            }
+        }
+    }
+
+    icSteps.forEach(step => {
+        step.addEventListener('click', () => {
+            icSteps.forEach(s => {
+                s.classList.remove('active');
+                s.querySelector('.step-num').style.borderColor = 'rgba(255,255,255,0.1)';
+                s.querySelector('.step-num').style.color = '#94a3b8';
+            });
+            step.classList.add('active');
+            step.querySelector('.step-num').style.borderColor = '#3b82f6';
+            step.querySelector('.step-num').style.color = '#3b82f6';
+
+            const stepCard = document.getElementById('ic-step-card');
+            if (stepCard) {
+                stepCard.style.opacity = '0.3';
+                setTimeout(() => {
+                    updateSbo123Step();
+                    stepCard.style.opacity = '1';
+                }, 200);
+            } else {
+                updateSbo123Step();
+            }
+        });
+    });
+
+    // Initialize SBO 1.2.3 components
+    updateSbo123Matrix();
+    updateSbo123Step();
+
+    window.updateSbo123Matrix = updateSbo123Matrix;
+    window.updateSbo123Step = updateSbo123Step;
+
+
+    // --- 10. SBO 3.1.1: Organ Systems Selector Logic ---
     const systemSegments = document.querySelectorAll('[data-system]');
     const systemTitle = document.getElementById('system-title');
     const systemBody = document.getElementById('system-body');
@@ -745,7 +1256,7 @@
     });
 
 
-    // --- 11. SBO 2.1.2: Temperature Homeostasis Slider ---
+    // --- 11. SBO 3.1.2: Temperature Homeostasis Slider ---
     const tempSlider = document.getElementById('temp-slider');
     const tempGlow = document.getElementById('temp-glow');
     const tempStatusTitle = document.getElementById('temp-status-title');
@@ -792,7 +1303,7 @@
     }
 
 
-    // --- 12. SBO 3.1.1: Clinical Symptom Guide ---
+    // --- 12. SBO 4.1.1: Clinical Symptom Guide ---
     const symptomSegments = document.querySelectorAll('[data-symptom]');
     const symptomTitle = document.getElementById('symptom-title');
     const symptomBody = document.getElementById('symptom-body');
@@ -833,7 +1344,7 @@
     });
 
 
-    // --- 13. SBO 3.1.2: Clinical Reasoning Solver ---
+    // --- 13. SBO 4.1.2: Clinical Reasoning Solver ---
     const reasoningBtns = document.querySelectorAll('.reasoning-btn');
     const reasoningFeedback = document.getElementById('reasoning-feedback');
     const reasonFeedbackHeading = document.getElementById('reason-feedback-heading');
