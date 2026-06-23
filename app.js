@@ -337,49 +337,49 @@ document.addEventListener('DOMContentLoaded', () => {
         },
         sbo121: {
             chapter: 'Chapter 1 医学・医療総論',
-            gio: 'GIO 1.2 医師のプロフェッショナリズム',
+            gio: 'GIO 1.2 医の倫理',
             badge: 'SBO 1.2.1',
             title: '<span class="lang-ja">医の倫理の変遷<br><span class="hero-subheading">－歴史的規範と現代的展開</span></span><span class="lang-vi">Lịch sử biến đổi của y đức<br><span class="hero-subheading">－Chuẩn mực lịch sử và sự phát triển hiện đại</span></span>',
             desc: '<span class="lang-ja">ヒポクラテスの誓い、ジュネーブ宣言、ヘルシンキ宣言、リスボン宣言などの変遷を説明できる。</span><span class="lang-vi">Có thể giải thích sự phát triển lịch sử của đạo đức y khoa (Lời thề Hippocrates, Tuyên ngôn Geneva, Tuyên ngôn Helsinki, Tuyên ngôn Lisbon, v.v.).</span>'
         },
         sbo122: {
             chapter: 'Chapter 1 医学・医療総論',
-            gio: 'GIO 1.2 医師のプロフェッショナリズム',
+            gio: 'GIO 1.2 医の倫理',
             badge: 'SBO 1.2.2',
             title: '<span class="lang-ja">個人情報保護と情報開示<br><span class="hero-subheading">－消極的から積極的プライバシーへ</span></span><span class="lang-vi">Bảo vệ thông tin cá nhân và công bố thông tin<br><span class="hero-subheading">－Từ quyền riêng tư thụ động sang chủ động</span></span>',
             desc: '<span class="lang-ja">個人情報の保護と開示の重要性を理解し、アクセス権、支配・制御権、訂正権について説明できる。</span><span class="lang-vi">Hiểu được tầm quan trọng của việc bảo vệ và công bố thông tin cá nhân, có thể giải thích về quyền truy cập, kiểm soát và chỉnh sửa.</span>'
         },
         sbo123: {
             chapter: 'Chapter 1 医学・医療総論',
-            gio: 'GIO 1.2 医師のプロフェッショナリズム',
+            gio: 'GIO 1.2 医の倫理',
             badge: 'SBO 1.2.3',
             title: '<span class="lang-ja">患者が参画する医療<br><span class="hero-subheading">－自己決定・インフォームドコンセント・チーム医療</span></span><span class="lang-vi">Y tế với sự tham gia của bệnh nhân<br><span class="hero-subheading">－Tự quyết định, đồng thuận và điều trị nhóm</span></span>',
             desc: '<span class="lang-ja">患者の権利、インフォームドコンセント、セカンドオピニオン、多職種連携を説明できる。</span><span class="lang-vi">Có thể giải thích về quyền của bệnh nhân, đồng thuận (Informed Consent), ý kiến thứ hai (Second Opinion) và sự hợp tác đa ngành.</span>'
         },
         sbo211: {
             chapter: 'Chapter 2 保健・医療・福祉と社会の関わり',
-            gio: 'GIO 2.1 社会保障・医療提供体制',
+            gio: 'GIO 2.1 保健・医療・福祉の制度と運営',
             badge: 'SBO 2.1.1',
             title: '<span class="lang-ja">日本の社会保障制度<br><span class="hero-subheading">－健康・医療・福祉の全体像</span></span><span class="lang-vi">Hệ thống an sinh xã hội Nhật Bản<br><span class="hero-subheading">－Toàn cảnh về Sức khỏe, Y tế và Phúc lợi</span></span>',
             desc: '<span class="lang-ja">日本の社会保障制度（年金・医療・福祉・公衆衛生）の基本構造と役割を説明できる。</span><span class="lang-vi">Có thể giải thích cấu trúc cơ bản và vai trò của hệ thống an sinh xã hội Nhật Bản (hưu trí, y tế, phúc lợi, y tế công cộng).</span>'
         },
         sbo212: {
             chapter: 'Chapter 2 保健・医療・福祉と社会の関わり',
-            gio: 'GIO 2.1 社会保障・医療提供体制',
+            gio: 'GIO 2.1 保健・医療・福祉の制度と運営',
             badge: 'SBO 2.1.2',
             title: '<span class="lang-ja">日本の医療提供体制<br><span class="hero-subheading">－地域完結型システムへの再構築</span></span><span class="lang-vi">Hệ thống cung cấp dịch vụ y tế Nhật Bản<br><span class="hero-subheading">－Tái cơ cấu hướng tới hệ thống hoàn thiện tại địa phương</span></span>',
             desc: '<span class="lang-ja">2025年問題に伴う病床機能分化と、地域包括ケアシステムの全体像を説明できる。</span><span class="lang-vi">Có thể giải thích sự phân hóa chức năng giường bệnh đi kèm với vấn đề năm 2025 và toàn cảnh hệ thống chăm sóc toàn diện khu vực.</span>'
         },
         sbo213: {
             chapter: 'Chapter 2 保健・医療・福祉と社会の関わり',
-            gio: 'GIO 2.1 社会保障・医療提供体制',
+            gio: 'GIO 2.1 保健・医療・福祉の制度と運営',
             badge: 'SBO 2.1.3',
             title: '<span class="lang-ja">日本の医療保険制度<br><span class="hero-subheading">－国民皆保険の仕組みと持続可能性</span></span><span class="lang-vi">Hệ thống bảo hiểm y tế Nhật Bản<br><span class="hero-subheading">－Cơ chế bảo hiểm toàn dân và tính bền vững</span></span>',
             desc: '<span class="lang-ja">職域・地域保険の仕組みと、少子高齢化における医療保険財政の持続可能性を説明できる。</span><span class="lang-vi">Có thể giải thích cơ chế bảo hiểm nghề nghiệp/khu vực và tính bền vững tài chính bảo hiểm y tế trong bối cảnh ít con già hóa dân số.</span>'
         },
         sbo214: {
             chapter: 'Chapter 2 保健・医療・福祉と社会の関わり',
-            gio: 'GIO 2.1 社会保障・医療提供体制',
+            gio: 'GIO 2.1 保健・医療・福祉の制度と運営',
             badge: 'SBO 2.1.4',
             title: '<span class="lang-ja">保険診療報酬制度<br><span class="hero-subheading">－保険診療の仕組みと診療報酬の構造</span></span><span class="lang-vi">Chế độ thanh toán chi phí khám chữa bệnh bảo hiểm<br><span class="hero-subheading">－Cơ chế khám chữa bệnh bảo hiểm và cấu trúc viện phí</span></span>',
             desc: '<span class="lang-ja">保険医療機関における診療報酬（医科）の算定ルールと基本的仕組みを説明できる。</span><span class="lang-vi">Có thể giải thích quy tắc tính điểm và cơ chế cơ bản của giá dịch vụ y tế (khoa y) tại các cơ sở y tế bảo hiểm.</span>'
@@ -452,7 +452,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
         crumbChap.textContent = data.chapter;
         crumbGio.textContent = data.gio;
-        crumbSbo.textContent = link.querySelector('.sbo-name').textContent;
+        const sboNum = link.querySelector('.sbo-num') ? link.querySelector('.sbo-num').textContent : '';
+        const sboName = link.querySelector('.sbo-name') ? link.querySelector('.sbo-name').textContent : '';
+        crumbSbo.textContent = sboNum + (sboName ? ' ' + sboName : '');
 
         const heroContainer = document.querySelector('#hero .container');
         heroContainer.style.opacity = '0.3';
