@@ -357,29 +357,29 @@ document.addEventListener('DOMContentLoaded', () => {
             desc: '<span class="lang-ja">患者の権利、インフォームドコンセント、セカンドオピニオン、多職種連携を説明できる。</span><span class="lang-vi">Có thể giải thích về quyền của bệnh nhân, đồng thuận (Informed Consent), ý kiến thứ hai (Second Opinion) và sự hợp tác đa ngành.</span>'
         },
         sbo211: {
-            chapter: 'Chapter 2 保健・医療・福祉と社会の関わり',
-            gio: 'GIO 2.1 保健・医療・福祉の制度と運営',
+            chapter: 'Chapter 2 社会保障と医療制度',
+            gio: 'GIO 2.1 社会保障制度と医療制度',
             badge: 'SBO 2.1.1',
             title: '<span class="lang-ja">日本の社会保障制度<br><span class="hero-subheading">－健康・医療・福祉の全体像</span></span><span class="lang-vi">Hệ thống an sinh xã hội Nhật Bản<br><span class="hero-subheading">－Toàn cảnh về Sức khỏe, Y tế và Phúc lợi</span></span>',
             desc: '<span class="lang-ja">日本の社会保障制度（年金・医療・福祉・公衆衛生）の基本構造と役割を説明できる。</span><span class="lang-vi">Có thể giải thích cấu trúc cơ bản và vai trò của hệ thống an sinh xã hội Nhật Bản (hưu trí, y tế, phúc lợi, y tế công cộng).</span>'
         },
         sbo212: {
-            chapter: 'Chapter 2 保健・医療・福祉と社会の関わり',
-            gio: 'GIO 2.1 保健・医療・福祉の制度と運営',
+            chapter: 'Chapter 2 社会保障と医療制度',
+            gio: 'GIO 2.1 社会保障制度と医療制度',
             badge: 'SBO 2.1.2',
             title: '<span class="lang-ja">日本の医療提供体制<br><span class="hero-subheading">－地域完結型システムへの再構築</span></span><span class="lang-vi">Hệ thống cung cấp dịch vụ y tế Nhật Bản<br><span class="hero-subheading">－Tái cơ cấu hướng tới hệ thống hoàn thiện tại địa phương</span></span>',
             desc: '<span class="lang-ja">2025年問題に伴う病床機能分化と、地域包括ケアシステムの全体像を説明できる。</span><span class="lang-vi">Có thể giải thích sự phân hóa chức năng giường bệnh đi kèm với vấn đề năm 2025 và toàn cảnh hệ thống chăm sóc toàn diện khu vực.</span>'
         },
         sbo213: {
-            chapter: 'Chapter 2 保健・医療・福祉と社会の関わり',
-            gio: 'GIO 2.1 保健・医療・福祉の制度と運営',
+            chapter: 'Chapter 2 社会保障と医療制度',
+            gio: 'GIO 2.1 社会保障制度と医療制度',
             badge: 'SBO 2.1.3',
             title: '<span class="lang-ja">日本の医療保険制度<br><span class="hero-subheading">－国民皆保険の仕組みと持続可能性</span></span><span class="lang-vi">Hệ thống bảo hiểm y tế Nhật Bản<br><span class="hero-subheading">－Cơ chế bảo hiểm toàn dân và tính bền vững</span></span>',
             desc: '<span class="lang-ja">職域・地域保険の仕組みと、少子高齢化における医療保険財政の持続可能性を説明できる。</span><span class="lang-vi">Có thể giải thích cơ chế bảo hiểm nghề nghiệp/khu vực và tính bền vững tài chính bảo hiểm y tế trong bối cảnh ít con già hóa dân số.</span>'
         },
         sbo214: {
-            chapter: 'Chapter 2 保健・医療・福祉と社会の関わり',
-            gio: 'GIO 2.1 保健・医療・福祉の制度と運営',
+            chapter: 'Chapter 2 社会保障と医療制度',
+            gio: 'GIO 2.1 社会保障制度と医療制度',
             badge: 'SBO 2.1.4',
             title: '<span class="lang-ja">保険診療報酬制度<br><span class="hero-subheading">－保険診療の仕組みと診療報酬の構造</span></span><span class="lang-vi">Chế độ thanh toán chi phí khám chữa bệnh bảo hiểm<br><span class="hero-subheading">－Cơ chế khám chữa bệnh bảo hiểm và cấu trúc viện phí</span></span>',
             desc: '<span class="lang-ja">保険医療機関における診療報酬（医科）の算定ルールと基本的仕組みを説明できる。</span><span class="lang-vi">Có thể giải thích quy tắc tính điểm và cơ chế cơ bản của giá dịch vụ y tế (khoa y) tại các cơ sở y tế bảo hiểm.</span>'
@@ -2234,8 +2234,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const sbo211StepsData = {
         step1: {
             title: {
-                ja: '【Step 1】申請 (Nộp đơn)',
-                vi: '【Step 1】申請 (Nộp đơn)'
+                ja: '【Step 1】申請',
+                vi: '【Bước 1】Nộp đơn'
             },
             body: {
                 ja: 'お住まいの市区町村の介護保険担当窓口、または地域包括支援センターにて要介護認定の申請手続きを行います。申請には介護保険被保険者証が必要です。',
@@ -2244,8 +2244,8 @@ document.addEventListener('DOMContentLoaded', () => {
         },
         step2: {
             title: {
-                ja: '【Step 2】要介護認定 (Chứng nhận cần chăm sóc)',
-                vi: '【Step 2】要介護認定 (Chứng nhận cần chăm sóc)'
+                ja: '【Step 2】要介護認定',
+                vi: '【Bước 2】Chứng nhận cần chăm sóc'
             },
             body: {
                 ja: '調査員による自宅訪問での調査項目確認と、主治医意見書をもとに、介護認定審査会による判定が行われます。判定結果は非該当（自立）、要支援1〜2、要介護1〜5に分かれます。',
@@ -2254,8 +2254,8 @@ document.addEventListener('DOMContentLoaded', () => {
         },
         step3: {
             title: {
-                ja: '【Step 3】ケアプラン作成 (Lập kế hoạch chăm sóc)',
-                vi: '【Step 3】ケアプラン作成 (Lập kế hoạch chăm sóc)'
+                ja: '【Step 3】ケアプラン作成',
+                vi: '【Bước 3】Lập kế hoạch chăm sóc'
             },
             body: {
                 ja: 'ケアマネージャー（介護支援専門員）が本人の状態や希望に合わせて、月単位の利用限度額の範囲内で最適な介護サービス計画（ケアプラン）を作成します。',
@@ -2264,8 +2264,8 @@ document.addEventListener('DOMContentLoaded', () => {
         },
         step4: {
             title: {
-                ja: '【Step 4】サービス利用 (Sử dụng dịch vụ)',
-                vi: '【Step 4】サービス利用 (Sử dụng dịch vụ)'
+                ja: '【Step 4】サービス利用',
+                vi: '【Bước 4】Sử dụng dịch vụ'
             },
             body: {
                 ja: '作成されたケアプランに基づき、居宅サービス（訪問介護・デイサービス等）、施設サービス（特別養護老人ホーム等）、地域密着型サービスなど必要な支援を開始します。',
@@ -2314,5 +2314,70 @@ document.addEventListener('DOMContentLoaded', () => {
     updateSbo211Copay();
     updateSbo211Step();
 
+    // --- 介護保険の3つの基本理念 Interactive Cards ---
+    const kaigoPrincipleData = {
+        '1': {
+            title: {
+                ja: '【理念 1】利用者本位（りようしゃほんい）',
+                vi: '【Nguyên tắc 1】Hướng về người dùng (利用者本位)'
+            },
+            body: {
+                ja: 'サービスの設計・提供において、常に「利用者の生活・意思・尊厳」を最優先にする理念です。介護する側の都合や行政上の効率よりも、利用者一人ひとりの「その人らしい生活」の実現を中心に据えます。これは単なるサービスの受け手ではなく、主体的に生活する「生活者」として高齢者を捉えるパラダイムの転換を意味します。',
+                vi: 'Đây là nguyên tắc luôn đặt "cuộc sống, ý chí và phẩm giá của người dùng" lên hàng đầu trong thiết kế và cung cấp dịch vụ. Thay vì ưu tiên sự tiện lợi của người chăm sóc hay hiệu quả hành chính, mục tiêu trung tâm là hiện thực hóa "cuộc sống đúng với bản thân" của từng người dùng. Điều này có nghĩa là thay đổi quan điểm, coi người cao tuổi không chỉ là người thụ hưởng dịch vụ mà là "người sống chủ động".'
+            }
+        },
+        '2': {
+            title: {
+                ja: '【理念 2】利用者の選択尊重（せんたくそんちょう）',
+                vi: '【Nguyên tắc 2】Tôn trọng lựa chọn của người dùng (利用者の選択尊重)'
+            },
+            body: {
+                ja: '利用者が自分の意思でサービスの種類・提供事業者・ケアの内容を自由に選択できる権利を保障する理念です。以前は行政措置による「割り当て型」でしたが、介護保険法により「契約制」に移行し、利用者が複数の事業者を比較・選択できる「準市場（Quasi-market）」が形成されました。この選択権の保障が競争を促し、サービスの質向上につながります。',
+                vi: 'Nguyên tắc này đảm bảo quyền của người dùng được tự do lựa chọn loại dịch vụ, nhà cung cấp và nội dung chăm sóc theo ý muốn của mình. Trước đây, mô hình là "phân bổ" theo biện pháp hành chính, nhưng sau khi có Luật bảo hiểm chăm sóc, chuyển sang "chế độ hợp đồng", hình thành "thị trường gần như cạnh tranh (Quasi-market)" nơi người dùng có thể so sánh và lựa chọn nhiều nhà cung cấp. Việc đảm bảo quyền lựa chọn này thúc đẩy cạnh tranh và nâng cao chất lượng dịch vụ.'
+            }
+        },
+        '3': {
+            title: {
+                ja: '【理念 3】自立支援（じりつしえん）',
+                vi: '【Nguyên tắc 3】Hỗ trợ tự lập (自立支援)'
+            },
+            body: {
+                ja: '介護とは「何でも代わりにやってあげる」ことではなく、利用者が「できることは自分でする」自立した生活を維持・回復できるよう支援することです。身体的な自立（ADL）だけでなく、意思決定や社会参加における「精神的・社会的自立」も含まれます。過度な介助は残存機能を低下させるため、個々の能力を最大限活かした「リハビリテーション的視点」が重視されます。',
+                vi: 'Chăm sóc không phải là "làm thay mọi thứ" mà là hỗ trợ người dùng duy trì và phục hồi cuộc sống tự lập, trong đó "những gì có thể làm được thì tự làm". Điều này bao gồm không chỉ sự tự lập về thể chất (ADL) mà còn cả "sự tự lập về tinh thần và xã hội" trong việc ra quyết định và tham gia xã hội. Vì hỗ trợ quá mức làm giảm chức năng còn lại, nên "quan điểm phục hồi chức năng" tận dụng tối đa khả năng cá nhân được đề cao.'
+            }
+        }
+    };
+
+    const kaigoPrincipleCards = document.querySelectorAll('.kaigo-principle-card');
+    const kaigoDetail = document.getElementById('kaigo-principle-detail');
+    const kaigoTitle = document.getElementById('kaigo-principle-title');
+    const kaigoBody = document.getElementById('kaigo-principle-body');
+
+    kaigoPrincipleCards.forEach(card => {
+        card.addEventListener('click', () => {
+            const principle = card.getAttribute('data-principle');
+            const data = kaigoPrincipleData[principle];
+            const isVi = document.body.classList.contains('lang-vi');
+
+            kaigoPrincipleCards.forEach(c => {
+                c.style.border = '1px solid var(--border-card)';
+                c.style.background = 'rgba(255,255,255,0.02)';
+            });
+            card.style.border = '1px solid var(--accent-gold)';
+            card.style.background = 'rgba(251,191,36,0.05)';
+
+            if (data && kaigoDetail && kaigoTitle && kaigoBody) {
+                kaigoDetail.style.display = 'block';
+                kaigoDetail.style.opacity = '0.3';
+                setTimeout(() => {
+                    kaigoTitle.textContent = isVi ? data.title.vi : data.title.ja;
+                    kaigoBody.textContent = isVi ? data.body.vi : data.body.ja;
+                    kaigoDetail.style.opacity = '1';
+                }, 150);
+            }
+        });
+    });
+
 });
+
 
