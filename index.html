@@ -201,7 +201,12 @@
                     <i class="fa-solid fa-chevron-right separator"></i>
                     <span class="crumb active" id="crumb-sbo">SBO 1.1.1 健康の定義と医療政策－何を目標とするか</span>
                 </div>
-                <div class="header-controls">
+                <div class="header-controls" style="display: flex; flex-direction: row; align-items: center; gap: 10px;">
+                    <button id="review-mode-btn" class="glass-btn" style="background: rgba(245,158,11,0.15); color: var(--accent-gold); border: 1px solid var(--accent-gold); cursor: pointer; border-radius: 6px; padding: 6px 14px; font-size: 0.82rem; font-family: inherit; display: flex; align-items: center; gap: 6px; transition: all 0.3s ease; font-weight: 600; box-shadow: 0 0 10px rgba(245,158,11,0.2);">
+                        <i class="fa-solid fa-graduation-cap"></i>
+                        <span class="lang-ja">復習モード</span>
+                        <span class="lang-vi">Fukushu Mode</span>
+                    </button>
                     <button id="lang-toggle-btn" class="glass-btn" style="background: rgba(255, 255, 255, 0.05); color: var(--accent-teal); border: 1px solid var(--accent-teal); cursor: pointer; border-radius: 4px; padding: 6px 12px; font-size: 0.8rem; font-family: inherit; display: flex; align-items: center; gap: 6px; transition: all 0.3s ease;">
                         <i class="fa-solid fa-globe"></i>
                         <span class="lang-ja">日本語 ➔ Tiếng Việt</span>
@@ -773,6 +778,137 @@
                 <!-- POLICY TRANSITION & INTEGRATED COMMUNITY CARE DEEP DIVE -->
                 </section>
 
+                <!-- 健康日本21（第二次）の基本方向 -->
+                <section id="kenko-nippon-21" class="section">
+                    <div class="container">
+                        <div class="section-badge">
+                            <span class="lang-ja">国民健康づくり運動</span>
+                            <span class="lang-vi">Phong trào sức khỏe quốc gia</span>
+                        </div>
+                        <h2 class="section-title">
+                            <span class="lang-ja">健康日本21（第二次）の基本方向</span>
+                            <span class="lang-vi">Định hướng cơ bản của Kenkou Nippon 21 (Lần 2)</span>
+                        </h2>
+                        <p class="section-desc">
+                            <span class="lang-ja">2000年開始の「健康日本21」は一次予防に重点を置いた総合的対策。2013年開始の<strong>第二次</strong>では以下の基本方向が掲げられました。</span>
+                            <span class="lang-vi">"Kenkou Nippon 21" bắt đầu năm 2000 tập trung vào phòng ngừa cấp 1. <strong>Lần 2</strong> (từ 2013) đặt ra các định hướng cơ bản sau đây.</span>
+                        </p>
+
+                        <div class="card glass-card" style="padding: 32px;">
+                            <div style="display: flex; flex-direction: column; gap: 20px;">
+
+                                <div style="display: flex; gap: 18px; align-items: flex-start;">
+                                    <div style="min-width: 40px; height: 40px; border-radius: 50%; background: rgba(20,184,166,0.2); border: 2px solid var(--accent-teal); display: flex; align-items: center; justify-content: center; color: var(--accent-teal); font-weight: 800; font-size: 1rem;">①</div>
+                                    <div>
+                                        <h5 style="color: var(--accent-teal); margin: 0 0 6px;">
+                                            <span class="lang-ja">健康寿命の延伸と健康格差の縮小</span>
+                                            <span class="lang-vi">Kéo dài tuổi thọ khỏe mạnh &amp; Thu hẹp bất bình đẳng sức khỏe</span>
+                                        </h5>
+                                        <p style="font-size: 0.88rem; color: var(--text-secondary); margin: 0; line-height: 1.7;">
+                                            <span class="lang-ja">健康上の問題で日常生活が制限されることなく生活できる期間（健康寿命）の延伸と、地域・社会経済状況による健康格差の縮小。</span>
+                                            <span class="lang-vi">Kéo dài thời gian sống không bị hạn chế bởi vấn đề sức khỏe (tuổi thọ khỏe mạnh) và thu hẹp chênh lệch sức khỏe do địa bàn, điều kiện kinh tế-xã hội.</span>
+                                        </p>
+                                    </div>
+                                </div>
+
+                                <div style="height: 1px; background: rgba(255,255,255,0.06);"></div>
+
+                                <div style="display: flex; gap: 18px; align-items: flex-start;">
+                                    <div style="min-width: 40px; height: 40px; border-radius: 50%; background: rgba(245,158,11,0.2); border: 2px solid var(--accent-gold); display: flex; align-items: center; justify-content: center; color: var(--accent-gold); font-weight: 800; font-size: 1rem;">②</div>
+                                    <div>
+                                        <h5 style="color: var(--accent-gold); margin: 0 0 6px;">
+                                            <span class="lang-ja">生活習慣病の発症予防と重症化予防</span>
+                                            <span class="lang-vi">Phòng ngừa khởi phát &amp; Nặng hơn của bệnh lối sống</span>
+                                        </h5>
+                                        <p style="font-size: 0.88rem; color: var(--text-secondary); margin: 0; line-height: 1.7;">
+                                            <span class="lang-ja">がん・循環器疾患・糖尿病・COPD等のNCD（非感染性疾患）に対し、一次予防および重症化予防に重点を置いた対策。</span>
+                                            <span class="lang-vi">Tập trung phòng ngừa cấp 1 và ngăn nặng hơn với NCD (bệnh không lây nhiễm) như ung thư, tim mạch, tiểu đường, COPD.</span>
+                                        </p>
+                                    </div>
+                                </div>
+
+                                <div style="height: 1px; background: rgba(255,255,255,0.06);"></div>
+
+                                <div style="display: flex; gap: 18px; align-items: flex-start;">
+                                    <div style="min-width: 40px; height: 40px; border-radius: 50%; background: rgba(59,130,246,0.2); border: 2px solid #3b82f6; display: flex; align-items: center; justify-content: center; color: #93c5fd; font-weight: 800; font-size: 1rem;">③</div>
+                                    <div>
+                                        <h5 style="color: #93c5fd; margin: 0 0 6px;">
+                                            <span class="lang-ja">生活習慣の改善（社会環境の整備を含む）</span>
+                                            <span class="lang-vi">Cải thiện lối sống (bao gồm chỉnh bị môi trường xã hội)</span>
+                                        </h5>
+                                        <p style="font-size: 0.88rem; color: var(--text-secondary); margin: 0; line-height: 1.7;">
+                                            <span class="lang-ja">栄養・食生活、身体活動・運動、休養、飲酒、喫煙などの生活習慣の改善を推進。</span>
+                                            <span class="lang-vi">Thúc đẩy cải thiện thói quen sống: dinh dưỡng, vận động, nghỉ ngơi, rượu bia, hút thuốc.</span>
+                                        </p>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <div class="tip-box" style="margin-top: 20px; border-left-color: #f87171;">
+                            <i class="fa-solid fa-lightbulb" style="color: #f87171;"></i>
+                            <span>
+                                <span class="lang-ja"><strong>試験ポイント：</strong>「健康日本21（第二次）」の基本方向として<u>含まれないもの</u>として問われる場合、「医療費の削減」「病院の統廃合」「公的医療保険の拡充」などが典型的な<em>誤りの選択肢</em>です。基本方向は①健康寿命の延伸・格差縮小 ②生活習慣病の予防 ③生活習慣の改善 の3つが核心。</span>
+                                <span class="lang-vi"><strong>Điểm thi:</strong> Khi hỏi điều <u>không thuộc</u> định hướng cơ bản của Kenkou Nippon 21 (Lần 2), các đáp án sai điển hình là "giảm chi phí y tế", "sáp nhập bệnh viện", "mở rộng bảo hiểm y tế công". Ba trụ cột: ① Kéo dài tuổi thọ khỏe mạnh ② Phòng bệnh lối sống ③ Cải thiện lối sống.</span>
+                            </span>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- データヘルス改革 -->
+                <section id="data-health" class="section">
+                    <div class="container">
+                        <div class="section-badge">
+                            <span class="lang-ja">データヘルス改革</span>
+                            <span class="lang-vi">Cải cách Data Health</span>
+                        </div>
+                        <h2 class="section-title">
+                            <span class="lang-ja">データヘルス改革（2017年〜）</span>
+                            <span class="lang-vi">Cải cách Data Health (từ 2017)</span>
+                        </h2>
+                        <p class="section-desc">
+                            <span class="lang-ja">厚生労働省が推進する健康・医療・介護領域のビッグデータを集約・活用し、医療・介護サービスの生産性向上と健康寿命の延伸を目指す戦略です。</span>
+                            <span class="lang-vi">Chiến lược của Bộ Y tế Lao động và Phúc lợi nhằm thu thập, khai thác big data y tế – chăm sóc để nâng cao năng suất dịch vụ và kéo dài tuổi thọ khỏe mạnh.</span>
+                        </p>
+
+                        <div class="grid-2col" style="margin-bottom: 24px;">
+                            <div class="card glass-card" style="padding: 24px; border-top: 3px solid var(--accent-teal);">
+                                <h4 style="color: var(--accent-teal); margin-bottom: 14px;"><i class="fa-solid fa-list-ol"></i>
+                                    <span class="lang-ja"> 4つの柱</span>
+                                    <span class="lang-vi"> 4 Trụ cột</span>
+                                </h4>
+                                <ol style="font-size: 0.88rem; color: var(--text-secondary); line-height: 1.8; padding-left: 18px;">
+                                    <li><span class="lang-ja">自身の保健医療情報閲覧（PHR / マイナポータル）</span><span class="lang-vi">Xem thông tin y tế cá nhân (PHR / My Portal)</span></li>
+                                    <li><span class="lang-ja">医療・介護分野での情報利活用推進（NDB・介護DB連結）</span><span class="lang-vi">Thúc đẩy khai thác thông tin y tế – chăm sóc (NDB &amp; DB chăm sóc)</span></li>
+                                    <li><span class="lang-ja">ゲノム医療の推進</span><span class="lang-vi">Thúc đẩy y học genome</span></li>
+                                    <li><span class="lang-ja">基盤の整備（審査支払機関改革）</span><span class="lang-vi">Xây dựng nền tảng (cải cách cơ quan xét duyệt – thanh toán)</span></li>
+                                </ol>
+                            </div>
+                            <div class="card glass-card" style="padding: 24px; border-top: 3px solid var(--accent-gold);">
+                                <h4 style="color: var(--accent-gold); margin-bottom: 14px;"><i class="fa-solid fa-link"></i>
+                                    <span class="lang-ja"> 主要データベース</span>
+                                    <span class="lang-vi"> Cơ sở dữ liệu chính</span>
+                                </h4>
+                                <div style="display: flex; flex-direction: column; gap: 8px; font-size: 0.87rem; color: var(--text-secondary);">
+                                    <div style="padding: 8px 12px; background: rgba(255,255,255,0.03); border-radius: 6px;"><strong style="color:#fff;">NDB</strong> <span class="lang-ja">— レセプト情報・特定健診等情報データベース</span><span class="lang-vi">— CSDL thông tin y tế &amp; khám sức khỏe</span></div>
+                                    <div style="padding: 8px 12px; background: rgba(255,255,255,0.03); border-radius: 6px;"><strong style="color:#fff;">介護DB</strong> <span class="lang-ja">— 介護保険総合データベース</span><span class="lang-vi">— CSDL tổng hợp bảo hiểm chăm sóc</span></div>
+                                    <div style="padding: 8px 12px; background: rgba(255,255,255,0.03); border-radius: 6px;"><strong style="color:#fff;">KDB</strong> <span class="lang-ja">— 国保データベース（各自治体のデータヘルス計画に活用）</span><span class="lang-vi">— CSDL bảo hiểm quốc gia (kế hoạch data health địa phương)</span></div>
+                                    <div style="padding: 8px 12px; background: rgba(255,255,255,0.03); border-radius: 6px;"><strong style="color:#fff;">MID-NET / DPC / 難病DB</strong> <span class="lang-ja">— 連携対象の専門データベース群</span><span class="lang-vi">— Các CSDL chuyên ngành liên kết</span></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="tip-box">
+                            <i class="fa-solid fa-id-card"></i>
+                            <span>
+                                <span class="lang-ja"><strong>マイナンバーカード：</strong>オンライン資格確認の基盤として導入され、今後の電子処方箋等の外部連携システムの基盤となる見込み。</span>
+                                <span class="lang-vi"><strong>My Number Card:</strong> Được đưa vào như nền tảng xác nhận tư cách trực tuyến, dự kiến trở thành cơ sở cho đơn thuốc điện tử và các hệ thống liên kết bên ngoài.</span>
+                            </span>
+                        </div>
+                    </div>
+                </section>
+
                 <section id="summary" class="section summary-section">
                     <div class="container text-center">
                         <div class="final-glow-sphere"></div>
@@ -788,7 +924,9 @@
                 </section>
             </div>
 
+
             <!-- SBO 1.1.2 CONTENT WRAPPER -->
+
             <div id="sbo112" class="sbo-section-wrapper">
 
                 <!-- 1. Privacy Evolution Section -->
@@ -4308,6 +4446,108 @@
                     </div>
                 </section>
             </div><!-- END sbo312 wrapper -->
+
+
+            <!-- FUKUSHU / REVIEW MODE SECTION -->
+            <div id="review-section" class="sbo-section-wrapper" style="display:none;">
+                <section class="section" style="border-bottom: none;">
+                    <div class="container" style="padding-top: 30px;">
+
+                        <!-- Quiz Layout -->
+                        <div id="quiz-container-box" class="card glass-card" style="padding: 30px; text-align: left; width: 100%; margin: 0 auto;">
+                            <!-- Initial state / Start screen -->
+                            <div id="quiz-start-screen" class="text-center" style="padding: 20px 0;">
+                                <h3 style="margin-bottom: 15px;">
+                                    <span class="lang-ja">クイズを開始しましょう</span>
+                                    <span class="lang-vi">Bắt đầu trả lời câu hỏi ôn tập</span>
+                                </h3>
+                                <p style="color: var(--text-secondary); margin-bottom: 25px;">
+                                    <span class="lang-ja">シラバスの重要トピックから抽出された問題に挑戦します。</span>
+                                    <span class="lang-vi">Thử sức với bộ câu hỏi được trích xuất từ các chủ đề trọng tâm của syllabus.</span>
+                                </p>
+                                <button id="start-quiz-btn" class="glass-btn" style="background: var(--accent-teal); color: #000; border: none; font-size: 1.1rem; padding: 12px 32px; border-radius: 8px; font-weight: bold; cursor: pointer; display: inline-flex; align-items: center; gap: 8px; transition: all 0.3s ease; box-shadow: 0 0 15px var(--accent-teal-glow);">
+                                    <i class="fa-solid fa-play"></i>
+                                    <span class="lang-ja">テスト開始</span>
+                                    <span class="lang-vi">Bắt đầu Test</span>
+                                </button>
+                            </div>
+
+                            <!-- Active Quiz Question State -->
+                            <div id="quiz-active-screen" style="display: none;">
+                                <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid rgba(255,255,255,0.08); padding-bottom: 15px; margin-bottom: 20px;">
+                                    <span id="quiz-progress-text" style="font-size: 0.85rem; color: var(--text-muted); font-weight: 600;">Question 1 of 8</span>
+                                    <span id="quiz-question-type" class="node-tag tag-blue" style="font-size: 0.75rem;">SBO 1.1.1</span>
+                                </div>
+
+                                <h3 id="quiz-question-text" style="font-size: 1.3rem; line-height: 1.6; margin-bottom: 25px; color: #fff;">
+                                    <!-- Dynamic text -->
+                                </h3>
+
+                                <div id="quiz-options-container" style="display: flex; flex-direction: column; gap: 12px; margin-bottom: 20px;">
+                                    <!-- Dynamic buttons -->
+                                </div>
+
+                                <!-- Result banner: shown after answering -->
+                                <div id="quiz-result-banner" style="display: none; align-items: center; gap: 12px; padding: 14px 20px; border-radius: 10px; border: 1.5px solid; margin-bottom: 16px; transition: all 0.3s ease;">
+                                </div>
+
+                                <div id="quiz-explanation-box" class="tip-box" style="display: none; margin-bottom: 25px; border-left-color: var(--accent-teal);">
+                                    <i class="fa-solid fa-circle-info"></i>
+                                    <div>
+                                        <h5 style="color: #fff; margin-bottom: 4px; font-weight: 600;">
+                                            <span class="lang-ja">解説</span>
+                                            <span class="lang-vi">Giải thích</span>
+                                        </h5>
+                                        <p id="quiz-explanation-text" style="margin: 0; font-size: 0.85rem; line-height: 1.6;"></p>
+                                    </div>
+                                </div>
+
+                                <div style="text-align: right;">
+                                    <button id="quiz-next-btn" class="glass-btn" style="background: rgba(255, 255, 255, 0.05); color: #fff; border: 1px solid rgba(255,255,255,0.15); font-size: 0.95rem; padding: 10px 24px; border-radius: 6px; font-weight: bold; cursor: pointer; display: none; align-items: center; gap: 8px; transition: all 0.3s ease;">
+                                        <span>
+                                            <span class="lang-ja">次の問題</span>
+                                            <span class="lang-vi">Câu tiếp theo</span>
+                                        </span>
+                                        <i class="fa-solid fa-arrow-right"></i>
+                                    </button>
+                                </div>
+                            </div>
+
+                            <!-- Summary State -->
+                            <div id="quiz-summary-screen" class="text-center" style="display: none; padding: 20px 0;">
+                                <div style="font-size: 4rem; color: var(--accent-teal); margin-bottom: 15px;"><i class="fa-solid fa-trophy"></i></div>
+                                <h3 style="margin-bottom: 10px;">
+                                    <span class="lang-ja">クイズ完了！お疲れ様でした。</span>
+                                    <span class="lang-vi">Hoàn thành bài ôn tập!</span>
+                                </h3>
+                                <p style="color: var(--text-secondary); margin-bottom: 20px;">
+                                    <span class="lang-ja">学習データが更新されました。間違えた問題は次回優先的に出題されます。</span>
+                                    <span class="lang-vi">Dữ liệu học tập đã được cập nhật. Những câu trả lời sai sẽ được ưu tiên hỏi vào lần tới.</span>
+                                </p>
+                                <div style="display: inline-flex; gap: 15px; background: rgba(255,255,255,0.02); border: 1px solid var(--border-card); padding: 15px 30px; border-radius: 12px; margin-bottom: 25px;">
+                                    <div>
+                                        <span style="font-size: 0.8rem; color: var(--text-muted); display: block;">SCORE</span>
+                                        <span id="quiz-summary-score" style="font-size: 1.5rem; font-weight: 700; color: var(--accent-teal);">0/0</span>
+                                    </div>
+                                    <div style="width: 1px; background: rgba(255,255,255,0.1);"></div>
+                                    <div>
+                                        <span style="font-size: 0.8rem; color: var(--text-muted); display: block;">ACCURACY</span>
+                                        <span id="quiz-summary-accuracy" style="font-size: 1.5rem; font-weight: 700; color: var(--accent-gold);">0%</span>
+                                    </div>
+                                </div>
+                                <div>
+                                    <button id="quiz-restart-btn" class="glass-btn" style="background: rgba(255, 255, 255, 0.05); color: #fff; border: 1px solid rgba(255,255,255,0.15); font-size: 0.95rem; padding: 10px 24px; border-radius: 6px; font-weight: bold; cursor: pointer; display: inline-flex; align-items: center; gap: 8px; transition: all 0.3s ease;">
+                                        <i class="fa-solid fa-rotate-left"></i>
+                                        <span class="lang-ja">もう一度挑戦</span>
+                                        <span class="lang-vi">Làm lại</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </section>
+            </div>
 
     </main><!-- END main-viewport -->
     </div><!-- END app-layout -->
