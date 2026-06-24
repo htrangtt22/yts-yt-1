@@ -20,6 +20,22 @@ const MIME_TYPES = {
 const server = http.createServer((req, res) => {
     // Parse URL and remove query parameters/hash
     let urlPath = req.url.split('?')[0];
+
+    if (urlPath === '/api/quizzes') {
+        const quizDir = path.join(__dirname, 'quiz');
+        fs.readdir(quizDir, (err, files) => {
+            if (err) {
+                res.writeHead(500, { 'Content-Type': 'application/json' });
+                res.end(JSON.stringify({ error: 'Failed to read quiz directory' }));
+                return;
+            }
+            const mdFiles = files.filter(f => f.endsWith('.md'));
+            res.writeHead(200, { 'Content-Type': 'application/json; charset=utf-8' });
+            res.end(JSON.stringify(mdFiles));
+        });
+        return;
+    }
+
     if (urlPath === '/') {
         urlPath = '/index.html';
     }

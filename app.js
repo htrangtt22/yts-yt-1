@@ -453,10 +453,14 @@ document.addEventListener('DOMContentLoaded', () => {
             parentChap.classList.add('active');
         }
 
-        sboWrappers.forEach(w => w.classList.remove('active'));
+        sboWrappers.forEach(w => {
+            w.classList.remove('active');
+            w.style.display = 'none';
+        });
         const activeWrapper = document.getElementById(targetSbo);
         if (activeWrapper) {
             activeWrapper.classList.add('active');
+            activeWrapper.style.display = 'block';
         }
 
         crumbChap.textContent = data.chapter;
@@ -2391,7 +2395,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // --- REVIEW MODE & SPACED REPETITION QUIZ ---
     // ==========================================
 
-    const QUIZ_QUESTIONS = [
+    const DEFAULT_QUIZ_QUESTIONS = [
         {
             id: 'q1',
             type: 'SBO 1.1.1',
@@ -3014,6 +3018,125 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     ];
 
+    let QUIZ_QUESTIONS = [...DEFAULT_QUIZ_QUESTIONS];
+
+    const TRANSLATION_MAP = {};
+    DEFAULT_QUIZ_QUESTIONS.forEach(q => {
+        TRANSLATION_MAP[q.question.ja.trim()] = {
+            questionVi: q.question.vi,
+            options: q.options,
+            explanationVi: q.explanation.vi
+        };
+    });
+
+    function parseQuizMarkdown(content, fileName) {
+        const type = fileName.replace(/_/g, ' ').replace('.md', '');
+        const questions = [];
+        const parts = content.split(/###\s*問/);
+        for (let i = 1; i < parts.length; i++) {
+            const part = parts[i].trim();
+            if (!part) continue;
+            const lines = part.split('\n').map(l => l.trim()).filter(l => l);
+            if (lines.length < 5) continue;
+            
+            const qLine = lines[0];
+            const qTextMatch = qLine.match(/^\d+[\.．\s]+(.*)/);
+            const questionJaText = qTextMatch ? qTextMatch[1].trim() : qLine;
+            
+            const options = [];
+            let answerIndex = -1;
+            let explanation = '';
+            
+            for (let j = 1; j < lines.length; j++) {
+                const line = lines[j];
+                const optMatch = line.match(/^([A-D])[\.．\s]+(.*)/);
+                if (optMatch) {
+                    options.push({
+                        ja: line,
+                        vi: line
+                    });
+                }
+                
+                const ansMatch = line.match(/正解[：:]\s*([A-D])/);
+                if (ansMatch) {
+                    const ansLetter = ansMatch[1];
+                    answerIndex = ansLetter.charCodeAt(0) - 65;
+                }
+                
+                if (line.startsWith('>')) {
+                    explanation += line.substring(1).trim() + '\n';
+                }
+            }
+            
+            const cleanQJaText = questionJaText.trim();
+            let questionViText = questionJaText;
+            let finalOptions = options;
+            let explanationViText = explanation.trim();
+            let explanationJaText = explanation.trim();
+            
+            if (TRANSLATION_MAP[cleanQJaText]) {
+                const trans = TRANSLATION_MAP[cleanQJaText];
+                questionViText = trans.questionVi;
+                explanationViText = trans.explanationVi || explanationViText;
+                if (trans.options && trans.options.length === options.length) {
+                    finalOptions = options.map((opt, idx) => ({
+                        ja: opt.ja,
+                        vi: trans.options[idx].vi
+                    }));
+                }
+            }
+            
+            if (options.length === 4 && answerIndex !== -1) {
+                questions.push({
+                    id: `${type.toLowerCase().replace(/[^a-z0-9]/g, '')}_q${questions.length + 1}`,
+                    type: type,
+                    question: {
+                        ja: questionJaText,
+                        vi: questionViText
+                    },
+                    options: finalOptions,
+                    answer: answerIndex,
+                    explanation: {
+                        ja: explanationJaText || `正解は ${String.fromCharCode(65 + answerIndex)} です。`,
+                        vi: explanationViText || `Đáp án đúng là ${String.fromCharCode(65 + answerIndex)}.`
+                    }
+                });
+            }
+        }
+        return questions;
+    }
+
+    async function loadDynamicQuizzes() {
+        try {
+            const res = await fetch('/api/quizzes');
+            if (!res.ok) throw new Error('Failed to fetch quizzes list');
+            const files = await res.json();
+            
+            let allLoadedQuestions = [];
+            for (const file of files) {
+                try {
+                    const fileRes = await fetch(`/quiz/${file}`);
+                    if (!fileRes.ok) continue;
+                    const content = await fileRes.text();
+                    const parsed = parseQuizMarkdown(content, file);
+                    allLoadedQuestions = allLoadedQuestions.concat(parsed);
+                } catch (err) {
+                    console.error(`Error loading quiz file ${file}:`, err);
+                }
+            }
+            
+            if (allLoadedQuestions.length > 0) {
+                QUIZ_QUESTIONS = shuffleArray(allLoadedQuestions);
+                console.log(`Loaded ${QUIZ_QUESTIONS.length} dynamic questions successfully.`);
+                updateDashboardUI();
+            }
+        } catch (err) {
+            console.error('Failed to load dynamic quizzes, using defaults:', err);
+        }
+    }
+
+    loadDynamicQuizzes();
+
     let quizQuestionsList = [];
     let currentQuizIndex = 0;
     let correctCountThisRun = 0;
@@ -3291,10 +3414,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function activateReviewMode() {
         sboNavLinks.forEach(l => l.classList.remove('active'));
-        sboWrappers.forEach(w => w.classList.remove('active'));
+        sboWrappers.forEach(w => {
+            w.classList.remove('active');
+            w.style.display = 'none';
+        });
 
         if (reviewModeBtn) reviewModeBtn.classList.add('active');
-        if (reviewSection) reviewSection.classList.add('active');
+        if (reviewSection) {
+            reviewSection.classList.add('active');
+            reviewSection.style.display = 'block';
+        }
         if (heroSection) heroSection.style.display = 'none';
 
         const startScreen = document.getElementById('quiz-start-screen');
@@ -3310,7 +3439,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function deactivateReviewMode() {
         if (reviewModeBtn) reviewModeBtn.classList.remove('active');
-        if (reviewSection) reviewSection.classList.remove('active');
+        if (reviewSection) {
+            reviewSection.classList.remove('active');
+            reviewSection.style.display = 'none';
+        }
         if (heroSection) heroSection.style.display = '';
     }
 
@@ -3543,6 +3675,44 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     
     window.updateReviewModeLang = updateReviewModeLang;
+
+    // --- Mobile Sidebar Hamburger Toggle Logic ---
+    const sidebarToggleBtn = document.getElementById('sidebar-toggle-btn');
+    const sidebarCloseBtn = document.getElementById('sidebar-close-btn');
+    const sidebarBackdrop = document.getElementById('sidebar-backdrop');
+    const sidebarNav = document.querySelector('.sidebar-nav');
+
+    function openMobileSidebar() {
+        if (sidebarNav) sidebarNav.classList.add('active');
+        if (sidebarBackdrop) sidebarBackdrop.style.display = 'block';
+    }
+
+    function closeMobileSidebar() {
+        if (sidebarNav) sidebarNav.classList.remove('active');
+        if (sidebarBackdrop) sidebarBackdrop.style.display = 'none';
+    }
+
+    if (sidebarToggleBtn) {
+        sidebarToggleBtn.addEventListener('click', openMobileSidebar);
+    }
+
+    if (sidebarCloseBtn) {
+        sidebarCloseBtn.addEventListener('click', closeMobileSidebar);
+    }
+
+    if (sidebarBackdrop) {
+        sidebarBackdrop.addEventListener('click', closeMobileSidebar);
+    }
+
+    // Auto-close sidebar when an SBO link is clicked (on mobile)
+    const sidebarSboLinks = document.querySelectorAll('.sbo-nav-link');
+    sidebarSboLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            if (window.innerWidth <= 900) {
+                closeMobileSidebar();
+            }
+        });
+    });
 
 });
 
