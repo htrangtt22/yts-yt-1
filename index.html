@@ -25,9 +25,12 @@
 
         <!-- SIDEBAR: CURRICULUM TREE NAVIGATION (MULTI-CHAPTER & MULTI-GIO) -->
         <aside class="sidebar-nav">
-            <div class="sidebar-header">
+            <div class="sidebar-header" style="position: relative;">
                 <span class="subject-label"><i class="fa-solid fa-laptop-medical"></i> 専門教育課程</span>
                 <h2 class="subject-title">医学・医療カリキュラム</h2>
+                <button id="sidebar-close-btn" class="glass-btn" style="display: none; position: absolute; top: 12px; right: 12px; background: transparent; border: none; color: var(--text-muted); cursor: pointer; font-size: 1.2rem;">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
             </div>
 
             <div class="curriculum-tree">
@@ -194,6 +197,9 @@
         <main class="main-viewport">
             <!-- HEADER -->
             <header class="app-header">
+                <button id="sidebar-toggle-btn" class="glass-btn" style="display: none; background: rgba(255,255,255,0.05); color: var(--accent-teal); border: 1px solid rgba(255,255,255,0.15); cursor: pointer; border-radius: 6px; width: 36px; height: 36px; align-items: center; justify-content: center; font-size: 1.1rem; margin-right: 12px; transition: all 0.3s ease;">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
                 <div class="header-breadcrumb">
                     <span class="crumb" id="crumb-chap">Chapter 1 医学・医療総論</span>
                     <i class="fa-solid fa-chevron-right separator"></i>
@@ -929,6 +935,67 @@
 
             <div id="sbo112" class="sbo-section-wrapper">
 
+                <!-- I. Khía cạnh Cá nhân (個人の視点) Detail Section -->
+                <section id="sbo112-individual-detail" class="section">
+                    <div class="container">
+                        <div class="section-badge">
+                            <span class="lang-ja">I. 個人の視点</span>
+                            <span class="lang-vi">I. Khía cạnh Cá nhân</span>
+                        </div>
+                        <h2 class="section-title">
+                            <span class="lang-ja">個人の視点：プライバシーと自己決定</span>
+                            <span class="lang-vi">Khía cạnh Cá nhân: Quyền riêng tư & Sự tự quyết</span>
+                        </h2>
+                        <p class="section-desc">
+                            <span class="lang-ja">医療情報の機微性と、患者自身が主体となる「自己情報コントロール権」へのパラダイムシフト。</span>
+                            <span class="lang-vi">Tính chất nhạy cảm của dữ liệu y khoa và bước chuyển dịch sang quyền tự kiểm soát luồng thông tin cá nhân.</span>
+                        </p>
+
+                        <!-- Tab Switcher for Individual Perspective -->
+                        <div class="card glass-card" style="padding: 30px; text-align: left; border-top: 4px solid var(--accent-teal);">
+                            <div style="display: flex; gap: 8px; margin-bottom: 20px; flex-wrap: wrap;">
+                                <button class="age-tab active" data-sbo112-ind-tab="1" style="padding: 8px 12px; font-size: 0.85rem; margin: 0;">
+                                    <span class="lang-ja">1. 要配慮個人情報</span>
+                                    <span class="lang-vi">1. TT nhạy cảm</span>
+                                </button>
+                                <button class="age-tab" data-sbo112-ind-tab="2" style="padding: 8px 12px; font-size: 0.85rem; margin: 0;">
+                                    <span class="lang-ja">2. 自己情報コントロール権</span>
+                                    <span class="lang-vi">2. Quyền tự kiểm soát</span>
+                                </button>
+                                <button class="age-tab" data-sbo112-ind-tab="3" style="padding: 8px 12px; font-size: 0.85rem; margin: 0;">
+                                    <span class="lang-ja">3. 患者と医療の関係性の変化</span>
+                                    <span class="lang-vi">3. Mối quan hệ y tế dịch chuyển</span>
+                                </button>
+                            </div>
+
+                            <!-- Content Panes -->
+                            <div id="sbo112-ind-pane-1" class="sbo112-ind-pane" style="display: block;">
+                                <h3 style="color: var(--accent-teal); margin-bottom: 12px;"><i class="fa-solid fa-user-shield"></i> <span class="lang-ja">医療情報の性質と「要配慮個人情報」</span><span class="lang-vi">Tính chất của thông tin y tế và "Thông tin cá nhân cần đặc biệt lưu ý"</span></h3>
+                                <p style="line-height: 1.7; color: var(--text-secondary); font-size: 0.95rem;">
+                                    <span class="lang-ja">医療記録は患者本人を主体とする記録であり、疾病に関する「機微な情報」を含みます。そのため、個人情報保護法において医療情報は<strong>「要配慮個人情報」</strong>に該当します。取得する際に原則として本人の同意を得ることが義務化されており、オプトアウトによる第三者提供が認められないなど、一般の個人情報よりも極めて厳格な取り扱いが求められます。</span>
+                                    <span class="lang-vi">Hồ sơ y tế là những tài liệu mà bệnh nhân là chủ thể, chứa đựng những "thông tin nhạy cảm" (機微な情報) liên quan đến bệnh tật. Do đó, theo Luật Bảo vệ Thông tin Cá nhân sửa đổi, thông tin khám chữa bệnh của bệnh nhân được xếp vào loại <strong>"Thông tin cá nhân cần được quan tâm đặc biệt" (要配慮個人情報)</strong>. Loại thông tin này yêu cầu xử lý vô cùng nghiêm ngặt: về nguyên tắc, bắt buộc phải có sự đồng ý của bệnh nhân khi thu thập, và không được phép cung cấp cho bên thứ ba thông qua hình thức Opt-out.</span>
+                                </p>
+                            </div>
+
+                            <div id="sbo112-ind-pane-2" class="sbo112-ind-pane" style="display: none;">
+                                <h3 style="color: var(--accent-teal); margin-bottom: 12px;"><i class="fa-solid fa-key"></i> <span class="lang-ja">プライバシーの権利と「自己情報コントロール権」</span><span class="lang-vi">Quyền riêng tư (Privacy) và "Quyền kiểm soát thông tin cá nhân"</span></h3>
+                                <p style="line-height: 1.7; color: var(--text-secondary); font-size: 0.95rem;">
+                                    <span class="lang-ja">プライバシーとは、「本人がその情報を開示しないで欲しいであろうと考えられる情報」を指します。従来、「プライバシーの権利」は「ひとりでほっておいてもらう権利」という消極的・受動的なものでした。しかし、近年の情報化社会においては、<strong>「自己に関する情報の流れをコントロールする」という積極的・能動的な権利である「自己情報コントロール権」</strong>を含むと考えられるようになっています。</span>
+                                    <span class="lang-vi">Quyền riêng tư được định nghĩa là "những thông tin mà bản thân người đó có lẽ không muốn công khai". Trước đây, "Quyền riêng tư" thường được hiểu theo nghĩa tiêu cực/thụ động là "quyền được để yên" (ひとりでほっておいてもらう権利). Tuy nhiên, trong xã hội thông tin ngày nay, khái niệm này đã phát triển thành một quyền tích cực/chủ động hơn: <strong>"Quyền kiểm soát thông tin cá nhân" (自己情報コントロール権)</strong>. Bệnh nhân có quyền chủ động kiểm soát luồng thông tin liên quan đến bản thân mình và quyết định dữ liệu của mình được phép chia sẻ cho ai.</span>
+                                </p>
+                            </div>
+
+                            <div id="sbo112-ind-pane-3" class="sbo112-ind-pane" style="display: none;">
+                                <h3 style="color: var(--accent-teal); margin-bottom: 12px;"><i class="fa-solid fa-circle-nodes"></i> <span class="lang-ja">患者と医療の関係性の変化</span><span class="lang-vi">Sự thay đổi trong mối quan hệ giữa bệnh nhân và y tế</span></h3>
+                                <p style="line-height: 1.7; color: var(--text-secondary); font-size: 0.95rem;">
+                                    <span class="lang-ja">従来の医師主導（パターナリズム）の医療から、現在では<strong>「インフォームド・コンセント（説明と同意）」や「インフォームド・チョイス（説明と選択）」を前提</strong>とし、患者個人の多様な価値観を尊重する医療へと変化しています。また、マイナンバー制度やPHR（Personal Health Record）の活用により、個人が自身の医療情報を管理し、効果的な医療ケア（一次利用）を受けられる環境が期待されています。プライバシー保護（データの漏洩防止やアクセス権の設定など）が常に最優先課題となります。</span>
+                                    <span class="lang-vi">Mối quan hệ y tế đang có sự chuyển dịch lớn từ mô hình bác sĩ làm chủ đạo (chủ nghĩa gia trưởng - Paternalism) sang nền y tế tôn trọng các giá trị đa dạng của từng bệnh nhân. Mọi quyết định y tế hiện nay đều phải dựa trên tiền đề là <strong>"Giải thích và Đồng ý" (Informed Consent)</strong> và <strong>"Giải thích và Lựa chọn" (Informed Choice)</strong>. Đồng thời, thông qua việc sử dụng thẻ My Number hay hệ thống Hồ sơ sức khỏe cá nhân (PHR - Personal Health Record), người ta kỳ vọng bệnh nhân có thể tự quản lý dữ liệu của mình để nhận được dịch vụ chăm sóc y tế hiệu quả (sử dụng sơ cấp - 一次利用). Trong bối cảnh này, việc bảo vệ quyền riêng tư luôn là ưu tiên hàng đầu.</span>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
                 <!-- 1. Privacy Evolution Section -->
                 <section id="sbo112-privacy-evolution" class="section">
                     <div class="container">
@@ -1306,6 +1373,67 @@
                                         <span class="lang-vi">Người bệnh có quyền từ chối lắng nghe các chẩn đoán tiêu cực mà họ chưa sẵn sàng đối mặt. Bác sĩ cần tinh tế nhận biết các tín hiệu phi ngôn ngữ (né tránh ánh mắt, im lặng) để điều tiết mức độ chia sẻ thông tin.</span>
                                     </span>
                                 </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- II. Khía cạnh Xã hội (社会の視点) Detail Section -->
+                <section id="sbo112-social-detail" class="section">
+                    <div class="container">
+                        <div class="section-badge">
+                            <span class="lang-ja">II. 社会の視点</span>
+                            <span class="lang-vi">II. Khía cạnh Xã hội</span>
+                        </div>
+                        <h2 class="section-title">
+                            <span class="lang-ja">社会の視点：公衆衛生と医療ビッグデータ</span>
+                            <span class="lang-vi">Khía cạnh Xã hội: Y tế công cộng & Dữ liệu lớn</span>
+                        </h2>
+                        <p class="section-desc">
+                            <span class="lang-ja">集団の健康を守る公衆衛生・疫学と、医療ビッグデータの「二次利用」における課題。</span>
+                            <span class="lang-vi">Vai trò của dịch tễ học trong bảo vệ cộng đồng và các thách thức pháp lý khi tái sử dụng dữ liệu quy mô lớn.</span>
+                        </p>
+
+                        <!-- Tab Switcher for Social Perspective -->
+                        <div class="card glass-card" style="padding: 30px; text-align: left; border-top: 4px solid var(--accent-gold);">
+                            <div style="display: flex; gap: 8px; margin-bottom: 20px; flex-wrap: wrap;">
+                                <button class="age-tab active" data-sbo112-soc-tab="1" style="padding: 8px 12px; font-size: 0.85rem; margin: 0; border-color: var(--accent-gold); color: var(--accent-gold);">
+                                    <span class="lang-ja">1. 公衆衛生と疫学</span>
+                                    <span class="lang-vi">1. Y tế công cộng & Dịch tễ</span>
+                                </button>
+                                <button class="age-tab" data-sbo112-soc-tab="2" style="padding: 8px 12px; font-size: 0.85rem; margin: 0; border-color: var(--accent-gold); color: var(--accent-gold);">
+                                    <span class="lang-ja">2. 二次利用とビッグデータ</span>
+                                    <span class="lang-vi">2. Tái sử dụng & Dữ liệu lớn</span>
+                                </button>
+                                <button class="age-tab" data-sbo112-soc-tab="3" style="padding: 8px 12px; font-size: 0.85rem; margin: 0; border-color: var(--accent-gold); color: var(--accent-gold);">
+                                    <span class="lang-ja">3. 社会的コンセンサスと課題</span>
+                                    <span class="lang-vi">3. Đồng thuận xã hội & Thách thức</span>
+                                </button>
+                            </div>
+
+                            <!-- Content Panes -->
+                            <div id="sbo112-soc-pane-1" class="sbo112-soc-pane" style="display: block;">
+                                <h3 style="color: var(--accent-gold); margin-bottom: 12px;"><i class="fa-solid fa-virus-covid"></i> <span class="lang-ja">公衆衛生と疫学</span><span class="lang-vi">Y tế công cộng và Dịch tễ học (公衆衛生と疫学)</span></h3>
+                                <p style="line-height: 1.7; color: var(--text-secondary); font-size: 0.95rem;">
+                                    <span class="lang-ja">病める個人へのアプローチを中心とする臨床医学に対し、<strong>社会医学（公衆衛生や疫学を含む）</strong>は、広範な健康レベルを有する「集団や社会システム」へのアプローチを中心とします。公衆衛生学は、集団の健康状況を分析し、社会組織的活動を通じて健康に対する医学的・社会的脅威を取り除くことで、国民全体の健康向上を図る学問です。そのためには、個人の枠を超えた大規模なデータの収集と分析が不可欠となります。</span>
+                                    <span class="lang-vi">Khác với y học lâm sàng thường chỉ tập trung vào việc điều trị cho từng cá nhân, <strong>Y học xã hội (bao gồm y tế công cộng và dịch tễ học)</strong> tiếp cận các vấn đề sức khỏe ở cấp độ quần thể và hệ thống xã hội. Y tế công cộng phân tích tình trạng sức khỏe của cộng đồng, thông qua các hoạt động có tổ chức của xã hội để loại bỏ các mối đe dọa về y tế và xã hội, từ đó nâng cao sức khỏe chung. Để làm được điều này, việc thu thập và phân tích dữ liệu y tế trên diện rộng là điều kiện tiên quyết.</span>
+                                </p>
+                            </div>
+
+                            <div id="sbo112-soc-pane-2" class="sbo112-soc-pane" style="display: none;">
+                                <h3 style="color: var(--accent-gold); margin-bottom: 12px;"><i class="fa-solid fa-chart-line"></i> <span class="lang-ja">医療情報の二次利用とビッグデータ</span><span class="lang-vi">Sử dụng thứ cấp dữ liệu y tế và Dữ liệu lớn (医療情報の二次利用とビッグデータ)</span></h3>
+                                <p style="line-height: 1.7; color: var(--text-secondary); font-size: 0.95rem;">
+                                    <span class="lang-ja">個人健康記録（PHR）などに経年的に蓄積された時系列かつ多変量データは、患者本人のケア（一次利用）にとどまらず、<strong>「二次利用」</strong>することによって多大な価値を生み出します。IoT環境等で収集された生体機能データや、遺伝子のデータ（Genotype）、PHRに記録された環境・食事・発症などのデータ（Phenotype）を組み合わせて解析する<strong>ビッグデータの利活用</strong>により、個別特性に合わせた最適な予防や治療を提供する<strong>「個別化医療」</strong>の実現が可能となります。</span>
+                                    <span class="lang-vi">Hồ sơ sức khỏe cá nhân (PHR) khi được tích lũy theo thời gian tạo thành các dữ liệu đa biến. Những dữ liệu này không chỉ dùng để chăm sóc sức khỏe cho chính bệnh nhân đó (sử dụng sơ cấp) mà còn có giá trị to lớn khi được <strong>sử dụng thứ cấp (二次利用)</strong> cho nghiên cứu y học. Việc phân tích <strong>Dữ liệu lớn (Big Data)</strong> trong y tế — kết hợp giữa dữ liệu sinh lý học qua IoT, dữ liệu di truyền (Genotype) và dữ liệu về môi trường/thói quen sinh hoạt/bệnh tật (Phenotype) giúp tìm ra tri thức y học mới, hiện thực hóa <strong>"Y học cá thể hóa" (個別化医療)</strong>.</span>
+                                </p>
+                            </div>
+
+                            <div id="sbo112-soc-pane-3" class="sbo112-soc-pane" style="display: none;">
+                                <h3 style="color: var(--accent-gold); margin-bottom: 12px;"><i class="fa-solid fa-users"></i> <span class="lang-ja">社会的コンセンサスの形成と課題</span><span class="lang-vi">Xây dựng sự đồng thuận xã hội và Các thách thức (社会的コンセンサスの形成と課題)</span></h3>
+                                <p style="line-height: 1.7; color: var(--text-secondary); font-size: 0.95rem;">
+                                    <span class="lang-ja">医療ビッグデータの利活用は社会全体に大きな利益をもたらしますが、がん登録基本法などで法的に定められた場合を除き、データ利用には原則として本人の同意が必要です。そのため、個人のプライバシーを保護しつつ医療ビッグデータを利活用することについて、<strong>「社会的なコンセンサスの形成」</strong>が緊急の課題となっています。また、緊急時や災害時に意識低下等で同意取得が困難な状況においては、個人情報保護の原則に固執しすぎず、個人情報保護法の例外として柔軟に取り扱う（あるいは医療特例法を制定する）など、社会全体としての枠組みづくりも求められています。</span>
+                                    <span class="lang-vi">Mặc dù việc tận dụng Big Data mang lại lợi ích to lớn cho xã hội, nhưng ngoại trừ các trường hợp được pháp luật quy định đặc biệt (như Đăng ký Ung thư), việc sử dụng dữ liệu về nguyên tắc vẫn cần có sự đồng ý của bệnh nhân. Do đó, việc hình thành một <strong>sự đồng thuận xã hội (社会的コンセンサス)</strong> về cách sử dụng Big Data y tế một cách an toàn và hợp lý đang là nhiệm vụ cấp bách. Thêm vào đó, ở góc độ xã hội, trong các tình huống khẩn cấp hoặc thảm họa khi bệnh nhân bị suy giảm ý thức và không thể xác nhận sự đồng ý, cần có những quy định xử lý linh hoạt như một ngoại lệ của Luật Bảo vệ thông tin cá nhân để đảm bảo cấp cứu kịp thời.</span>
+                                </p>
                             </div>
                         </div>
                     </div>
@@ -4550,8 +4678,14 @@
             </div>
 
     </main><!-- END main-viewport -->
+    
+    <!-- Mobile Sidebar Backdrop -->
+    <div id="sidebar-backdrop" style="display: none; position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background: rgba(0, 0, 0, 0.5); z-index: 45;"></div>
+    
     </div><!-- END app-layout -->
 
+    <script src="simulators.js"></script>
+    <script src="quiz.js"></script>
     <script src="app.js"></script>
 </body>
 </html>
