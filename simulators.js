@@ -1099,7 +1099,7 @@ document.addEventListener('DOMContentLoaded', () => {
             segment.classList.add('active');
 
             const key = segment.getAttribute('data-prev-lvl');
-            const data = prevLvlData[key];
+            const data = (window.prevLvlData || {})[key];
 
             if (data && prevLvlTitle) {
                 const infoCard = document.getElementById('prev-lvl-info');
@@ -1963,6 +1963,27 @@ document.addEventListener('DOMContentLoaded', () => {
 
             sbo112SocPanes.forEach(pane => {
                 if (pane.id === `sbo112-soc-pane-${targetTabNum}`) {
+                    pane.style.display = 'block';
+                } else {
+                    pane.style.display = 'none';
+                }
+            });
+        });
+    });
+
+    // --- SBO 1.1.2: Harmony Section Tabs Logic ---
+    const sbo112HarTabs = document.querySelectorAll('[data-sbo112-har-tab]');
+    const sbo112HarPanes = document.querySelectorAll('.sbo112-har-pane');
+
+    sbo112HarTabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+            const targetTabNum = tab.getAttribute('data-sbo112-har-tab');
+            
+            sbo112HarTabs.forEach(t => t.classList.remove('active'));
+            tab.classList.add('active');
+
+            sbo112HarPanes.forEach(pane => {
+                if (pane.id === `sbo112-har-pane-${targetTabNum}`) {
                     pane.style.display = 'block';
                 } else {
                     pane.style.display = 'none';

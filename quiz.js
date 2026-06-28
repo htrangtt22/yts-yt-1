@@ -638,79 +638,149 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     function parseQuizMarkdown(content, fileName) {
-        const type = fileName.replace(/_/g, ' ').replace('.md', '');
+        const type = fileName.replace('.md', '').replace(/_/g, ' ');
         const questions = [];
-        const parts = content.split(/###\s*問/);
-        for (let i = 1; i < parts.length; i++) {
-            const part = parts[i].trim();
-            if (!part) continue;
-            const lines = part.split('\n').map(l => l.trim()).filter(l => l);
-            if (lines.length < 5) continue;
-            
-            const qLine = lines[0];
-            const qTextMatch = qLine.match(/^\d+[\.．\s]+(.*)/);
-            const questionJaText = qTextMatch ? qTextMatch[1].trim() : qLine;
-            
-            const options = [];
+
+        // Split by question blocks: "## 問XX / Câu XX"
+        const questionBlocks = content.split(/^## 問\d+\s*\/\s*Câu\s*\d+/m).slice(1);
+
+        for (let i = 0; i < questionBlocks.length; i++) {
+            const block = questionBlocks[i];
+
+            // Split into JP and VI subsections using the flag headers
+            const jpMatch = block.match(/###\s*🇯🇵[^\n]*\n([\s\S]*?)(?=###\s*🇻🇳|$)/);
+            const viMatch = block.match(/###\s*🇻🇳[^\n]*\n([\s\S]*?)(?=^##\s|$)/m);
+
+            if (!jpMatch) continue;
+
+            const jpSection = jpMatch[1];
+            const viSection = viMatch ? viMatch[1] : '';
+
+            // --- Parse Japanese Section ---
+            const jpLines = jpSection.split('\n');
+
+            // Question text: first bold **...** line
+            let questionJa = '';
+            let jpOptionsStart = -1;
+            for (let j = 0; j < jpLines.length; j++) {
+                const m = jpLines[j].match(/^\*\*(.+)\*\*\s*$/);
+                if (m && !questionJa) {
+                    questionJa = m[1].trim();
+                    jpOptionsStart = j + 1;
+                    break;
+                }
+            }
+            if (!questionJa) continue;
+
+            // Options: numbered lines "1. xxx" through "5. xxx"
+            const optionsJa = [];
             let answerIndex = -1;
-            let explanation = '';
-            
-            for (let j = 1; j < lines.length; j++) {
-                const line = lines[j];
-                const optMatch = line.match(/^([A-D])[\.．\s]+(.*)/);
-                if (optMatch) {
-                    options.push({
-                        ja: line,
-                        vi: line
-                    });
+
+            for (let j = jpOptionsStart; j < jpLines.length; j++) {
+                const line = jpLines[j].trim();
+                const optM = line.match(/^(\d+)\.\s+(.+)/);
+                if (optM) {
+                    optionsJa.push({ num: parseInt(optM[1]), text: optM[2].trim() });
                 }
-                
-                const ansMatch = line.match(/正解[：:]\s*([A-D])/);
-                if (ansMatch) {
-                    const ansLetter = ansMatch[1];
-                    answerIndex = ansLetter.charCodeAt(0) - 65;
-                }
-                
-                if (line.startsWith('>')) {
-                    explanation += line.substring(1).trim() + '\n';
+                // Answer line: ✅ 正解：N) ...
+                const ansM = line.match(/正解[：:]\s*(\d+)/);
+                if (ansM) {
+                    answerIndex = parseInt(ansM[1]) - 1; // 1-based to 0-based
                 }
             }
-            
-            const cleanQJaText = questionJaText.trim();
-            let questionViText = questionJaText;
-            let finalOptions = options;
-            let explanationViText = explanation.trim();
-            let explanationJaText = explanation.trim();
-            
-            if (TRANSLATION_MAP[cleanQJaText]) {
-                const trans = TRANSLATION_MAP[cleanQJaText];
-                questionViText = trans.questionVi;
-                explanationViText = trans.explanationVi || explanationViText;
-                if (trans.options && trans.options.length === options.length) {
-                    finalOptions = options.map((opt, idx) => ({
-                        ja: opt.ja,
-                        vi: trans.options[idx].vi
-                    }));
+
+            if (optionsJa.length < 2 || answerIndex < 0) continue;
+
+            // Explanation JP: bullet lines after "解説："
+            let explanationJa = '';
+            let inExplanation = false;
+            for (let j = 0; j < jpLines.length; j++) {
+                const line = jpLines[j].trim();
+                if (/^\*\*解説[：:]/.test(line) || line === '**解説**' || line === '解説') {
+                    inExplanation = true;
+                    continue;
                 }
-            }
-            
-            if (options.length === 4 && answerIndex !== -1) {
-                questions.push({
-                    id: `${type.toLowerCase().replace(/[^a-z0-9]/g, '')}_q${questions.length + 1}`,
-                    type: type,
-                    question: {
-                        ja: questionJaText,
-                        vi: questionViText
-                    },
-                    options: finalOptions,
-                    answer: answerIndex,
-                    explanation: {
-                        ja: explanationJaText || `正解は ${String.fromCharCode(65 + answerIndex)} です。`,
-                        vi: explanationViText || `Đáp án đúng là ${String.fromCharCode(65 + answerIndex)}.`
+                if (inExplanation) {
+                    if (line.startsWith('##') || line.startsWith('###')) break;
+                    if (line.startsWith('- **') || line.startsWith('- ')) {
+                        explanationJa += line.replace(/^-\s*/, '') + '\n';
+                    } else if (line.startsWith('> ')) {
+                        explanationJa += line.substring(2) + '\n';
                     }
-                });
+                }
             }
+
+            // --- Parse Vietnamese Section ---
+            let questionVi = '';
+            const optionsVi = [];
+            let explanationVi = '';
+
+            if (viSection) {
+                const viLines = viSection.split('\n');
+
+                let viOptionsStart = -1;
+                for (let j = 0; j < viLines.length; j++) {
+                    const m = viLines[j].match(/^\*\*(.+)\*\*\s*$/);
+                    if (m && !questionVi) {
+                        questionVi = m[1].trim();
+                        viOptionsStart = j + 1;
+                        break;
+                    }
+                }
+
+                if (viOptionsStart >= 0) {
+                    for (let j = viOptionsStart; j < viLines.length; j++) {
+                        const line = viLines[j].trim();
+                        const optM = line.match(/^(\d+)\.\s+(.+)/);
+                        if (optM) {
+                            optionsVi.push({ num: parseInt(optM[1]), text: optM[2].trim() });
+                        }
+                    }
+                }
+
+                let viInExplanation = false;
+                for (let j = 0; j < viLines.length; j++) {
+                    const line = viLines[j].trim();
+                    if (/^\*\*Giải thích/.test(line) || line === '**Giải thích**' || line === 'Giải thích') {
+                        viInExplanation = true;
+                        continue;
+                    }
+                    if (viInExplanation) {
+                        if (line.startsWith('##') || line.startsWith('###')) break;
+                        if (line.startsWith('- **') || line.startsWith('- ')) {
+                            explanationVi += line.replace(/^-\s*/, '') + '\n';
+                        } else if (line.startsWith('> ')) {
+                            explanationVi += line.substring(2) + '\n';
+                        }
+                    }
+                }
+            }
+
+            // Build bilingual options array (match by position)
+            const finalOptions = optionsJa.map((opt, idx) => ({
+                ja: opt.text,
+                vi: (optionsVi[idx] ? optionsVi[idx].text : opt.text)
+            }));
+
+            if (answerIndex >= finalOptions.length) continue;
+
+            questions.push({
+                id: `${type.toLowerCase().replace(/[^a-z0-9]/g, '')}` + `_q${questions.length + 1}`,
+                type: type,
+                question: {
+                    ja: questionJa,
+                    vi: questionVi || questionJa
+                },
+                options: finalOptions,
+                answer: answerIndex,
+                explanation: {
+                    ja: explanationJa.trim() || `正解は ${answerIndex + 1} です。`,
+                    vi: explanationVi.trim() || `Đáp án đúng là ${answerIndex + 1}.`
+                }
+            });
         }
+
+        console.log(`[parseQuizMarkdown] Parsed ${questions.length} questions from ${fileName}`);
         return questions;
     }
 

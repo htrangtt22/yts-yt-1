@@ -174,35 +174,48 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     };
 
-    const prevLvlData = {
+        window.prevLvlData = {
         '1': {
             title: {
-                ja: '一次予防：健康増進・疾病予防 (Primary Prevention)',
-                vi: 'Dự phòng cấp 1: Nâng cao sức khỏe & Phòng ngừa bệnh tật (Primary Prevention)'
+                ja: '一次予防：健康増進・疾病予防・事故予防 (Primary Prevention)',
+                vi: 'Dự phòng cấp 1: Nâng cao sức khỏe & Phòng ngừa bệnh tật'
             },
             body: {
-                ja: '健康な人を対象に、生活習慣の改善、栄養管理、運動習慣、予防接種、安全な住環境整備等を通じて、病気になることを未然に防ぎます。',
-                vi: 'Dành cho đối tượng người khỏe mạnh, ngăn chặn bệnh tật xảy ra thông qua cải thiện lối sống, quản lý dinh dưỡng, thói quen vận động, tiêm chủng, cải thiện môi trường sống an toàn...'
+                ja: `病気やケガの発生を未然に防ぐ段階です。
+・健康増進：生活習慣や環境の改善、健康教育を実施します。
+・疾病予防：予防接種などにより疾病の発生を防ぎます。
+・事故予防：事故防止対策により傷害を防ぎます。`,
+                vi: `Ngăn chặn sự phát sinh của bệnh tật và thương tích ngay từ ban đầu:
+• Nâng cao sức khỏe: Cải thiện lối sống, môi trường sống và giáo dục sức khỏe.
+• Phòng ngừa bệnh tật: Thực hiện tiêm chủng để phòng ngừa phát sinh bệnh lý.
+• Phòng tránh tai nạn: Áp dụng biện pháp phòng chống tai nạn để ngăn tổn thương.`
             }
         },
         '2': {
             title: {
-                ja: '二次予防：早期発見・早期治療 (Secondary Prevention)',
-                vi: 'Dự phòng cấp 2: Phát hiện sớm & Điều trị sớm (Secondary Prevention)'
+                ja: '二次予防：早期発見・早期対処・適切な医療 (Secondary Prevention)',
+                vi: 'Dự phòng cấp 2: Phát hiện sớm, Xử trí sớm & Y tế phù hợp'
             },
             body: {
-                ja: '無症状の段階で病気を発見し、早期に介入します。特定健診やがん検診、健康相談などがこれに該当し、重症化を阻止します。',
-                vi: 'Phát hiện bệnh ở giai đoạn chưa có triệu chứng và can thiệp kịp thời. Khám sức khỏe đặc hiệu, tầm soát ung thư, tư vấn sức khỏe... thuộc nhóm này để ngăn ngừa bệnh tiến triển nặng.'
+                ja: `発生した疾病を早期に発見し、進行を防ぐ段階です。
+・早期発見・早期対処：検診などにより早期発見し、治療や保健指導により重症化を予防します。
+・適切な医療：合併症対策を含め、適切な医療を提供します。`,
+                vi: `Tập trung vào việc phát hiện sớm và can thiệp kịp thời khi bệnh mới chớm phát:
+• Phát hiện và xử trí sớm: Khám sàng lọc (検診), tiến hành điều trị và chỉ đạo sức khỏe (保健指導) kịp thời để phòng ngừa bệnh trở nặng.
+• Y tế phù hợp: Cung cấp can thiệp y tế đúng đắn ngăn biến chứng.`
             }
         },
         '3': {
             title: {
-                ja: '三次予防：重症化予防・リハビリテーション (Tertiary Prevention)',
-                vi: 'Dự phòng cấp 3: Ngăn ngừa biến chứng & Phục hồi chức năng (Tertiary Prevention)'
+                ja: '三次予防：リハビリテーション・社会復帰 (Tertiary Prevention)',
+                vi: 'Dự phòng cấp 3: Phục hồi chức năng & Tái hòa nhập'
             },
             body: {
-                ja: '既に病気が発症した後に、適切な治療、合併症予防、リハビリテーションを行い、障害を最小限に抑え、社会復帰やQOL維持を促進します。',
-                vi: 'Sau khi bệnh đã khởi phát, tiến hành điều trị thích hợp, phòng ngừa biến chứng và phục hồi chức năng để giảm thiểu tàn tật, thúc đẩy tái hòa nhập xã hội và duy trì chất lượng cuộc sống (QOL).'
+                ja: `病気になった後の機能回復と社会復帰を支援する段階です。
+・機能回復・再発予防：保健指導やリハビリテーション等による機能回復を図り、社会復帰を支援し再発を予防します。`,
+                vi: `Tập trung giai đoạn sau khi mắc bệnh, giảm thiểu di chứng và đưa người bệnh trở lại cuộc sống bình thường:
+• Phục hồi chức năng: Kết hợp chỉ đạo sức khỏe và vật lý trị liệu để khôi phục chức năng cơ thể.
+• Hỗ trợ tái hòa nhập: Giúp quay trở lại cộng đồng (社会復帰) và ngăn ngừa tái phát.`
             }
         }
     };
@@ -432,8 +445,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const heroSubDesc = document.getElementById('hero-sub-desc');
 
     const activateSBO = (targetSbo, updateHash = true) => {
-        if (typeof deactivateReviewMode === 'function') {
-            deactivateReviewMode();
+        if (typeof window.deactivateReviewMode === 'function') {
+            window.deactivateReviewMode();
         }
         const link = document.querySelector(`.sbo-nav-link[data-sbo="${targetSbo}"]`);
         const data = sboHeaderData[targetSbo];
