@@ -2651,3 +2651,36 @@ body.lang-vi *:not([class*="fa-"]):not(.fa):not(.fas):not(.far):not(.fab) {
     border-color: var(--accent-gold) !important;
     box-shadow: 0 0 15px rgba(245, 158, 11, 0.15) !important;
 }
+/* Global Smooth Entrance Animations & Hover Effects */
+@keyframes slideUpFade {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.sbo-section-wrapper {
+    animation: slideUpFade 0.45s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.card.glass-card {
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease, border-color 0.3s ease !important;
+}
+
+.card.glass-card:hover {
+    transform: translateY(-4px) !important;
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.45), 0 0 15px rgba(255, 255, 255, 0.05) !important;
+    border-color: rgba(255, 255, 255, 0.15) !important;
+}
+
+/* Roadmap step hover */
+.roadmap-step {
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+.roadmap-step:hover {
+    transform: scale(1.1) !important;
+}

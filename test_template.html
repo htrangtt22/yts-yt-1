@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head><title>Template Load Test</title></head>
+<body>
+<div id="result" style="font-family:monospace; padding:20px; white-space:pre;"></div>
+<div id="inject-target" style="border:2px solid red; min-height:50px;"></div>
+<script src="sbo/sbo111.js"></script>
+<script>
+  const out = document.getElementById('result');
+  const target = document.getElementById('inject-target');
+  
+  if (window.SBO_TEMPLATES) {
+    const keys = Object.keys(window.SBO_TEMPLATES);
+    out.textContent = 'SBO_TEMPLATES keys: ' + keys.join(', ') + '\n';
+    
+    if (window.SBO_TEMPLATES.sbo111) {
+      out.textContent += 'sbo111 length: ' + window.SBO_TEMPLATES.sbo111.length + '\n';
+      out.textContent += 'Injecting...\n';
+      target.innerHTML = window.SBO_TEMPLATES.sbo111;
+      out.textContent += 'SUCCESS! Target innerHTML length: ' + target.innerHTML.length;
+    } else {
+      out.textContent += 'ERROR: sbo111 key not found!';
+    }
+  } else {
+    out.textContent = 'ERROR: window.SBO_TEMPLATES is not defined!';
+  }
+</script>
+</body>
+</html>

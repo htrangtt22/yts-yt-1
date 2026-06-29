@@ -3,6 +3,12 @@ document.addEventListener('DOMContentLoaded', () => {
     // --- REVIEW MODE & SPACED REPETITION QUIZ ---
     // ==========================================
 
+    const sboNavLinks = document.querySelectorAll('.sbo-nav-link');
+    const sboWrappers = document.querySelectorAll('.sbo-section-wrapper');
+    const reviewModeBtn = document.getElementById('review-mode-btn');
+    const reviewSection = document.getElementById('review-section');
+    const heroSection = document.getElementById('hero');
+
     const DEFAULT_QUIZ_QUESTIONS = [
         {
             id: 'q1',
@@ -97,35 +103,39 @@ document.addEventListener('DOMContentLoaded', () => {
                 vi: 'Đề xuất này mặc dù được Hội đồng Chấp hành thông qua nhưng khi đưa ra Đại hội đồng WHO đã không được thông qua, do đó không thay đổi định nghĩa chính thức.'
             }
         },
-        {
+                {
             id: 'q4',
             type: 'SBO 1.1.2',
             question: {
-                ja: '日本で急速に進行する少子高齢化に伴い、疾病構造はどのように変化しているか。',
-                vi: 'Cấu trúc bệnh tật ở Nhật Bản đang thay đổi như thế nào cùng với sự già hóa dân số và giảm sinh nhanh chóng?'
+                ja: '医師が十分な説明を行い、患者が自らの治療法を「選択」する権利を保障する考え方を何というか。<br><strong>（※医療モデルの転換に関する重要な問い）</strong>',
+                vi: 'Khái niệm nào chỉ quyền của bệnh nhân trong việc tự mình "lựa chọn" phương pháp điều trị sau khi được giải thích đầy đủ?<br><strong>(Lưu ý: Đây là tiền đề cốt lõi của mối quan hệ y tế mới)</strong>'
             },
             options: [
                 {
-                    ja: 'A. 急性感染症から生活習慣病などの慢性疾患へ',
-                    vi: 'A. Từ các bệnh nhiễm trùng cấp tính sang các bệnh mãn tính như bệnh do lối sống'
+                    ja: 'A. インフォームド・コンセント（説明と同意）',
+                    vi: 'A. Informed Consent (Giải thích và Đồng ý)'
                 },
                 {
-                    ja: 'B. 慢性疾患から急性感染症へ',
-                    vi: 'B. Từ các bệnh mãn tính sang các bệnh nhiễm trùng cấp tính'
+                    ja: 'B. インフォームド・チョイス（説明と選択）',
+                    vi: 'B. Informed Choice (Giải thích và Lựa chọn)'
                 },
                 {
-                    ja: 'C. 精神疾患から身体疾患へ',
-                    vi: 'C. Từ bệnh tâm thần sang bệnh thể chất'
+                    ja: 'C. パターナリズム（主権制限・家長制度）',
+                    vi: 'C. Paternalism (Chủ nghĩa gia trưởng)'
                 },
                 {
-                    ja: 'D. 生活習慣病から遺伝性疾患へ',
-                    vi: 'D. Từ bệnh do lối sống sang bệnh di truyền'
+                    ja: 'D. セカンドオピニオン（第2の意見）',
+                    vi: 'D. Second Opinion (Ý kiến chuyên môn thứ hai)'
+                },
+                {
+                    ja: 'E. アドバンス・ケア・プランニング（ACP）',
+                    vi: 'E. Advance Care Planning (Lập kế hoạch chăm sóc trước)'
                 }
             ],
-            answer: 0,
+            answer: 1,
             explanation: {
-                ja: '少子高齢化や衛生環境の改善に伴い、疾病の中心は「急性感染症」からがん、心疾患、脳血管疾患などの「慢性疾患（生活習慣病）」へと変化しました。',
-                vi: 'Cùng với sự già hóa dân số và cải thiện vệ sinh, cấu trúc bệnh tật đã chuyển từ bệnh nhiễm trùng cấp tính sang các bệnh mãn tính nguy hiểm như ung thư, tim mạch (bệnh do lối sống).'
+                ja: '十分な説明を受けて同意する「インフォームド・コンセント」から一歩進み、患者自身が自らの価値観に基づき主体的に選択を行う権利を<strong>「インフォームド・チョイス」</strong>と呼びます。<br><br>これらは、従来の医師主導（パターナリズム）の医療モデルからの大きな転換点です。',
+                vi: 'Đi xa hơn việc chỉ đồng ý sau giải thích (Informed Consent), <strong>Informed Choice (Giải thích và Lựa chọn)</strong> là quyền của bệnh nhân được chủ động lựa chọn phương án điều trị phù hợp nhất với giá trị sống của mình.<br><br>Đây là bước chuyển đổi cơ bản, giải phóng người bệnh khỏi mô hình gia trưởng bác sĩ áp đặt từ trước.'
             }
         },
         {
@@ -500,35 +510,39 @@ document.addEventListener('DOMContentLoaded', () => {
                 vi: 'Mặc dù cải thiện sức khỏe gián tiếp giảm gánh nặng tài chính, nhưng việc cắt giảm viện phí trực tiếp không thuộc định hướng cơ bản của Health Japan 21.'
             }
         },
-        {
+                {
             id: 'q17',
             type: 'SBO 1.1.2',
             question: {
-                ja: 'データヘルス改革が推進開始されたのはいつか。',
-                vi: 'Cải cách dữ liệu sức khỏe (Data Health Reform) bắt đầu được thúc đẩy từ năm nào?'
+                ja: '個人の医療・健康データを経年的に本人が蓄積・管理し、能動的に利活用するための仕組みを何というか。<br><strong>（※情報コントロール権と一次利用の推進）</strong>',
+                vi: 'Cơ chế giúp cá nhân tự tích lũy, quản lý và chủ động sử dụng dữ liệu y tế, sức khỏe của bản thân theo thời gian gọi là gì?<br><strong>(Lưu ý: Giúp chia sẻ thông tin hiệu quả trong hệ thống vùng)</strong>'
             },
             options: [
                 {
-                    ja: 'A. 2008年',
-                    vi: 'A. Năm 2008'
+                    ja: 'A. EHR (Electronic Health Record)',
+                    vi: 'A. EHR (Hồ sơ sức khỏe điện tử liên kết)'
                 },
                 {
-                    ja: 'B. 2013年',
-                    vi: 'B. Năm 2013'
+                    ja: 'B. EMR (Electronic Medical Record)',
+                    vi: 'B. EMR (Bệnh án điện tử bệnh viện)'
                 },
                 {
-                    ja: 'C. 2017年',
-                    vi: 'C. Năm 2017'
+                    ja: 'C. PHR (Personal Health Record)',
+                    vi: 'C. PHR (Hồ sơ sức khỏe cá nhân)'
                 },
                 {
-                    ja: 'D. 2021年',
-                    vi: 'D. Năm 2021'
+                    ja: 'D. NDB (National Database)',
+                    vi: 'D. NDB (Cơ sở dữ liệu quốc gia)'
+                },
+                {
+                    ja: 'E. Kokuho DB (国保データベース)',
+                    vi: 'E. Kokuho DB (Cơ sở dữ liệu bảo hiểm y tế quốc gia)'
                 }
             ],
             answer: 2,
             explanation: {
-                ja: '厚生労働省において「データヘルス改革推進本部」が設置され、本格的な取り組みが開始されたのは2017年（平成29年）です。',
-                vi: 'Văn phòng Thúc đẩy cải cách dữ liệu sức khỏe thuộc Bộ Y tế, Lao động và Phúc lợi Nhật Bản được thành lập vào năm 2017.'
+                ja: '<strong>PHR（Personal Health Record）</strong>は、患者自身が主体となって自己の健康や処方等の情報を一元的に記録し、生涯にわたって管理する仕組みです。<br><br>マイナンバー制度等を介して、地域包括ケアシステム内での効率的な連携に役立てられます。',
+                vi: '<strong>PHR (Personal Health Record - Hồ sơ sức khỏe cá nhân)</strong> là hệ thống giúp người dân tích lũy và kiểm soát dữ liệu sức khỏe của chính mình từ nhiều nguồn qua thời gian.<br><br>PHR kết hợp My Number giúp chia sẻ thông tin chăm sóc hiệu quả trong khu vực.'
             }
         },
         {
@@ -649,7 +663,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             // Split into JP and VI subsections using the flag headers
             const jpMatch = block.match(/###\s*🇯🇵[^\n]*\n([\s\S]*?)(?=###\s*🇻🇳|$)/);
-            const viMatch = block.match(/###\s*🇻🇳[^\n]*\n([\s\S]*?)(?=^##\s|$)/m);
+            const viMatch = block.match(/###\s*🇻🇳[^\n]*\n([\s\S]*)$/);
 
             if (!jpMatch) continue;
 
@@ -657,7 +671,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const viSection = viMatch ? viMatch[1] : '';
 
             // --- Parse Japanese Section ---
-            const jpLines = jpSection.split('\n');
+            const jpLines = jpSection.replace(/\r/g, '').split('\n');
 
             // Question text: first bold **...** line
             let questionJa = '';
@@ -674,7 +688,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             // Options: numbered lines "1. xxx" through "5. xxx"
             const optionsJa = [];
-            let answerIndex = -1;
+            let answerIndices = [];
 
             for (let j = jpOptionsStart; j < jpLines.length; j++) {
                 const line = jpLines[j].trim();
@@ -682,14 +696,17 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (optM) {
                     optionsJa.push({ num: parseInt(optM[1]), text: optM[2].trim() });
                 }
-                // Answer line: ✅ 正解：N) ...
-                const ansM = line.match(/正解[：:]\s*(\d+)/);
+                // Answer line: ✅ 正解：3) ヒ素　5) 一酸化炭素
+                const ansM = line.match(/正解[：:]\s*(.+)/);
                 if (ansM) {
-                    answerIndex = parseInt(ansM[1]) - 1; // 1-based to 0-based
+                    const numbers = ansM[1].match(/\d+/g);
+                    if (numbers) {
+                        answerIndices = numbers.map(n => parseInt(n) - 1);
+                    }
                 }
             }
 
-            if (optionsJa.length < 2 || answerIndex < 0) continue;
+            if (optionsJa.length < 2 || answerIndices.length === 0) continue;
 
             // Explanation JP: bullet lines after "解説："
             let explanationJa = '';
@@ -716,7 +733,7 @@ document.addEventListener('DOMContentLoaded', () => {
             let explanationVi = '';
 
             if (viSection) {
-                const viLines = viSection.split('\n');
+                const viLines = viSection.replace(/\r/g, '').split('\n');
 
                 let viOptionsStart = -1;
                 for (let j = 0; j < viLines.length; j++) {
@@ -862,7 +879,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
         return combined.map(q => {
             const qCopy = { ...q, options: q.options.map(opt => ({ ...opt })) };
-            const correctTextJa = stripOptionPrefix(q.options[q.answer].ja);
+            qCopy.answers = qCopy.answers || (qCopy.answer !== undefined ? [qCopy.answer] : []);
+            const firstAns = qCopy.answers[0] !== undefined ? qCopy.answers[0] : 0;
+            const correctTextJa = stripOptionPrefix(q.options[firstAns].ja);
             shuffleArray(qCopy.options);
             qCopy.answer = qCopy.options.findIndex(opt => stripOptionPrefix(opt.ja) === correctTextJa);
             return qCopy;
@@ -1092,7 +1111,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function activateReviewMode() {
         sboNavLinks.forEach(l => l.classList.remove('active'));
-        sboWrappers.forEach(w => {
+        document.querySelectorAll('.sbo-section-wrapper').forEach(w => {
             w.classList.remove('active');
             w.style.display = 'none';
         });
@@ -1204,7 +1223,7 @@ document.addEventListener('DOMContentLoaded', () => {
             qType.textContent = q.type;
         }
         if (qText) {
-            qText.textContent = isVi ? q.question.vi : q.question.ja;
+            qText.innerHTML = isVi ? q.question.vi : q.question.ja;
         }
 
         if (explanationBox) {
@@ -1218,9 +1237,49 @@ document.addEventListener('DOMContentLoaded', () => {
             resultBanner.style.display = 'none';
         }
 
+        // Guarantee q.answers exists
+        q.answers = q.answers || (q.answer !== undefined ? [q.answer] : []);
+        const expectedCount = q.answers.length;
+        let selectedIndices = [];
+
+        if (expectedCount > 1 && qText) {
+            const hint = isVi 
+                ? `<span style="display:block;margin-top:8px;font-size:0.88rem;color:#facc15;font-weight:bold;"><i class="fa-solid fa-square-check"></i> Hãy chọn đúng ${expectedCount} đáp án.</span>`
+                : `<span style="display:block;margin-top:8px;font-size:0.88rem;color:#facc15;font-weight:bold;"><i class="fa-solid fa-square-check"></i> 正しい答えを ${expectedCount} つ選択してください。</span>`;
+            qText.innerHTML += hint;
+        }
+
+        function showResultAndExplanation(isCorrect) {
+            const resultBanner = document.getElementById('quiz-result-banner');
+            if (resultBanner) {
+                if (isCorrect) {
+                    resultBanner.innerHTML = `<i class="fa-solid fa-circle-check" style="font-size:1.4rem;"></i><span style="font-size:1.1rem;font-weight:800;">\${isVi ? 'Chính xác!' : '正解！'}</span>`;
+                    resultBanner.style.background = 'linear-gradient(135deg, rgba(34,197,94,0.2), rgba(34,197,94,0.08))';
+                    resultBanner.style.borderColor = '#22c55e';
+                    resultBanner.style.color = '#4ade80';
+                } else {
+                    resultBanner.innerHTML = `<i class="fa-solid fa-circle-xmark" style="font-size:1.4rem;"></i><span style="font-size:1.1rem;font-weight:800;">\${isVi ? 'Sai rồi!' : '不正解'}</span>`;
+                    resultBanner.style.background = 'linear-gradient(135deg, rgba(239,68,68,0.2), rgba(239,68,68,0.08))';
+                    resultBanner.style.borderColor = '#ef4444';
+                    resultBanner.style.color = '#f87171';
+                }
+                resultBanner.style.display = 'flex';
+            }
+
+            const explanationText = document.getElementById('quiz-explanation-text');
+            if (explanationText && explanationBox) {
+                explanationText.innerHTML = isVi ? q.explanation.vi : q.explanation.ja;
+                explanationBox.style.display = 'flex';
+            }
+
+            if (nextBtn) {
+                nextBtn.style.display = 'inline-flex';
+            }
+        }
+
         if (optionsContainer) {
             optionsContainer.innerHTML = '';
-            const prefixes = ['A', 'B', 'C', 'D'];
+            const prefixes = ['A', 'B', 'C', 'D', 'E'];
             q.options.forEach((opt, optIndex) => {
                 const btn = document.createElement('button');
                 btn.className = 'quiz-option-btn';
@@ -1239,80 +1298,120 @@ document.addEventListener('DOMContentLoaded', () => {
                 btn.innerHTML = `${prefixes[optIndex]}. ${cleanText}`;
 
                 btn.addEventListener('click', () => {
-                    const allBtns = optionsContainer.querySelectorAll('button');
-                    allBtns.forEach(b => {
-                        b.disabled = true;
-                        b.style.cursor = 'default';
-                    });
+                    if (expectedCount === 1) {
+                        // Single Answer Logic
+                        const allBtns = optionsContainer.querySelectorAll('button');
+                        allBtns.forEach(b => {
+                            b.disabled = true;
+                            b.style.cursor = 'default';
+                        });
 
-                    const isCorrect = (optIndex === q.answer);
-                    const stats = getSpacedRepStats();
-                    if (!stats[q.id]) {
-                        stats[q.id] = { consecutiveCorrect: 0, inReviewList: false, totalCorrect: 0, totalAttempted: 0 };
-                    }
-
-                    stats[q.id].totalAttempted++;
-
-                    // --- Always highlight the correct answer boldly ---
-                    const correctBtn = allBtns[q.answer];
-                    if (correctBtn) {
-                        correctBtn.style.borderColor = '#22c55e';
-                        correctBtn.style.background = 'rgba(34,197,94,0.18)';
-                        correctBtn.style.boxShadow = '0 0 20px rgba(34,197,94,0.4)';
-                        correctBtn.style.fontWeight = '700';
-                        correctBtn.innerHTML = `<span style="display:flex;align-items:center;gap:10px;"><span style="display:inline-flex;align-items:center;justify-content:center;width:22px;height:22px;border-radius:50%;background:#22c55e;color:#000;font-size:0.8rem;flex-shrink:0;"><i class="fa-solid fa-check"></i></span>${correctBtn.innerHTML}</span>`;
-                    }
-
-                    if (isCorrect) {
-                        correctCountThisRun++;
-                        stats[q.id].totalCorrect++;
-                        stats[q.id].consecutiveCorrect++;
-                        stats._streak = (stats._streak || 0) + 1;
-
-                        if (stats[q.id].consecutiveCorrect >= 2) {
-                            stats[q.id].inReviewList = false;
+                        const isCorrect = q.answers.includes(optIndex);
+                        const stats = getSpacedRepStats();
+                        if (!stats[q.id]) {
+                            stats[q.id] = { consecutiveCorrect: 0, inReviewList: false, totalCorrect: 0, totalAttempted: 0 };
                         }
-                    } else {
-                        // Highlight selected wrong answer
-                        btn.style.borderColor = '#ef4444';
-                        btn.style.background = 'rgba(239,68,68,0.18)';
-                        btn.style.boxShadow = '0 0 20px rgba(239,68,68,0.4)';
-                        btn.innerHTML = `<span style="display:flex;align-items:center;gap:10px;"><span style="display:inline-flex;align-items:center;justify-content:center;width:22px;height:22px;border-radius:50%;background:#ef4444;color:#fff;font-size:0.8rem;flex-shrink:0;"><i class="fa-solid fa-xmark"></i></span>${btn.innerHTML}</span>`;
-                        btn.style.animation = 'quiz-shake 0.4s ease';
+                        stats[q.id].totalAttempted++;
 
-                        stats[q.id].consecutiveCorrect = 0;
-                        stats[q.id].inReviewList = true;
-                        stats._streak = 0;
-                    }
+                        const correctBtn = allBtns[q.answers[0]];
+                        if (correctBtn) {
+                            correctBtn.style.borderColor = '#22c55e';
+                            correctBtn.style.background = 'rgba(34,197,94,0.18)';
+                            correctBtn.style.boxShadow = '0 0 20px rgba(34,197,94,0.4)';
+                            correctBtn.style.fontWeight = '700';
+                            correctBtn.innerHTML = `<span style="display:flex;align-items:center;gap:10px;"><span style="display:inline-flex;align-items:center;justify-content:center;width:22px;height:22px;border-radius:50%;background:#22c55e;color:#000;font-size:0.8rem;flex-shrink:0;"><i class="fa-solid fa-check"></i></span>\${correctBtn.innerHTML}</span>`;
+                        }
 
-                    saveSpacedRepStats(stats);
-                    updateDashboardUI();
-
-                    // --- Result banner above explanation ---
-                    const resultBanner = document.getElementById('quiz-result-banner');
-                    if (resultBanner) {
                         if (isCorrect) {
-                            resultBanner.innerHTML = `<i class="fa-solid fa-circle-check" style="font-size:1.4rem;"></i><span style="font-size:1.1rem;font-weight:800;">${isVi ? 'Chính xác!' : '正解！'}</span>`;
-                            resultBanner.style.background = 'linear-gradient(135deg, rgba(34,197,94,0.2), rgba(34,197,94,0.08))';
-                            resultBanner.style.borderColor = '#22c55e';
-                            resultBanner.style.color = '#4ade80';
+                            correctCountThisRun++;
+                            stats[q.id].totalCorrect++;
+                            stats[q.id].consecutiveCorrect++;
+                            stats._streak = (stats._streak || 0) + 1;
+                            if (stats[q.id].consecutiveCorrect >= 2) {
+                                stats[q.id].inReviewList = false;
+                            }
                         } else {
-                            resultBanner.innerHTML = `<i class="fa-solid fa-circle-xmark" style="font-size:1.4rem;"></i><span style="font-size:1.1rem;font-weight:800;">${isVi ? 'Sai rồi!' : '不正解'}</span>`;
-                            resultBanner.style.background = 'linear-gradient(135deg, rgba(239,68,68,0.2), rgba(239,68,68,0.08))';
-                            resultBanner.style.borderColor = '#ef4444';
-                            resultBanner.style.color = '#f87171';
+                            btn.style.borderColor = '#ef4444';
+                            btn.style.background = 'rgba(239,68,68,0.18)';
+                            btn.style.boxShadow = '0 0 20px rgba(239,68,68,0.4)';
+                            btn.innerHTML = `<span style="display:flex;align-items:center;gap:10px;"><span style="display:inline-flex;align-items:center;justify-content:center;width:22px;height:22px;border-radius:50%;background:#ef4444;color:#fff;font-size:0.8rem;flex-shrink:0;"><i class="fa-solid fa-xmark"></i></span>\${btn.innerHTML}</span>`;
+                            btn.style.animation = 'quiz-shake 0.4s ease';
+
+                            stats[q.id].consecutiveCorrect = 0;
+                            stats[q.id].inReviewList = true;
+                            stats._streak = 0;
                         }
-                        resultBanner.style.display = 'flex';
-                    }
 
-                    const explanationText = document.getElementById('quiz-explanation-text');
-                    if (explanationText && explanationBox) {
-                        explanationText.textContent = isVi ? q.explanation.vi : q.explanation.ja;
-                        explanationBox.style.display = 'flex';
-                    }
+                        saveSpacedRepStats(stats);
+                        updateDashboardUI();
+                        showResultAndExplanation(isCorrect);
+                    } else {
+                        // Multiple Answer Selection
+                        if (selectedIndices.includes(optIndex)) {
+                            // Deselect
+                            selectedIndices = selectedIndices.filter(idx => idx !== optIndex);
+                            btn.style.background = 'rgba(255,255,255,0.03)';
+                            btn.style.borderColor = 'rgba(255,255,255,0.1)';
+                            btn.style.boxShadow = 'none';
+                        } else {
+                            // Select
+                            selectedIndices.push(optIndex);
+                            btn.style.background = 'rgba(250,204,21,0.08)';
+                            btn.style.borderColor = '#facc15';
+                            btn.style.boxShadow = '0 0 15px rgba(250,204,21,0.2)';
+                        }
 
-                    if (nextBtn) {
-                        nextBtn.style.display = 'inline-flex';
+                        if (selectedIndices.length === expectedCount) {
+                            const allBtns = optionsContainer.querySelectorAll('button');
+                            allBtns.forEach(b => {
+                                b.disabled = true;
+                                b.style.cursor = 'default';
+                            });
+
+                            const isCorrect = selectedIndices.every(idx => q.answers.includes(idx)) && q.answers.every(idx => selectedIndices.includes(idx));
+                            const stats = getSpacedRepStats();
+                            if (!stats[q.id]) {
+                                stats[q.id] = { consecutiveCorrect: 0, inReviewList: false, totalCorrect: 0, totalAttempted: 0 };
+                            }
+                            stats[q.id].totalAttempted++;
+
+                            allBtns.forEach((b, bIdx) => {
+                                const shouldBeSelected = q.answers.includes(bIdx);
+                                const userSelected = selectedIndices.includes(bIdx);
+
+                                if (shouldBeSelected) {
+                                    b.style.borderColor = '#22c55e';
+                                    b.style.background = 'rgba(34,197,94,0.18)';
+                                    b.style.boxShadow = '0 0 20px rgba(34,197,94,0.4)';
+                                    b.style.fontWeight = '700';
+                                    b.innerHTML = `<span style="display:flex;align-items:center;gap:10px;"><span style="display:inline-flex;align-items:center;justify-content:center;width:22px;height:22px;border-radius:50%;background:#22c55e;color:#000;font-size:0.8rem;flex-shrink:0;"><i class="fa-solid fa-check"></i></span>\${b.innerHTML}</span>`;
+                                } else if (userSelected && !shouldBeSelected) {
+                                    b.style.borderColor = '#ef4444';
+                                    b.style.background = 'rgba(239,68,68,0.18)';
+                                    b.style.boxShadow = '0 0 20px rgba(239,68,68,0.4)';
+                                    b.innerHTML = `<span style="display:flex;align-items:center;gap:10px;"><span style="display:inline-flex;align-items:center;justify-content:center;width:22px;height:22px;border-radius:50%;background:#ef4444;color:#fff;font-size:0.8rem;flex-shrink:0;"><i class="fa-solid fa-xmark"></i></span>\${b.innerHTML}</span>`;
+                                    b.style.animation = 'quiz-shake 0.4s ease';
+                                }
+                            });
+
+                            if (isCorrect) {
+                                correctCountThisRun++;
+                                stats[q.id].totalCorrect++;
+                                stats[q.id].consecutiveCorrect++;
+                                stats._streak = (stats._streak || 0) + 1;
+                                if (stats[q.id].consecutiveCorrect >= 2) {
+                                    stats[q.id].inReviewList = false;
+                                }
+                            } else {
+                                stats[q.id].consecutiveCorrect = 0;
+                                stats[q.id].inReviewList = true;
+                                stats._streak = 0;
+                            }
+
+                            saveSpacedRepStats(stats);
+                            updateDashboardUI();
+                            showResultAndExplanation(isCorrect);
+                        }
                     }
                 });
 
@@ -1352,6 +1451,19 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
     
+        // Register language toggle listener to dynamically re-render active quiz question
+    const langToggleBtn = document.getElementById('lang-toggle-btn');
+    if (langToggleBtn) {
+        langToggleBtn.addEventListener('click', () => {
+            const activeScreen = document.getElementById('quiz-active-screen');
+            if (activeScreen && activeScreen.style.display === 'block') {
+                renderQuestion(currentQuizIndex);
+            }
+        });
+    }
+
+    window.activateReviewMode = activateReviewMode;
+    window.deactivateReviewMode = deactivateReviewMode;
     window.updateReviewModeLang = updateReviewModeLang;
 
 

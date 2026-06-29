@@ -1993,3 +1993,803 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
 });
+
+window.initSbo111Simulator = function() {
+    const steps = document.querySelectorAll('.roadmap-step');
+    const labelItems = document.querySelectorAll('.roadmap-label-item');
+    const detailCard = document.getElementById('roadmap-details-card');
+    const cardTitle = document.getElementById('roadmap-card-title');
+    const cardBody = document.getElementById('roadmap-card-body');
+
+    if (!steps.length || !detailCard || !cardTitle || !cardBody) return;
+
+    const roadmapData = {
+        '1': {
+            color: 'var(--accent-teal)',
+            icon: 'fa-users-line',
+            titleJa: '一連のプロセスとしての健康（基本的理念）',
+            titleVi: 'Sức khỏe là một quá trình liên tục (Triết lý cơ bản)',
+            bodyJa: '<p style="margin: 0 0 8px 0;">• <strong>包括的ヘルスケア：</strong>健康、医療と介護は人生における一連の経過であり、施設ごとに分断するのではなく統合的なシステムとして構築されるべきです。</p>'
+                 + '<p style="margin: 0;">• <strong>法律上の規定：</strong>医療法や社会福祉法にも「医療提供時に福祉サービス等と有機的な連携を図る」ことが明記され、三者の連携 submerged となっています。</p>',
+            bodyVi: '<p style="margin: 0 0 8px 0;">• <strong>Hệ thống tích hợp:</strong> Sức khỏe, y tế và Kaigo (điều dưỡng) là chuỗi liên tục suốt đời, không được chia cắt hay cô lập theo từng cơ sở đơn lẻ.</p>'
+                 + '<p style="margin: 0;">• <strong>Liên kết pháp lý:</strong> Luật Y tế và Luật Phúc lợi xã hội Nhật Bản quy định rõ dịch vụ bảo vệ sức khỏe, y tế và phúc lợi phải "đảm bảo liên kết hữu cơ" với nhau.</p>'
+        },
+        '2': {
+            color: 'var(--accent-gold)',
+            icon: 'fa-arrows-spin',
+            titleJa: '「病院完結型」から「地域完結型」への転換',
+            titleVi: 'Từ "Bệnh viện khép kín" sang "Hoàn thiện tại khu vực"',
+            bodyJa: '<p style="margin: 0 0 8px 0;">• <strong>医療ニーズの変容：</strong>高齢化や慢性疾患の増加に伴い、病院の中だけで治療を終わらせる「病院完結型」の医療モデルは限界を迎えています。</p>'
+                 + '<p style="margin: 0;">• <strong>地域全体での支援：</strong>在宅医療、介護、リハビリテーションを含め、地域全体で患者の生活を「治し支える」医療システムへの移行が必要です。</p>',
+            bodyVi: '<p style="margin: 0 0 8px 0;">• <strong>Sự thay đổi nhu cầu:</strong> Với sự gia tăng các bệnh mạn tính ở người cao tuổi, mô hình "Bệnh viện khép kín" (vào viện chữa xong về) đã không còn phù hợp.</p>'
+                 + '<p style="margin: 0;">• <strong>Hoàn thiện tại khu vực:</strong> Chuyển dịch sang mô hình "Hoàn thiện tại khu vực" (地域完結型), huy động toàn bộ cộng đồng cùng vừa chữa trị vừa hỗ trợ sinh hoạt.</p>'
+        },
+        '3': {
+            color: '#3b82f6',
+            icon: 'fa-circle-nodes',
+            titleJa: '連携の基盤となる情報ネットワーク',
+            titleVi: 'Mạng lưới thông tin làm nền tảng liên kết',
+            bodyJa: '<p style="margin: 0 0 8px 0;">• <strong>多職種・多機関の情報共有：</strong>保健・医療・福祉・介護の各機関が分断なく繋がるため、シームレスな共有環境が必要です。</p>'
+                 + '<p style="margin: 0;">• <strong>EHRの重要性：</strong>ICTを活用した地域医療情報連携ネットワーク（EHR等）の構築が、包括的な連携介護を支える核心インフラとなります。</p>',
+            bodyVi: '<p style="margin: 0 0 8px 0;">• <strong>Chia sẻ liên cơ quan:</strong> Đảm bảo thông tin lưu chuyển thông suốt giữa bệnh viện, phòng khám, nhà thuốc, cơ sở chăm sóc, trung tâm y tế.</p>'
+                 + '<p style="margin: 0;">• <strong>Nền tảng EHR:</strong> Việc áp dụng mạng lưới thông tin y tế khu vực (như EHR - Hồ sơ sức khỏe điện tử khu vực) đóng vai trò sống còn để kết nối các dịch vụ.</p>'
+        },
+        '4': {
+            color: '#10b981',
+            icon: 'fa-network-wired',
+            titleJa: '最終目標：地域包括ケアシステムの構築',
+            titleVi: 'Mục tiêu tối thượng: Hệ thống chăm sóc toàn diện khu vực',
+            bodyJa: '<p style="margin: 0 0 8px 0;">• <strong>5つの構成要素の一体提供：</strong>2025年を目途に「住まい・医療・介護・予防・生活支援」を一体的に提供するネットワークを構築します。</p>'
+                 + '<p style="margin: 0;">• <strong>地域での自立支援：</strong>重度の要介護状態となっても、住み慣れた地域で自分らしい暮らしを最後まで維持できる社会の実現を目指します。</p>',
+            bodyVi: '<p style="margin: 0 0 8px 0;">• <strong>Tích hợp 5 yếu tố:</strong> Xây dựng hệ thống đồng bộ gồm Chỗ ở, Y tế, Chăm sóc điều dưỡng, Dự phòng và Hỗ trợ cuộc sống hướng tới mốc năm 2025.</p>'
+                 + '<p style="margin: 0;">• <strong>Sống tự lập tại quê nhà:</strong> Giúp người cao tuổi dù cần chăm sóc nặng vẫn có thể sống tự do, tôn nghiêm đến cuối đời tại chính nơi ở quen thuộc.</p>'
+        }
+    };
+
+    function activateStep(stepId) {
+        steps.forEach(s => s.classList.toggle('active', s.getAttribute('data-step') === stepId));
+        labelItems.forEach(l => l.classList.toggle('active', l.getAttribute('data-step') === stepId));
+
+        const data = roadmapData[stepId];
+        if (data) {
+            detailCard.style.opacity = '0.1';
+            setTimeout(() => {
+                detailCard.style.borderLeftColor = data.color;
+                const titleColor = data.color === '#3b82f6' ? '#60a5fa' : (data.color === '#10b981' ? '#34d399' : data.color);
+                cardTitle.style.color = titleColor;
+                cardTitle.innerHTML = '<i class="fa-solid ' + data.icon + '"></i> '
+                                    + '<span class="lang-ja">' + data.titleJa + '</span> '
+                                    + '<span class="lang-vi">' + data.titleVi + '</span>';
+                cardBody.innerHTML = '<div class="lang-ja">' + data.bodyJa + '</div>'
+                                   + '<div class="lang-vi">' + data.bodyVi + '</div>';
+
+                if (typeof window.syncLanguages === 'function') window.syncLanguages();
+                detailCard.style.opacity = '1';
+            }, 180);
+        }
+    }
+
+    steps.forEach(step => {
+        step.addEventListener('click', () => activateStep(step.getAttribute('data-step')));
+    });
+
+    labelItems.forEach(label => {
+        label.addEventListener('click', () => activateStep(label.getAttribute('data-step')));
+    });
+
+    activateStep('1');
+};
+
+window.initSbo112Simulator = function() {
+
+    // --- PART 1: Patient Relation Tabs ---
+    const p1TabsGroup = document.getElementById('sbo112-p1-tabs-group');
+    const p1DetailsPanel = document.getElementById('sbo112-p1-details-panel');
+
+    const p1Data = {
+        '1': {
+            color: 'var(--accent-teal)',
+            icon: 'fa-handshake',
+            titleJa: '「パターナリズム」から「準委任契約関係」への転換',
+            titleVi: 'Sự chuyển dịch sang "Quan hệ hợp đồng chuẩn ủy quyền"',
+            bodyJa: '<p style="margin: 0 0 10px 0;">• <strong>医師主導から相互理解へ：</strong>従来の医師主導による方針決定（パターナリズム）は家長制度の延長線上にあり、経験・知識・技術を持つ者に従うものでした。</p><p style="margin: 0;">• <strong>準委任契約の基本化：</strong>現代医療においては、医師と患者との対等な「準委任契約関係」が基本とされ、お互いの信頼関係に基づく合意が求められます。</p>',
+            bodyVi: '<p style="margin: 0 0 10px 0;">• <strong>Từ bỏ chủ nghĩa gia trưởng:</strong> Trước đây thường tồn tại mối quan hệ do bác sĩ làm chủ đạo (Paternalism) bắt nguồn từ nếp nghĩ gia trưởng, yêu cầu người bệnh tuân theo hoàn toàn chuyên môn của bác sĩ.</p><p style="margin: 0;">• <strong>Thiết lập mối quan hệ bình đẳng:</strong> Ngày nay, mối quan hệ này dựa trên nền tảng "Hợp đồng chuẩn ủy quyền" (準委任契約関係), thúc đẩy hai bên trao đổi bình đẳng và cùng đồng thuận.</p>'
+        },
+        '2': {
+            color: 'var(--accent-gold)',
+            icon: 'fa-clipboard-check',
+            titleJa: '「説明と同意」と「説明と選択」の前提',
+            titleVi: 'Tiền đề "Giải thích & Đồng ý" và "Giải thích & Lựa chọn"',
+            bodyJa: '<p style="margin: 0 0 10px 0;">• <strong>インフォームド・コンセント：</strong>医療行為を行う際の絶対的なルールとして、十分な「説明と同意」が不可欠となっています。</p><p style="margin: 0;">• <strong>インフォームド・チョイスと価値観の尊重：</strong>患者自身が納得した上で「選択」を行う権利を保障し、個人の多様な価値観や人生観を十分に考慮します。</p>',
+            bodyVi: '<p style="margin: 0 0 10px 0;">• <strong>Giải thích và Đồng ý (Informed Consent):</strong> Trở thành tiền đề bắt buộc trước mọi hành vi y khoa, bảo đảm người bệnh hiểu rõ mọi lợi ích và rủi ro.</p><p style="margin: 0;">• <strong>Giải thích và Lựa chọn (Informed Choice):</strong> Tôn trọng quyền tự quyết của người bệnh dựa trên thế giới quan, nhân sinh quan và giá trị sống đa dạng của mỗi cá nhân.</p>'
+        },
+        '3': {
+            color: '#c084fc',
+            icon: 'fa-scale-unbalanced',
+            titleJa: '情報の非対称性と「情報弱者」の課題',
+            titleVi: 'Bất đối xứng thông tin và vấn đề "Người yếu thế thông tin"',
+            bodyJa: '<p style="margin: 0 0 10px 0;">• <strong>情報の非対称性の存在：</strong>患者中心の医療が進む一方で、データや専門知識が医療側に偏在する「情報の非対称性」が依然として課題です。</p><p style="margin: 0;">• <strong>情報弱者の支援：</strong>高度情報化社会の中、ネットやITリテラシーの低い高齢者等は「情報弱者」となりやすく、情報提供側の十分なサポートが求められています。</p>',
+            bodyVi: '<p style="margin: 0 0 10px 0;">• <strong>Sự bất đối xứng về thông tin:</strong> Tồn tại sự mất cân bằng sâu sắc khi dữ liệu y khoa và tri thức chuyên môn chủ yếu tập trung ở bên cung cấp dịch vụ y tế.</p><p style="margin: 0;">• <strong>Vấn đề người yếu thế thông tin:</strong> Sự bùng nổ của Internet vô tình đẩy những người hạn chế về kỹ năng công nghệ (IT literacy) như người già thành đối tượng yếu thế. Đòi hỏi y tế cần có các biện pháp hỗ trợ thu hẹp khoảng cách.</p>'
+        }
+    };
+
+    function activateP1Tab(tabId) {
+        if (!p1TabsGroup || !p1DetailsPanel) return;
+        const buttons = p1TabsGroup.querySelectorAll('button[data-sbo112-p1-tab]');
+        buttons.forEach(btn => {
+            const isCurrent = btn.getAttribute('data-sbo112-p1-tab') === tabId;
+            const data = p1Data[btn.getAttribute('data-sbo112-p1-tab')];
+            const icon = btn.querySelector('i');
+            
+            if (isCurrent) {
+                btn.classList.add('active');
+                btn.style.background = tabId === '3' ? 'rgba(192, 132, 252, 0.12)' : (tabId === '2' ? 'rgba(245, 158, 11, 0.12)' : 'rgba(45, 212, 191, 0.12)');
+                btn.style.borderColor = data.color;
+                btn.style.color = '#fff';
+                if(icon) { icon.style.color = data.color; icon.style.opacity = '0.8'; }
+            } else {
+                btn.classList.remove('active');
+                btn.style.background = 'rgba(0,0,0,0.25)';
+                btn.style.borderColor = 'rgba(255,255,255,0.08)';
+                btn.style.color = 'var(--text-muted)';
+                if(icon) { icon.style.color = 'inherit'; icon.style.opacity = '0.5'; }
+            }
+        });
+
+        const data = p1Data[tabId];
+        if (data) {
+            p1DetailsPanel.style.opacity = '0.1';
+            p1DetailsPanel.style.transform = 'translateY(5px)';
+            setTimeout(() => {
+                p1DetailsPanel.style.borderLeftColor = data.color;
+                p1DetailsPanel.innerHTML = '<h3 style="color: ' + data.color + '; margin-top: 0; margin-bottom: 16px; font-size: 1.15rem; display: flex; align-items: center; gap: 10px; font-weight: 600;">'
+                    + '<i class="fa-solid ' + data.icon + '" style="font-size: 1.2rem;"></i>'
+                    + '<span class="lang-ja">' + data.titleJa + '</span>'
+                    + '<span class="lang-vi">' + data.titleVi + '</span>'
+                    + '</h3>'
+                    + '<div style="font-size: 0.98rem; line-height: 1.8; color: var(--text-secondary);">'
+                    + '<div class="lang-ja">' + data.bodyJa + '</div>'
+                    + '<div class="lang-vi">' + data.bodyVi + '</div>'
+                    + '</div>';
+                if (typeof window.syncLanguages === 'function') window.syncLanguages();
+                p1DetailsPanel.style.opacity = '1';
+                p1DetailsPanel.style.transform = 'translateY(0)';
+            }, 180);
+        }
+    }
+
+    if (p1TabsGroup) {
+        p1TabsGroup.querySelectorAll('button[data-sbo112-p1-tab]').forEach(btn => {
+            btn.addEventListener('click', () => activateP1Tab(btn.getAttribute('data-sbo112-p1-tab')));
+        });
+        activateP1Tab('1');
+    }
+
+    // --- PART 2: Personal Info Timeline ---
+    const p2TabsGroup = document.getElementById('sbo112-p2-tabs-group');
+    const p2DetailsPanel = document.getElementById('sbo112-p2-details-panel');
+    const p2ProgressBar = document.getElementById('sbo112-p2-timeline-progress');
+
+    const p2Data = {
+        '1': {
+            color: 'var(--accent-teal)',
+            icon: 'fa-user-shield',
+            titleJa: '情報のコントロールと「自己情報コントロール権」',
+            titleVi: 'Quyền kiểm soát thông tin cá nhân (自己情報コントロール権)',
+            bodyJa: '<p style="margin: 0 0 10px 0;">• <strong>能動的な権利への転換：</strong>個人情報保護法の精神に基づき、従来の消極的なプライバシー保護だけでなく、自己に関する情報の流れを自ら管理する「自己情報コントロール権」が確立されています。</p><p style="margin: 0;">• <strong>開示請求の増加：</strong>この権利意識の高まりに伴い、患者自身による診療情報の提供や開示を求める件数が大幅に増加しています。</p>',
+            bodyVi: '<p style="margin: 0 0 10px 0;">• <strong>Quyền tự quyết tích cực:</strong> Trên tinh thần Luật Bảo vệ Thông tin Cá nhân, quyền riêng tư đã chuyển thành quyền chủ động kiểm soát dòng thông tin liên quan đến bản thân.</p><p style="margin: 0;">• <strong>Yêu cầu công khai gia tăng:</strong> Nhận thức về quyền cá nhân ngày càng cao dẫn đến việc số lượng yêu cầu cung cấp và công khai thông tin khám chữa bệnh tăng trưởng mạnh mẽ.</p>'
+        },
+        '2': {
+            color: 'var(--accent-gold)',
+            icon: 'fa-id-card-clip',
+            titleJa: 'PHRの活用とプライバシー保護',
+            titleVi: 'Kỳ vọng vào Hồ sơ sức khỏe cá nhân (PHR)',
+            bodyJa: '<p style="margin: 0 0 10px 0;">• <strong>一次利用によるケア向上：</strong>診療情報を個人のPHRとして蓄積し、マイナンバー制度等の地域包括連携で共有することで、効率的で質の高いケア（一次利用）が可能になります。</p><p style="margin: 0;">• <strong>プライバシーの死守：</strong>高い利便性と表裏一体で、データ漏洩の防止や厳格なアクセス制御などのプライバシー保護対策が絶対不可欠です。</p>',
+            bodyVi: '<p style="margin: 0 0 10px 0;">• <strong>Sử dụng sơ cấp nâng cao chất lượng:</strong> Tích lũy thông tin y tế dài hạn dưới dạng PHR và kết hợp hệ My Number giúp chia sẻ dữ liệu hiệu quả trong chăm sóc sức khỏe toàn diện.</p><p style="margin: 0;">• <strong>Ưu tiên bảo vệ tối đa:</strong> Dù chia sẻ mang lại lợi ích to lớn, việc ngăn ngừa rò rỉ dữ liệu và thiết lập quyền truy cập chặt chẽ luôn là ưu tiên tối thượng.</p>'
+        },
+        '3': {
+            color: '#c084fc',
+            icon: 'fa-users',
+            titleJa: '医療ビッグデータ利活用と「社会的コンセンサス」',
+            titleVi: 'Thách thức hình thành sự đồng thuận xã hội',
+            bodyJa: '<p style="margin: 0 0 10px 0;">• <strong>二次利用による医学的知見：</strong>PHRの時系列多変量データを利活用（二次利用）することで、医学のさらなる進歩やビッグデータ分析に役立てられます。</p><p style="margin: 0;">• <strong>社会的合意と例外規則：</strong>データ利活用には本人の同意が必要であるため、社会的なコンセンサスの形成が急務です。また、緊急時や災害時に向けた医療特例法の検討も重要です。</p>',
+            bodyVi: '<p style="margin: 0 0 10px 0;">• <strong>Giá trị sử dụng thứ cấp:</strong> Khai thác dữ liệu lớn (Big Data) đa biến chuỗi thời gian của PHR mở ra nhiều tri thức y học mới giá trị cho dịch tễ học.</p><p style="margin: 0;">• <strong>Đồng thuận xã hội và ngoại lệ y tế:</strong> Việc sử dụng dữ liệu cần sự đồng ý của bệnh nhân, đòi hỏi sớm hình thành đồng thuận xã hội, đồng thời cần có cơ chế xử lý ngoại lệ trong trường hợp khẩn cấp/thảm họa.</p>'
+        }
+    };
+
+    function activateP2Tab(tabId) {
+        if (!p2TabsGroup || !p2DetailsPanel) return;
+        const buttons = p2TabsGroup.querySelectorAll('button[data-sbo112-p2-tab]');
+        
+        if (p2ProgressBar) {
+            const percentages = { '1': '0%', '2': '50%', '3': '100%' };
+            p2ProgressBar.style.width = percentages[tabId] || '0%';
+        }
+
+        buttons.forEach(btn => {
+            const isCurrent = btn.getAttribute('data-sbo112-p2-tab') === tabId;
+            const circle = btn.querySelector('.node-circle');
+            const textSpan = btn.querySelector(':scope > span');
+            const data = p2Data[btn.getAttribute('data-sbo112-p2-tab')];
+
+            if (isCurrent) {
+                if (circle) {
+                    circle.style.borderColor = data.color;
+                    circle.style.background = data.color;
+                    circle.style.color = '#fff';
+                    circle.style.boxShadow = '0 0 20px ' + data.color;
+                }
+                if (textSpan) {
+                    textSpan.style.color = '#fff';
+                    textSpan.style.textShadow = '0 0 8px rgba(255,255,255,0.3)';
+                }
+            } else {
+                if (circle) {
+                    circle.style.borderColor = 'rgba(255,255,255,0.15)';
+                    circle.style.background = 'rgba(15,23,42,0.8)';
+                    circle.style.color = 'var(--text-muted)';
+                    circle.style.boxShadow = 'none';
+                }
+                if (textSpan) {
+                    textSpan.style.color = 'var(--text-secondary)';
+                    textSpan.style.textShadow = 'none';
+                }
+            }
+        });
+
+        const data = p2Data[tabId];
+        if (data) {
+            p2DetailsPanel.style.opacity = '0.1';
+            p2DetailsPanel.style.transform = 'translateY(5px)';
+            setTimeout(() => {
+                p2DetailsPanel.style.borderTopColor = data.color;
+                p2DetailsPanel.innerHTML = '<h3 style="color: ' + data.color + '; margin-top: 0; margin-bottom: 16px; font-size: 1.15rem; display: flex; align-items: center; gap: 10px; font-weight: 600;">'
+                    + '<i class="fa-solid ' + data.icon + '" style="font-size: 1.2rem;"></i>'
+                    + '<span class="lang-ja">' + data.titleJa + '</span>'
+                    + '<span class="lang-vi">' + data.titleVi + '</span>'
+                    + '</h3>'
+                    + '<div style="font-size: 0.98rem; line-height: 1.8; color: var(--text-secondary);">'
+                    + '<div class="lang-ja">' + data.bodyJa + '</div>'
+                    + '<div class="lang-vi">' + data.bodyVi + '</div>'
+                    + '</div>';
+                if (typeof window.syncLanguages === 'function') window.syncLanguages();
+                p2DetailsPanel.style.opacity = '1';
+                p2DetailsPanel.style.transform = 'translateY(0)';
+            }, 180);
+        }
+    }
+
+    if (p2TabsGroup) {
+        p2TabsGroup.querySelectorAll('button[data-sbo112-p2-tab]').forEach(btn => {
+            btn.addEventListener('click', () => activateP2Tab(btn.getAttribute('data-sbo112-p2-tab')));
+        });
+        activateP2Tab('1');
+    }
+
+    // --- PM concept tabs (updates pm-details-panel innerHTML) ---
+    const pmTabsBtnGroup = document.getElementById('pm-tabs-btn-group');
+    const pmDetailsPanel = document.getElementById('pm-details-panel');
+
+    const pmData = {
+        '1': {
+            color: 'var(--accent-teal)',
+            titleJa: '「集団」から「個人」へのパラダイムシフト',
+            titleVi: 'Sự chuyển dịch từ "Quần thể" sang "Cá nhân"',
+            bodyJa: '<p style="margin: 0 0 12px 0;">• <strong>一律判定の限界：</strong>従来の医療では、集団の検査値分布から導出される「正常値」に基づく判断が一般的でした。しかし、ホメオスタシス（恒常性維持）の機序により、個人ごとの本来の変動幅は集団全体の幅よりもはるかに小さいのが現実です。</p><p style="margin: 0;">• <strong>個体差の客観評価：</strong>同一の病名であってもすべての人に同じ治療が有効とは限りません。集団の基準を適用するのではなく、「個体差」を客観的に測定し、患者それぞれの個性に焦点を当てて最適な治療・予防を行う個別化医療への転換が進んでいます。</p>',
+            bodyVi: '<p style="margin: 0 0 12px 0;">• <strong>Hạn chế của chỉ số chung:</strong> Theo truyền thống, y khoa đánh giá bệnh dựa trên "giá trị bình thường" đúc kết từ phân bố của quần thể. Tuy nhiên, nhờ cơ chế duy trì nội môi (Homeostasis), biên độ biến động sinh lý của mỗi cá nhân nhỏ hơn rất nhiều so với biên độ chung.</p><p style="margin: 0;">• <strong>Đo lường sự khác biệt cá nhân:</strong> Việc áp dụng một phác đồ chung cho tất cả bệnh nhân cùng chẩn đoán là không tối ưu. Y học hiện đại đang chuyển sang đo lường khách quan "khác biệt cá thể" để thiết kế giải pháp y khoa tập trung cho riêng từng người.</p>'
+        },
+        '2': {
+            color: 'var(--accent-gold)',
+            titleJa: 'Genotype（遺伝子型）とPhenotype（表現型）、IoT技術の統合',
+            titleVi: 'Sự kết hợp giữa Genotype, Phenotype và công nghệ IoT',
+            bodyJa: '<p style="margin: 0 0 12px 0;">• <strong>データ解析の進歩：</strong>大量のゲノム情報を解読する技術と、生命情報学（バイオインフォマティクス）の進歩により、一人ひとりの遺伝的素因を瞬時に分析することが可能になりました。</p><p style="margin: 0;">• <strong>リアルタイム生体連携：</strong>IoT機器やスマートデバイスの普及により、心拍、血圧、睡眠, カロリーなどの生体情報（Phenotype）がリアルタイムにPHRへと蓄積されます。遺伝データ（Genotype）と生活習慣データを統合して解析することで、最も効果的な予防法や薬剤を特定します。</p>',
+            bodyVi: '<p style="margin: 0 0 12px 0;">• <strong>Phân tích dữ liệu di truyền lớn:</strong> Y học cá thể hóa ngày nay khả thi nhờ sự phát triển của tin sinh học (Bioinformatics) cùng khả năng giải trình tự gen quy mô lớn để định hình kiểu gen (Genotype) của người bệnh.</p><p style="margin: 0;">• <strong>Thu thập thực tế qua IoT:</strong> Thông qua các thiết bị cảm biến đeo thông minh (IoT), dữ liệu thói quen sinh hoạt và chỉ số sinh lý (Phenotype) được ghi nhận liên tục vào PHR. Sự kết hợp giữa Genotype và Phenotype giúp đưa ra khuyến nghị phòng ngừa chính xác nhất.</p>'
+        },
+        '3': {
+            color: '#a855f7',
+            titleJa: '「精密医療（Precision Medicine）」への発展',
+            titleVi: 'Bước tiến mạnh mẽ tới "Y học chính xác" (Precision Medicine)',
+            bodyJa: '<p style="margin: 0 0 12px 0;">• <strong>単なる「個別」から「層別化」へ：</strong>精密医療は、単に患者一人ひとりに合わせた一対一の医療を提供するだけでなく、遺伝子の生得的特徴や疾患の分子レベルのサブタイプに基づき、患者を細かく「層別化（グループ化）」して最適な治療を施すアプローチです。</p><p style="margin: 0;">• <strong>多重因子の統合解析：</strong>疾患は単一のゲノム情報だけでなく、遺伝的素因と環境要因（Exposome）の複雑な相互作用によって生じるという考えに基づき、マルチオミクス（多様な分子データ）をビッグデータ技術で解析します。</p>',
+            bodyVi: '<p style="margin: 0 0 12px 0;">• <strong>Phân tầng nhóm bệnh nhân chuyên sâu:</strong> Khái niệm cá thể hóa được nâng tầm thành Y học chính xác. Nó không đơn thuần là y tế biệt lập, mà là việc phân tầng (層別化) bệnh nhân thành các nhóm nhỏ (subtype) dựa trên sự đa hình gen sinh học.</p><p style="margin: 0;">• <strong>Tương tác giữa Gen và Môi trường:</strong> Y học chính xác đặc biệt nhấn mạnh sự tương tác qua lại giữa yếu tố di truyền bẩm sinh và yếu tố phơi nhiễm môi trường (Exposome), đòi hỏi phân tích dữ liệu sinh học phân tử quy mô lớn để điều trị đích.</p>'
+        }
+    };
+
+    function activatePmTab(tabId) {
+        if (!pmTabsBtnGroup) return;
+        const buttons = pmTabsBtnGroup.querySelectorAll('button');
+        buttons.forEach(btn => {
+            const isCurrent = btn.getAttribute('data-pm-tab') === tabId;
+            btn.classList.toggle('active', isCurrent);
+            const currentNum = btn.querySelector('span:first-child');
+            if (isCurrent) {
+                const data = pmData[tabId];
+                btn.style.borderColor = data.color;
+                btn.style.background = tabId === '3' ? 'rgba(168,85,247,0.08)' : (tabId === '2' ? 'rgba(245,158,11,0.08)' : 'rgba(45,212,191,0.08)');
+                btn.style.color = '#fff';
+                if (currentNum) currentNum.style.opacity = '0.9';
+            } else {
+                btn.style.borderColor = 'rgba(255,255,255,0.08)';
+                btn.style.background = 'rgba(0,0,0,0.25)';
+                btn.style.color = 'var(--text-muted)';
+                if (currentNum) currentNum.style.opacity = '0.5';
+            }
+        });
+
+        const data = pmData[tabId];
+        if (data && pmDetailsPanel) {
+            pmDetailsPanel.style.opacity = '0.1';
+            pmDetailsPanel.style.transform = 'translateY(5px)';
+            setTimeout(() => {
+                pmDetailsPanel.style.borderTopColor = data.color;
+                const titleColor = data.color === 'var(--accent-teal)' ? '#2dd4bf'
+                    : data.color === 'var(--accent-gold)' ? 'var(--accent-gold)' : '#c084fc';
+                pmDetailsPanel.innerHTML = '<h3 style="color: ' + titleColor + '; margin-top: 0; margin-bottom: 16px; font-size: 1.12rem; display: flex; align-items: center; gap: 10px; font-weight: 600;">'
+                    + '<i class="fa-solid fa-microscope" style="font-size: 1.2rem;"></i>'
+                    + '<span class="lang-ja">' + data.titleJa + '</span>'
+                    + '<span class="lang-vi">' + data.titleVi + '</span>'
+                    + '</h3>'
+                    + '<div style="font-size: 0.96rem; line-height: 1.8; color: var(--text-secondary);">'
+                    + '<div class="lang-ja">' + data.bodyJa + '</div>'
+                    + '<div class="lang-vi">' + data.bodyVi + '</div>'
+                    + '</div>';
+                if (typeof window.syncLanguages === 'function') window.syncLanguages();
+                pmDetailsPanel.style.opacity = '1';
+                pmDetailsPanel.style.transform = 'translateY(0)';
+            }, 180);
+        }
+    }
+
+    if (pmTabsBtnGroup) {
+        pmTabsBtnGroup.querySelectorAll('button').forEach(btn => {
+            btn.addEventListener('click', () => activatePmTab(btn.getAttribute('data-pm-tab')));
+        });
+        activatePmTab('1');
+    }
+
+    // --- Simulator (slider-based) ---
+    const bpSlider = document.getElementById('sbo112-bp-slider');
+    const bpDisplay = document.getElementById('bp-val-display');
+    const popResult = document.getElementById('sbo112-pop-result');
+    const persResult = document.getElementById('sbo112-pers-result');
+
+    if (!bpSlider || !popResult || !persResult) return;
+
+    let activeGeno = 'salt-sensitive';
+    let activePheno = 'high-salt';
+
+    function styleButtonActive(btn, activeColor, isActive) {
+        if (isActive) {
+            btn.classList.add('active');
+            btn.style.borderColor = activeColor;
+            btn.style.background = activeColor === 'var(--accent-teal)' ? 'rgba(45,212,191,0.12)' : 'rgba(245,158,11,0.12)';
+            btn.style.color = '#fff';
+        } else {
+            btn.classList.remove('active');
+            btn.style.borderColor = 'rgba(255,255,255,0.08)';
+            btn.style.background = 'rgba(0,0,0,0.25)';
+            btn.style.color = 'var(--text-muted)';
+        }
+    }
+
+    const genoButtons = document.querySelectorAll('#geno-btn-group .segment-btn');
+    const phenoButtons = document.querySelectorAll('#pheno-btn-group .segment-btn');
+
+    genoButtons.forEach(btn => {
+        btn.addEventListener('click', () => {
+            activeGeno = btn.getAttribute('data-value');
+            genoButtons.forEach(b => styleButtonActive(b, 'var(--accent-teal)', b === btn));
+            runDiagnosis();
+        });
+    });
+
+    phenoButtons.forEach(btn => {
+        btn.addEventListener('click', () => {
+            activePheno = btn.getAttribute('data-value');
+            phenoButtons.forEach(b => styleButtonActive(b, 'var(--accent-gold)', b === btn));
+            runDiagnosis();
+        });
+    });
+
+    bpSlider.addEventListener('input', () => {
+        const bp = bpSlider.value;
+        if (bpDisplay) {
+            bpDisplay.innerText = bp + ' mmHg';
+            if (bp < 120) {
+                bpDisplay.style.color = '#34d399';
+                bpSlider.style.accentColor = '#34d399';
+            } else if (bp <= 139) {
+                bpDisplay.style.color = 'var(--accent-gold)';
+                bpSlider.style.accentColor = 'var(--accent-gold)';
+            } else {
+                bpDisplay.style.color = '#f87171';
+                bpSlider.style.accentColor = '#f87171';
+            }
+        }
+        runDiagnosis();
+    });
+
+    function runDiagnosis() {
+        const bp = parseInt(bpSlider.value) || 120;
+        const geno = activeGeno;
+        const pheno = activePheno;
+
+        let popStatusJa = '', popStatusVi = '', popAdviceJa = '', popAdviceVi = '';
+        const tradBox = document.getElementById('sbo112-traditional-box');
+        if (bp < 120) {
+            popStatusJa = '至適・正常血圧'; popStatusVi = 'Huyết áp bình thường';
+            popAdviceJa = '年1回の特定健診を受診し、現状の生活を維持してください。';
+            popAdviceVi = 'Tiếp tục duy trì lối sống hiện tại và khám sức khỏe định kỳ hàng năm.';
+            if (tradBox) {
+                tradBox.style.borderLeftColor = '#34d399';
+                tradBox.style.borderColor = 'rgba(52, 211, 153, 0.15)';
+                tradBox.style.background = 'rgba(52, 211, 153, 0.03)';
+            }
+        } else if (bp <= 139) {
+            popStatusJa = '高値血圧（正常高値）'; popStatusVi = 'Tiền tăng huyết áp / Huyết áp hơi cao';
+            popAdviceJa = '一般的なガイドラインに基づき、一律的に食事指導および運動の推奨を行います。';
+            popAdviceVi = 'Đưa ra lời khuyên chung về giảm muối và tăng cường vận động cho nhóm đối tượng chung.';
+            if (tradBox) {
+                tradBox.style.borderLeftColor = 'var(--accent-gold)';
+                tradBox.style.borderColor = 'rgba(245, 158, 11, 0.15)';
+                tradBox.style.background = 'rgba(245, 158, 11, 0.03)';
+            }
+        } else {
+            popStatusJa = '高血圧（治療対象）'; popStatusVi = 'Tăng huyết áp (Cần can thiệp điều trị)';
+            popAdviceJa = 'ガイドラインに沿った標準的な降圧薬の服用および生活習慣の見直しを開始します。';
+            popAdviceVi = 'Kê đơn thuốc hạ áp tiêu chuẩn và yêu cầu tái khám theo phác đồ chung.';
+            if (tradBox) {
+                tradBox.style.borderLeftColor = '#ef4444';
+                tradBox.style.borderColor = 'rgba(239, 68, 68, 0.15)';
+                tradBox.style.background = 'rgba(239, 68, 68, 0.03)';
+            }
+        }
+
+        popResult.innerHTML = '<p style="margin: 0 0 6px 0;"><strong><span class="lang-ja">判定結果：</span><span class="lang-vi">Kết quả:</span></strong> ' + bp + ' mmHg (<span class="lang-ja">' + popStatusJa + '</span><span class="lang-vi">' + popStatusVi + '</span>)</p>'
+            + '<p style="margin: 0;"><strong><span class="lang-ja">標準的アプローチ：</span><span class="lang-vi">Phác đồ chuẩn:</span></strong> <span class="lang-ja">' + popAdviceJa + '</span><span class="lang-vi">' + popAdviceVi + '</span></p>';
+
+        let persTitleJa = '', persTitleVi = '', persBodyJa = '', persBodyVi = '';
+        if (geno === 'salt-sensitive' && pheno === 'high-salt') {
+            persTitleJa = '食塩感受性因子＋高食塩摂取'; persTitleVi = 'Gen nhạy cảm muối + Thói quen ăn mặn';
+            persBodyJa = '<p style="margin: 0 0 6px 0;">• <strong>個別化介入：</strong>この患者は遺伝的に塩分排泄能が低く、塩分摂取が高血圧に直結します。</p><p style="margin: 0;">• <strong>対策：</strong>一律の薬物治療の前に、食塩摂取量を厳密に5g/日未満に制限する塩分制限療法的介入が極めて有効（降圧成功率90%以上）と判断されます。</p>';
+            persBodyVi = '<p style="margin: 0 0 6px 0;">• <strong>Can thiệp cá thể hóa:</strong> Bệnh nhân có cơ địa nhạy cảm muối cao, lượng muối ăn vào tác động trực tiếp tới huyết áp.</p><p style="margin: 0;">• <strong>Giải pháp:</strong> Việc giảm muối nghiêm ngặt dưới 5g/ngày mang lại hiệu quả hạ áp rõ rệt (tỷ lệ thành công &gt;90%) mà chưa cần dùng thuốc.</p>';
+        } else if (geno === 'salt-sensitive' && pheno === 'low-salt') {
+            persTitleJa = '食塩感受性因子＋低食塩摂取'; persTitleVi = 'Gen nhạy cảm muối + Đã ăn nhạt';
+            persBodyJa = '<p style="margin: 0 0 6px 0;">• <strong>個別化介入：</strong>遺伝的リスクはありますが、現在すでに低食塩摂取を維持しています。</p><p style="margin: 0;">• <strong>対策：</strong>血圧上昇の原因は塩分以外（ストレス、肥満、睡眠時無呼吸など）にある可能性が高いため、マルチオミクスデータの追加分析を推奨します。</p>';
+            persBodyVi = '<p style="margin: 0 0 6px 0;">• <strong>Can thiệp cá thể hóa:</strong> Có gen nhạy cảm muối nhưng đã kiểm soát ăn nhạt rất tốt.</p><p style="margin: 0;">• <strong>Giải pháp:</strong> Nguyên nhân huyết áp tăng có thể do stress, béo phì hoặc ngưng thở giấc ngủ. Khuyến nghị phân tích thêm dữ liệu giấc ngủ, vận động.</p>';
+        } else if (geno === 'salt-resistant' && pheno === 'high-salt') {
+            persTitleJa = '食塩非感受性＋高食塩摂取'; persTitleVi = 'Gen đề kháng muối + Ăn mặn';
+            persBodyJa = '<p style="margin: 0 0 6px 0;">• <strong>個別化介入：</strong>遺伝的に塩分による血圧上昇への影響が極めて少ないタイプです。</p><p style="margin: 0;">• <strong>対策：</strong>塩分制限単独の効果は薄いため、カリウム摂取の増加やアルコール制限、または個人の体質に適したカルシウム拮抗薬の選択を行います。</p>';
+            persBodyVi = '<p style="margin: 0 0 6px 0;">• <strong>Can thiệp cá thể hóa:</strong> Gen đề kháng muối khiến hiệu quả của việc kiêng muối đơn thuần rất thấp.</p><p style="margin: 0;">• <strong>Giải pháp:</strong> Thay vì bắt ăn nhạt, khuyến nghị tăng Kali, hạn chế rượu bia, hoặc lựa chọn thuốc nhóm chẹn kênh Canxi tối ưu hơn.</p>';
+        } else {
+            persTitleJa = '食塩非感受性＋低食塩摂取'; persTitleVi = 'Gen đề kháng muối + Ăn nhạt';
+            persBodyJa = '<p style="margin: 0 0 6px 0;">• <strong>個別化介入：</strong>塩分による影響はなく、すでに減塩されています。</p><p style="margin: 0;">• <strong>対策：</strong>交感神経活性の上昇や血管収縮リスクが考えられるため、遺伝子プロファイルに適したARB（受容体拮抗薬）の選択や、有酸素運動を推奨します。</p>';
+            persBodyVi = '<p style="margin: 0 0 6px 0;">• <strong>Can thiệp cá thể hóa:</strong> Loại trừ hoàn toàn yếu tố muối, và đã ăn nhạt.</p><p style="margin: 0;">• <strong>Giải pháp:</strong> Tăng huyết áp có thể do hoạt hóa giao cảm. Khuyến nghị dùng thuốc nhóm ARB phù hợp với gen, kết hợp rèn luyện thể thao.</p>';
+        }
+
+        persResult.innerHTML = '<p style="margin: 0 0 8px 0;"><strong><span class="lang-ja">解析診断：</span><span class="lang-vi">Phân tích thể chất:</span></strong> <span class="lang-ja">' + persTitleJa + '</span><span class="lang-vi">' + persTitleVi + '</span></p>'
+            + '<div style="margin: 0; font-size: 0.96rem; line-height: 1.55;"><div class="lang-ja">' + persBodyJa + '</div><div class="lang-vi">' + persBodyVi + '</div></div>';
+
+        if (typeof window.syncLanguages === 'function') window.syncLanguages();
+    }
+
+    runDiagnosis();
+};
+
+window.initSbo113Simulator = function() {
+    // --- SBO 1.1.3 Part II Interactive Tabs logic ---
+    const iiTabsGroup = document.getElementById('sbo113-ii-tabs-group');
+    const iiDetailsPanel = document.getElementById('sbo113-ii-details-panel');
+
+    const iiData = {
+        '1': {
+            color: 'var(--accent-teal)',
+            titleJa: '背景と目標',
+            titleVi: 'Bối cảnh và Mục tiêu',
+            bodyJa: '<p style="margin: 0 0 10px 0;">• <strong>2025年問題への対応：</strong>団塊の世代が75歳以上となる2025年（2025年問題）を目途に、国民の医療や介護の需要が急増することが見込まれています。</p>'
+                  + '<p style="margin: 0 0 10px 0;">• <strong>地域完結型への転換：</strong>これに対応するため、必要とされる医療は従来の病院の中で完結する<strong>「病院完結型」</strong>から、地域全体で治し支える<strong>「地域完結型」</strong>へと転換することが求められています。</p>'
+                  + '<p style="margin: 0;">• <strong>最大の目標：</strong>高齢者の尊厳の保持と自立生活の支援のもと、重度な要介護状態となっても<strong>「住み慣れた地域で自分らしい暮らしを人生の最後まで続けることができるようにする」</strong>ことです。</p>',
+            bodyVi: '<p style="margin: 0 0 10px 0;">• <strong>Ứng phó với "vấn đề năm 2025":</strong> Nhật Bản đang đối mặt với "vấn đề năm 2025" khi toàn bộ thế hệ bùng nổ dân số (baby boomers) sẽ bước sang tuổi 75 trở lên, kéo theo sự gia tăng đột biến về nhu cầu y tế và chăm sóc điều dưỡng.</p>'
+                  + '<p style="margin: 0 0 10px 0;">• <strong>Chuyển sang y tế hoàn thiện tại khu vực:</strong> Để đáp ứng điều này, hệ thống y tế bắt buộc phải chuyển đổi từ mô hình <strong>"Y tế khép kín tại bệnh viện" (病院完結型)</strong> sang mô hình <strong>"Y tế hoàn thiện tại khu vực" (地域完結型)</strong>.</p>'
+                  + '<p style="margin: 0;">• <strong>Mục tiêu cốt lõi:</strong> Ngay cả khi người cao tuổi rơi vào tình trạng cần chăm sóc điều dưỡng nặng, họ vẫn có thể duy trì nhân phẩm, tự lập và <strong>tiếp tục sống cuộc đời theo cách của riêng mình tại chính khu vực mà họ đã quen thuộc cho đến cuối đời</strong>.</p>'
+        },
+        '2': {
+            color: 'var(--accent-gold)',
+            titleJa: '一体的に提供される5つの要素',
+            titleVi: '5 Yếu tố cốt lõi tích hợp',
+            bodyJa: '<p style="margin: 0 0 12px 0;">目標達成のため、単なる医療提供にとどまらず、以下の5つの要素が地域で一体的に提供されるシステムを構築します：</p>'
+                  + '<ul style="margin: 0; padding-left: 20px; list-style-type: disc; line-height: 1.8;">'
+                  + '<li><strong>住まい (Chỗ ở):</strong> 安心安全に暮らせる住環境の確保</li>'
+                  + '<li><strong>医療 (Y tế):</strong> 日常の診療や急性期・慢性期に対応する医療体制</li>'
+                  + '<li><strong>介護 (Chăm sóc điều dưỡng):</strong> 必要な介護サービスと専門ケア</li>'
+                  + '<li><strong>予防 (Dự phòng):</strong> 要介護状態化の防止、健康維持活動</li>'
+                  + '<li><strong>生活支援 (Hỗ trợ sinh hoạt):</strong> 配食や見守り等の生活支援サービス</li>'
+                  + '</ul>',
+            bodyVi: '<p style="margin: 0 0 12px 0;">Để hiện thực hóa mục tiêu trên, hệ thống không chỉ tập trung vào khám chữa bệnh mà phải cung cấp một cách đồng bộ và tích hợp 5 yếu tố nền tảng bao gồm:</p>'
+                  + '<ul style="margin: 0; padding-left: 20px; list-style-type: disc; line-height: 1.8;">'
+                  + '<li><strong>Chỗ ở (住まい):</strong> Đảm bảo môi trường sống an toàn và ổn định</li>'
+                  + '<li><strong>Y tế (医療):</strong> Cung cấp dịch vụ chăm sóc sức khỏe và khám chữa bệnh ban đầu</li>'
+                  + '<li><strong>Chăm sóc điều dưỡng (介護):</strong> Hỗ trợ các nhu cầu sinh hoạt hàng ngày và điều dưỡng</li>'
+                  + '<li><strong>Dự phòng (予防):</strong> Ngăn ngừa tình trạng trở nặng của người cần chăm sóc</li>'
+                  + '<li><strong>Hỗ trợ sinh hoạt (生活支援):</strong> Các dịch vụ giao cơm, thăm hỏi, giám sát an toàn</li>'
+                  + '</ul>'
+        },
+        '3': {
+            color: 'var(--accent-teal)',
+            titleJa: '圏域の想定',
+            titleVi: 'Phạm vi khu vực lý tưởng',
+            bodyJa: '<p style="margin: 0 0 10px 0;">• <strong>30分圏内（日常生活圏域）：</strong>高齢者の生活範囲を考慮し、<strong>「おおむね30分以内に駆けつけられる圏域」</strong>を理想的なサイズとして想定しています。</p>'
+                  + '<p style="margin: 0;">• <strong>設定基本：</strong>具体的には、市町村の行政単位よりも身近な<strong>中学校区</strong>を基本単位として設定されます。</p>',
+            bodyVi: '<p style="margin: 0 0 10px 0;">• <strong>Khoảng cách 30 phút:</strong> Phạm vi không gian của "khu vực chăm sóc toàn diện" được thiết kế dựa trên tiêu chí là một khoảng cách địa lý sinh hoạt hàng ngày. Cụ thể, đó là <strong>"một khu vực mà các dịch vụ có thể tiếp cận được trong vòng khoảng 30 phút" (おおむね30分以内に駆けつけられる圏域)</strong>.</p>'
+                  + '<p style="margin: 0;">• <strong>Quy mô thực tế:</strong> Trong thực tế, quy mô này thường tương đương với phạm vi của một <strong>trường trung học cơ sở (中学校区)</strong>.</p>'
+        },
+        '4': {
+            color: 'var(--accent-gold)',
+            titleJa: '運営主体と地域包括支援センター',
+            titleVi: 'Chủ thể vận hành và Trung tâm hỗ trợ',
+            bodyJa: '<p style="margin: 0 0 10px 0;">• <strong>市町村が主体：</strong>地域包括ケアシステムは、地域の実情や特性に応じて、保険者でもある<strong>市町村</strong>が主体的に作り上げるものとされています。</p>'
+                  + '<p style="margin: 0;">• <strong>多職種チームの配置：</strong>その中核となるのが<strong>「地域包括支援センター」</strong>です。保健師・社会福祉士・主任介護支援専門員等の多職種チームが配置され、総合相談やケアマネジメントを行います。</p>',
+            bodyVi: '<p style="margin: 0 0 10px 0;">• <strong>Chủ thể 市町村 (Thành phố/Thị trấn/Làng):</strong> Các khu tự trị cấp cơ sở, cụ thể là các <strong>Thành phố/Thị trấn/Làng (市町村 - Shichoson)</strong>, đóng vai trò là chủ thể xây dựng hệ thống này dựa trên đặc thù của từng địa phương.</p>'
+                  + '<p style="margin: 0;">• <strong>Trung tâm Hỗ trợ Toàn diện Khu vực:</strong> Thiết lập các <strong>"Trung tâm Hỗ trợ Toàn diện Khu vực" (地域包括支援センター)</strong> với sự tham gia của nhóm đa ngành bao gồm các y tá công cộng (保健師), nhân viên công tác xã hội (社会福祉士) và chuyên viên quản lý chăm sóc cấp cao (主任介護支援専門員) để lên kế hoạch hỗ trợ duy trì sức khỏe, ổn định cuộc sống.</p>'
+        },
+        '5': {
+            color: '#a855f7',
+            titleJa: '基盤となる情報ネットワーク',
+            titleVi: 'Nền tảng liên kết thông tin',
+            bodyJa: '<p style="margin: 0 0 10px 0;">• <strong>シームレスな情報共有：</strong>保健・医療・福祉・介護などの多様な関連機関（病院、診療所、介護施設、薬局など）や多職種間でのシームレスな情報共有が必要です。</p>'
+                  + '<p style="margin: 0;">• <strong>ICTネットワークの活用：</strong>患者が急性期病院から在宅へと移動する際にもQOLを維持できるよう、ICTを活用した地域医療連携ネットワーク（EHRやPHRなど）の構築が必要不可欠となります。</p>',
+            bodyVi: '<p style="margin: 0 0 10px 0;">• <strong>Chia sẻ thông tin sâu rộng:</strong> Đòi hỏi một sự chia sẻ thông tin sâu rộng thông qua mạng lưới CNTT (như hệ thống EHR, PHR) giữa các cơ sở khám chữa bệnh, cơ sở chăm sóc điều dưỡng, nhà thuốc, cơ quan hành chính và người cung cấp dịch vụ hỗ trợ sinh hoạt.</p>'
+                  + '<p style="margin: 0;">• <strong>Chuyển đổi trơn tru:</strong> Việc chuyển đổi trơn tru thông tin của bệnh nhân khi họ di chuyển từ giường bệnh cấp tính về chăm sóc tại nhà để bảo đảm giữ vững chất lượng cuộc sống (QOL) là yếu tố sống còn.</p>'
+        }
+    };
+
+    function activateSbo113IiTab(tabId) {
+        if (!iiTabsGroup) return;
+        const buttons = iiTabsGroup.querySelectorAll('button[data-sbo113-ii-tab]');
+        buttons.forEach(btn => {
+            const isCurrent = btn.getAttribute('data-sbo113-ii-tab') === tabId;
+            btn.classList.toggle('active', isCurrent);
+            const currentNum = btn.querySelector('span:first-child');
+            if (isCurrent) {
+                const data = iiData[tabId];
+                btn.style.borderColor = data.color;
+                btn.style.background = tabId === '5' ? 'rgba(168,85,247,0.12)' : (tabId === '2'||tabId === '4' ? 'rgba(245,158,11,0.12)' : 'rgba(45,212,191,0.12)');
+                btn.style.color = '#fff';
+                if (currentNum) currentNum.style.opacity = '0.9';
+            } else {
+                btn.style.borderColor = 'rgba(255,255,255,0.08)';
+                btn.style.background = 'rgba(0,0,0,0.25)';
+                btn.style.color = 'var(--text-muted)';
+                if (currentNum) currentNum.style.opacity = '0.5';
+            }
+        });
+
+        const data = iiData[tabId];
+        if (data && iiDetailsPanel) {
+            iiDetailsPanel.style.opacity = '0.1';
+            iiDetailsPanel.style.transform = 'translateY(5px)';
+            setTimeout(() => {
+                iiDetailsPanel.style.borderLeftColor = data.color;
+                const titleColor = data.color === 'var(--accent-teal)' ? '#2dd4bf'
+                    : data.color === 'var(--accent-gold)' ? 'var(--accent-gold)' : '#c084fc';
+                iiDetailsPanel.innerHTML = '<h3 style="color: ' + titleColor + '; margin-top: 0; margin-bottom: 16px; font-size: 1.12rem; display: flex; align-items: center; gap: 10px; font-weight: 600;">'
+                    + '<i class="fa-solid fa-circle-info" style="font-size: 1.2rem;"></i>'
+                    + '<span class="lang-ja">' + data.titleJa + '</span>'
+                    + '<span class="lang-vi">' + data.titleVi + '</span>'
+                    + '</h3>'
+                    + '<div style="font-size: 0.96rem; line-height: 1.8; color: var(--text-secondary);">'
+                    + '<div class="lang-ja">' + data.bodyJa + '</div>'
+                    + '<div class="lang-vi">' + data.bodyVi + '</div>'
+                    + '</div>';
+                if (typeof window.syncLanguages === 'function') window.syncLanguages();
+                iiDetailsPanel.style.opacity = '1';
+                iiDetailsPanel.style.transform = 'translateY(0)';
+            }, 180);
+        }
+    }
+
+    if (iiTabsGroup) {
+        iiTabsGroup.querySelectorAll('button[data-sbo113-ii-tab]').forEach(btn => {
+            btn.addEventListener('click', () => activateSbo113IiTab(btn.getAttribute('data-sbo113-ii-tab')));
+        });
+        activateSbo113IiTab('1');
+    }
+
+    // --- SBO 1.1.3 Bed Allocator Simulator logic ---
+    const acuteSlider = document.getElementById('sim-acute');
+    const recoverySlider = document.getElementById('sim-recovery');
+    const chronicSlider = document.getElementById('sim-chronic');
+
+    const acuteVal = document.getElementById('acute-beds-val');
+    const recoveryVal = document.getElementById('recovery-beds-val');
+    const chronicVal = document.getElementById('chronic-beds-val');
+
+    const costDisplay = document.getElementById('sim-cost-display');
+    const costBar = document.getElementById('sim-cost-bar');
+    const successBanner = document.getElementById('sim-success-banner');
+
+    const gAcute = document.getElementById('goal-acute-item');
+    const gRecovery = document.getElementById('goal-recovery-item');
+    const gChronic = document.getElementById('goal-chronic-item');
+    const gBudget = document.getElementById('goal-budget-item');
+
+    if (!acuteSlider || !recoverySlider || !chronicSlider) return;
+
+    function updateSim() {
+        const a = parseInt(acuteSlider.value) || 0;
+        const r = parseInt(recoverySlider.value) || 0;
+        const c = parseInt(chronicSlider.value) || 0;
+
+        if (acuteVal) acuteVal.innerText = a;
+        if (recoveryVal) recoveryVal.innerText = r;
+        if (chronicVal) chronicVal.innerText = c;
+
+        const totalCost = (a * 800) + (r * 400) + (c * 250);
+        if (costDisplay) costDisplay.innerText = '$' + totalCost.toLocaleString() + ' / day';
+
+        const costPercent = Math.min((totalCost / 750000) * 100, 100);
+        if (costBar) {
+            costBar.style.width = costPercent + '%';
+            if (totalCost <= 500000) {
+                costBar.style.backgroundColor = 'var(--accent-teal)';
+            } else {
+                costBar.style.backgroundColor = '#ef4444';
+            }
+        }
+
+        const acuteOK = a <= 400;
+        const recoveryOK = r >= 350;
+        const chronicOK = c <= 250;
+        const budgetOK = totalCost <= 500000;
+
+        const updateChecklist = (element, isOK) => {
+            if (!element) return;
+            const icon = element.querySelector('i');
+            if (isOK) {
+                if (icon) icon.className = 'fa-solid fa-circle-check';
+                if (icon) icon.style.color = '#34d399';
+                element.style.color = 'var(--text-secondary)';
+            } else {
+                if (icon) icon.className = 'fa-solid fa-circle-xmark';
+                if (icon) icon.style.color = '#ef4444';
+                element.style.color = 'var(--text-muted)';
+            }
+        };
+
+        updateChecklist(gAcute, acuteOK);
+        updateChecklist(gRecovery, recoveryOK);
+        updateChecklist(gChronic, chronicOK);
+        updateChecklist(gBudget, budgetOK);
+
+        if (successBanner) {
+            if (acuteOK && recoveryOK && chronicOK && budgetOK) {
+                successBanner.style.display = 'flex';
+            } else {
+                successBanner.style.display = 'none';
+            }
+        }
+    }
+
+    [acuteSlider, recoverySlider, chronicSlider].forEach(slider => {
+        slider.addEventListener('input', updateSim);
+    });
+
+    updateSim();
+};
+
+window.initSbo121Simulator = function() {
+    const decTabsGroup = document.getElementById('sbo121-dec-tabs-group');
+    const decDetailsPanel = document.getElementById('sbo121-dec-details-panel');
+
+    if (!decTabsGroup || !decDetailsPanel) return;
+
+    const decData = {
+        '1': {
+            color: 'var(--accent-teal)',
+            titleJa: 'ヒポクラテスの誓い',
+            titleVi: 'Lời thề Hippocrates',
+            bodyJa: '<p style="margin: 0 0 10px 0;">• <strong>歴史的起源：</strong>紀元前5世紀のギリシャにおける西洋医学の始祖とされるヒポクラテスによる7項目の規範です。</p>'
+                  + '<p style="margin: 0;">• <strong>現代への意義：</strong>内容の一部が現代には不適切との指摘もありますが、2000年を経た言葉であることを考えると、医療の本質は今も変わっていないことを示しています。「患者に害を与えない」「秘密を守る」など、現代の医療の本質を示す基礎となっています。</p>',
+            bodyVi: '<p style="margin: 0 0 10px 0;">• <strong>Nguồn gốc lịch sử:</strong> Xuất phát từ thế kỷ thứ 5 TCN tại Hy Lạp, đây là 7 quy tắc chuẩn mực được đưa ra bởi Hippocrates - người được coi là ông tổ của y học phương Tây.</p>'
+                  + '<p style="margin: 0;">• <strong>Giá trị thời đại:</strong> Mặc dù một số nội dung bị chỉ trích là không còn phù hợp với hiện tại, nhưng sau hơn 2000 năm, bản chất của nó vẫn không thay đổi. Các quy tắc như "Không gây hại cho bệnh nhân" và "Giữ bí mật thông tin" vẫn là nền tảng cơ bản nhất thể hiện bản chất của y tế hiện đại.</p>'
+        },
+        '2': {
+            color: 'var(--accent-gold)',
+            titleJa: 'ジュネーブ宣言',
+            titleVi: 'Tuyên ngôn Geneva',
+            bodyJa: '<p style="margin: 0 0 10px 0;">• <strong>精神の継承：</strong>ヒポクラテスの誓いの精神を引継ぎ、世界医師会によって現代向けに制定・改定された宣言です。</p>',
+            bodyVi: '<p style="margin: 0 0 10px 0;">• <strong>Kế thừa tinh thần:</strong> Đây là bản tuyên ngôn được Hiệp hội Y khoa Thế giới (WMA) ban hành và sửa đổi dành cho thời đại ngày nay, với mục đích kế thừa và tiếp nối tinh thần của Lời thề Hippocrates.</p>'
+        },
+        '3': {
+            color: '#ef4444',
+            titleJa: 'ヘルシンキ宣言',
+            titleVi: 'Tuyên ngôn Helsinki',
+            bodyJa: '<p style="margin: 0 0 10px 0;">• <strong>背景と歴史：</strong>戦争中に起こった強制的な人体実験への反省から作られたニュルンベルグ綱領（1947年）を経て、1964年に制定されました。</p>'
+                  + '<p style="margin: 0 0 10px 0;">• <strong>核心原則：</strong><strong>「ヒトを対象とする医学研究の倫理的原則」</strong>を定めたものです。被験者の<strong>自発的同意（インフォームドコンセント）</strong>と<strong>倫理審査</strong>などの原則を倫理指針として定めています。</p>'
+                  + '<p style="margin: 0;">• <strong>臨床開発への影響：</strong>この宣言の原則は、医薬品の臨床試験の実施基準である<strong>GCP（Good Clinical Practice）</strong>の開発につながりました。</p>',
+            bodyVi: '<p style="margin: 0 0 10px 0;">• <strong>Bối cảnh:</strong> Xuất phát từ sự phản tỉnh sâu sắc đối với các thí nghiệm cưỡng bức tàn bạo trên cơ thể người trong Chiến tranh thế giới thứ 2 (dẫn đến Bộ luật Nuremberg năm 1947), Tuyên ngôn Helsinki được ban hành vào năm 1964.</p>'
+                  + '<p style="margin: 0 0 10px 0;">• <strong>Nội dung cốt lõi:</strong> Văn bản này quy định "Các nguyên tắc đạo đức đối với nghiên cứu y học trên người". Nó thiết lập nguyên tắc bắt buộc phải có <strong>sự đồng ý tự nguyện (Informed Consent)</strong> của người tham gia nghiên cứu và phải trải qua <strong>kiểm duyệt đạo đức</strong>.</p>'
+                  + '<p style="margin: 0;">• <strong>Tầm ảnh hưởng:</strong> Tuyên ngôn này chính là tiền đề dẫn đến việc hình thành tiêu chuẩn <strong>GCP (Good Clinical Practice - Thực hành Lâm sàng Tốt)</strong> - tiêu chuẩn thực hiện các thử nghiệm lâm sàng dược phẩm hiện nay.</p>'
+        },
+        '4': {
+            color: 'var(--accent-teal)',
+            titleJa: 'リスボン宣言',
+            titleVi: 'Tuyên ngôn Lisbon',
+            bodyJa: '<p style="margin: 0 0 10px 0;">• <strong>患者の権利宣言：</strong>1981年に世界医師会で採択され、<strong>「患者の権利宣言」</strong>ともいわれるものです。</p>'
+                  + '<p style="margin: 0 0 10px 0;">• <strong>権利の認定：</strong>患者の<strong>自己決定権</strong>、代理人の役割、秘密保持、尊厳性の尊重など、現代では当然となっている患者の権利を最初に認めたものです。</p>'
+                  + '<p style="margin: 0;">• <strong>歴史的潮流：</strong>この流れを汲むものとしては、米国病院協会の「患者の権利章典」（1973年）もあります。</p>',
+            bodyVi: '<p style="margin: 0 0 10px 0;">• <strong>Tuyên ngôn về Quyền bệnh nhân:</strong> Được Hiệp hội Y khoa Thế giới thông qua vào năm 1981, bản tuyên ngôn này còn được gọi là <strong>"Tuyên ngôn về Quyền của Bệnh nhân"</strong>.</p>'
+                  + '<p style="margin: 0 0 10px 0;">• <strong>Quyền cơ bản:</strong> Đây là văn bản đầu tiên chính thức công nhận các quyền cơ bản của bệnh nhân mà ngày nay được coi là hiển nhiên, bao gồm: <strong>Quyền tự quyết</strong>, vai trò của người đại diện, bảo mật thông tin và tôn trọng nhân phẩm.</p>'
+                  + '<p style="margin: 0;">• <strong>Dòng chảy tương tự:</strong> Cùng chung dòng chảy lịch sử này còn có "Tuyên ngôn Quyền Bệnh nhân" do Hiệp hội Bệnh viện Hoa Kỳ ban hành năm 1973.</p>'
+        }
+    };
+
+    function activateDecTab(tabId) {
+        const buttons = decTabsGroup.querySelectorAll('button[data-sbo121-dec-tab]');
+        const progressBar = document.getElementById('sbo121-timeline-progress');
+        
+        // Update progress bar width
+        if (progressBar) {
+            const percentages = { '1': '0%', '2': '33.3%', '3': '66.6%', '4': '100%' };
+            progressBar.style.width = percentages[tabId] || '0%';
+        }
+
+        buttons.forEach(btn => {
+            const isCurrent = btn.getAttribute('data-sbo121-dec-tab') === tabId;
+            const circle = btn.querySelector('.node-circle');
+            const textSpan = btn.querySelector(':scope > span');
+            const data = decData[btn.getAttribute('data-sbo121-dec-tab')];
+
+            if (isCurrent) {
+                if (circle) {
+                    circle.style.borderColor = data.color;
+                    circle.style.background = data.color;
+                    circle.style.color = '#000';
+                    circle.style.boxShadow = '0 0 20px ' + data.color;
+                }
+                if (textSpan) {
+                    textSpan.style.color = '#fff';
+                    textSpan.style.textShadow = '0 0 8px rgba(255,255,255,0.3)';
+                }
+            } else {
+                if (circle) {
+                    circle.style.borderColor = 'rgba(255,255,255,0.15)';
+                    circle.style.background = 'rgba(15,23,42,0.8)';
+                    circle.style.color = 'var(--text-muted)';
+                    circle.style.boxShadow = 'none';
+                }
+                if (textSpan) {
+                    textSpan.style.color = 'var(--text-secondary)';
+                    textSpan.style.textShadow = 'none';
+                }
+            }
+        });
+
+        const data = decData[tabId];
+        if (data && decDetailsPanel) {
+            decDetailsPanel.style.opacity = '0.1';
+            decDetailsPanel.style.transform = 'translateY(5px)';
+            setTimeout(() => {
+                decDetailsPanel.style.borderTopColor = data.color;
+                const titleColor = data.color === '#ef4444' ? '#ef4444' : (data.color === 'var(--accent-teal)' ? '#2dd4bf' : 'var(--accent-gold)');
+                decDetailsPanel.innerHTML = '<h3 style="color: ' + titleColor + '; margin-top: 0; margin-bottom: 16px; font-size: 1.15rem; display: flex; align-items: center; gap: 10px; font-weight: 600;">'
+                    + '<i class="fa-solid fa-file-signature" style="font-size: 1.2rem;"></i>'
+                    + '<span class="lang-ja">' + data.titleJa + '</span>'
+                    + '<span class="lang-vi">' + data.titleVi + '</span>'
+                    + '</h3>'
+                    + '<div style="font-size: 0.96rem; line-height: 1.8; color: var(--text-secondary);">'
+                    + '<div class="lang-ja">' + data.bodyJa + '</div>'
+                    + '<div class="lang-vi">' + data.bodyVi + '</div>'
+                    + '</div>';
+                if (typeof window.syncLanguages === 'function') window.syncLanguages();
+                decDetailsPanel.style.opacity = '1';
+                decDetailsPanel.style.transform = 'translateY(0)';
+            }, 180);
+        }
+    }
+
+        decTabsGroup.querySelectorAll('button[data-sbo121-dec-tab]').forEach(btn => {
+        btn.addEventListener('click', () => activateDecTab(btn.getAttribute('data-sbo121-dec-tab')));
+    });
+
+    activateDecTab('1');
+};

@@ -466,14 +466,204 @@ document.addEventListener('DOMContentLoaded', () => {
             parentChap.classList.add('active');
         }
 
-        sboWrappers.forEach(w => {
-            w.classList.remove('active');
-            w.style.display = 'none';
-        });
-        const activeWrapper = document.getElementById(targetSbo);
-        if (activeWrapper) {
-            activeWrapper.classList.add('active');
-            activeWrapper.style.display = 'block';
+        // Dynamically inject the active SBO template
+        const sboContainer = document.getElementById('sbo-container');
+        if (sboContainer && window.SBO_TEMPLATES && window.SBO_TEMPLATES[targetSbo]) {
+            sboContainer.innerHTML = window.SBO_TEMPLATES[targetSbo];
+            
+            // The template wrapper has class="sbo-section-wrapper" (hidden by CSS default).
+            // We must add the 'active' class to make it visible.
+            const injectedWrapper = sboContainer.firstElementChild;
+            if (injectedWrapper && injectedWrapper.classList.contains('sbo-section-wrapper')) {
+                injectedWrapper.classList.add('active');
+            }
+            
+            // Re-bind SBO 1.1.1 specific DOM listeners if SBO 1.1.1 is active
+            if (targetSbo === 'sbo111') {
+                const sbo111TriNodes = sboContainer.querySelectorAll('.tri-node');
+                const sbo111InfoTitle = document.getElementById('info-title');
+                const sbo111InfoBody = document.getElementById('info-body');
+                sbo111TriNodes.forEach(node => {
+                    node.addEventListener('click', () => {
+                        sbo111TriNodes.forEach(n => n.classList.remove('active'));
+                        node.classList.add('active');
+                        const target = node.getAttribute('data-target');
+                        const triData = triangleData[target];
+                        const isVi = document.body.classList.contains('lang-vi');
+                        if (triData && sbo111InfoTitle && sbo111InfoBody) {
+                            sbo111InfoTitle.innerHTML = isVi ? triData.title.vi : triData.title.ja;
+                            sbo111InfoBody.textContent = isVi ? triData.body.vi : triData.body.ja;
+                        }
+                    });
+                });
+
+                const sbo111HealthSlider = document.getElementById('health-slider');
+                if (sbo111HealthSlider) {
+                    sbo111HealthSlider.addEventListener('input', (e) => {
+                        updateSliderUI(e.target.value);
+                    });
+                    updateSliderUI(sbo111HealthSlider.value);
+                }
+
+                const sbo111RingElements = sboContainer.querySelectorAll('.ring-element');
+                sbo111RingElements.forEach(ring => {
+                    const handleSpiritualInteraction = () => {
+                        sbo111RingElements.forEach(r => r.classList.remove('active'));
+                        ring.classList.add('active');
+                        const isVi = document.body.classList.contains('lang-vi');
+                        const layer = ring.getAttribute('data-layer');
+                        const ringData = ringsData[layer];
+                        if (ringData && spiritualTitle) {
+                            const infoCard = document.getElementById('spiritual-info-card');
+                            if (infoCard) infoCard.style.opacity = '0.3';
+                            setTimeout(() => {
+                                spiritualTitle.innerHTML = isVi ? ringData.title.vi : ringData.title.ja;
+                                spiritualBody.textContent = isVi ? ringData.body.vi : ringData.body.ja;
+                                if (infoCard) infoCard.style.opacity = '1';
+                            }, 200);
+                        }
+                    };
+                    ring.addEventListener('mouseenter', handleSpiritualInteraction);
+                });
+
+                // Init SBO 1.1.1 Roadmap simulator
+                if (typeof window.initSbo111Simulator === 'function') {
+                    window.initSbo111Simulator();
+                }
+            }
+
+            // Re-bind SBO 1.1.2 specific DOM listeners (Individual tabs, Privacy/BigData tabs) and simulator
+            if (targetSbo === 'sbo112') {
+                // Individual details tabs (Part I)
+                const indTabs = sboContainer.querySelectorAll('[data-sbo112-ind-tab]');
+                const indPanes = sboContainer.querySelectorAll('.sbo112-ind-pane');
+                indTabs.forEach(tab => {
+                    tab.addEventListener('click', () => {
+                        const targetNum = tab.getAttribute('data-sbo112-ind-tab');
+                        indTabs.forEach(t => { t.classList.remove('active'); t.style.border = '1px solid rgba(255,255,255,0.15)'; t.style.color = 'var(--text-secondary)'; t.style.background = 'rgba(255,255,255,0.03)'; });
+                        tab.classList.add('active'); tab.style.border = '1px solid var(--accent-teal)'; tab.style.color = 'var(--accent-teal)'; tab.style.background = 'rgba(20,184,166,0.15)';
+                        indPanes.forEach(pane => {
+                            pane.style.display = (pane.id === `sbo112-ind-pane-${targetNum}`) ? 'block' : 'none';
+                        });
+                    });
+                });
+
+                // Privacy/BigData tabs (Part II)
+                const socTabs = sboContainer.querySelectorAll('[data-sbo112-soc-tab]');
+                const socPanes = sboContainer.querySelectorAll('.sbo112-soc-pane');
+                socTabs.forEach(tab => {
+                    tab.addEventListener('click', () => {
+                        const targetNum = tab.getAttribute('data-sbo112-soc-tab');
+                        socTabs.forEach(t => { t.classList.remove('active'); t.style.border = '1px solid rgba(255,255,255,0.15)'; t.style.color = 'var(--text-secondary)'; t.style.background = 'rgba(255,255,255,0.03)'; });
+                        tab.classList.add('active'); tab.style.border = '1px solid var(--accent-teal)'; tab.style.color = 'var(--accent-teal)'; tab.style.background = 'rgba(20,184,166,0.15)';
+                        socPanes.forEach(pane => {
+                            pane.style.display = (pane.id === `sbo112-soc-pane-${targetNum}`) ? 'block' : 'none';
+                        });
+                    });
+                });
+
+                // Init SBO 1.1.2 Personalized medicine simulator
+                if (typeof window.initSbo112Simulator === 'function') {
+                    window.initSbo112Simulator();
+                }
+            }
+
+            // Re-bind SBO 1.1.3 specific DOM listeners and initialize bed allocator simulator
+            if (targetSbo === 'sbo113') {
+                if (typeof window.initSbo113Simulator === 'function') {
+                    window.initSbo113Simulator();
+                }
+            }
+
+            // Re-bind SBO 1.2.1 detailed tabs
+            if (targetSbo === 'sbo121') {
+                if (typeof window.initSbo121Simulator === 'function') {
+                    window.initSbo121Simulator();
+                }
+            }
+
+            // Re-bind SBO 1.2.2 details tabs
+            if (targetSbo === 'sbo122') {
+                const sbo122Tabs = sboContainer.querySelectorAll('[data-sbo122-tab]');
+                const sbo122Panes = sboContainer.querySelectorAll('.sbo122-pane');
+                sbo122Tabs.forEach(tab => {
+                    tab.addEventListener('click', () => {
+                        const targetNum = tab.getAttribute('data-sbo122-tab');
+                        sbo122Tabs.forEach(t => t.classList.remove('active'));
+                        tab.classList.add('active');
+                        sbo122Panes.forEach(pane => {
+                            pane.style.display = (pane.id === `sbo122-pane-${targetNum}`) ? 'block' : 'none';
+                        });
+                    });
+                });
+
+                // Initialize SBO 1.2.2 specific interactive functions if defined
+                if (typeof window.updateSbo122Pillar === 'function') {
+                    window.updateSbo122Pillar();
+                }
+                if (typeof window.updateSbo122Step === 'function') {
+                    window.updateSbo122Step();
+                }
+            }
+
+            // Re-bind SBO 1.2.3 details tabs
+            if (targetSbo === 'sbo123') {
+                const sbo123Tabs = sboContainer.querySelectorAll('[data-sbo123-tab]');
+                const sbo123Panes = sboContainer.querySelectorAll('.sbo123-pane');
+                sbo123Tabs.forEach(tab => {
+                    tab.addEventListener('click', () => {
+                        const targetNum = tab.getAttribute('data-sbo123-tab');
+                        sbo123Tabs.forEach(t => t.classList.remove('active'));
+                        tab.classList.add('active');
+                        sbo123Panes.forEach(pane => {
+                            pane.style.display = (pane.id === `sbo123-pane-${targetNum}`) ? 'block' : 'none';
+                        });
+                    });
+                });
+
+                // Initialize SBO 1.2.3 specific interactive functions if defined
+                if (typeof window.updateSbo123Matrix === 'function') {
+                    window.updateSbo123Matrix();
+                }
+                if (typeof window.updateSbo123Step === 'function') {
+                    window.updateSbo123Step();
+                }
+            }
+
+            // Re-bind SBO 2.1.1 details tabs
+            if (targetSbo === 'sbo211') {
+                const sbo211Tabs = sboContainer.querySelectorAll('[data-sbo211-tab]');
+                const sbo211Panes = sboContainer.querySelectorAll('.sbo211-pane');
+                sbo211Tabs.forEach(tab => {
+                    tab.addEventListener('click', () => {
+                        const targetNum = tab.getAttribute('data-sbo211-tab');
+                        sbo211Tabs.forEach(t => t.classList.remove('active'));
+                        tab.classList.add('active');
+                        sbo211Panes.forEach(pane => {
+                            pane.style.display = (pane.id === `sbo211-pane-${targetNum}`) ? 'block' : 'none';
+                        });
+                    });
+                });
+
+                // Initialize SBO 2.1.1 specific interactive functions if defined
+                if (typeof window.updateSbo211Pillar === 'function') {
+                    window.updateSbo211Pillar();
+                }
+                if (typeof window.updateSbo211Copay === 'function') {
+                    window.updateSbo211Copay();
+                }
+                if (typeof window.updateSbo211Step === 'function') {
+                    window.updateSbo211Step();
+                }
+            }
+
+            // Synced language update after template injection
+            updateDynamicContentLang();
+            
+            // Re-sync standard language toggles in case template HTML was loaded raw
+            if (typeof window.syncLanguages === 'function') {
+                window.syncLanguages();
+            }
         }
 
         crumbChap.textContent = data.chapter;
@@ -483,18 +673,19 @@ document.addEventListener('DOMContentLoaded', () => {
         crumbSbo.textContent = sboNum + (sboName ? ' ' + sboName : '');
 
         const heroContainer = document.querySelector('#hero .container');
-        heroContainer.style.opacity = '0.3';
-        
-        setTimeout(() => {
-            heroChapBadge.textContent = data.chapter;
-            heroGioBadge.textContent = data.gio;
-            if (heroSboBadge) {
-                heroSboBadge.textContent = data.badge;
-            }
-            heroMainTitle.innerHTML = data.title;
-            heroSubDesc.innerHTML = data.desc;
-            heroContainer.style.opacity = '1';
-        }, 200);
+        if (heroContainer) {
+            heroContainer.style.opacity = '0.3';
+            setTimeout(() => {
+                heroChapBadge.textContent = data.chapter;
+                heroGioBadge.textContent = data.gio;
+                if (heroSboBadge) {
+                    heroSboBadge.textContent = data.badge;
+                }
+                heroMainTitle.innerHTML = data.title;
+                heroSubDesc.innerHTML = data.desc;
+                heroContainer.style.opacity = '1';
+            }, 200);
+        }
 
         if (updateHash) {
             window.location.hash = targetSbo;
