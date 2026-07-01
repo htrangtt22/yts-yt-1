@@ -582,27 +582,10 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             }
 
-            // Re-bind SBO 1.2.2 details tabs
+            // Re-bind SBO 1.2.2 details tabs and simulator logic
             if (targetSbo === 'sbo122') {
-                const sbo122Tabs = sboContainer.querySelectorAll('[data-sbo122-tab]');
-                const sbo122Panes = sboContainer.querySelectorAll('.sbo122-pane');
-                sbo122Tabs.forEach(tab => {
-                    tab.addEventListener('click', () => {
-                        const targetNum = tab.getAttribute('data-sbo122-tab');
-                        sbo122Tabs.forEach(t => t.classList.remove('active'));
-                        tab.classList.add('active');
-                        sbo122Panes.forEach(pane => {
-                            pane.style.display = (pane.id === `sbo122-pane-${targetNum}`) ? 'block' : 'none';
-                        });
-                    });
-                });
-
-                // Initialize SBO 1.2.2 specific interactive functions if defined
-                if (typeof window.updateSbo122Pillar === 'function') {
-                    window.updateSbo122Pillar();
-                }
-                if (typeof window.updateSbo122Step === 'function') {
-                    window.updateSbo122Step();
+                if (typeof window.initSbo122Simulator === 'function') {
+                    window.initSbo122Simulator();
                 }
             }
 

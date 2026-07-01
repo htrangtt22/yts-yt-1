@@ -199,267 +199,93 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
     // --- 9. SBO 1.2.2: Transparent Vault Interactive Logic ---
-
-    // 9a. SBO 1.2.2 Pillar Selector Logic
-    const sbo122PillarSegments = document.querySelectorAll('[data-sbo122-pillar]');
-    const sbo122PillarTitle = document.getElementById('sbo122-pillar-title');
-    const sbo122PillarBody = document.getElementById('sbo122-pillar-body');
-    const sbo122PillarTip = document.getElementById('sbo122-pillar-tip');
-
-    const sbo122PillarsData = {
-        access: {
-            title: {
-                ja: '<i class="fa-solid fa-folder-open"></i> アクセス権 (Access Right)',
-                vi: '<i class="fa-solid fa-folder-open"></i> Quyền truy cập (Access Right)'
-            },
-            body: {
-                ja: '自己情報の「開示」を求める権利です。カルテ（診療録）や検査データ、画像等、自己の健康や診療に関するすべての情報を閲覧し、請求（コピー等の交付）することができます。',
-                vi: 'Quyền yêu cầu "công khai" thông tin của bản thân. Người bệnh có quyền xem và yêu cầu cung cấp bản sao của tất cả các thông tin liên quan đến sức khỏe và điều trị của mình, bao gồm bệnh án, dữ liệu xét nghiệm và chẩn đoán hình ảnh.'
-            },
-            tip: {
-                ja: '<strong>実務の鍵：</strong> 診療記録開示ガイドラインに基づき、原則すべての開示に対応します。',
-                vi: '<strong>Từ khóa thực tế:</strong> Dựa trên hướng dẫn công khai bệnh án, cơ sở y tế về nguyên tắc phải phản hồi tất cả các yêu cầu.'
-            },
-            color: 'var(--accent-teal)'
-        },
-        control: {
-            title: {
-                ja: '<i class="fa-solid fa-sliders"></i> 制御権 (Control Right)',
-                vi: '<i class="fa-solid fa-sliders"></i> Quyền kiểm soát (Control Right)'
-            },
-            body: {
-                ja: '自己に関する情報の「流通」を支配する権利です。目的外利用の拒否、本人の同意のない第三者提供の差し止め請求、情報の破棄等を求めることができます。',
-                vi: 'Quyền kiểm soát "sự lưu thông" thông tin liên quan đến bản thân. Bệnh nhân có quyền từ chối sử dụng thông tin ngoài mục đích công bố, yêu cầu dừng cung cấp cho bên thứ ba khi chưa đồng ý, hoặc yêu cầu hủy bỏ thông tin.'
-            },
-            tip: {
-                ja: '<strong>実務の鍵：</strong> 第三者提供の制限（オプトイン必須）や目的外利用の禁止を管理します。',
-                vi: '<strong>Từ khóa thực tế:</strong> Quản lý chặt chẽ việc giới hạn cung cấp cho bên thứ ba (bắt buộc Opt-in) và cấm sử dụng ngoài mục đích.'
-            },
-            color: 'var(--accent-gold)'
-        },
-        correction: {
-            title: {
-                ja: '<i class="fa-solid fa-file-pen"></i> 訂正権 (Correction Right)',
-                vi: '<i class="fa-solid fa-file-pen"></i> Quyền hiệu đính (Correction Right)'
-            },
-            body: {
-                ja: '誤った情報や不完全な記録に対して「訂正・追加・削除」を求める権利です。プライバシーの保護や不利益の防止、自己の尊厳を守るために不可欠です。',
-                vi: 'Quyền yêu cầu "hiệu đính, bổ sung hoặc xóa bỏ" đối với các thông tin sai lệch hoặc hồ sơ không hoàn chỉnh. Điều này là tối quan trọng để bảo vệ quyền riêng tư, tránh các bất lợi và bảo vệ nhân phẩm.'
-            },
-            tip: {
-                ja: '<strong>実務の鍵：</strong> 事実関係の検証に基づき、カルテ等の客観的誤記や虚偽記載の速やかな訂正に応じます。',
-                vi: '<strong>Từ khóa thực tế:</strong> Dựa trên việc kiểm chứng các dữ kiện thực tế, nhanh chóng hiệu đính các lỗi nhập liệu khách quan hoặc ghi chép sai lệch trong bệnh án.'
-            },
-            color: '#ef4444'
-        }
-    };
-
-    function updateSbo122Pillar() {
+    window.initSbo122Simulator = function() {
         const isVi = document.body.classList.contains('lang-vi');
-        const activeSegment = document.querySelector('[data-sbo122-pillar].active');
-        if (activeSegment) {
-            const key = activeSegment.getAttribute('data-sbo122-pillar');
-            const data = sbo122PillarsData[key];
-            if (data && sbo122PillarTitle && sbo122PillarBody) {
-                sbo122PillarTitle.innerHTML = isVi ? data.title.vi : data.title.ja;
-                sbo122PillarTitle.style.color = data.color;
-                sbo122PillarBody.textContent = isVi ? data.body.vi : data.body.ja;
-                if (sbo122PillarTip) {
-                    sbo122PillarTip.style.borderLeftColor = data.color;
-                    const tipIcon = sbo122PillarTip.querySelector('i');
-                    if (tipIcon) tipIcon.style.color = data.color;
-                    const tipSpan = sbo122PillarTip.querySelector('span');
-                    if (tipSpan) tipSpan.innerHTML = isVi ? data.tip.vi : data.tip.ja;
+        const container = document.getElementById('sbo122');
+        if (!container) return;
+
+        // 9a. 8 Legal Duties Timeline Step Interaction
+        const stepDots = container.querySelectorAll('[data-sbo122-step]');
+        const sbo122StepTitle = container.querySelector('#sbo122-step-title');
+        const sbo122StepPhase = container.querySelector('#sbo122-step-phase');
+        const sbo122StepDesc = container.querySelector('#sbo122-step-desc');
+
+        const sbo122StepsData = {
+            '1': {
+                title: { ja: '1. 利用目的の特定・通知', vi: '1. Xác định & Thông báo mục đích sử dụng' },
+                phase: { ja: '取得フェーズ', vi: 'Giai đoạn Thu thập' },
+                phaseClass: 'tag-red',
+                desc: {
+                    ja: '患者データの利用目的（診療、家族への説明、会計業務等）を具体的に特定し、院内掲示やホームページで公表します。特定された範囲を超えて利用する場合は、原則として患者本人の同意が必須となります。',
+                    vi: 'Xác định cụ thể mục đích sử dụng dữ liệu bệnh nhân (điều trị, giải thích cho gia đình, nghiệp vụ thanh toán, v.v.) và công bố tại bảng tin bệnh viện hoặc trang web. Trường hợp sử dụng vượt quá phạm vi đã công bố, về nguyên tắc phải có sự đồng ý của bệnh nhân.'
+                }
+            },
+            '2': {
+                title: { ja: '2. 適正な取得', vi: '2. Thu nhập hợp lệ' },
+                phase: { ja: '取得フェーズ', vi: 'Giai đoạn Thu thập' },
+                phaseClass: 'tag-red',
+                desc: {
+                    ja: '偽りその他不正な手段によって個人情報を取得してはなりません。また、医療分野においては病歴等の要配慮個人情報を取得するため、原則オプトイン（事前同意）による適正な手順を踏むことが義務付けられています。',
+                    vi: 'Không được thu thập thông tin cá nhân bằng các thủ đoạn gian lận hoặc bất hợp pháp. Ngoài ra, trong y tế, khi thu thập thông tin nhạy cảm như lịch sử bệnh án, việc thực hiện đúng quy trình thông qua cơ chế Opt-in (đồng ý trước) là bắt buộc.'
+                }
+            },
+            '3': {
+                title: { ja: '3. 正確性の確保', vi: '3. Đảm bảo tính chính xác' },
+                phase: { ja: '運用・保管フェーズ', vi: 'Giai đoạn Vận hành/Lưu trữ' },
+                phaseClass: 'tag-gold',
+                desc: {
+                    ja: '提供する医療の質や安全を担保するため、患者の個人データを正確かつ最新の内容に保つよう努めなければなりません。カルテへの誤記や検査結果の取り違え等は重大な医療事故に直結します。',
+                    vi: 'Duy trì dữ liệu cá nhân của bệnh nhân chính xác và cập nhật mới nhất để đảm bảo chất lượng và an toàn y tế. Lỗi ghi chép bệnh án hoặc nhầm lẫn kết quả xét nghiệm sẽ trực tiếp dẫn đến các tai nạn y khoa nghiêm trọng.'
+                }
+            },
+            '4': {
+                title: { ja: '4. 安全管理措置', vi: '4. Biện pháp quản lý an toàn' },
+                phase: { ja: '運用・保管フェーズ', vi: 'Giai đoạn Vận hành/Lưu trữ' },
+                phaseClass: 'tag-gold',
+                desc: {
+                    ja: '個人データの漏洩、滅失、改ざんを防止するため、必要かつ適切な安全管理措置（技術的・物理的・組織的な多層防御）を講じる義務があります。システムログ of 監視やアクセス権限の厳格化が含まれます。',
+                    vi: 'Có nghĩa vụ áp dụng các biện pháp quản lý an toàn cần thiết và phù hợp (phòng thủ đa tầng về mặt kỹ thuật, vật lý và tổ chức) nhằm ngăn chặn việc rò rỉ, mất mát hoặc sửa đổi trái phép dữ liệu cá nhân. Bao gồm giám sát log hệ thống và phân quyền truy cập chặt chẽ.'
+                }
+            },
+            '5': {
+                title: { ja: '5. 苦情対応体制', vi: '5. Tiếp nhận & Giải quyết khiếu nại' },
+                phase: { ja: '運用・保管フェーズ', vi: 'Giai đoạn Vận hành/Lưu trữ' },
+                phaseClass: 'tag-gold',
+                desc: {
+                    ja: '個人情報の取り扱いに関する苦情の適切かつ迅速な処理に努める義務があります。院内に相談窓口を設置し、手続きを分かりやすく明示することが求められます。',
+                    vi: 'Có nghĩa vụ nỗ lực xử lý phù hợp và nhanh chóng các khiếu nại liên quan đến việc xử lý thông tin cá nhân. Bệnh viện cần thiết lập ban/quầy tư vấn chuyên trách và nêu rõ quy trình xử lý để người bệnh dễ tiếp cận.'
+                }
+            },
+            '6': {
+                title: { ja: '6. 開示・訂正対応', vi: '6. Xử lý yêu cầu công khai/hiệu đính' },
+                phase: { ja: '運用・保管フェーズ', vi: 'Giai đoạn Vận hành/Lưu trữ' },
+                phaseClass: 'tag-gold',
+                desc: {
+                    ja: '患者本人からのカルテ開示、誤記の訂正、利用停止等の請求に対して、法的な基準に則って適切かつ誠実に対応する義務があります。拒否する場合は合理的な理由の説明が必要です。',
+                    vi: 'Có nghĩa vụ phản hồi phù hợp và trung thực theo tiêu chuẩn pháp lý đối với các yêu cầu từ bệnh nhân về công khai bệnh án, hiệu đính sai sót, hoặc tạm dừng sử dụng thông tin. Trường hợp từ chối cần có giải trình lý do hợp lý.'
+                }
+            },
+            '7': {
+                title: { ja: '7. 外部提供の制限', vi: '7. Hạn chế cung cấp ra bên ngoài' },
+                phase: { ja: '提供・破棄フェーズ', vi: 'Giai đoạn Cung cấp/Hủy bỏ' },
+                phaseClass: 'tag-teal',
+                desc: {
+                    ja: '委託先の適切な監督を行うとともに、本人の事前同意を得ない第三者提供の制限ルールを厳守する義務があります。要配慮個人情報であるため、通常の個人情報で認められるオプトアウト提供は不可です。',
+                    vi: 'Có nghĩa vụ giám sát phù hợp bên nhận ủy thác công việc và tuân thủ nghiêm ngặt quy định hạn chế cung cấp cho bên thứ ba khi chưa có sự đồng ý của bản thân. Vì là thông tin cá nhân đặc biệt nhạy cảm, cơ chế tự động cung cấp Opt-out thông thường không được áp dụng.'
+                }
+            },
+            '8': {
+                title: { ja: '8. 不要データの消去', vi: '8. Xóa dữ liệu không cần thiết' },
+                phase: { ja: '提供・破棄フェーズ', vi: 'Giai đoạn Cung cấp/Hủy bỏ' },
+                phaseClass: 'tag-teal',
+                desc: {
+                    ja: '法令（医師法等）で義務付けられた法定保存期間（カルテは完結の日から5年間、病院日誌は2年間等）を過ぎ、利用する必要がなくなった個人データは、速やかに、かつ復元不可能な方法で廃棄・消去しなければなりません。',
+                    vi: 'Khi hết thời hạn lưu trữ theo luật định (bệnh án lưu trữ ít nhất 5 năm kể từ ngày điều trị xong, nhật ký bệnh viện lưu trữ 2 năm, v.v.) và không còn nhu cầu sử dụng, cơ sở y tế phải nhanh chóng tiêu hủy/xóa bỏ dữ liệu cá nhân đó bằng phương pháp không thể khôi phục.'
                 }
             }
-        }
-    }
+        };
 
-    sbo122PillarSegments.forEach(segment => {
-        segment.addEventListener('click', () => {
-            sbo122PillarSegments.forEach(s => s.classList.remove('active'));
-            segment.classList.add('active');
-
-            const infoCard = document.getElementById('sbo122-pillar-info-card');
-            if (infoCard) {
-                infoCard.style.opacity = '0.3';
-                setTimeout(() => {
-                    updateSbo122Pillar();
-                    infoCard.style.opacity = '1';
-                }, 200);
-            } else {
-                updateSbo122Pillar();
-            }
-        });
-    });
-
-    window.updateSbo122Pillar = updateSbo122Pillar;
-
-
-    // 9b. SBO 1.2.2 Disclosure Flowchart Simulator Logic
-    const simYesBtn = document.getElementById('sbo122-sim-yes');
-    const simNoBtn = document.getElementById('sbo122-sim-no');
-    const simFeedback = document.getElementById('sbo122-sim-feedback');
-
-    const simResponses = {
-        yes: {
-            title: {
-                ja: '【例外措置】開示の保留・配慮（開示制限）',
-                vi: '【Biện pháp Ngoại lệ】 Tạm hoãn / Cân nhắc công khai (Hạn chế công khai)'
-            },
-            body: {
-                ja: '正解です！患者の「知る権利」は非常に強力ですが、絶対的なものではありません。情報の開示により、患者本人に重大な心理的悪影響（病状の激変、絶望による自傷他害の恐れ等）を及ぼすことが明らかである場合は、例外措置として一時的に開示を保留・制限することが法的に認められています。スタッフ（主治医や多職種）の意見を聴き、慎重に決定します。',
-                vi: 'Chính xác! Quyền được biết của bệnh nhân rất mạnh mẽ nhưng không phải là tuyệt đối. Nếu việc công khai thông tin rõ ràng có nguy cơ gây ra tác động tâm lý tiêu cực nghiêm trọng cho bệnh nhân (làm bệnh tình chuyển biến xấu, nguy cơ tự hại hoặc hại người khác do tuyệt vọng, v.v.), pháp luật cho phép tạm hoãn hoặc hạn chế công khai như một biện pháp ngoại lệ. Cần tham khảo ý kiến của nhân viên y tế (bác sĩ điều trị và hội đồng đa ngành) trước khi đưa ra quyết định cẩn trọng.'
-            },
-            background: 'rgba(239, 68, 68, 0.1)',
-            border: '1px solid #ef4444'
-        },
-        no: {
-            title: {
-                ja: '【適切な開示の実行】原則開示の遵守',
-                vi: '【Thực thi công khai phù hợp】 Tuân thủ nguyên tắc công khai'
-            },
-            body: {
-                ja: '正解です！重大な悪影響を及ぼす恐れがない限り、開示請求には原則としてすべて応じます（知る権利・アクセス権の保障）。必要に応じて職員が介入して専門的な内容の説明を補足し、所定の手続き（本人確認等）を経て写し（カルテコピー等）を速やかに提供します。',
-                vi: 'Chính xác! Trừ khi có nguy cơ gây ảnh hưởng tiêu cực nghiêm trọng, về nguyên tắc cơ sở y tế phải đáp ứng tất cả các yêu cầu công khai (bảo đảm quyền được biết và quyền truy cập). Nhân viên y tế sẽ can thiệp để giải thích bổ sung các nội dung chuyên môn nếu cần, và nhanh chóng cung cấp bản sao (bản chụp hồ sơ bệnh án, v.v.) sau khi thực hiện các thủ tục quy định (xác minh danh tính, v.v.).'
-            },
-            background: 'rgba(6, 182, 212, 0.1)',
-            border: '1px solid var(--accent-teal)'
-        }
-    };
-
-    function handleSimClick(choice, event) {
-        const btn = event.currentTarget;
-        const container = btn.closest('.simulator-box');
-        if (!container) return;
-        const yesBtn = container.querySelector('#sbo122-sim-yes, #sbo112-sim-yes');
-        const noBtn = container.querySelector('#sbo122-sim-no, #sbo112-sim-no');
-        const feedback = container.querySelector('.simulator-feedback');
-        if (!feedback) return;
-
-        const isVi = document.body.classList.contains('lang-vi');
-        const data = simResponses[choice];
-
-        if (choice === 'yes') {
-            if (yesBtn) yesBtn.classList.add('active');
-            if (noBtn) noBtn.classList.remove('active');
-        } else {
-            if (noBtn) noBtn.classList.add('active');
-            if (yesBtn) yesBtn.classList.remove('active');
-        }
-
-        feedback.style.display = 'block';
-        feedback.style.background = data.background;
-        feedback.style.border = data.border;
-        
-        feedback.innerHTML = `
-            <h4 style="font-weight: bold; margin-top: 0; color: ${choice === 'yes' ? '#fca5a5' : '#a5f3fc'};">
-                <i class="fa-solid ${choice === 'yes' ? 'fa-triangle-exclamation' : 'fa-circle-check'}"></i> 
-                ${isVi ? data.title.vi : data.title.ja}
-            </h4>
-            <p class="small-desc" style="margin: 0; line-height: 1.6; color: var(--text-secondary);">
-                ${isVi ? data.body.vi : data.body.ja}
-            </p>
-        `;
-    }
-
-    const allSimYes = document.querySelectorAll('#sbo122-sim-yes, #sbo112-sim-yes');
-    const allSimNo = document.querySelectorAll('#sbo122-sim-no, #sbo112-sim-no');
-
-    allSimYes.forEach(btn => {
-        btn.addEventListener('click', (e) => handleSimClick('yes', e));
-    });
-    allSimNo.forEach(btn => {
-        btn.addEventListener('click', (e) => handleSimClick('no', e));
-    });
-
-
-    // 9c. SBO 1.2.2: 8 Legal Duties Timeline Step Interaction
-    const stepDots = document.querySelectorAll('[data-sbo122-step]');
-    const sbo122StepTitle = document.getElementById('sbo122-step-title');
-    const sbo122StepPhase = document.getElementById('sbo122-step-phase');
-    const sbo122StepDesc = document.getElementById('sbo122-step-desc');
-
-    const sbo122StepsData = {
-        '1': {
-            title: { ja: '1. 利用目的の特定・通知', vi: '1. Xác định & Thông báo mục đích sử dụng' },
-            phase: { ja: '取得フェーズ', vi: 'Giai đoạn Thu thập' },
-            phaseClass: 'tag-red',
-            desc: {
-                ja: '患者データの利用目的（診療、家族への説明、会計業務等）を具体的に特定し、院内掲示やホームページで公表します。特定された範囲を超えて利用する場合は、原則として患者本人の同意が必須となります。',
-                vi: 'Xác định cụ thể mục đích sử dụng dữ liệu bệnh nhân (điều trị, giải thích cho gia đình, nghiệp vụ thanh toán, v.v.) và công bố tại bảng tin bệnh viện hoặc trang web. Trường hợp sử dụng vượt quá phạm vi đã công bố, về nguyên tắc phải có sự đồng ý của bệnh nhân.'
-            }
-        },
-        '2': {
-            title: { ja: '2. 適正な取得', vi: '2. Thu nhập hợp lệ' },
-            phase: { ja: '取得フェーズ', vi: 'Giai đoạn Thu thập' },
-            phaseClass: 'tag-red',
-            desc: {
-                ja: '偽りその他不正な手段によって個人情報を取得してはなりません。また、医療分野においては病歴等の要配慮個人情報を取得するため、原則オプトイン（事前同意）による適正な手順を踏むことが義務付けられています。',
-                vi: 'Không được thu thập thông tin cá nhân bằng các thủ đoạn gian lận hoặc bất hợp pháp. Ngoài ra, trong y tế, khi thu thập thông tin nhạy cảm như lịch sử bệnh án, việc thực hiện đúng quy trình thông qua cơ chế Opt-in (đồng ý trước) là bắt buộc.'
-            }
-        },
-        '3': {
-            title: { ja: '3. 正確性の確保', vi: '3. Đảm bảo tính chính xác' },
-            phase: { ja: '運用・保管フェーズ', vi: 'Giai đoạn Vận hành/Lưu trữ' },
-            phaseClass: 'tag-gold',
-            desc: {
-                ja: '提供する医療の質や安全を担保するため、患者の個人データを正確かつ最新の内容に保つよう努めなければなりません。カルテへの誤記や検査結果の取り違え等は重大な医療事故に直結します。',
-                vi: 'Duy trì dữ liệu cá nhân của bệnh nhân chính xác và cập nhật mới nhất để đảm bảo chất lượng và an toàn y tế. Lỗi ghi chép bệnh án hoặc nhầm lẫn kết quả xét nghiệm sẽ trực tiếp dẫn đến các tai nạn y khoa nghiêm trọng.'
-            }
-        },
-        '4': {
-            title: { ja: '4. 安全管理措置', vi: '4. Biện pháp quản lý an toàn' },
-            phase: { ja: '運用・保管フェーズ', vi: 'Giai đoạn Vận hành/Lưu trữ' },
-            phaseClass: 'tag-gold',
-            desc: {
-                ja: '個人データの漏洩、滅失、改ざんを防止するため、必要かつ適切な安全管理措置（技術的・物理的・組織的な多層防御）を講じる義務があります。システムログの監視やアクセス権限の厳格化が含まれます。',
-                vi: 'Có nghĩa vụ áp dụng các biện pháp quản lý an toàn cần thiết và phù hợp (phòng thủ đa tầng về mặt kỹ thuật, vật lý và tổ chức) nhằm ngăn chặn việc rò rỉ, mất mát hoặc sửa đổi trái phép dữ liệu cá nhân. Bao gồm giám sát log hệ thống và phân quyền truy cập chặt chẽ.'
-            }
-        },
-        '5': {
-            title: { ja: '5. 苦情対応体制', vi: '5. Tiếp nhận & Giải quyết khiếu nại' },
-            phase: { ja: '運用・保管フェーズ', vi: 'Giai đoạn Vận hành/Lưu trữ' },
-            phaseClass: 'tag-gold',
-            desc: {
-                ja: '個人情報の取り扱いに関する苦情の適切かつ迅速な処理に努める義務があります。院内に相談窓口を設置し、手続きを分かりやすく明示することが求められます。',
-                vi: 'Có nghĩa vụ nỗ lực xử lý phù hợp và nhanh chóng các khiếu nại liên quan đến việc xử lý thông tin cá nhân. Bệnh viện cần thiết lập ban/quầy tư vấn chuyên trách và nêu rõ quy trình xử lý để người bệnh dễ tiếp cận.'
-            }
-        },
-        '6': {
-            title: { ja: '6. 開示・訂正対応', vi: '6. Xử lý yêu cầu công khai/hiệu đính' },
-            phase: { ja: '運用・保管フェーズ', vi: 'Giai đoạn Vận hành/Lưu trữ' },
-            phaseClass: 'tag-gold',
-            desc: {
-                ja: '患者本人からのカルテ開示、誤記の訂正、利用停止等の請求に対して、法的な基準に則って適切かつ誠実に対応する義務があります。拒否する場合は合理的な理由の説明が必要です。',
-                vi: 'Có nghĩa vụ phản hồi phù hợp và trung thực theo tiêu chuẩn pháp lý đối với các yêu cầu từ bệnh nhân về công khai bệnh án, hiệu đính sai sót, hoặc tạm dừng sử dụng thông tin. Trường hợp từ chối cần có giải trình lý do hợp lý.'
-            }
-        },
-        '7': {
-            title: { ja: '7. 外部提供の制限', vi: '7. Hạn chế cung cấp ra bên ngoài' },
-            phase: { ja: '提供・破棄フェーズ', vi: 'Giai đoạn Cung cấp/Hủy bỏ' },
-            phaseClass: 'tag-teal',
-            desc: {
-                ja: '委託先の適切な監督を行うとともに、本人の事前同意を得ない第三者提供の制限ルールを厳守する義務があります。要配慮個人情報であるため、通常の個人情報で認められるオプトアウト提供は不可です。',
-                vi: 'Có nghĩa vụ giám sát phù hợp bên nhận ủy thác công việc và tuân thủ nghiêm ngặt quy định hạn chế cung cấp cho bên thứ ba khi chưa có sự đồng ý của bản thân. Vì là thông tin cá nhân đặc biệt nhạy cảm, cơ chế tự động cung cấp Opt-out thông thường không được áp dụng.'
-            }
-        },
-        '8': {
-            title: { ja: '8. 不要データの消去', vi: '8. Xóa dữ liệu không cần thiết' },
-            phase: { ja: '提供・破棄フェーズ', vi: 'Giai đoạn Cung cấp/Hủy bỏ' },
-            phaseClass: 'tag-teal',
-            desc: {
-                ja: '法令（医師法等）で義務付けられた法定保存期間（カルテは完結の日から5年間、病院日誌は2年間等）を過ぎ、利用する必要がなくなった個人データは、速やかに、かつ復元不可能な方法で廃棄・消去しなければなりません。',
-                vi: 'Sự hoàn thành của dữ liệu cá nhân sau khi hết thời hạn lưu trữ theo luật định (bệnh án lưu trữ ít nhất 5 năm kể từ ngày điều trị xong, nhật ký bệnh viện lưu trữ 2 năm, v.v.) và không còn nhu cầu sử dụng, cơ sở y tế phải nhanh chóng tiêu hủy/xóa bỏ dữ liệu cá nhân đó bằng phương pháp không thể khôi phục.'
-            }
-        }
-    };
-
-    function updateSbo122Step() {
-        const isVi = document.body.classList.contains('lang-vi');
-        const activeDot = document.querySelector('.step-dot.active');
-        if (activeDot) {
-            const stepNum = activeDot.getAttribute('data-sbo122-step');
+        function updateSbo122Step(stepNum) {
             const data = sbo122StepsData[stepNum];
             if (data && sbo122StepTitle && sbo122StepPhase && sbo122StepDesc) {
                 sbo122StepTitle.textContent = isVi ? data.title.vi : data.title.ja;
@@ -471,33 +297,174 @@ document.addEventListener('DOMContentLoaded', () => {
                 sbo122StepDesc.textContent = isVi ? data.desc.vi : data.desc.ja;
             }
         }
-    }
 
-    stepDots.forEach(dot => {
-        dot.addEventListener('click', () => {
-            stepDots.forEach(d => {
-                d.classList.remove('active');
-                d.style.borderColor = 'rgba(255,255,255,0.1)';
+        stepDots.forEach(dot => {
+            dot.addEventListener('click', () => {
+                stepDots.forEach(d => {
+                    d.classList.remove('active');
+                    d.style.borderColor = 'rgba(255,255,255,0.1)';
+                });
+                dot.classList.add('active');
+                dot.style.borderColor = 'var(--accent-teal)';
+
+                const stepNum = dot.getAttribute('data-sbo122-step');
+                const stepCard = container.querySelector('#sbo122-step-card');
+                if (stepCard) {
+                    stepCard.style.opacity = '0.3';
+                    setTimeout(() => {
+                        updateSbo122Step(stepNum);
+                        stepCard.style.opacity = '1';
+                    }, 150);
+                } else {
+                    updateSbo122Step(stepNum);
+                }
             });
-            dot.classList.add('active');
-            dot.style.borderColor = 'var(--accent-teal)';
-
-            const stepCard = document.getElementById('sbo122-step-card');
-            if (stepCard) {
-                stepCard.style.opacity = '0.3';
-                setTimeout(() => {
-                    updateSbo122Step();
-                    stepCard.style.opacity = '1';
-                }, 200);
-            } else {
-                updateSbo122Step();
-            }
         });
-    });
 
-    window.updateSbo122Step = updateSbo122Step;
+        // 9b. Bad News / Exception Disclosure Decision Simulator
+        const yesBtn = container.querySelector('#sbo122-sim-yes');
+        const noBtn = container.querySelector('#sbo122-sim-no');
+        const feedback = container.querySelector('#sbo122-sim-feedback');
 
+        const simResponses = {
+            yes: {
+                title: {
+                    ja: '【正解】例外措置の適用（開示保留・制限）',
+                    vi: '【Chính xác】 Áp dụng biện pháp ngoại lệ (Tạm hoãn / Hạn chế công khai)'
+                },
+                body: {
+                    ja: 'その通りです！患者の「知る権利」「アクセス権」は基本原則ですが、絶対的なものではありません。情報の開示が、患者本人に重大な心理的悪影響（絶望による衝動的な自傷行為など）を及ぼす危険性が極めて高いと判断される場合は、例外として開示を保留・制限することが認められています。チームで協議し、段階的なアプローチを取ることが重要です。',
+                    vi: 'Chính xác! Quyền được biết và quyền truy cập là nguyên tắc cốt lõi nhưng không phải là tuyệt đối. Nếu việc công khai rõ ràng có nguy cơ gây tác động tâm lý tiêu cực nghiêm trọng (như bộc phát tự tử hoặc tự hại do tuyệt vọng), cơ sở y tế được phép tạm hoãn hoặc hạn chế công khai như một biện pháp ngoại lệ. Cần hội chẩn đa chuyên khoa để đưa ra cách tiếp cận từng bước.'
+                },
+                color: 'var(--accent-gold)',
+                background: 'rgba(234, 179, 8, 0.08)',
+                border: '1px solid var(--accent-gold)'
+            },
+            no: {
+                title: {
+                    ja: '【不適切】原則のみの適用によるリスク発生',
+                    vi: '【Không phù hợp】 Nguy cơ nghiêm trọng từ việc cứng nhắc áp dụng nguyên tắc'
+                },
+                body: {
+                    ja: '原則開示は重要ですが、今回のケースのように患者の精神状態が極めて不安定で、自傷行為（自殺等）の具体的な恐れがある場合は、直ちにすべてを開示することは不適切です。法にも例外規定（本人の心身の状況を著しく損なう恐れがある場合）が存在するため、安全に配慮した丁寧な手順を踏む必要があります。',
+                    vi: 'Mặc dù nguyên tắc là công khai, việc công khai trực tiếp ngay lập tức trong tình huống bệnh nhân có tâm lý cực kỳ bất ổn và có nguy cơ tự hại/tự tử cụ thể là không phù hợp. Luật pháp đã quy định ngoại lệ (khi tổn hại nghiêm trọng tâm sinh lý chủ thể) để bảo vệ tính mạng bệnh nhân, đòi hỏi quy trình tiếp cận an toàn.'
+                },
+                color: '#ef4444',
+                background: 'rgba(239, 68, 68, 0.08)',
+                border: '1px solid #ef4444'
+            }
+        };
 
+        function triggerDisclosureFeedback(choice) {
+            if (!feedback) return;
+            const data = simResponses[choice];
+            if (choice === 'yes') {
+                yesBtn.classList.add('active');
+                yesBtn.style.background = 'rgba(234, 179, 8, 0.2)';
+                noBtn.classList.remove('active');
+                noBtn.style.background = 'rgba(6, 182, 212, 0.1)';
+            } else {
+                noBtn.classList.add('active');
+                noBtn.style.background = 'rgba(239, 68, 68, 0.2)';
+                yesBtn.classList.remove('active');
+                yesBtn.style.background = 'rgba(234, 179, 8, 0.1)';
+            }
+
+            feedback.style.display = 'block';
+            feedback.style.background = data.background;
+            feedback.style.border = data.border;
+            feedback.innerHTML = `
+                <h4 style="font-weight: bold; margin-top: 0; color: ${data.color};">
+                    <i class="fa-solid ${choice === 'yes' ? 'fa-circle-check' : 'fa-circle-xmark'}"></i> 
+                    ${isVi ? data.title.vi : data.title.ja}
+                </h4>
+                <p class="small-desc" style="margin: 0; line-height: 1.6; color: var(--text-secondary);">
+                    ${isVi ? data.body.vi : data.body.ja}
+                </p>
+            `;
+        }
+
+        if (yesBtn) yesBtn.addEventListener('click', () => triggerDisclosureFeedback('yes'));
+        if (noBtn) noBtn.addEventListener('click', () => triggerDisclosureFeedback('no'));
+
+        // 9c. 3rd-Party Release Selector Logic
+        const releaseBtns = container.querySelectorAll('[data-sbo122-release]');
+        const sbo122ReleaseCard = container.querySelector('#sbo122-release-card');
+        const sbo122ReleaseTitle = container.querySelector('#sbo122-release-title');
+        const sbo122ReleaseDesc = container.querySelector('#sbo122-release-desc');
+
+        const sbo122ReleaseData = {
+            doctor: {
+                title: { ja: '他の医師・医療機関への紹介', vi: 'Giới thiệu sang bác sĩ / Cơ sở y tế khác' },
+                desc: {
+                    ja: '適切な紹介・転院先での診療に役立てる目的であっても、原則として患者本人の同意（または明示的な非反対）が必要です。通常、紹介状（診療情報提供書）の作成時に説明し同意を得ます。',
+                    vi: 'Ngay cả khi nhằm phục vụ khám chữa bệnh tại nơi chuyển viện phù hợp, về nguyên tắc vẫn bắt buộc phải có sự đồng ý của bệnh nhân (hoặc không phản đối rõ ràng). Thông thường, sự đồng ý này sẽ được giải thích và lấy ý kiến trực tiếp khi lập Giấy chuyển viện.'
+                },
+                iconClass: 'fa-user-doctor',
+                color: 'var(--accent-teal)'
+            },
+            family: {
+                title: { ja: '患者の家族への情報提供', vi: 'Cung cấp thông tin cho gia đình bệnh nhân' },
+                desc: {
+                    ja: '家族であっても第三者であるため、原則として「患者本人の同意」が必要です。意識不明の緊急時や認知症等で判断能力を欠く場合を除き、勝手に家族に病状を説明することは守秘義務違反になります。',
+                    vi: 'Gia đình về mặt pháp lý vẫn là bên thứ ba, do đó về nguyên tắc bắt buộc phải có "sự đồng ý của bệnh nhân". Ngoại trừ trường hợp khẩn cấp bất tỉnh hoặc mất năng lực nhận thức (sa sút trí tuệ), tự ý giải thích tình trạng bệnh cho gia đình là vi phạm nghĩa vụ bảo mật.'
+                },
+                iconClass: 'fa-people-group',
+                color: 'var(--accent-gold)'
+            },
+            police: {
+                title: { ja: '警察・捜査機関からの照会', vi: 'Yêu cầu cung cấp từ cảnh sát / cơ quan điều tra' },
+                desc: {
+                    ja: '警察からの任意の照会（捜査関係事項照会書）に対しては、本人の同意がなくても守秘義務違反にはなりませんが、医療機関의判断で提供を拒否することも可能です。ただし、裁判所が発行した「令状（差押令状等）」がある場合は、応じる義務があります。',
+                    vi: 'Đối với yêu cầu cung cấp thông tin tự nguyện của cảnh sát (Văn bản yêu cầu điều tra), việc cung cấp không vi phạm nghĩa vụ bảo mật nhưng bệnh viện có quyền từ chối. Tuy nhiên, nếu có "Lệnh của tòa án" (Lệnh thu giữ, v.v.), cơ sở y tế bắt buộc phải tuân thủ.'
+                },
+                iconClass: 'fa-building-shield',
+                color: '#ef4444'
+            },
+            insurance: {
+                title: { ja: '民間保険会社からの調査・照会', vi: 'Yêu cầu điều tra từ công ty bảo hiểm tư nhân' },
+                desc: {
+                    ja: '民間保険会社からの契約調査や給付確認の照会については、100%「患者本人の同意（署名入りの同意書等）」の提示が必要です。同意がない場合は絶対に開示してはなりません。',
+                    vi: 'Đối với các yêu cầu điều tra hợp đồng bảo hiểm hoặc xác nhận chi trả từ công ty bảo hiểm tư nhân, bắt buộc 100% phải trình "Văn bản đồng ý có chữ ký của bệnh nhân". Tuyệt đối không được công khai nếu không có văn bản này.'
+                },
+                iconClass: 'fa-file-invoice-dollar',
+                color: 'var(--accent-teal)'
+            }
+        };
+
+        function updateReleaseCard(type) {
+            const data = sbo122ReleaseData[type];
+            if (data && sbo122ReleaseCard && sbo122ReleaseTitle && sbo122ReleaseDesc) {
+                sbo122ReleaseCard.style.borderColor = data.color;
+                sbo122ReleaseTitle.style.color = data.color;
+                sbo122ReleaseTitle.innerHTML = `<i class="fa-solid ${data.iconClass}" style="margin-right: 6px;"></i> ${isVi ? data.title.vi : data.title.ja}`;
+                sbo122ReleaseDesc.innerHTML = `<span class="lang-ja">${data.desc.ja}</span><span class="lang-vi">${data.desc.vi}</span>`;
+            }
+        }
+
+        releaseBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                releaseBtns.forEach(b => {
+                    b.classList.remove('active');
+                    b.style.background = 'rgba(255,255,255,0.02)';
+                    b.style.color = 'var(--text-muted)';
+                    b.style.borderColor = 'rgba(255,255,255,0.08)';
+                });
+                btn.classList.add('active');
+                const type = btn.getAttribute('data-sbo122-release');
+                const data = sbo122ReleaseData[type];
+                btn.style.background = `rgba(${type === 'police' ? '239, 68, 68' : type === 'family' ? '234, 179, 8' : '6, 182, 212'}, 0.08)`;
+                btn.style.color = '#fff';
+                btn.style.borderColor = data.color;
+
+                sbo122ReleaseCard.style.opacity = '0.3';
+                setTimeout(() => {
+                    updateReleaseCard(type);
+                    sbo122ReleaseCard.style.opacity = '1';
+                }, 150);
+            });
+        });
+    };
     // --- SBO 1.2.3: Interactive Matrix and Stepper Logic ---
     const sbo123MatrixData = {
         paternalism: {
