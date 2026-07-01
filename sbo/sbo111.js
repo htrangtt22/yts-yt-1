@@ -896,12 +896,12 @@ window.SBO_TEMPLATES['sbo111'] = `<div id="sbo111" class="sbo-section-wrapper">
                                         <!-- Funnel Left Lip -->
                                         <path d="M 40,50 A 20,70 0 0,0 40,190 A 20,70 0 0,0 40,50 Z" fill="#10b981" fill-opacity="0.4" stroke="#10b981" stroke-width="1.5" />
 
-                                        <!-- Inside Text Labels - ENLARGED -->
+                                        <!-- Inside Text Labels - ENLARGED WITH BETTER SPACING -->
                                         <text x="90" y="126" fill="#fff" font-size="16" font-weight="bold" text-anchor="middle" style="letter-spacing: 1px;">健康</text>
-                                        <text x="215" y="125" fill="rgba(255,255,255,0.9)" font-size="13" font-weight="bold" text-anchor="middle">未病・ハイリスク</text>
-                                        <text x="275" y="126" fill="#fff" font-size="16" font-weight="bold" text-anchor="middle" style="letter-spacing: 1px;">発症</text>
-                                        <text x="355" y="125" fill="rgba(255,255,255,0.9)" font-size="13" font-weight="bold" text-anchor="middle">重症化</text>
-                                        <text x="420" y="126" fill="#fff" font-size="16" font-weight="bold" text-anchor="middle" style="letter-spacing: 1px;">後遺症</text>
+                                        <text x="198" y="125" fill="rgba(255,255,255,0.9)" font-size="12" font-weight="bold" text-anchor="middle">未病・ハイリスク</text>
+                                        <text x="278" y="126" fill="#fff" font-size="16" font-weight="bold" text-anchor="middle" style="letter-spacing: 1px;">発症</text>
+                                        <text x="355" y="125" fill="rgba(255,255,255,0.9)" font-size="12" font-weight="bold" text-anchor="middle">重症化</text>
+                                        <text x="425" y="126" fill="#fff" font-size="16" font-weight="bold" text-anchor="middle" style="letter-spacing: 1px;">後遺症</text>
 
                                         <!-- INTEGRATED RADAR SENSOR LAYER -->
                                         <g id="integrated-radar-layer" style="opacity: 0; transition: opacity 0.4s ease;">
