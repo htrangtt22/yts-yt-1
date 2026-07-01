@@ -3,7 +3,7 @@ window.SBO_TEMPLATES = window.SBO_TEMPLATES || {};
 window.SBO_TEMPLATES['sbo121'] = `<div id="sbo121" class="sbo-section-wrapper">
 
                 <!-- Part I: Khái quát về Đạo đức y học và Sự thay đổi gần đây -->
-                <section id="sbo121-bio-clinical-ethics" class="section" style="padding-top: 40px;">
+                <section id="sbo121-bio-clinical-ethics" class="section" >
                     <style>
 @media (max-width: 992px) {
     .sbo121-grid-container {
@@ -149,7 +149,7 @@ window.SBO_TEMPLATES['sbo121'] = `<div id="sbo121" class="sbo-section-wrapper">
                 </section>
 
                 <!-- Part II: Các Tuyên ngôn cốt lõi định hình Đạo đức Y học (Interactive Timeline) -->
-                <section id="sbo121-declarations" class="section" style="padding-top: 40px;">
+                <section id="sbo121-declarations" class="section" >
                     <div class="container">
                         <div class="section-badge">
                             <span class="lang-ja">倫理宣言の歴史的変遷</span>

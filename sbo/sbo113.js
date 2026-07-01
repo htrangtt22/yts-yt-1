@@ -318,7 +318,7 @@ window.SBO_TEMPLATES['sbo113'] = `<div id="sbo113" class="sbo-section-wrapper">
                 </section>
 
                 <!-- Interactive Bed Allocator Simulator Widget -->
-                <section class="section" style="padding-top: 40px;">
+                <section class="section" >
                     <div class="container">
                         <div class="card glass-card"
                             style="padding: 30px; border: 1px solid rgba(255,255,255,0.08); background: linear-gradient(135deg, rgba(20,20,35,0.6) 0%, rgba(10,10,20,0.8) 100%);">

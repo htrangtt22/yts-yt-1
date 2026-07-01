@@ -26,7 +26,699 @@ window.SBO_TEMPLATES['sbo111'] = `<div id="sbo111" class="sbo-section-wrapper">
                             gap: 15px;
                         }
                     }
-                </style>
+
+                    /* Interactive 1948 Venn Diagram and Switch */
+                    .who1948-container {
+                        display: flex;
+                        flex-direction: row;
+                        gap: 40px;
+                        margin-top: 15px;
+                        align-items: center;
+                        width: 100%;
+                    }
+                    @media (max-width: 992px) {
+                        .who1948-container {
+                            flex-direction: column;
+                            gap: 20px;
+                        }
+                    }
+
+                    .who1948-venn-side {
+                        flex: 1;
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+                        justify-content: center;
+                    }
+
+                    .who1948-info-side {
+                        flex: 1.3;
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: center;
+                        width: 100%;
+                    }
+
+                    .concept-title-sub {
+                        font-size: 0.88rem;
+                        font-weight: 700;
+                        color: var(--text-muted);
+                        margin-bottom: 20px;
+                        text-transform: uppercase;
+                        letter-spacing: 0.05em;
+                    }
+
+                    .switch-box-wrapper {
+                        position: relative;
+                        padding: 10px;
+                        margin: 15px 0;
+                    }
+
+                    .mechanical-switch-base {
+                        width: 120px;
+                        height: 160px;
+                        background: #334155;
+                        border: 2px solid #475569;
+                        border-radius: 8px;
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+                        justify-content: center;
+                        padding: 12px;
+                        box-sizing: border-box;
+                        position: relative;
+                        box-shadow: 0 4px 10px rgba(0,0,0,0.25);
+                    }
+
+                    .mechanical-switch-base::after {
+                        content: '• •\n\n\n• •';
+                        white-space: pre;
+                        font-size: 8px;
+                        color: rgba(255,255,255,0.2);
+                        position: absolute;
+                        top: 6px;
+                        left: 8px;
+                        right: 8px;
+                        text-align: center;
+                        pointer-events: none;
+                        line-height: 29px;
+                    }
+
+                    .switch-label {
+                        font-size: 0.72rem;
+                        color: #cbd5e1;
+                        font-weight: 700;
+                        text-align: center;
+                        background: rgba(0,0,0,0.2);
+                        padding: 4px 8px;
+                        border-radius: 4px;
+                        width: 90%;
+                        margin-bottom: 12px;
+                        white-space: nowrap;
+                        overflow: hidden;
+                        text-overflow: ellipsis;
+                    }
+
+                    .lever-flat-representation {
+                        width: 50px;
+                        height: 50px;
+                        position: relative;
+                        margin-bottom: 8px;
+                    }
+
+                    .lever-flat-representation::before {
+                        content: '';
+                        position: absolute;
+                        top: 15px; left: 15px;
+                        width: 20px;
+                        height: 20px;
+                        background: #1e293b;
+                        border-radius: 50%;
+                        border: 1px solid #475569;
+                    }
+
+                    .lever-flat-representation::after {
+                        content: '';
+                        position: absolute;
+                        top: 20px; left: -10px;
+                        width: 45px;
+                        height: 10px;
+                        background: #64748b;
+                        border-radius: 3px;
+                        transform: rotate(-30deg);
+                        box-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+                    }
+
+                    .switch-status {
+                        font-size: 0.58rem;
+                        color: #ef4444;
+                        font-weight: 800;
+                        letter-spacing: 0.1em;
+                        margin-top: 5px;
+                    }
+
+                    .diagonal-crossline {
+                        position: absolute;
+                        top: -10px;
+                        left: -10px;
+                        width: calc(100% + 20px);
+                        height: calc(100% + 20px);
+                        background: linear-gradient(135deg, transparent 46%, #ef4444 48%, #ef4444 52%, transparent 54%);
+                        pointer-events: none;
+                        z-index: 10;
+                        filter: drop-shadow(0 2px 4px rgba(239, 68, 68, 0.5));
+                    }
+
+                    .old-concept-desc {
+                        font-size: 0.82rem;
+                        color: var(--text-muted);
+                        text-align: center;
+                        line-height: 1.5;
+                        margin-top: 12px;
+                        max-width: 240px;
+                    }
+
+                    .venn-diagram-wrapper {
+                        width: 320px;
+                        height: 240px;
+                        position: relative;
+                        margin-bottom: 20px;
+                    }
+
+                    .venn-circle {
+                        position: absolute;
+                        width: 140px;
+                        height: 140px;
+                        border-radius: 50%;
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+                        justify-content: center;
+                        font-weight: 700;
+                        font-size: 0.95rem;
+                        color: #fff;
+                        cursor: pointer;
+                        transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+                        box-sizing: border-box;
+                    }
+
+                    .venn-circle span {
+                        pointer-events: none;
+                        text-shadow: 0 1px 4px rgba(0,0,0,0.8);
+                    }
+
+                    .venn-circle.physical {
+                        left: 20px;
+                        top: 10px;
+                        background: radial-gradient(circle, rgba(59, 130, 246, 0.25) 0%, rgba(59, 130, 246, 0.08) 60%, rgba(59, 130, 246, 0.02) 100%);
+                        border: 2px solid rgba(59, 130, 246, 0.4);
+                        box-shadow: 0 0 15px rgba(59, 130, 246, 0.15);
+                    }
+
+                    .venn-circle.social {
+                        right: 20px;
+                        top: 10px;
+                        background: radial-gradient(circle, rgba(245, 158, 11, 0.25) 0%, rgba(245, 158, 11, 0.08) 60%, rgba(245, 158, 11, 0.02) 100%);
+                        border: 2px solid rgba(245, 158, 11, 0.4);
+                        box-shadow: 0 0 15px rgba(245, 158, 11, 0.15);
+                    }
+
+                    .venn-circle.mental {
+                        left: 90px;
+                        bottom: 10px;
+                        background: radial-gradient(circle, rgba(16, 185, 129, 0.25) 0%, rgba(16, 185, 129, 0.08) 60%, rgba(16, 185, 129, 0.02) 100%);
+                        border: 2px solid rgba(16, 185, 129, 0.4);
+                        box-shadow: 0 0 15px rgba(16, 185, 129, 0.15);
+                    }
+
+                    .venn-circle:hover {
+                        transform: scale(1.04);
+                    }
+
+                    .venn-circle.physical.active {
+                        background: radial-gradient(circle, rgba(59, 130, 246, 0.45) 0%, rgba(59, 130, 246, 0.15) 60%, rgba(59, 130, 246, 0.03) 100%) !important;
+                        border-color: #3b82f6 !important;
+                        box-shadow: 0 0 25px rgba(59, 130, 246, 0.5) !important;
+                    }
+
+                    .venn-circle.social.active {
+                        background: radial-gradient(circle, rgba(245, 158, 11, 0.45) 0%, rgba(245, 158, 11, 0.15) 60%, rgba(245, 158, 11, 0.03) 100%) !important;
+                        border-color: #f59e0b !important;
+                        box-shadow: 0 0 25px rgba(245, 158, 11, 0.5) !important;
+                    }
+
+                    .venn-circle.mental.active {
+                        background: radial-gradient(circle, rgba(16, 185, 129, 0.45) 0%, rgba(16, 185, 129, 0.15) 60%, rgba(16, 185, 129, 0.03) 100%) !important;
+                        border-color: #10b981 !important;
+                        box-shadow: 0 0 25px rgba(16, 185, 129, 0.5) !important;
+                    }
+
+                    .venn-center-glow {
+                        position: absolute;
+                        left: 135px;
+                        top: 60px;
+                        width: 50px;
+                        height: 50px;
+                        background: radial-gradient(circle, rgba(255, 255, 255, 0.8) 0%, rgba(255, 255, 255, 0.2) 45%, transparent 70%);
+                        border-radius: 50%;
+                        pointer-events: none;
+                        mix-blend-mode: screen;
+                        animation: pulseGlow 3s infinite ease-in-out;
+                    }
+
+                    @keyframes pulseGlow {
+                        0%, 100% { transform: scale(1); opacity: 0.5; }
+                        50% { transform: scale(1.15); opacity: 0.85; }
+                    }
+
+                    .bubble-info-box {
+                        width: 100%;
+                        background: rgba(15, 23, 42, 0.3);
+                        border: 1px solid rgba(255, 255, 255, 0.06);
+                        border-radius: 12px;
+                        padding: 18px;
+                        position: relative;
+                        box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+                        box-sizing: border-box;
+                    }
+
+                    .bubble-quote {
+                        font-size: 0.95rem;
+                        line-height: 1.6;
+                        color: #fff;
+                        font-weight: 500;
+                        margin-bottom: 8px;
+                        border-left: 3px solid var(--accent-teal);
+                        padding-left: 12px;
+                    }
+
+                    .bubble-desc-footer {
+                        font-size: 0.8rem;
+                        color: var(--text-muted);
+                        line-height: 1.5;
+                        margin-top: 8px;
+                    }
+
+                    .venn-click-detail {
+                        margin-top: 12px;
+                        padding: 8px;
+                        border-radius: 6px;
+                        background: rgba(255,255,255,0.02);
+                        border: 1px dashed rgba(255,255,255,0.08);
+                        font-size: 0.82rem;
+                        color: var(--accent-teal);
+                        display: flex;
+                        align-items: center;
+                        gap: 8px;
+                        justify-content: center;
+                        transition: all 0.3s ease;
+                    }
+                
+                    /* 1998 Deepening of Concept Diagram */
+                    .who1998-container {
+                        display: flex;
+                        flex-direction: row;
+                        gap: 40px;
+                        margin-top: 15px;
+                        align-items: center;
+                        width: 100%;
+                    }
+                    @media (max-width: 992px) {
+                        .who1998-container {
+                            flex-direction: column;
+                            gap: 20px;
+                        }
+                    }
+
+                    .who1998-diagram-side {
+                        flex: 1;
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+                        justify-content: center;
+                    }
+
+                    .who1998-info-side {
+                        flex: 1.3;
+                        display: flex;
+                        flex-direction: column;
+                        gap: 20px;
+                        width: 100%;
+                    }
+
+                    .diagram-1998-wrapper {
+                        position: relative;
+                        width: 320px;
+                        height: 280px;
+                        margin: 0 auto;
+                    }
+
+                    /* Glowing wave for Dynamic */
+                    .dynamic-wave-path {
+                        stroke: #10b981;
+                        stroke-width: 4;
+                        fill: none;
+                        filter: drop-shadow(0 0 8px rgba(16, 185, 129, 0.8));
+                        stroke-linecap: round;
+                    }
+
+                    /* Spiritual glowing sphere */
+                    .spiritual-sphere {
+                        position: absolute;
+                        left: 135px;
+                        top: 155px;
+                        width: 50px;
+                        height: 50px;
+                        background: radial-gradient(circle at 35% 35%, #ffd700, #ff8c00, #d2691e);
+                        border-radius: 50%;
+                        box-shadow: 0 0 30px rgba(255, 140, 0, 0.8), inset 0 2px 4px rgba(255,255,255,0.4);
+                        animation: pulseSpiritual 3s infinite ease-in-out;
+                    }
+
+                    @keyframes pulseSpiritual {
+                        0%, 100% { transform: scale(1); box-shadow: 0 0 25px rgba(255, 140, 0, 0.7); }
+                        50% { transform: scale(1.15); box-shadow: 0 0 45px rgba(255, 140, 0, 0.95); }
+                    }
+
+                    .card-1998 {
+                        background: rgba(15, 23, 42, 0.35);
+                        border: 1px solid rgba(255, 255, 255, 0.08);
+                        border-radius: 12px;
+                        padding: 16px 20px;
+                        box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+                        box-sizing: border-box;
+                        width: 100%;
+                        position: relative;
+                        transition: all 0.3s ease;
+                    }
+
+                    .card-1998:hover {
+                        border-color: var(--accent-gold);
+                        background: rgba(15, 23, 42, 0.5);
+                    }
+
+                    .arrow-connector {
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        color: var(--accent-gold);
+                        font-size: 1.2rem;
+                        margin: -10px 0;
+                        opacity: 0.8;
+                    }
+
+                    /* 1986 Ottawa Blueprint styles */
+                    .ottawa-container {
+                        display: flex;
+                        flex-direction: row;
+                        gap: 30px;
+                        margin-top: 15px;
+                        align-items: stretch;
+                        width: 100%;
+                    }
+                    @media (max-width: 992px) {
+                        .ottawa-container {
+                            flex-direction: column;
+                            gap: 20px;
+                        }
+                    }
+
+                    .ottawa-menu-side {
+                        flex: 1;
+                        display: flex;
+                        flex-direction: column;
+                        gap: 15px;
+                    }
+
+                    .ottawa-blueprint-side {
+                        flex: 1.2;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        background: radial-gradient(circle at center, rgba(15, 23, 42, 0.6) 0%, rgba(10, 10, 20, 0.9) 100%);
+                        border: 1px solid rgba(59, 130, 246, 0.2);
+                        border-radius: 12px;
+                        position: relative;
+                        padding: 20px;
+                        box-sizing: border-box;
+                        min-height: 380px;
+                        overflow: hidden;
+                    }
+
+                    .ottawa-menu-item {
+                        background: rgba(15, 23, 42, 0.3);
+                        border: 1px solid rgba(255,255,255,0.06);
+                        border-radius: 8px;
+                        padding: 14px 18px;
+                        cursor: pointer;
+                        transition: all 0.3s ease;
+                        text-align: left;
+                        position: relative;
+                    }
+
+                    .ottawa-menu-item:hover {
+                        background: rgba(15, 23, 42, 0.5);
+                        border-color: rgba(59, 130, 246, 0.4);
+                        transform: translateX(4px);
+                    }
+
+                    .ottawa-menu-item.active {
+                        background: rgba(59, 130, 246, 0.1);
+                        border-color: #3b82f6;
+                        box-shadow: 0 0 15px rgba(59, 130, 246, 0.2);
+                    }
+
+                    .ottawa-menu-item-title {
+                        font-size: 0.95rem;
+                        font-weight: bold;
+                        color: #fff;
+                        display: flex;
+                        align-items: center;
+                        gap: 8px;
+                    }
+
+                    .ottawa-menu-item-desc {
+                        font-size: 0.78rem;
+                        color: var(--text-muted);
+                        margin-top: 4px;
+                        line-height: 1.4;
+                    }
+
+                    /* Greek Temple SVG Styling */
+                    .temple-part {
+                        transition: all 0.4s ease;
+                        stroke: #3b82f6;
+                        stroke-width: 1.5;
+                        fill: none;
+                        opacity: 0.4;
+                    }
+
+                    .temple-part.active {
+                        stroke: #60a5fa;
+                        stroke-width: 2.5;
+                        fill: rgba(59, 130, 246, 0.15);
+                        opacity: 1;
+                        filter: drop-shadow(0 0 12px rgba(59, 130, 246, 0.8));
+                    }
+
+                    .gear-spin {
+                        transform-origin: center;
+                        animation: spinGears 12s infinite linear;
+                    }
+
+                    .gear-spin-reverse {
+                        transform-origin: center;
+                        animation: spinGearsReverse 12s infinite linear;
+                    }
+
+                    @keyframes spinGears {
+                        from { transform: rotate(0deg); }
+                        to { transform: rotate(360deg); }
+                    }
+
+                    @keyframes spinGearsReverse {
+                        from { transform: rotate(360deg); }
+                        to { transform: rotate(0deg); }
+                    }
+
+                    .ottawa-bottom-details {
+                        background: rgba(15, 23, 42, 0.45);
+                        border: 1px solid rgba(59, 130, 246, 0.25);
+                        border-radius: 12px;
+                        padding: 20px;
+                        box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+                        z-index: 10;
+                        transition: all 0.3s ease;
+                        box-sizing: border-box;
+                        width: 100%;
+                    }
+
+                    /* 8 Prerequisites interactive blocks */
+                    .prereq-block {
+                        background: linear-gradient(180deg, rgba(255,255,255,0.06) 0%, rgba(255,255,255,0.02) 100%);
+                        border: 1px solid rgba(255,255,255,0.08);
+                        border-top: 3px solid rgba(255,255,255,0.25);
+                        border-radius: 6px;
+                        padding: 12px 6px;
+                        text-align: center;
+                        cursor: pointer;
+                        transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+                        gap: 8px;
+                        box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+                        box-sizing: border-box;
+                    }
+
+                    .prereq-block:hover {
+                        transform: translateY(-5px);
+                        border-color: #60a5fa;
+                        border-top-color: #60a5fa;
+                        background: rgba(59, 130, 246, 0.08);
+                        box-shadow: 0 8px 16px rgba(59, 130, 246, 0.15);
+                    }
+
+                    .prereq-block.active {
+                        border-color: #60a5fa;
+                        border-top-color: #60a5fa;
+                        background: rgba(59, 130, 246, 0.15);
+                        box-shadow: 0 0 15px rgba(59, 130, 246, 0.3);
+                        transform: scale(1.03);
+                    }
+
+                    .prereq-block-icon {
+                        font-size: 1.4rem;
+                        color: rgba(255,255,255,0.7);
+                        transition: all 0.3s ease;
+                    }
+
+                    .prereq-block:hover .prereq-block-icon,
+                    .prereq-block.active .prereq-block-icon {
+                        color: #60a5fa;
+                        transform: scale(1.1);
+                    }
+
+                    .prereq-block-label {
+                        font-size: 0.72rem;
+                        font-weight: bold;
+                        color: var(--text-secondary);
+                    }
+
+                    .prereq-block.active .prereq-block-label {
+                        color: #fff;
+                    }
+
+                    @media (max-width: 576px) {
+                        .prereq-blocks-container {
+                            grid-template-columns: repeat(2, 1fr) !important;
+                        }
+                    }
+
+                    /* 3 Strategies interactive pillars */
+                    .strategy-pillars-container {
+                        display: flex;
+                        gap: 15px;
+                        width: 100%;
+                        margin-bottom: 10px;
+                        box-sizing: border-box;
+                    }
+                    @media (max-width: 768px) {
+                        .strategy-pillars-container {
+                            flex-direction: column;
+                        }
+                    }
+
+                    .strategy-pillar-card {
+                        flex: 1;
+                        background: linear-gradient(180deg, rgba(59, 130, 246, 0.05) 0%, rgba(15, 23, 42, 0.4) 100%);
+                        border: 1px solid rgba(59, 130, 246, 0.15);
+                        border-radius: 8px;
+                        padding: 16px 12px;
+                        text-align: center;
+                        position: relative;
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+                        gap: 10px;
+                        transition: all 0.3s ease;
+                        box-sizing: border-box;
+                    }
+
+                    .strategy-pillar-card:hover {
+                        border-color: #60a5fa;
+                        background: linear-gradient(180deg, rgba(59, 130, 246, 0.1) 0%, rgba(15, 23, 42, 0.6) 100%);
+                        box-shadow: 0 8px 24px rgba(59, 130, 246, 0.2);
+                        transform: translateY(-5px);
+                    }
+
+                    .strategy-arrow-icon {
+                        font-size: 2.2rem;
+                        color: #60a5fa;
+                        filter: drop-shadow(0 0 8px rgba(96, 165, 250, 0.7));
+                        margin-bottom: 5px;
+                        animation: arrowUpSlow 2s infinite ease-in-out;
+                    }
+
+                    @keyframes arrowUpSlow {
+                        0%, 100% { transform: translateY(0); }
+                        50% { transform: translateY(-4px); }
+                    }
+
+                    .strategy-pillar-title {
+                        font-size: 0.92rem;
+                        font-weight: bold;
+                        color: #fff;
+                        border-bottom: 1px solid rgba(255,255,255,0.1);
+                        padding-bottom: 6px;
+                        width: 100%;
+                    }
+
+                    .strategy-pillar-desc {
+                        font-size: 0.76rem;
+                        line-height: 1.45;
+                        color: var(--text-secondary);
+                    }
+
+                    /* 5 Action Areas interactive cards */
+                    .action-gears-container {
+                        display: grid;
+                        grid-template-columns: 1fr;
+                        gap: 10px;
+                        width: 100%;
+                        box-sizing: border-box;
+                    }
+
+                    .action-gear-card {
+                        background: rgba(15, 23, 42, 0.4);
+                        border: 1px solid rgba(255, 255, 255, 0.06);
+                        border-left: 3px solid var(--accent-teal);
+                        border-radius: 6px;
+                        padding: 10px 14px;
+                        display: flex;
+                        align-items: center;
+                        gap: 15px;
+                        transition: all 0.3s ease;
+                        box-sizing: border-box;
+                    }
+
+                    .action-gear-card:hover {
+                        border-color: var(--accent-teal);
+                        background: rgba(45, 212, 191, 0.05);
+                        transform: translateX(4px);
+                    }
+
+                    .action-gear-icon-wrapper {
+                        font-size: 1.4rem;
+                        color: var(--accent-teal);
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        width: 32px;
+                        height: 32px;
+                    }
+
+                    .action-gear-card:hover .action-gear-icon-wrapper i {
+                        animation: spinGears 3s infinite linear;
+                    }
+
+                    .action-gear-content {
+                        flex: 1;
+                    }
+
+                    .action-gear-title {
+                        font-size: 0.85rem;
+                        font-weight: bold;
+                        color: #fff;
+                        margin-bottom: 2px;
+                    }
+
+                    .action-gear-desc {
+                        font-size: 0.76rem;
+                        color: var(--text-secondary);
+                        line-height: 1.35;
+                    }
+</style>
                 <!-- 1. HEALTH CONCEPT -->
                 <section id="section-concept" class="section">
                     <div class="container">
@@ -35,413 +727,64 @@ window.SBO_TEMPLATES['sbo111'] = `<div id="sbo111" class="sbo-section-wrapper">
                             <span class="lang-vi">Khái niệm về Sức khỏe</span>
                         </div>
                         <h2 class="section-title">
-                            <span class="lang-ja">健康の概念の定義と深化</span>
-                            <span class="lang-vi">Định nghĩa & Sự mở rộng khái niệm Sức khỏe</span>
+                            <span class="lang-ja">健康という概念を「定義」から「構築」へ</span>
+                            <span class="lang-vi">Khái niệm Sức khỏe: Từ "Định nghĩa" sang "Kiến tạo"</span>
                         </h2>
                         <p class="section-desc">
                             <span class="lang-ja">WHOによる定義、1998年の深化提案、およびヘルスプロモーションのためのオタワ憲章の基本方針。</span>
-                            <span class="lang-vi">Định nghĩa của WHO, đề xuất mở rộng khái niệm năm 1998 và các nguyên
-                                tắc nâng cao sức khỏe trong Hiến chương Ottawa.</span>
+                            <span class="lang-vi">Định nghĩa của WHO, đề xuất mở rộng khái niệm năm 1998 và các nguyên tắc nâng cao sức khỏe trong Hiến chương Ottawa.</span>
                         </p>
 
-                        <!-- Tabs for Health Concept -->
-                        <div class="syllabus-tabs-container"
-                            style="margin-bottom: 25px; display: flex; overflow-x: auto; -webkit-overflow-scrolling: touch; gap: 10px; padding-bottom: 5px;">
-                            <button class="syllabus-tab-btn active accent-teal" data-concept-tab="who1948"
-                                style="white-space: nowrap; flex-shrink: 0;">
-                                <span class="lang-ja">WHO基本定義</span>
-                                <span class="lang-vi">Định nghĩa WHO</span>
-                            </button>
-                            <button class="syllabus-tab-btn accent-teal" data-concept-tab="who1998"
-                                style="white-space: nowrap; flex-shrink: 0;">
-                                <span class="lang-ja">概念の拡張</span>
-                                <span class="lang-vi">Mở rộng khái niệm</span>
-                            </button>
-                            <button class="syllabus-tab-btn accent-teal" data-concept-tab="ottawa"
-                                style="white-space: nowrap; flex-shrink: 0;">
-                                <span class="lang-ja">オタワ憲章</span>
-                                <span class="lang-vi">Hiến chương Ottawa</span>
-                            </button>
-                        </div>
-
-                        <!-- Content Panes -->
-                        <div id="concept-pane-who1948" class="concept-pane" style="display: block;">
-                            <div class="card glass-card" style="margin-bottom: 20px; padding: 20px;">
-                                <h4>
-                                    <span class="lang-ja">WHOによる基本定義</span>
-                                    <span class="lang-vi">Định nghĩa cơ bản của WHO</span>
-                                </h4>
-                                <p
-                                    style="font-size: 0.96rem; line-height: 1.8; color: var(--text-secondary); margin-top: 8px;">
-                                    <span
-                                        class="lang-ja">健康の概念は、1948年設立の世界保健機関（WHO）憲章の前文において、以下のように定義されています。<br><strong>「身体的・精神的・社会的に完全に良好な状態であり，たんに病気あるいは虚弱ではないことではない」</strong>（Health
-                                        is a state of complete physical, mental and social well-being and not merely the
-                                        absence of disease or infirmity.）</span>
-                                    <span class="lang-vi">Khái niệm về sức khỏe bắt nguồn từ phần mở đầu của Hiến chương
-                                        Tổ chức Y tế Thế giới (WHO) được thành lập vào năm 1948. Theo đó, sức khỏe được
-                                        định nghĩa là <strong>"một trạng thái hoàn toàn khỏe mạnh về thể chất, tinh thần
-                                            và xã hội, chứ không chỉ đơn thuần là không có bệnh tật hay ốm
-                                            yếu"</strong>.</span>
-                                </p>
+                        <!-- Futuristic Interactive Timeline (Matching Screenshot) -->
+                        <div style="background: rgba(15, 23, 42, 0.4); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 16px; padding: 40px 24px; position: relative; margin: 35px 0; box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2); overflow: hidden;">
+                            <!-- Circuit Grid Background Overlay -->
+                            <div style="position: absolute; inset: 0; background-image: radial-gradient(rgba(45, 212, 191, 0.08) 1px, transparent 0); background-size: 24px 24px; opacity: 0.5; pointer-events: none;"></div>
+                            
+                            <!-- Connecting Line -->
+                            <div style="position: absolute; top: 110px; left: 15%; right: 15%; height: 6px; background: rgba(255, 255, 255, 0.08); border-radius: 3px; z-index: 1;">
+                                <div id="sbo111-concept-progress" style="width: 0%; height: 100%; background: linear-gradient(90deg, var(--accent-teal) 0%, var(--accent-gold) 50%, #3b82f6 100%); transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1); border-radius: 3px; box-shadow: 0 0 10px var(--accent-teal);"></div>
                             </div>
 
-                            <div class="grid-2col">
-                                <div class="card glass-card triangle-card"
-                                    style="display: flex; justify-content: center; align-items: center; min-height: 280px;">
-                                    <div class="interactive-triangle-container" style="width: 100%; max-width: 300px;">
-                                        <svg viewBox="0 0 300 260" class="interactive-triangle">
-                                            <polygon points="150,30 270,230 30,230" class="tri-bg" />
-                                            <polygon points="150,110 210,210 90,210" class="tri-inner-bg" />
-                                            <line x1="150" y1="30" x2="150" y2="150" class="tri-line" />
-                                            <line x1="270" y1="230" x2="150" y2="150" class="tri-line" />
-                                            <line x1="30" y1="230" x2="150" y2="150" class="tri-line" />
-                                            <circle cx="150" cy="30" r="14" class="tri-node active" id="node-mental"
-                                                data-target="mental" />
-                                            <circle cx="270" cy="230" r="14" class="tri-node" id="node-social"
-                                                data-target="social" />
-                                            <circle cx="30" cy="230" r="14" class="tri-node" id="node-physical"
-                                                data-target="physical" />
-                                            <text x="150" y="70" class="tri-label" text-anchor="middle"
-                                                data-target="mental">
-                                                <tspan class="lang-ja">精神的 (Mental)</tspan>
-                                                <tspan class="lang-vi">Tinh thần (Mental)</tspan>
-                                            </text>
-                                            <text x="235" y="200" class="tri-label" text-anchor="middle"
-                                                data-target="social">
-                                                <tspan class="lang-ja">社会的 (Social)</tspan>
-                                                <tspan class="lang-vi">Xã hội (Social)</tspan>
-                                            </text>
-                                            <text x="65" y="200" class="tri-label" text-anchor="middle"
-                                                data-target="physical">
-                                                <tspan class="lang-ja">身体的 (Physical)</tspan>
-                                                <tspan class="lang-vi">Thể chất (Physical)</tspan>
-                                            </text>
-                                        </svg>
-                                        <div class="center-badge">
-                                            <span class="lang-ja">完全に良好な状態</span>
-                                            <span class="lang-vi">Hoàn toàn khỏe mạnh</span>
-                                        </div>
+                            <!-- Timeline Nodes -->
+                            <div style="display: flex; justify-content: space-between; position: relative; z-index: 2;" id="sbo111-concept-tabs">
+                                
+                                <!-- Node 1: 1948 WHO Basic Definition -->
+                                <button type="button" class="sbo111-concept-node active" data-concept-tab="who1948" style="background: none; border: none; outline: none; cursor: pointer; display: flex; flex-direction: column; align-items: center; width: 30%; transition: all 0.3s ease;">
+                                    <span style="font-size: 1.8rem; font-weight: 800; color: #fff; margin-bottom: 12px; font-family: var(--font-heading); transition: all 0.3s ease;" class="node-year">1948</span>
+                                    <div class="node-icon-wrapper" style="width: 70px; height: 70px; border-radius: 12px; background: rgba(15,23,42,0.9); border: 2px solid var(--accent-teal); display: flex; align-items: center; justify-content: center; font-size: 1.8rem; color: var(--accent-teal); transition: all 0.3s ease; box-shadow: 0 0 20px rgba(45, 212, 191, 0.25);">
+                                        <i class="fa-solid fa-cube"></i>
                                     </div>
-                                </div>
+                                    <span style="font-size: 1rem; font-weight: 700; color: #fff; margin-top: 12px;" class="node-title-ja">定義 (Definition)</span>
+                                    <span style="font-size: 0.85rem; color: var(--text-muted); text-align: center; margin-top: 4px; line-height: 1.4; max-width: 220px;" class="node-desc-ja">WHOによる基本定義。身体的・精神的・社会的完全性。</span>
+                                </button>
 
-                                <div class="card glass-card info-card" id="triangle-info-card" style="padding: 20px;">
-                                    <h3 id="info-title"><i class="fa-solid fa-brain"></i> <span class="lang-ja">精神的健康
-                                            (Mental Health)</span><span class="lang-vi">Sức khỏe tinh thần (Mental
-                                            Health)</span></h3>
-                                    <p id="info-body">
-                                        精神的な健康とは、自身の感情を認識・コントロールし、ストレスに対処でき、自立して意思決定を行える状態です。単に精神疾患がないことではなく、心が満たされ、自己肯定感があることが含まれます。
-                                    </p>
-                                </div>
+                                <!-- Node 2: 1998 Concept Deepening -->
+                                <button type="button" class="sbo111-concept-node" data-concept-tab="who1998" style="background: none; border: none; outline: none; cursor: pointer; display: flex; flex-direction: column; align-items: center; width: 30%; transition: all 0.3s ease;">
+                                    <span style="font-size: 1.8rem; font-weight: 800; color: var(--text-muted); margin-bottom: 12px; font-family: var(--font-heading); transition: all 0.3s ease;" class="node-year">1998</span>
+                                    <div class="node-icon-wrapper" style="width: 70px; height: 70px; border-radius: 50%; background: rgba(15,23,42,0.9); border: 2px solid rgba(255,255,255,0.12); display: flex; align-items: center; justify-content: center; font-size: 1.8rem; color: var(--text-muted); transition: all 0.3s ease;">
+                                        <i class="fa-solid fa-circle-nodes"></i>
+                                    </div>
+                                    <span style="font-size: 1rem; font-weight: 700; color: var(--text-muted); margin-top: 12px;" class="node-title-ja">深化 (Deepening)</span>
+                                    <span style="font-size: 0.85rem; color: var(--text-muted); text-align: center; margin-top: 4px; line-height: 1.4; max-width: 220px;" class="node-desc-ja">「動的 (Dynamic)」かつ「精神的/尊厳 (Spiritual)」の提案。</span>
+                                </button>
+
+                                <!-- Node 3: 1986 Ottawa Charter -->
+                                <button type="button" class="sbo111-concept-node" data-concept-tab="ottawa" style="background: none; border: none; outline: none; cursor: pointer; display: flex; flex-direction: column; align-items: center; width: 30%; transition: all 0.3s ease;">
+                                    <span style="font-size: 1.8rem; font-weight: 800; color: var(--text-muted); margin-bottom: 12px; font-family: var(--font-heading); transition: all 0.3s ease;" class="node-year">1986</span>
+                                    <div class="node-icon-wrapper" style="width: 70px; height: 70px; border-radius: 12px; background: rgba(15,23,42,0.9); border: 2px solid rgba(255,255,255,0.12); display: flex; align-items: center; justify-content: center; font-size: 1.8rem; color: var(--text-muted); transition: all 0.3s ease;">
+                                        <i class="fa-solid fa-landmark"></i>
+                                    </div>
+                                    <span style="font-size: 1rem; font-weight: 700; color: var(--text-muted); margin-top: 12px;" class="node-title-ja">実践 (Action)</span>
+                                    <span style="font-size: 0.85rem; color: var(--text-muted); text-align: center; margin-top: 4px; line-height: 1.4; max-width: 220px;" class="node-desc-ja">オタワ憲章。健康的な社会を物質的・政策的に構築する青写真。</span>
+                                </button>
+
                             </div>
                         </div>
 
-                        <div id="concept-pane-who1998" class="concept-pane" style="display: none;">
-                            <div class="card glass-card" style="padding: 25px; margin-bottom: 20px;">
-                                <h3 style="color: var(--accent-gold); margin-bottom: 12px;"><i
-                                        class="fa-solid fa-arrow-up-right-from-square"></i> <span
-                                        class="lang-ja">概念の深化</span><span class="lang-vi">Sự mở rộng và đào sâu khái
-                                        niệm</span></h3>
-                                <p
-                                    style="line-height: 1.8; color: var(--text-secondary); font-size: 0.96rem; margin-bottom: 20px;">
-                                    <span class="lang-ja">1998年WHO執行理事会で、この定義に<strong>「dynamic（動的）」</strong>と<strong>「spiritual（崇高的
-                                            /
-                                            尊厳・生きがい）」</strong>という要素を加える改変が提案されました。総会では変える必要がないと否決されましたが、現代医療において以下の観点は本質的なものとして十分認識しておくことが肝要です。</span>
-                                    <span class="lang-vi">Đến năm 1998, Hội đồng Chấp hành WHO đã đề xuất sửa đổi định
-                                        nghĩa này bằng cách thêm vào hai yếu tố là <strong>"động" (dynamic)</strong> và
-                                        <strong>"tôn nghiêm/tâm linh" (spiritual)</strong>. Mặc dù đề xuất này sau đó bị
-                                        Đại hội đồng từ chối với lý do không cần thiết phải thay đổi, nhưng trong y học
-                                        hiện đại, việc nhận thức đầy đủ hai quan điểm bản chất này là vô cùng quan
-                                        trọng:</span>
-                                </p>
-                                <div class="grid-2col" style="gap: 20px;">
-                                    <div
-                                        style="background: rgba(255,255,255,0.02); border: 1px solid var(--border-card); border-radius: 8px; padding: 15px;">
-                                        <strong
-                                            style="color: var(--accent-gold); display: flex; align-items: center; gap: 8px; font-size: 0.96rem;"><i
-                                                class="fa-solid fa-wave-square"></i> <span
-                                                class="lang-ja">dynamic（動的）</span><span class="lang-vi">Yếu tố "động"
-                                                (dynamic)</span></strong>
-                                        <p
-                                            style="font-size: 0.96rem; margin-top: 8px; line-height: 1.8; color: var(--text-secondary);">
-                                            <span
-                                                class="lang-ja">静的に固定した状態ではないということを示します。健康と疾病は別個のものではなく連続したものであり、刻々と変化することを意味します。</span>
-                                            <span class="lang-vi">Chỉ ra rằng sức khỏe không phải là một trạng thái tĩnh
-                                                hay cố định. Sức khỏe và bệnh tật không phải là hai phạm trù tách biệt
-                                                mà là một chuỗi liên tục, biến đổi không ngừng theo từng khoảnh
-                                                khắc.</span>
-                                        </p>
-                                    </div>
-                                    <div
-                                        style="background: rgba(255,255,255,0.02); border: 1px solid var(--border-card); border-radius: 8px; padding: 15px;">
-                                        <strong
-                                            style="color: var(--accent-teal); display: flex; align-items: center; gap: 8px; font-size: 0.96rem;"><i
-                                                class="fa-solid fa-dharmachakra"></i> <span
-                                                class="lang-ja">spiritual（崇高的）</span><span class="lang-vi">Yếu tố "tôn
-                                                nghiêm/tâm linh" (spiritual)</span></strong>
-                                        <p
-                                            style="font-size: 0.96rem; margin-top: 8px; line-height: 1.8; color: var(--text-secondary);">
-                                            <span class="lang-ja">人間の尊厳の確保や生活の質（QOL）を考えるために必要で本質的なものだという観点です。</span>
-                                            <span class="lang-vi">Nhấn mạnh góc nhìn bản chất và vô cùng cần thiết để
-                                                xem xét việc đảm bảo nhân phẩm con người và nâng cao chất lượng cuộc
-                                                sống (QOL).</span>
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
+                        <!-- Content Panes (Loaded Dynamically) -->
+                        <div id="sbo111-concept-detail-panel" class="card glass-card" style="padding: 35px; border-top: 5px solid var(--accent-teal); background: rgba(255, 255, 255, 0.02); min-height: 250px; transition: all 0.3s ease; box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);">
+                            <!-- Dynamic Content Injected here -->
                         </div>
-
-                        <div id="concept-pane-ottawa" class="concept-pane" style="display: none;">
-                            <div class="card glass-card" style="padding: 20px; margin-bottom: 20px;">
-                                <h3>
-                                    <span class="lang-ja">健康づくりの基本：オタワ憲章</span>
-                                    <span class="lang-vi">Nền tảng của phong trào nâng cao sức khỏe: Hiến chương
-                                        Ottawa</span>
-                                </h3>
-                                <p
-                                    style="font-size: 0.96rem; line-height: 1.8; color: var(--text-secondary); margin-top: 8px;">
-                                    <span class="lang-ja">この定義に基づく健康づくりの基本は、1986年11月にカナダ（オタワ）第1回健康づくり国際会議にて採択された<strong>オタワ憲章（Ottawa
-                                            charter for health
-                                            promotion）</strong>に始まります。この概念は、健康の<strong>前提条件、基本戦略、活動領域</strong>として記述されており、現在においても否定されていません。</span>
-                                    <span class="lang-vi">Dựa trên định nghĩa về sức khỏe, nền tảng của các phong trào
-                                        kiến tạo sức khỏe bắt nguồn từ <strong>Hiến chương Ottawa (Ottawa Charter for
-                                            Health Promotion)</strong>, được thông qua tại Hội nghị Quốc tế về Nâng cao
-                                        Sức khỏe lần thứ nhất tại Canada vào tháng 11 năm 1986. Khái niệm này được mô tả
-                                        thông qua các điều kiện tiền đề, chiến lược cơ bản và lĩnh vực hoạt động, và vẫn
-                                        được công nhận rộng rãi cho đến ngày nay.</span>
-                                </p>
-                            </div>
-
-                            <div style="display: flex; flex-direction: column; gap: 20px;">
-                                <!-- Prerequisites -->
-                                <div class="card glass-card"
-                                    style="border-top: 3px solid var(--accent-teal); padding: 20px;">
-                                    <h4 style="color: var(--accent-teal); font-size: 0.96rem; margin-bottom: 15px;"><i
-                                            class="fa-solid fa-list-check"></i> <span
-                                            class="lang-ja">健康の前提条件</span><span class="lang-vi">Các điều kiện tiền
-                                            đề</span></h4>
-                                    <div class="prerequisites-grid">
-                                        <div
-                                            style="background: rgba(255,255,255,0.02); border: 1px solid var(--border-card); border-radius: 8px; padding: 12px; display: flex; flex-direction: column; align-items: center; text-align: center; gap: 6px;">
-                                            <i class="fa-solid fa-peace"
-                                                style="color: var(--accent-teal); font-size: 1.35rem;"></i>
-                                            <span style="font-size: 0.96rem; font-weight: 600;"><span class="lang-ja">平和
-                                                    (Peace)</span><span class="lang-vi">Hòa bình</span></span>
-                                        </div>
-                                        <div
-                                            style="background: rgba(255,255,255,0.02); border: 1px solid var(--border-card); border-radius: 8px; padding: 12px; display: flex; flex-direction: column; align-items: center; text-align: center; gap: 6px;">
-                                            <i class="fa-solid fa-house"
-                                                style="color: var(--accent-teal); font-size: 1.35rem;"></i>
-                                            <span style="font-size: 0.96rem; font-weight: 600;"><span class="lang-ja">住居
-                                                    (Shelter)</span><span class="lang-vi">Chỗ ở</span></span>
-                                        </div>
-                                        <div
-                                            style="background: rgba(255,255,255,0.02); border: 1px solid var(--border-card); border-radius: 8px; padding: 12px; display: flex; flex-direction: column; align-items: center; text-align: center; gap: 6px;">
-                                            <i class="fa-solid fa-graduation-cap"
-                                                style="color: var(--accent-teal); font-size: 1.35rem;"></i>
-                                            <span style="font-size: 0.96rem; font-weight: 600;"><span class="lang-ja">教育
-                                                    (Education)</span><span class="lang-vi">Giáo dục</span></span>
-                                        </div>
-                                        <div
-                                            style="background: rgba(255,255,255,0.02); border: 1px solid var(--border-card); border-radius: 8px; padding: 12px; display: flex; flex-direction: column; align-items: center; text-align: center; gap: 6px;">
-                                            <i class="fa-solid fa-utensils"
-                                                style="color: var(--accent-teal); font-size: 1.35rem;"></i>
-                                            <span style="font-size: 0.96rem; font-weight: 600;"><span class="lang-ja">食糧
-                                                    (Food)</span><span class="lang-vi">Lương thực</span></span>
-                                        </div>
-                                        <div
-                                            style="background: rgba(255,255,255,0.02); border: 1px solid var(--border-card); border-radius: 8px; padding: 12px; display: flex; flex-direction: column; align-items: center; text-align: center; gap: 6px;">
-                                            <i class="fa-solid fa-coins"
-                                                style="color: var(--accent-teal); font-size: 1.35rem;"></i>
-                                            <span style="font-size: 0.96rem; font-weight: 600;"><span class="lang-ja">収入
-                                                    (Income)</span><span class="lang-vi">Thu nhập</span></span>
-                                        </div>
-                                        <div
-                                            style="background: rgba(255,255,255,0.02); border: 1px solid var(--border-card); border-radius: 8px; padding: 12px; display: flex; flex-direction: column; align-items: center; text-align: center; gap: 6px;">
-                                            <i class="fa-solid fa-seedling"
-                                                style="color: var(--accent-teal); font-size: 1.35rem;"></i>
-                                            <span style="font-size: 0.96rem; font-weight: 600;"><span
-                                                    class="lang-ja">安定した環境</span><span class="lang-vi">Môi trường ổn
-                                                    định</span></span>
-                                        </div>
-                                        <div
-                                            style="background: rgba(255,255,255,0.02); border: 1px solid var(--border-card); border-radius: 8px; padding: 12px; display: flex; flex-direction: column; align-items: center; text-align: center; gap: 6px;">
-                                            <i class="fa-solid fa-tree"
-                                                style="color: var(--accent-teal); font-size: 1.35rem;"></i>
-                                            <span style="font-size: 0.96rem; font-weight: 600;"><span
-                                                    class="lang-ja">持続可能な資源</span><span class="lang-vi">Tài nguyên bền
-                                                    vững</span></span>
-                                        </div>
-                                        <div
-                                            style="background: rgba(255,255,255,0.02); border: 1px solid var(--border-card); border-radius: 8px; padding: 12px; display: flex; flex-direction: column; align-items: center; text-align: center; gap: 6px;">
-                                            <i class="fa-solid fa-scale-balanced"
-                                                style="color: var(--accent-teal); font-size: 1.35rem;"></i>
-                                            <span style="font-size: 0.96rem; font-weight: 600;"><span
-                                                    class="lang-ja">社会的公正と公平</span><span class="lang-vi">Công bằng và
-                                                    công lý</span></span>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <!-- Strategies & Activities -->
-                                <div
-                                    style="display: grid; grid-template-columns: repeat(auto-fit, minmax(290px, 1fr)); gap: 20px;">
-                                    <!-- Strategies -->
-                                    <div class="card glass-card"
-                                        style="border-top: 3px solid var(--accent-gold); padding: 20px;">
-                                        <h4 style="color: var(--accent-gold); font-size: 0.96rem; margin-bottom: 15px;">
-                                            <i class="fa-solid fa-bullseye"></i> <span class="lang-ja">基本戦略</span><span
-                                                class="lang-vi">Chiến lược cơ bản</span>
-                                        </h4>
-                                        <div style="display: flex; flex-direction: column; gap: 15px;">
-                                            <div
-                                                style="background: rgba(255,255,255,0.01); border-left: 3px solid var(--accent-gold); padding: 8px 12px; border-radius: 4px;">
-                                                <strong style="color: var(--accent-gold); font-size: 0.96rem;">
-                                                    <span class="lang-ja">推奨する (Advocate)</span>
-                                                    <span class="lang-vi">Đề xướng (Advocate)</span>
-                                                </strong>
-                                                <p
-                                                    style="font-size: 0.96rem; margin-top: 4px; line-height: 1.8; color: var(--text-secondary);">
-                                                    <span class="lang-ja">健康の利点を明らかにすることで、健康的な環境の創造を推進する。</span>
-                                                    <span class="lang-vi">Làm rõ những lợi ích của sức khỏe để thúc đẩy
-                                                        việc kiến tạo một môi trường lành mạnh.</span>
-                                                </p>
-                                            </div>
-                                            <div
-                                                style="background: rgba(255,255,255,0.01); border-left: 3px solid var(--accent-gold); padding: 8px 12px; border-radius: 4px;">
-                                                <strong style="color: var(--accent-gold); font-size: 0.96rem;">
-                                                    <span class="lang-ja">可能にする (Enable)</span>
-                                                    <span class="lang-vi">Tạo điều kiện (Enable)</span>
-                                                </strong>
-                                                <p
-                                                    style="font-size: 0.96rem; margin-top: 4px; line-height: 1.8; color: var(--text-secondary);">
-                                                    <span
-                                                        class="lang-ja">健康のための機会や資源を確保することで、健康面での潜在能力を引き出せるようにする。</span>
-                                                    <span class="lang-vi">Đảm bảo các cơ hội và nguồn lực nhằm khai phá
-                                                        tiềm năng về mặt sức khỏe của con người.</span>
-                                                </p>
-                                            </div>
-                                            <div
-                                                style="background: rgba(255,255,255,0.01); border-left: 3px solid var(--accent-gold); padding: 8px 12px; border-radius: 4px;">
-                                                <strong style="color: var(--accent-gold); font-size: 0.96rem;">
-                                                    <span class="lang-ja">調停する (Mediate)</span>
-                                                    <span class="lang-vi">Điều phối (Mediate)</span>
-                                                </strong>
-                                                <p
-                                                    style="font-size: 0.96rem; margin-top: 4px; line-height: 1.8; color: var(--text-secondary);">
-                                                    <span
-                                                        class="lang-ja">健康の追求において利害関係の対立する立場を仲立ちし、健康づくりにむけた妥協点を模索する。</span>
-                                                    <span class="lang-vi">Đứng ra làm trung gian giữa các nhóm có lợi
-                                                        ích đối lập để tìm kiếm điểm thỏa hiệp hướng tới việc xây dựng
-                                                        sức khỏe.</span>
-                                                </p>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <!-- Activities -->
-                                    <div class="card glass-card" style="border-top: 3px solid #3b82f6; padding: 20px;">
-                                        <h4 style="color: #93c5fd; font-size: 0.96rem; margin-bottom: 15px;"><i
-                                                class="fa-solid fa-map"></i> <span class="lang-ja">活動領域</span><span
-                                                class="lang-vi">Lĩnh vực hoạt động</span></h4>
-                                        <div style="display: flex; flex-direction: column; gap: 12px;">
-                                            <div
-                                                style="background: rgba(255,255,255,0.01); padding: 8px 12px; border-radius: 6px; border: 1px solid rgba(255,255,255,0.04); display: flex; align-items: flex-start; gap: 10px;">
-                                                <i class="fa-solid fa-file-signature"
-                                                    style="color: #3b82f6; font-size: 0.96rem; margin-top: 2px;"></i>
-                                                <span style="font-size: 0.96rem; line-height: 1.4; width: 100%;">
-                                                    <strong style="color: #fff;"><span
-                                                            class="lang-ja">保健政策の制定</span><span class="lang-vi">Hoạch
-                                                            định chính sách bảo vệ sức khỏe</span></strong>
-                                                    <p
-                                                        style="font-size: 0.96rem; color: var(--text-secondary); margin-top: 2px; line-height: 1.4;">
-                                                        <span class="lang-ja">社会のあらゆる分野で健康を推進する政策を策定する。</span>
-                                                        <span class="lang-vi">Ban hành các quyết sách và luật pháp thúc
-                                                            đẩy sức khỏe trong mọi lĩnh vực xã hội.</span>
-                                                    </p>
-                                                </span>
-                                            </div>
-                                            <div
-                                                style="background: rgba(255,255,255,0.01); padding: 8px 12px; border-radius: 6px; border: 1px solid rgba(255,255,255,0.04); display: flex; align-items: flex-start; gap: 10px;">
-                                                <i class="fa-solid fa-handshake-angle"
-                                                    style="color: #3b82f6; font-size: 0.96rem; margin-top: 2px;"></i>
-                                                <span style="font-size: 0.96rem; line-height: 1.4; width: 100%;">
-                                                    <strong style="color: #fff;"><span
-                                                            class="lang-ja">支援環境の整備</span><span class="lang-vi">Xây dựng
-                                                            môi trường hỗ trợ</span></strong>
-                                                    <p
-                                                        style="font-size: 0.96rem; color: var(--text-secondary); margin-top: 2px; line-height: 1.4;">
-                                                        <span class="lang-ja">安全で健康的に暮らし、働ける環境を整える。</span>
-                                                        <span class="lang-vi">Tạo lập môi trường sống và làm việc an
-                                                            toàn, lành mạnh.</span>
-                                                    </p>
-                                                </span>
-                                            </div>
-                                            <div
-                                                style="background: rgba(255,255,255,0.01); padding: 8px 12px; border-radius: 6px; border: 1px solid rgba(255,255,255,0.04); display: flex; align-items: flex-start; gap: 10px;">
-                                                <i class="fa-solid fa-users"
-                                                    style="color: #3b82f6; font-size: 0.96rem; margin-top: 2px;"></i>
-                                                <span style="font-size: 0.96rem; line-height: 1.4; width: 100%;">
-                                                    <strong style="color: #fff;"><span
-                                                            class="lang-ja">地域活動の強化</span><span class="lang-vi">Tăng
-                                                            cường các hoạt động cộng đồng</span></strong>
-                                                    <p
-                                                        style="font-size: 0.96rem; color: var(--text-secondary); margin-top: 2px; line-height: 1.4;">
-                                                        <span class="lang-ja">地域住民が自ら健康課題に取り組むよう支援する。</span>
-                                                        <span class="lang-vi">Trao quyền cho cộng đồng tự chủ động lập
-                                                            kế hoạch và hành động vì sức khỏe.</span>
-                                                    </p>
-                                                </span>
-                                            </div>
-                                            <div
-                                                style="background: rgba(255,255,255,0.01); padding: 8px 12px; border-radius: 6px; border: 1px solid rgba(255,255,255,0.04); display: flex; align-items: flex-start; gap: 10px;">
-                                                <i class="fa-solid fa-book-open-reader"
-                                                    style="color: #3b82f6; font-size: 0.96rem; margin-top: 2px;"></i>
-                                                <span style="font-size: 0.96rem; line-height: 1.4; width: 100%;">
-                                                    <strong style="color: #fff;"><span
-                                                            class="lang-ja">個人スキルの開発</span><span class="lang-vi">Phát
-                                                            triển kỹ năng cá nhân</span></strong>
-                                                    <p
-                                                        style="font-size: 0.96rem; color: var(--text-secondary); margin-top: 2px; line-height: 1.4;">
-                                                        <span class="lang-ja">情報スキルや教育スキルを通じて自己管理能力を育てる。</span>
-                                                        <span class="lang-vi">Nâng cao năng lực tự quản lý sức khỏe suốt
-                                                            đời thông qua kỹ năng thông tin và giáo dục.</span>
-                                                    </p>
-                                                </span>
-                                            </div>
-                                            <div
-                                                style="background: rgba(255,255,255,0.01); padding: 8px 12px; border-radius: 6px; border: 1px solid rgba(255,255,255,0.04); display: flex; align-items: flex-start; gap: 10px;">
-                                                <i class="fa-solid fa-house-medical-circle-check"
-                                                    style="color: #3b82f6; font-size: 0.96rem; margin-top: 2px;"></i>
-                                                <span style="font-size: 0.96rem; line-height: 1.4; width: 100%;">
-                                                    <strong style="color: #fff;"><span
-                                                            class="lang-ja">医療の再設定</span><span class="lang-vi">Tái định
-                                                            hướng các dịch vụ y tế</span></strong>
-                                                    <p
-                                                        style="font-size: 0.96rem; color: var(--text-secondary); margin-top: 2px; line-height: 1.4;">
-                                                        <span class="lang-ja">疾病の予防と健康づくりのため、医療システムを再調整する。</span>
-                                                        <span class="lang-vi">Chuyển dịch hệ thống y tế hướng tới mục
-                                                            đích phòng bệnh và nâng cao sức khỏe.</span>
-                                                    </p>
-                                                </span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <script>
-                            document.querySelectorAll('[data-concept-tab]').forEach(btn => {
-                                btn.addEventListener('click', () => {
-                                    document.querySelectorAll('[data-concept-tab]').forEach(b => b.classList.remove('active'));
-                                    btn.classList.add('active');
-                                    const tab = btn.getAttribute('data-concept-tab');
-                                    document.querySelectorAll('.concept-pane').forEach(pane => {
-                                        pane.style.display = pane.id === 'concept-pane-' + tab ? 'block' : 'none';
-                                    });
-                                });
-                            });
-                        </script>
                     </div>
                 </section>
 
@@ -463,45 +806,160 @@ window.SBO_TEMPLATES['sbo111'] = `<div id="sbo111" class="sbo-section-wrapper">
                                 nâng cao sức khỏe cả về thể chất lẫn tinh thần.</span>
                         </p>
 
-                        <!-- Symmetrical Side-by-Side layout on Desktop, Stacked on Mobile -->
+                                                <!-- Symmetrical Side-by-Side layout on Desktop, Stacked on Mobile -->
                         <div class="preventive-grid">
-                            <!-- Left Column: Buttons -->
-                            <div style="display: flex; flex-direction: column; gap: 12px; width: 100%;">
-                                <div class="chart-segment segment-pension active" data-prev-lvl="1"
-                                    style="border-left: 6px solid #10b981; margin: 0; cursor: pointer; padding: 15px; border-radius: 8px; background: rgba(255,255,255,0.02); border: 1px solid var(--border-card); border-left-width: 6px; display: flex; align-items: center; min-height: 55px;">
-                                    <span class="segment-label"
-                                        style="font-weight: 600; font-size: 0.96rem; color: #fff;">
-                                        <span class="lang-ja">一次予防 (Primary)</span>
-                                        <span class="lang-vi">Dự phòng cấp 1</span>
-                                    </span>
+                            <!-- Left Column: Buttons & Details Card -->
+                            <div style="display: flex; flex-direction: column; gap: 15px; width: 100%;">
+                                <div style="display: flex; flex-direction: column; gap: 10px;">
+                                    <div class="chart-segment segment-pension active" data-prev-lvl="1" style="border-left: 6px solid #10b981; margin: 0; cursor: pointer; padding: 15px; border-radius: 8px; background: rgba(255,255,255,0.02); border: 1px solid var(--border-card); border-left-width: 6px; display: flex; align-items: center; min-height: 50px;">
+                                        <span class="segment-label" style="font-weight: 600; font-size: 0.96rem; color: #fff;">
+                                            <span class="lang-ja">一次予防 (Primary Prevention)</span>
+                                            <span class="lang-vi">Dự phòng cấp 1</span>
+                                        </span>
+                                    </div>
+                                    <div class="chart-segment segment-medical" data-prev-lvl="2" style="border-left: 6px solid #f59e0b; margin: 0; cursor: pointer; padding: 15px; border-radius: 8px; background: rgba(255,255,255,0.02); border: 1px solid var(--border-card); border-left-width: 6px; display: flex; align-items: center; min-height: 50px;">
+                                        <span class="segment-label" style="font-weight: 600; font-size: 0.96rem; color: #fff;">
+                                            <span class="lang-ja">二次予防 (Secondary Prevention)</span>
+                                            <span class="lang-vi">Dự phòng cấp 2</span>
+                                        </span>
+                                    </div>
+                                    <div class="chart-segment segment-welfare" data-prev-lvl="3" style="border-left: 6px solid #ef4444; margin: 0; cursor: pointer; padding: 15px; border-radius: 8px; background: rgba(255,255,255,0.02); border: 1px solid var(--border-card); border-left-width: 6px; display: flex; align-items: center; min-height: 50px;">
+                                        <span class="segment-label" style="font-weight: 600; font-size: 0.96rem; color: #fff;">
+                                            <span class="lang-ja">三次予防 (Tertiary Prevention)</span>
+                                            <span class="lang-vi">Dự phòng cấp 3</span>
+                                        </span>
+                                    </div>
                                 </div>
-                                <div class="chart-segment segment-medical" data-prev-lvl="2"
-                                    style="border-left: 6px solid #f59e0b; margin: 0; cursor: pointer; padding: 15px; border-radius: 8px; background: rgba(255,255,255,0.02); border: 1px solid var(--border-card); border-left-width: 6px; display: flex; align-items: center; min-height: 55px;">
-                                    <span class="segment-label"
-                                        style="font-weight: 600; font-size: 0.96rem; color: #fff;">
-                                        <span class="lang-ja">二次予防 (Secondary)</span>
-                                        <span class="lang-vi">Dự phòng cấp 2</span>
-                                    </span>
-                                </div>
-                                <div class="chart-segment segment-welfare" data-prev-lvl="3"
-                                    style="border-left: 6px solid #ef4444; margin: 0; cursor: pointer; padding: 15px; border-radius: 8px; background: rgba(255,255,255,0.02); border: 1px solid var(--border-card); border-left-width: 6px; display: flex; align-items: center; min-height: 55px;">
-                                    <span class="segment-label"
-                                        style="font-weight: 600; font-size: 0.96rem; color: #fff;">
-                                        <span class="lang-ja">三次予防 (Tertiary)</span>
-                                        <span class="lang-vi">Dự phòng cấp 3</span>
-                                    </span>
+                                
+                                <div class="card glass-card info-card" id="prev-lvl-info" style="margin: 0; background: rgba(255,255,255,0.02); padding: 18px; min-height: 150px; width: 100%; display: flex; flex-direction: column; justify-content: flex-start; box-sizing: border-box;">
+                                    <h4 id="prev-lvl-title" style="margin-top: 0; color: #10b981; font-size: 0.96rem; line-height: 1.4; display: flex; align-items: center; gap: 8px; font-weight: 700;">
+                                        一次予防：健康増進・疾病予防・事故予防
+                                    </h4>
+                                    <p id="prev-lvl-body" style="font-size: 0.9rem; line-height: 1.7; color: var(--text-secondary); margin-top: 8px; margin-bottom: 0; white-space: pre-line;">
+                                        健康な人を対象に、生活習慣や環境の改善、予防接種等を通じて、病気やケガを未然に防ぎます。
+                                    </p>
                                 </div>
                             </div>
 
-                            <!-- Right Column: Details Card -->
-                            <div class="card glass-card info-card" id="prev-lvl-info"
-                                style="margin: 0; background: rgba(255,255,255,0.02); padding: 22px; min-height: 190px; width: 100%; display: flex; flex-direction: column; justify-content: flex-start; box-sizing: border-box;">
-                                <h4 id="prev-lvl-title"
-                                    style="margin-top: 0; color: #10b981; font-size: 0.96rem; line-height: 1.4; display: flex; align-items: center; gap: 8px;">
-                                    一次予防：健康増進・疾病予防・事故予防</h4>
-                                <p id="prev-lvl-body"
-                                    style="font-size: 0.96rem; line-height: 1.8; color: var(--text-secondary); margin-top: 10px; margin-bottom: 0; white-space: pre-line;">
-                                    健康な人を対象に、生活習慣や環境の改善、予防接種等を通じて、病気やケガを未然に防ぎます。</p>
+                            <!-- Right Column: Unified 3-Tier Shield Wall Diagram (Tube + Radar + Recovery) -->
+                            <div class="card glass-card" style="margin: 0; padding: 15px; display: flex; flex-direction: column; align-items: center; justify-content: center; background: radial-gradient(circle at center, rgba(15, 23, 42, 0.4) 0%, rgba(10, 10, 20, 0.7) 100%); border: 1px solid rgba(255, 255, 255, 0.08); overflow: hidden; width: 100%; box-sizing: border-box;">
+                                <div style="font-size: 0.82rem; font-weight: bold; color: var(--text-muted); margin-bottom: 10px; width: 100%; text-align: center;">
+                                    <span class="lang-ja">健康を守る3層の防護壁 (The 3-Tier Framework)</span>
+                                    <span class="lang-vi">Khung 3 lớp phòng vệ bảo vệ sức khỏe</span>
+                                </div>
+                                <div style="position: relative; width: 100%; max-width: 500px; height: 250px; margin: 0 auto;">
+                                                                                                                                                <svg viewBox="0 0 500 240" width="100%" height="100%" style="overflow: visible;">
+                                        <defs>
+                                            <!-- Funnel Gradients -->
+                                            <linearGradient id="funnel-grad-1" x1="0%" y1="0%" x2="100%" y2="0%">
+                                                <stop offset="0%" stop-color="#10b981" stop-opacity="0.75" />
+                                                <stop offset="100%" stop-color="#059669" stop-opacity="0.65" />
+                                            </linearGradient>
+                                            <linearGradient id="funnel-grad-2" x1="0%" y1="0%" x2="100%" y2="0%">
+                                                <stop offset="0%" stop-color="#3b82f6" stop-opacity="0.65" />
+                                                <stop offset="100%" stop-color="#1d4ed8" stop-opacity="0.65" />
+                                            </linearGradient>
+                                            <linearGradient id="funnel-grad-3" x1="0%" y1="0%" x2="100%" y2="0%">
+                                                <stop offset="0%" stop-color="#475569" stop-opacity="0.65" />
+                                                <stop offset="100%" stop-color="#334155" stop-opacity="0.65" />
+                                            </linearGradient>
+                                            <!-- Loop Gradient -->
+                                            <linearGradient id="loop-grad" x1="100%" y1="0%" x2="0%" y2="0%">
+                                                <stop offset="0%" stop-color="#60a5fa" stop-opacity="0.8" />
+                                                <stop offset="100%" stop-color="#10b981" stop-opacity="0.8" />
+                                            </linearGradient>
+                                            <!-- Radar Scan Gradient -->
+                                            <linearGradient id="radar-scan" x1="0%" y1="0%" x2="100%" y2="0%">
+                                                <stop offset="0%" stop-color="#3b82f6" stop-opacity="0.45" />
+                                                <stop offset="100%" stop-color="#3b82f6" stop-opacity="0" />
+                                            </linearGradient>
+                                            <!-- Glow filters -->
+                                            <filter id="glow-green" x="-30%" y="-30%" width="160%" height="160%">
+                                                <feGaussianBlur stdDeviation="6" result="blur" />
+                                                <feComposite in="SourceGraphic" in2="blur" operator="over" />
+                                            </filter>
+                                            <filter id="glow-gold" x="-30%" y="-30%" width="160%" height="160%">
+                                                <feGaussianBlur stdDeviation="6" result="blur" />
+                                                <feComposite in="SourceGraphic" in2="blur" operator="over" />
+                                            </filter>
+                                            <filter id="glow-red" x="-30%" y="-30%" width="160%" height="160%">
+                                                <feGaussianBlur stdDeviation="6" result="blur" />
+                                                <feComposite in="SourceGraphic" in2="blur" operator="over" />
+                                            </filter>
+                                        </defs>
+
+                                        <!-- The Funnel Path segments -->
+                                        <path d="M 40,50 L 160,70 L 160,170 L 40,190 Z" fill="url(#funnel-grad-1)" stroke="rgba(255,255,255,0.12)" stroke-width="1" />
+                                        <path d="M 160,70 L 310,85 L 310,155 L 160,170 Z" fill="url(#funnel-grad-2)" stroke="rgba(255,255,255,0.12)" stroke-width="1" />
+                                        <path d="M 310,85 L 460,95 L 460,145 L 310,155 Z" fill="url(#funnel-grad-3)" stroke="rgba(255,255,255,0.12)" stroke-width="1" />
+
+                                        <!-- Funnel Left Lip -->
+                                        <path d="M 40,50 A 20,70 0 0,0 40,190 A 20,70 0 0,0 40,50 Z" fill="#10b981" fill-opacity="0.4" stroke="#10b981" stroke-width="1.5" />
+
+                                        <!-- Inside Text Labels - ENLARGED -->
+                                        <text x="90" y="126" fill="#fff" font-size="16" font-weight="bold" text-anchor="middle" style="letter-spacing: 1px;">健康</text>
+                                        <text x="215" y="125" fill="rgba(255,255,255,0.9)" font-size="13" font-weight="bold" text-anchor="middle">未病・ハイリスク</text>
+                                        <text x="275" y="126" fill="#fff" font-size="16" font-weight="bold" text-anchor="middle" style="letter-spacing: 1px;">発症</text>
+                                        <text x="355" y="125" fill="rgba(255,255,255,0.9)" font-size="13" font-weight="bold" text-anchor="middle">重症化</text>
+                                        <text x="420" y="126" fill="#fff" font-size="16" font-weight="bold" text-anchor="middle" style="letter-spacing: 1px;">後遺症</text>
+
+                                        <!-- INTEGRATED RADAR SENSOR LAYER -->
+                                        <g id="integrated-radar-layer" style="opacity: 0; transition: opacity 0.4s ease;">
+                                            <path d="M 160,70 L 310,85 L 310,155 L 160,170 Z" fill="url(#radar-scan)" />
+                                            <path d="M 230,76 A 40,40 0 0,1 230,162" fill="none" stroke="rgba(59, 130, 246, 0.4)" stroke-width="1.5" stroke-dasharray="2 2" />
+                                            <path d="M 270,81 A 70,70 0 0,1 270,157" fill="none" stroke="rgba(59, 130, 246, 0.3)" stroke-width="1.5" />
+                                            <circle cx="210" cy="95" r="4" fill="#ef4444" filter="drop-shadow(0 0 3px #ef4444)" />
+                                            <circle cx="225" cy="135" r="5" fill="#ef4444" filter="drop-shadow(0 0 4px #ef4444)" />
+                                            <circle cx="280" cy="115" r="6" fill="#ef4444" filter="drop-shadow(0 0 5px #ef4444)" />
+                                            <circle cx="250" cy="100" r="3" fill="#ef4444" opacity="0.7" />
+                                        </g>
+
+                                        <!-- Loop/Return Recovery Arrow -->
+                                        <path id="svg-recovery-loop" d="M 385,145 A 190,65 0 0,1 65,165" fill="none" stroke="url(#loop-grad)" stroke-width="3" stroke-linecap="round" style="opacity: 0.2; transition: all 0.4s ease;" />
+                                        
+                                        <!-- Connectors from Cards to 3D Glass Arches (Aligned vertically) -->
+                                        <line x1="160" y1="44" x2="160" y2="48" stroke="rgba(255,255,255,0.3)" stroke-width="1" stroke-dasharray="2 2" />
+                                        <line x1="310" y1="44" x2="310" y2="63" stroke="rgba(255,255,255,0.3)" stroke-width="1" stroke-dasharray="2 2" />
+                                        <line x1="445" y1="44" x2="453" y2="78" stroke="rgba(255,255,255,0.3)" stroke-width="1" stroke-dasharray="2 2" />
+
+                                        <!-- 3D Curved Glass Shields slicing/wrapping the tube joints -->
+                                        <!-- Shield 1 (At x=160 Joint) -->
+                                        <g class="prev-svg-shield" data-shield-idx="1" style="cursor:pointer;">
+                                            <path d="M 140,40 L 180,40 L 180,200 L 140,200 Z" fill="transparent" />
+                                            <path id="svg-shield-1" d="M 152,48 Q 160,40 168,48 L 168,192 Q 160,200 152,192 Z" 
+                                                fill="rgba(16, 185, 129, 0.25)" stroke="#10b981" stroke-width="2.5" filter="url(#glow-green)" style="transition: all 0.3s ease;" />
+                                            
+                                            <!-- Card 1 (Aligned horizontally at y=6) -->
+                                            <rect x="102.5" y="6" width="115" height="38" rx="4" fill="rgba(15, 23, 42, 0.95)" stroke="rgba(16, 185, 129, 0.5)" stroke-width="1.2" />
+                                            <text x="160" y="20" fill="#10b981" font-size="10.5" font-weight="bold" text-anchor="middle">第1の壁: 第一次予防</text>
+                                            <text x="160" y="32" fill="rgba(255,255,255,0.85)" font-size="9.5" text-anchor="middle">発生を未然に防ぐ</text>
+                                        </g>
+
+                                        <!-- Shield 2 (At x=310 Joint) -->
+                                        <g class="prev-svg-shield" data-shield-idx="2" style="cursor:pointer;">
+                                            <path d="M 290,55 L 330,55 L 330,185 L 290,185 Z" fill="transparent" />
+                                            <path id="svg-shield-2" d="M 303,63 Q 310,56 317,63 L 317,177 Q 310,184 303,177 Z" 
+                                                fill="rgba(255,255,255,0.06)" stroke="rgba(255,255,255,0.3)" stroke-width="1.5" style="transition: all 0.3s ease;" />
+                                            
+                                            <!-- Card 2 (Aligned horizontally at y=6) -->
+                                            <rect x="252.5" y="6" width="115" height="38" rx="4" fill="rgba(15, 23, 42, 0.95)" stroke="rgba(245, 158, 11, 0.5)" stroke-width="1.2" />
+                                            <text x="310" y="20" fill="#f59e0b" font-size="10.5" font-weight="bold" text-anchor="middle">第2の壁: 第二次予防</text>
+                                            <text x="310" y="32" fill="rgba(255,255,255,0.85)" font-size="9.5" text-anchor="middle">早期発見・進行阻止</text>
+                                        </g>
+
+                                        <!-- Shield 3 (At x=460 Joint) -->
+                                        <g class="prev-svg-shield" data-shield-idx="3" style="cursor:pointer;">
+                                            <path d="M 440,70 L 480,70 L 480,170 L 440,170 Z" fill="transparent" />
+                                            <path id="svg-shield-3" d="M 453,78 Q 460,71 467,78 L 467,162 Q 460,169 453,162 Z" 
+                                                fill="rgba(255,255,255,0.06)" stroke="rgba(255,255,255,0.3)" stroke-width="1.5" style="transition: all 0.3s ease;" />
+                                            
+                                            <!-- Card 3 (Aligned horizontally at y=6) -->
+                                            <rect x="387.5" y="6" width="115" height="38" rx="4" fill="rgba(15, 23, 42, 0.95)" stroke="rgba(239, 68, 68, 0.5)" stroke-width="1.2" />
+                                            <text x="445" y="20" fill="#ef4444" font-size="10.5" font-weight="bold" text-anchor="middle">第3の壁: 第三次予防</text>
+                                            <text x="445" y="32" fill="rgba(255,255,255,0.85)" font-size="9.5" text-anchor="middle">機能回復・社会復帰</text>
+                                        </g>
+                                    </svg>
+                                </div>
                             </div>
                         </div>
 

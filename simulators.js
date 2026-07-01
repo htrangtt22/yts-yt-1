@@ -1088,165 +1088,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
 
-    // --- 14b. Interactive Preventive Medicine Levels ---
-    const prevLvlSegments = document.querySelectorAll('[data-prev-lvl]');
-    const prevLvlTitle = document.getElementById('prev-lvl-title');
-    const prevLvlBody = document.getElementById('prev-lvl-body');
-
-    prevLvlSegments.forEach(segment => {
-        segment.addEventListener('click', () => {
-            prevLvlSegments.forEach(s => s.classList.remove('active'));
-            segment.classList.add('active');
-
-            const key = segment.getAttribute('data-prev-lvl');
-            const data = (window.prevLvlData || {})[key];
-
-            if (data && prevLvlTitle) {
-                const infoCard = document.getElementById('prev-lvl-info');
-                infoCard.style.opacity = '0.3';
-                setTimeout(() => {
-                    const isVi = document.body.classList.contains('lang-vi');
-                    prevLvlTitle.textContent = isVi ? data.title.vi : data.title.ja;
-                    prevLvlBody.textContent = isVi ? data.body.vi : data.body.ja;
-                    infoCard.style.opacity = '1';
-                }, 200);
-            }
-        });
-    });
-
-
-    // --- 14c. Specific Health Checkups (特定健診の階層化) Simulator Logic ---
-    const stratCheckboxes = document.querySelectorAll('.strat-checkbox');
-    const checkWaist = document.getElementById('check-waist');
-    const checkBmi = document.getElementById('check-bmi');
-    const checkAge65 = document.getElementById('check-age65');
-    const checkBp = document.getElementById('check-bp');
-    const checkBs = document.getElementById('check-bs');
-    const checkLipid = document.getElementById('check-lipid');
-    const checkSmoke = document.getElementById('check-smoke');
-
-    const stratFeedbackTitle = document.getElementById('strat-feedback-title');
-    const stratFeedbackBody = document.getElementById('strat-feedback-body');
-
-    const updateStratification = () => {
-        if (!checkWaist || !checkBmi || !checkAge65 || !checkBp || !checkBs || !checkLipid || !checkSmoke || !stratFeedbackTitle || !stratFeedbackBody) return;
-
-        const isWaistChecked = checkWaist.checked;
-        const isBmiChecked = checkBmi.checked;
-        const isAge65Checked = checkAge65.checked;
-        
-        // Count additional risk factors (Step 2)
-        let factorCount = 0;
-        if (checkBp.checked) factorCount++;
-        if (checkBs.checked) factorCount++;
-        if (checkLipid.checked) factorCount++;
-        
-        // Smoking is only counted if there is at least 1 other risk factor (blood pressure, blood glucose, or lipid)
-        const isSmokeChecked = checkSmoke.checked;
-        const countSmoke = (isSmokeChecked && factorCount >= 1);
-        
-        const totalFactors = factorCount + (countSmoke ? 1 : 0);
-
-        let categoryJa = '情報提供 (Information Provision)';
-        let categoryVi = 'Cung cấp thông tin (Information Provision)';
-        let descJa = '内臓脂肪蓄積の基準に該当しないか、追加のリスク因子がありません。現状の健康生活を維持するための情報提供のみを行います。';
-        let descVi = 'Không tích tụ mỡ nội tạng hoặc không có yếu tố nguy cơ bổ sung. Thực hiện cung cấp thông tin duy trì lối sống lành mạnh.';
-        let colorClass = '#2dd4bf'; // Teal
-
-        // Group A: Waist size >= 85cm (male) / >= 90cm (female)
-        // Group B: Waist normal but BMI >= 25
-        
-        if (isAge65Checked) {
-            // Age 65-74 (前期高齢者): No "積極的支援" (Active Support) is applied to avoid over-intervention.
-            if (isWaistChecked) {
-                categoryJa = '動機付け支援 (Motivational Support)';
-                categoryVi = 'Hỗ trợ khuyến khích (Motivational Support)';
-                descJa = '【前期高齢者（65〜74歳）特例判定】内臓脂肪蓄積を認めるため「動機付け支援」の対象です。65歳以上の方は身体的負担や過度な介入を防ぐため、基準上は積極的支援に該当する場合でも「動機付け支援」に区分されます。原則1回の生活習慣改善面接が提供されます。';
-                descVi = '【Đánh giá đặc biệt người cao tuổi giai đoạn đầu (65-74 tuổi)】Do tích tụ mỡ nội tạng nên thuộc đối tượng "Hỗ trợ khuyến khích". Để tránh gánh nặng thể chất và can thiệp quá mức ở người từ 65 tuổi trở lên, ngay cả khi đủ tiêu chuẩn hỗ trợ tích cực theo lý thuyết thì vẫn được phân vào nhóm "Hỗ trợ khuyến khích". Nguyên tắc là cung cấp 1 buổi phỏng vấn cải thiện lối sống.';
-                colorClass = '#f59e0b'; // Gold
-            } else if (isBmiChecked) {
-                if (totalFactors >= 1) {
-                    categoryJa = '動機付け支援 (Motivational Support)';
-                    categoryVi = 'Hỗ trợ khuyến khích (Motivational Support)';
-                    descJa = '【前期高齢者（65〜74歳）特例判定】腹囲は基準値未満ですが、BMI 25以上かつ追加リスク因子があるため「動機付け支援」の対象です（65歳以上のため積極的支援への移行はありません）。';
-                    descVi = '【Đánh giá đặc biệt người cao tuổi giai đoạn đầu (65-74 tuổi)】Vòng bụng dưới mức tiêu chuẩn nhưng BMI ≥ 25 và có yếu tố nguy cơ bổ sung nên thuộc đối tượng "Hỗ trợ khuyến khích" (không chuyển sang hỗ trợ tích cực vì đã từ 65 tuổi trở lên).';
-                    colorClass = '#f59e0b';
-                } else {
-                    categoryJa = '情報提供 (Information Provision)';
-                    categoryVi = 'Cung cấp thông tin (Information Provision)';
-                    descJa = '腹囲基準未満かつBMI 25以上ですが、追加リスク因子が認められないため、現状維持のための「情報提供」を行います。';
-                    descVi = 'Vòng bụng dưới mức tiêu chuẩn và BMI ≥ 25 nhưng không phát hiện yếu tố nguy cơ bổ sung, thực hiện "Cung cấp thông tin" để duy trì hiện trạng.';
-                    colorClass = '#2dd4bf';
-                }
-            } else {
-                categoryJa = '情報提供 (Information Provision)';
-                categoryVi = 'Cung cấp thông tin (Information Provision)';
-                descJa = '腹囲およびBMIが基準未満であり、追加のリスク因子がありません。現状の健康生活習慣を継続するための「情報提供」を行います。';
-                descVi = 'Vòng bụng và BMI đều dưới mức tiêu chuẩn, đồng thời không có yếu tố nguy cơ bổ sung. Thực hiện "Cung cấp thông tin" để tiếp tục duy trì lối sống lành mạnh.';
-                colorClass = '#2dd4bf';
-            }
-        } else {
-            // Age under 65 (65歳未満) - Standard Stratification Rules
-            if (isWaistChecked) {
-                if (totalFactors >= 2) {
-                    categoryJa = '積極的支援 (Active Support)';
-                    categoryVi = 'Hỗ trợ tích cực (Active Support)';
-                    descJa = '【65歳未満・内臓脂肪型】内臓脂肪蓄積に加え、2つ以上の追加リスク因子を認めるため「積極的支援」の対象です。初回面接による行動計画作成後、3ヶ月以上の継続的な保健指導（対面、電話、メール等）および評価が行われます。';
-                    descVi = '【Dưới 65 tuổi - Nhóm mỡ nội tạng】Tích tụ mỡ nội tạng kèm theo từ 2 yếu tố nguy cơ bổ sung trở lên nên thuộc đối tượng "Hỗ trợ tích cực". Sau khi lập kế hoạch hành động qua phỏng vấn lần đầu, hướng dẫn sức khỏe liên tục (gặp mặt, điện thoại, email...) và đánh giá sẽ được thực hiện trong ít nhất 3 tháng.';
-                    colorClass = '#ef4444'; // Red
-                } else if (totalFactors === 1) {
-                    categoryJa = '動機付け支援 (Motivational Support)';
-                    categoryVi = 'Hỗ trợ khuyến khích (Motivational Support)';
-                    descJa = '【65歳未満・内臓脂肪型】内臓脂肪蓄積に加え、追加リスク因子が1つ認められるため「動機付け支援」の対象です。原則1回の個別・グループ面接が行われ、自主的な生活習慣改善を促します。';
-                    descVi = '【Dưới 65 tuổi - Nhóm mỡ nội tạng】Tích tụ mỡ nội tạng kèm theo 1 yếu tố nguy cơ bổ sung nên thuộc đối tượng "Hỗ trợ khuyến khích". Nguyên tắc là thực hiện 1 buổi phỏng vấn cá nhân hoặc nhóm để khuyến khích tự cải thiện lối sống.';
-                    colorClass = '#f59e0b'; // Gold
-                } else {
-                    categoryJa = '動機付け支援 (Motivational Support)';
-                    categoryVi = 'Hỗ trợ khuyến khích (Motivational Support)';
-                    descJa = '【65歳未満・内臓脂肪型】内臓脂肪の蓄積が見られるものの、他のリスク因子が現在認められないため「動機付け支援」の対象となります。自主的な行動計画を策定します。';
-                    descVi = '【Dưới 65 tuổi - Nhóm mỡ nội tạng】Có tích tụ mỡ nội tạng nhưng chưa phát hiện yếu tố nguy cơ bổ sung nào khác, thuộc đối tượng "Hỗ trợ khuyến khích". Thiết lập kế hoạch hành động tự nguyện.';
-                    colorClass = '#f59e0b';
-                }
-            } else if (isBmiChecked) {
-                if (totalFactors >= 3) {
-                    categoryJa = '積極的支援 (Active Support)';
-                    categoryVi = 'Hỗ trợ tích cực (Active Support)';
-                    descJa = '【65歳未満・非肥満内臓型】腹囲は基準値未満ですが、BMI 25以上かつ3つ以上の追加リスク因子を認めるため「積極的支援」の対象です。3ヶ月以上の手厚い生活習慣改善支援が提供されます。';
-                    descVi = '【Dưới 65 tuổi - Nhóm nội tạng không béo phì】Vòng bụng dưới mức tiêu chuẩn nhưng BMI ≥ 25 và có từ 3 yếu tố nguy cơ bổ sung trở lên, thuộc đối tượng "Hỗ trợ tích cực". Hỗ trợ cải thiện lối sống chu đáo trong từ 3 tháng trở lên.';
-                    colorClass = '#ef4444';
-                } else if (totalFactors >= 1) {
-                    categoryJa = '動機付け支援 (Motivational Support)';
-                    categoryVi = 'Hỗ trợ khuyến khích (Motivational Support)';
-                    descJa = '【65歳未満・非肥満内臓型】腹囲は基準値未満ですが、BMI 25以上かつ1〜2個の追加リスク因子があるため「動機付け支援」の対象です。生活習慣の改善に取り組んでください。';
-                    descVi = '【Dưới 65 tuổi - Nhóm nội tạng không béo phì】Vòng bụng dưới mức tiêu chuẩn nhưng BMI ≥ 25 và có 1-2 yếu tố nguy cơ bổ sung nên thuộc đối tượng "Hỗ trợ khuyến khích". Hãy bắt đầu cải thiện lối sống.';
-                    colorClass = '#f59e0b';
-                } else {
-                    categoryJa = '情報提供 (Information Provision)';
-                    categoryVi = 'Cung cấp thông tin (Information Provision)';
-                    descJa = '腹囲基準未満かつBMI 25以上ですが、追加リスク因子が認められないため、現状維持のための「情報提供」を行います。';
-                    descVi = 'Vòng bụng dưới mức tiêu chuẩn và BMI ≥ 25 nhưng không phát hiện yếu tố nguy cơ bổ sung, thực hiện "Cung cấp thông tin" để duy trì hiện trạng.';
-                    colorClass = '#2dd4bf';
-                }
-            } else {
-                categoryJa = '情報提供 (Information Provision)';
-                categoryVi = 'Cung cấp thông tin (Information Provision)';
-                descJa = '腹囲およびBMIが基準未満であり、追加のリスク因子がありません。現状の健康生活習慣を継続するための「情報提供」を行います。';
-                descVi = 'Vòng bụng và BMI đều dưới mức tiêu chuẩn, đồng thời không có yếu tố nguy cơ bổ sung. Thực hiện "Cung cấp thông tin" để tiếp tục duy trì lối sống lành mạnh.';
-                colorClass = '#2dd4bf';
-            }
-        }
-
-        const isVi = document.body.classList.contains('lang-vi');
-        stratFeedbackTitle.textContent = isVi ? `判定：${categoryVi}` : `判定：${categoryJa}`;
-        stratFeedbackTitle.style.color = colorClass;
-        stratFeedbackBody.textContent = isVi ? descVi : descJa;
-    };
-
-    stratCheckboxes.forEach(cb => {
-        cb.addEventListener('change', updateStratification);
-    });
-
-    updateStratification();
+    // --- 14b. Interactive Preventive Medicine Levels and 14c. Specific Health Checkups moved to window.initSbo111Simulator ---
 
 
     // --- 15. Smooth scroll indicator handler ---
@@ -1995,6 +1837,717 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 window.initSbo111Simulator = function() {
+    // --- PART 1: WHO Health Concept Timeline Tabs ---
+    const conceptTabsGroup = document.getElementById('sbo111-concept-tabs');
+    const conceptDetailsPanel = document.getElementById('sbo111-concept-detail-panel');
+    const conceptProgressBar = document.getElementById('sbo111-concept-progress');
+
+    const conceptData = {
+        'who1948': {
+            color: 'var(--accent-teal)',
+            icon: 'fa-cube',
+            titleJa: '健康の定義 (1948年 WHO憲章基本定義)',
+            titleVi: 'Định nghĩa Sức khỏe (Định nghĩa cơ bản của WHO, 1948)',
+            bodyJa: '',
+            bodyVi: ''
+        },
+        'who1998': {
+            color: 'var(--accent-gold)',
+            icon: 'fa-circle-nodes',
+            titleJa: '概念の深化提案 (1998年 WHO執行理事会提案)',
+            titleVi: 'Đề xuất Mở rộng Khái niệm (Hội đồng Chấp hành WHO, 1998)',
+            bodyJa: '<p style="margin: 0 0 10px 0;">• <strong>「動的 (Dynamic)」かつ「スピリチュアル (Spiritual)」：</strong>従来の3要素に「dynamic（動的/変化するプロセス）」および「spiritual（霊的/尊厳・生きがい）」という表現を付け加える提案がなされました。</p>'
+                 + '<p style="margin: 0;">• <strong>静的定義から構築への契機：</strong>採択には至りませんでしたが、健康を単なる固定された静的な「状態」ではなく、自ら高め構築していく「動的プロセス」として捉え直す上で、非常に重要な契機となりました。</p>',
+            bodyVi: '<p style="margin: 0 0 10px 0;">• <strong>Bổ sung tính "Động" và "Tâm linh":</strong> Đề xuất bổ sung các từ "dynamic" (động) và "spiritual" (tâm linh/phẩm giá/lẽ sống) vào định nghĩa sức khỏe truyền thống.</p>'
+                 + '<p style="margin: 0;">• <strong>Chuyển đổi nhận thức:</strong> Dù chưa được thông qua chính thức, đề xuất này đã tạo bước ngoặt quan trọng, định hình lại sức khỏe không phải một "trạng thái" tĩnh mà là một "quá trình động" liên tục được xây dựng và vun đắp.</p>'
+        },
+        'ottawa': {
+            color: '#3b82f6',
+            icon: 'fa-landmark',
+            titleJa: '実践・構築の青写真 (1986年 オタワ憲章)',
+            titleVi: 'Thực tiễn và Kiến tạo (Hiến chương Ottawa, 1986)',
+            bodyJa: '<p style="margin: 0 0 10px 0;">• <strong>ヘルスプロモーションの提唱：</strong>「人々が自らの健康とその決定要因をコントロールし、改善できるようにするプロセス」と定義。健康を「生活の目標」ではなく「日常生活の資源」と位置づけました。</p>'
+                 + '<p style="margin: 0;">• <strong>5大アクション領域：</strong>①健康的な公共政策づくり、②健康を支援する環境づくり、③地域活動の強化、④個人のスキルの開発、⑤ヘルスケアサービスの再志向（予防重視へ）を掲げ、健康を社会的に構築する枠組みを示しました。</p>',
+            bodyVi: '<p style="margin: 0 0 10px 0;">• <strong>Nâng cao Sức khỏe (Health Promotion):</strong> Định nghĩa là "quá trình giúp mọi người tăng khả năng kiểm soát và tự cải thiện sức khỏe". Xem sức khỏe là "nguồn lực cho cuộc sống hàng ngày" chứ không phải mục tiêu sống.</p>'
+                 + '<p style="margin: 0;">• <strong>5 lĩnh vực hành động chính:</strong> (1) Xây dựng chính sách công cộng lành mạnh, (2) Tạo dựng môi trường hỗ trợ, (3) Tăng cường hành động cộng đồng, (4) Phát triển kỹ năng cá nhân, (5) Định hướng lại dịch vụ y tế (hướng về dự phòng).</p>'
+        }
+    };
+
+    function activateConceptTab(tabId) {
+        if (!conceptTabsGroup || !conceptDetailsPanel) return;
+        const buttons = conceptTabsGroup.querySelectorAll('.sbo111-concept-node');
+        
+        if (conceptProgressBar) {
+            const percentages = { 'who1948': '0%', 'who1998': '50%', 'ottawa': '100%' };
+            conceptProgressBar.style.width = percentages[tabId] || '0%';
+        }
+
+        buttons.forEach(btn => {
+            const isCurrent = btn.getAttribute('data-concept-tab') === tabId;
+            const year = btn.querySelector('.node-year');
+            const wrapper = btn.querySelector('.node-icon-wrapper');
+            const title = btn.querySelector('.node-title-ja');
+            const data = conceptData[btn.getAttribute('data-concept-tab')];
+
+            if (isCurrent) {
+                btn.classList.add('active');
+                if (year) year.style.color = '#fff';
+                if (title) title.style.color = '#fff';
+                if (wrapper && data) {
+                    wrapper.style.borderColor = data.color;
+                    wrapper.style.color = data.color;
+                    wrapper.style.boxShadow = '0 0 20px ' + (data.color.startsWith('var') ? 'rgba(45, 212, 191, 0.4)' : data.color);
+                    wrapper.style.transform = 'scale(1.05)';
+                }
+            } else {
+                btn.classList.remove('active');
+                if (year) year.style.color = 'var(--text-muted)';
+                if (title) title.style.color = 'var(--text-muted)';
+                if (wrapper) {
+                    wrapper.style.borderColor = 'rgba(255,255,255,0.12)';
+                    wrapper.style.color = 'var(--text-muted)';
+                    wrapper.style.boxShadow = 'none';
+                    wrapper.style.transform = 'scale(1)';
+                }
+            }
+        });
+
+        const data = conceptData[tabId];
+        if (data) {
+            if (tabId === 'who1948') {
+                conceptDetailsPanel.style.opacity = '0.1';
+                conceptDetailsPanel.style.transform = 'translateY(5px)';
+                setTimeout(() => {
+                    conceptDetailsPanel.style.borderTopColor = data.color;
+                    conceptDetailsPanel.innerHTML = '<h3 style="color: ' + data.color + '; margin-top: 0; margin-bottom: 16px; font-size: 1.15rem; display: flex; align-items: center; gap: 10px; font-weight: 600;">'
+                        + '<i class="fa-solid ' + data.icon + '" style="font-size: 1.2rem;"></i>'
+                        + '<span class="lang-ja">' + data.titleJa + '</span>'
+                        + '<span class="lang-vi">' + data.titleVi + '</span>'
+                        + '</h3>'
+                        + '<div class="who1948-container">'
+                        + '  <div class="who1948-venn-side">'
+                        + '    <div class="concept-title-sub" style="text-align: center; margin-bottom: 25px;">'
+                        + '      <span class="lang-ja">健康概念：三位一体のウェルビーイング</span>'
+                        + '      <span class="lang-vi">Khái niệm sức khỏe: Well-being tam vị nhất thể</span>'
+                        + '    </div>'
+                        + '    <div class="venn-diagram-wrapper" style="margin: 0 auto;">'
+                        + '      <div class="venn-circle physical" data-venn="physical">'
+                        + '        <span class="lang-ja">身体的</span>'
+                        + '        <span class="lang-vi">Thể chất</span>'
+                        + '      </div>'
+                        + '      <div class="venn-circle social" data-venn="social">'
+                        + '        <span class="lang-ja">社会的</span>'
+                        + '        <span class="lang-vi">Xã hội</span>'
+                        + '      </div>'
+                        + '      <div class="venn-circle mental" data-venn="mental">'
+                        + '        <span class="lang-ja">精神的</span>'
+                        + '        <span class="lang-vi">Tinh thần</span>'
+                        + '      </div>'
+                        + '      <div class="venn-center-glow"></div>'
+                        + '    </div>'
+                        + '  </div>'
+                        + '  '
+                        + '  <div class="who1948-info-side">'
+                        + '    <div class="bubble-info-box">'
+                        + '      <div class="bubble-quote">'
+                        + '        <span class="lang-ja">「健康とは、身体的・精神的・社会的にお互いに完全に良好な状態であり、単に病気あるいは虚弱ではないということではない」</span>'
+                        + '        <span class="lang-vi">"Sức khỏe là một trạng thái hoàn toàn khỏe mạnh về thể chất, tinh thần và xã hội chứ không chỉ đơn thuần là không có bệnh tật hay tàn phế."</span>'
+                        + '      </div>'
+                        + '      <div class="bubble-desc-footer">'
+                        + '        <span class="lang-ja">WHO憲章前文（1948年設立）にて明記。単なる「病気の不在」から、積極的な「ウェルビーイング（良好な状態）」へのパラダイムシフト。</span>'
+                        + '        <span class="lang-vi">Được quy định rõ trong Hiến chương WHO (1948). Sự chuyển dịch từ "vắng bóng bệnh tật" sang "Well-being" một cách chủ động.</span>'
+                        + '      </div>'
+                        + '      <div class="venn-click-detail" id="sbo111-venn-details" style="border-left: 3px solid var(--accent-teal); padding-left: 12px; margin-top: 10px; background: rgba(255,255,255,0.01); display: block;">'
+                        + '        <i class="fa-solid fa-hand-pointer"></i> '
+                        + '        <span class="lang-ja">各円をクリックすると、健康の3要素の定義が表示されます。</span>'
+                        + '        <span class="lang-vi">Nhấp vào từng vòng tròn để xem định nghĩa 3 yếu tố sức khỏe.</span>'
+                        + '      </div>'
+                        + '    </div>'
+                        + '  </div>'
+                        + '</div>';
+
+                    if (typeof window.syncLanguages === 'function') window.syncLanguages();
+
+                    // Setup Venn diagram click listeners
+                    const vennCircles = conceptDetailsPanel.querySelectorAll('.venn-circle');
+                    const vennDetails = document.getElementById('sbo111-venn-details');
+                    const vennData = {
+                        physical: {
+                            color: 'var(--accent-teal)',
+                            titleJa: '身体的健康 (Physical Health)',
+                            titleVi: 'Sức khỏe thể chất (Physical Health)',
+                            bodyJa: '病気や虚弱がないだけでなく、適切な栄養、運動、睡眠が確保され、身体の諸器官が正常かつ調和的に機能している状態。生命力に満ちている状態を指します。',
+                            bodyVi: 'Không chỉ không có bệnh tật hay ốm yếu, mà còn đảm bảo dinh dưỡng hợp lý, vận động, giấc ngủ, và các cơ quan trong cơ thể hoạt động bình thường, hài hòa, tràn đầy sinh lực.'
+                        },
+                        social: {
+                            color: 'var(--accent-gold)',
+                            titleJa: '社会的健康 (Social Health)',
+                            titleVi: 'Sức khỏe xã hội (Social Health)',
+                            bodyJa: '他者との良好な人間関係を築き、社会の構成員として適切な役割を果たし、孤独にならずに支え合える状態。社会とのつながりや所属感を含みます。',
+                            bodyVi: 'Xây dựng mối quan hệ tốt đẹp với người khác, đóng vai trò phù hợp là thành viên xã hội, hỗ trợ lẫn nhau mà không cô đơn, có sự kết nối và thuộc về cộng đồng.'
+                        },
+                        mental: {
+                            color: '#10b981',
+                            titleJa: '精神的健康 (Mental Health)',
+                            titleVi: 'Sức khỏe tinh thần (Mental Health)',
+                            bodyJa: '自身の感情を認識・コントロールし、ストレスに対処でき、自立して意思決定を行える状態。心が満たされ、自己肯定感がある状態です。',
+                            bodyVi: 'Nhận biết và kiểm soát được cảm xúc của bản thân, đối phó được với căng thẳng, và có thể tự lập đưa ra quyết định, có lòng tự tôn và tâm hồn mãn nguyện.'
+                        }
+                    };
+
+                    vennCircles.forEach(circle => {
+                        circle.addEventListener('click', () => {
+                            vennCircles.forEach(c => c.classList.remove('active'));
+                            circle.classList.add('active');
+                            const key = circle.getAttribute('data-venn');
+                            const vDetails = vennData[key];
+                            if (vDetails && vennDetails) {
+                                vennDetails.style.borderColor = vDetails.color;
+                                vennDetails.innerHTML = '<strong style="color: ' + vDetails.color + '; display: block; margin-bottom: 4px;">'
+                                    + '<span class="lang-ja">' + vDetails.titleJa + '</span>'
+                                    + '<span class="lang-vi">' + vDetails.titleVi + '</span>'
+                                    + '</strong>'
+                                    + '<span class="lang-ja">' + vDetails.bodyJa + '</span>'
+                                    + '<span class="lang-vi">' + vDetails.bodyVi + '</span>';
+                                if (typeof window.syncLanguages === 'function') window.syncLanguages();
+                            }
+                        });
+                    });
+
+                    conceptDetailsPanel.style.opacity = '1';
+                    conceptDetailsPanel.style.transform = 'translateY(0)';
+                }, 180);
+            } else if (tabId === 'who1998') {
+                conceptDetailsPanel.style.opacity = '0.1';
+                conceptDetailsPanel.style.transform = 'translateY(5px)';
+                setTimeout(() => {
+                    conceptDetailsPanel.style.borderTopColor = data.color;
+                    conceptDetailsPanel.innerHTML = '<h3 style="color: ' + data.color + '; margin-top: 0; margin-bottom: 16px; font-size: 1.15rem; display: flex; align-items: center; gap: 10px; font-weight: 600;">'
+                        + '<i class="fa-solid ' + data.icon + '" style="font-size: 1.2rem;"></i>'
+                        + '<span class="lang-ja">' + data.titleJa + '</span>'
+                        + '<span class="lang-vi">' + data.titleVi + '</span>'
+                        + '</h3>'
+                        + '<div class="who1998-container">'
+                        + '  <!-- Left Column: 3D coordinate system & wave -->'
+                        + '  <div class="who1998-diagram-side">'
+                        + '    <div class="diagram-1998-wrapper">'
+                        + '      <!-- 3D Axes SVG -->'
+                        + '      <svg width="320" height="280" style="position: absolute; top:0; left:0; pointer-events: none;">'
+                        + '        <!-- Z Axis (Up) -->'
+                        + '        <line x1="160" y1="180" x2="160" y2="20" stroke="rgba(255,255,255,0.25)" stroke-width="1.5" stroke-dasharray="3 3" />'
+                        + '        <polygon points="160,15 156,23 164,23" fill="rgba(255,255,255,0.4)" />'
+                        + '        <text x="170" y="30" fill="rgba(255,255,255,0.4)" font-size="12" font-weight="bold">Z</text>'
+                        + '        '
+                        + '        <!-- X Axis (Down-Right) -->'
+                        + '        <line x1="160" y1="180" x2="280" y2="250" stroke="rgba(255,255,255,0.25)" stroke-width="1.5" stroke-dasharray="3 3" />'
+                        + '        <polygon points="284,252 275,246 279,254" fill="rgba(255,255,255,0.4)" />'
+                        + '        <text x="285" y="242" fill="rgba(255,255,255,0.4)" font-size="12" font-weight="bold">X</text>'
+                        + '        '
+                        + '        <!-- Y Axis (Down-Left) -->'
+                        + '        <line x1="160" y1="180" x2="40" y2="250" stroke="rgba(255,255,255,0.25)" stroke-width="1.5" stroke-dasharray="3 3" />'
+                        + '        <polygon points="36,252 45,254 41,246" fill="rgba(255,255,255,0.4)" />'
+                        + '        <text x="30" y="242" fill="rgba(255,255,255,0.4)" font-size="12" font-weight="bold">Y</text>'
+                        + '        '
+                        + '        <!-- Dynamic Wave -->'
+                        + '        <path class="dynamic-wave-path" d="M 60,130 C 90,90 100,170 130,130 C 150,95 170,95 190,130 C 220,170 230,90 260,130" />'
+                        + '        '
+                        + '        <!-- Labels pointing -->'
+                        + '        <line x1="220" y1="145" x2="235" y2="185" stroke="rgba(255,255,255,0.3)" stroke-width="1" />'
+                        + '        <line x1="160" y1="190" x2="195" y2="220" stroke="rgba(255,255,255,0.3)" stroke-width="1" />'
+                        + '      </svg>'
+                        + '      '
+                        + '      <!-- 3 health circles with low opacity -->'
+                        + '      <div class="venn-circle physical" style="width: 110px; height: 110px; left: 45px; top: 35px; pointer-events: none; opacity: 0.65; font-size: 0.85rem;">'
+                        + '        <span class="lang-ja">身体的</span><span class="lang-vi">Thể chất</span>'
+                        + '      </div>'
+                        + '      <div class="venn-circle social" style="width: 110px; height: 110px; right: 45px; top: 35px; pointer-events: none; opacity: 0.65; font-size: 0.85rem;">'
+                        + '        <span class="lang-ja">社会的</span><span class="lang-vi">Xã hội</span>'
+                        + '      </div>'
+                        + '      <div class="venn-circle mental" style="width: 110px; height: 110px; left: 105px; bottom: 45px; pointer-events: none; opacity: 0.65; font-size: 0.85rem;">'
+                        + '        <span class="lang-ja">精神的</span><span class="lang-vi">Tinh thần</span>'
+                        + '      </div>'
+                        + '      '
+                        + '      <!-- Spiritual sphere -->'
+                        + '      <div class="spiritual-sphere"></div>'
+                        + '      '
+                        + '      <!-- Labels overlay -->'
+                        + '      <div style="position: absolute; left: 235px; top: 180px; font-size: 0.75rem; color: #10b981; font-weight: bold;">Dynamic (動的)</div>'
+                        + '      <div style="position: absolute; left: 200px; top: 215px; font-size: 0.75rem; color: #fb923c; font-weight: bold;">Spiritual (霊的/尊厳)</div>'
+                        + '    </div>'
+                        + '  </div>'
+                        + '  '
+                        + '  <!-- Right Column: 2 Cards description -->'
+                        + '  <div class="who1998-info-side">'
+                        + '    <div class="card-1998">'
+                        + '      <div style="font-size: 0.95rem; line-height: 1.6; color: #fff; font-weight: 500;">'
+                        + '        <span class="lang-ja">1998年WHO執行理事会にて、憲章の「健康の定義」に新たに<strong>「dynamic (動的)」</strong>と<strong>「spiritual (霊的/尊厳)」</strong>を加える改変案が提唱されました。</span>'
+                        + '        <span class="lang-vi">Tại Hội đồng Chấp hành WHO năm 1998, một dự thảo sửa đổi đã được đề xuất để thêm <strong>"dynamic" (động)</strong> và <strong>"spiritual" (tâm linh/phẩm giá)</strong> vào định nghĩa sức khỏe.</span>'
+                        + '      </div>'
+                        + '    </div>'
+                        + '    '
+                        + '    <div class="arrow-connector">'
+                        + '      <i class="fa-solid fa-angles-down"></i>'
+                        + '    </div>'
+                        + '    '
+                        + '    <div class="card-1998" style="border-left: 3px solid var(--accent-gold);">'
+                        + '      <div style="font-size: 0.92rem; line-height: 1.6; color: var(--text-secondary);">'
+                        + '        <span class="lang-ja">世界総会での採択は見送られましたが、これは健康を単なる固定された静的状態ではなく、個人の尊厳（Spiritual）を保ちながら自ら高めていく「動的プロセス（Dynamic）」として再定義する重要な契機となりました。</span>'
+                        + '        <span class="lang-vi">Mặc dù đại hội đồng chưa thông qua chính thức, nhưng đây là một bước đi mang tính bước ngoặt để nhìn nhận sức khỏe không chỉ là một trạng thái tĩnh, mà là một "quá trình động" (Dynamic) liên tục được kiến tạo dựa trên nền tảng nhân phẩm con người (Spiritual).</span>'
+                        + '      </div>'
+                        + '    </div>'
+                        + '  </div>'
+                        + '</div>';
+                    if (typeof window.syncLanguages === 'function') window.syncLanguages();
+                    conceptDetailsPanel.style.opacity = '1';
+                    conceptDetailsPanel.style.transform = 'translateY(0)';
+                }, 180);
+            } else if (tabId === 'ottawa') {
+                conceptDetailsPanel.style.opacity = '0.1';
+                conceptDetailsPanel.style.transform = 'translateY(5px)';
+                setTimeout(() => {
+                    conceptDetailsPanel.style.borderTopColor = data.color;
+                    conceptDetailsPanel.innerHTML = '<h3 style="color: ' + data.color + '; margin-top: 0; margin-bottom: 16px; font-size: 1.15rem; display: flex; align-items: center; gap: 10px; font-weight: 600;">'
+                        + '<i class="fa-solid ' + data.icon + '" style="font-size: 1.2rem;"></i>'
+                        + '<span class="lang-ja">' + data.titleJa + '</span>'
+                        + '<span class="lang-vi">' + data.titleVi + '</span>'
+                        + '</h3>'
++ '<div style="display: flex; flex-direction: column; gap: 20px; width: 100%;">'
+                        + '  <div class="ottawa-container">'
+                        + '    <!-- Left Column: Interactive Menu List -->'
+                        + '    <div class="ottawa-menu-side">'
+                        + '      <div class="ottawa-menu-item active" data-ottawa-part="action">'
+                        + '        <div class="ottawa-menu-item-title">'
+                        + '          <i class="fa-solid fa-gears" style="color: #60a5fa;"></i>'
+                        + '          <span class="lang-ja">5つの活動領域</span>'
+                        + '          <span class="lang-vi">5 lĩnh vực hành động</span>'
+                        + '        </div>'
+                        + '        <div class="ottawa-menu-item-desc">'
+                        + '          <span class="lang-ja">健康的な公共政策、支援環境づくり、地域活動強化、個人スキル開発、医療の再設定。</span>'
+                        + '          <span class="lang-vi">Chính sách công, môi trường hỗ trợ, hành động cộng đồng, kỹ năng cá nhân, định hướng lại dịch vụ y tế.</span>'
+                        + '        </div>'
+                        + '      </div>'
+                        + '      '
+                        + '      <div class="ottawa-menu-item" data-ottawa-part="strategy">'
+                        + '        <div class="ottawa-menu-item-title">'
+                        + '          <i class="fa-solid fa-circle-up" style="color: #60a5fa;"></i>'
+                        + '          <span class="lang-ja">3つの基本戦略</span>'
+                        + '          <span class="lang-vi">3 chiến lược cơ bản</span>'
+                        + '        </div>'
+                        + '        <div class="ottawa-menu-item-desc">'
+                        + '          <span class="lang-ja">擁護する (Advocate) ・ 可能にする (Enable) ・ 調停する (Mediate)</span>'
+                        + '          <span class="lang-vi">Biện hộ (Advocate) - Tạo điều kiện (Enable) - Vận động/Hòa giải (Mediate)</span>'
+                        + '        </div>'
+                        + '      </div>'
+                        + '      '
+                        + '      <div class="ottawa-menu-item" data-ottawa-part="prerequisite">'
+                        + '        <div class="ottawa-menu-item-title">'
+                        + '          <i class="fa-solid fa-cubes" style="color: #60a5fa;"></i>'
+                        + '          <span class="lang-ja">8つの前提条件</span>'
+                        + '          <span class="lang-vi">8 điều kiện tiên quyết</span>'
+                        + '        </div>'
+                        + '        <div class="ottawa-menu-item-desc">'
+                        + '          <span class="lang-ja">平和、住居、教育、食糧、収入、安定した生態系、持続可能な資源、社会的公正と公平。</span>'
+                        + '          <span class="lang-vi">Hòa bình, nhà ở, giáo dục, thực phẩm, thu nhập, hệ sinh thái ổn định, tài nguyên bền vững, công bằng xã hội.</span>'
+                        + '        </div>'
+                        + '      </div>'
+                        + '    </div>'
+                        + '    '
+                        + '    <!-- Right Column: Blueprint Greek Temple Diagram -->'
+                        + '    <div class="ottawa-blueprint-side" style="min-height: 280px; padding: 10px; display: flex; align-items: center; justify-content: center;">'
+                        + '      <!-- Blueprint Grid overlay -->'
+                        + '      <div style="position: absolute; inset: 0; background-image: linear-gradient(rgba(59, 130, 246, 0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(59, 130, 246, 0.05) 1px, transparent 1px); background-size: 20px 20px; pointer-events: none;"></div>'
+                        + '      '
+                        + '      <!-- Temple SVG -->'
+                        + '      <svg width="280" height="260" viewBox="0 0 280 260" style="z-index: 2; width: 100%; max-width: 240px; height: auto; margin: 0 auto;">'
+                        + '        <!-- ROOF (5 Action Areas) & Rotating Gears -->'
+                        + '        <g id="temple-roof" class="temple-part active">'
+                        + '          <!-- Roof Triangle Outline -->'
+                        + '          <polygon points="20,80 140,10 260,80" />'
+                        + '          <line x1="20" y1="80" x2="260" y2="80" />'
+                        + '          '
+                        + '          <!-- Spinning Gear 1 (Left) -->'
+                        + '          <circle cx="85" cy="55" r="14" class="gear-spin" />'
+                        + '          <circle cx="85" cy="55" r="18" stroke-dasharray="4 3" class="gear-spin" />'
+                        + '          '
+                        + '          <!-- Spinning Gear 2 (Center) -->'
+                        + '          <circle cx="140" cy="45" r="18" class="gear-spin-reverse" />'
+                        + '          <circle cx="140" cy="45" r="23" stroke-dasharray="4 3" class="gear-spin-reverse" />'
+                        + '          '
+                        + '          <!-- Spinning Gear 3 (Right) -->'
+                        + '          <circle cx="195" cy="55" r="14" class="gear-spin" />'
+                        + '          <circle cx="195" cy="55" r="18" stroke-dasharray="4 3" class="gear-spin" />'
+                        + '        </g>'
+                        + '        '
+                        + '        <!-- PILLARS (3 Basic Strategies) -->'
+                        + '        <g id="temple-pillars" class="temple-part">'
+                        + '          <!-- Pillar Left -->'
+                        + '          <rect x="50" y="80" width="30" height="150" rx="2" />'
+                        + '          <line x1="65" y1="80" x2="65" y2="230" stroke-dasharray="2 2" />'
+                        + '          '
+                        + '          <!-- Pillar Center -->'
+                        + '          <rect x="125" y="80" width="30" height="150" rx="2" />'
+                        + '          <line x1="140" y1="80" x2="140" y2="230" stroke-dasharray="2 2" />'
+                        + '          '
+                        + '          <!-- Pillar Right -->'
+                        + '          <rect x="200" y="80" width="30" height="150" rx="2" />'
+                        + '          <line x1="215" y1="80" x2="215" y2="230" stroke-dasharray="2 2" />'
+                        + '        </g>'
+                        + '        '
+                        + '        <!-- BASE (8 Prerequisites) -->'
+                        + '        <g id="temple-base" class="temple-part">'
+                        + '          <!-- Pediment Base Layers -->'
+                        + '          <rect x="10" y="230" width="260" height="15" rx="3" />'
+                        + '          <rect x="0" y="245" width="280" height="20" rx="3" />'
+                        + '        </g>'
+                        + '      </svg>'
+                        + '    </div>'
+                        + '  </div>'
+                        + '  '
+                        + '  <!-- Bottom Full-Width Details Card -->'
+                        + '  <div class="ottawa-bottom-details" id="ottawa-overlay-box">'
+                        + '    <!-- Content loaded dynamically -->'
+                        + '    <div style="font-size: 0.82rem; color: var(--text-secondary);">'
+                        + '      <span class="lang-ja">読み込み中...</span>'
+                        + '      <span class="lang-vi">Đang tải...</span>'
+                        + '    </div>'
+                        + '  </div>'
+                        + '</div>';
+
+                    if (typeof window.syncLanguages === 'function') window.syncLanguages();
+
+                    // Setup interactive handlers for Ottawa blueprint
+                    const menuItems = conceptDetailsPanel.querySelectorAll('.ottawa-menu-item');
+                    const overlayBox = document.getElementById('ottawa-overlay-box');
+                    const templeRoof = document.getElementById('temple-roof');
+                    const templePillars = document.getElementById('temple-pillars');
+                    const templeBase = document.getElementById('temple-base');
+
+                    const detailsData = {
+                        action: {
+                            color: 'var(--accent-teal)',
+                            titleJa: 'ヘルスプロモーションの5大活動領域',
+                            titleVi: '5 lĩnh vực hành động của Nâng cao sức khỏe',
+                            bodyJa: '<ul style="margin:0; padding-left:20px; font-size:0.82rem; line-height:1.5;">'
+                                + '<li><strong>健康的な公共政策づくり：</strong>健康を第一にする政策決定。</li>'
+                                + '<li><strong>健康を支援する環境づくり：</strong>安全で快適に暮らせる社会環境。</li>'
+                                + '<li><strong>地域活動の強化：</strong>地域コミュニティの主体的参画。</li>'
+                                + '<li><strong>個人のスキルの開発：</strong>健康に関する education と能力向上。</li>'
+                                + '<li><strong>医療の再設定：</strong>予防や健康づくりを重視する医療体制へ。</li>'
+                                + '</ul>',
+                            bodyVi: '<ul style="margin:0; padding-left:20px; font-size:0.82rem; line-height:1.5;">'
+                                + '<li><strong>Xây dựng chính sách công khỏe mạnh:</strong> Đặt sức khỏe làm trọng tâm các chính sách.</li>'
+                                + '<li><strong>Tạo môi trường hỗ trợ:</strong> Môi trường sống và làm việc an toàn, lành mạnh.</li>'
+                                + '<li><strong>Tăng cường hành động cộng đồng:</strong> Sự tham gia tự chủ của cộng đồng.</li>'
+                                + '<li><strong>Phát triển kỹ năng cá nhân:</strong> Giáo dục sức khỏe và kỹ năng tự quản lý.</li>'
+                                + '<li><strong>Định hướng lại dịch vụ y tế:</strong> Chuyển từ điều trị sang dự phòng chủ động.</li>'
+                                + '</ul>'
+                        },
+                        strategy: {
+                            color: 'var(--accent-gold)',
+                            titleJa: '3つの基本戦略',
+                            titleVi: '3 chiến lược cơ bản',
+                            bodyJa: '<ul style="margin:0; padding-left:20px; font-size:0.82rem; line-height:1.5;">'
+                                + '<li><strong>擁護する (Advocate)：</strong>社会的決定要因を有利にし健康の価値を唱える。</li>'
+                                + '<li><strong>可能にする (Enable)：</strong>能力向上と資源提供により健康格差を縮小する。</li>'
+                                + '<li><strong>調停する (Mediate)：</strong>政府、NGO、産業界、地域社会間の連携を仲介する。</li>'
+                                + '</ul>',
+                            bodyVi: '<ul style="margin:0; padding-left:20px; font-size:0.82rem; line-height:1.5;">'
+                                + '<li><strong>Biện hộ (Advocate):</strong> Thúc đẩy các yếu tố xã hội có lợi cho sức khỏe.</li>'
+                                + '<li><strong>Tạo điều kiện (Enable):</strong> Thu hẹp khoảng cách y tế, hỗ trợ nguồn lực để tự nâng cao sức khỏe.</li>'
+                                + '<li><strong>Hòa giải (Mediate):</strong> Làm cầu nối giữa chính phủ, tổ chức phi chính phủ, doanh nghiệp và cộng đồng.</li>'
+                                + '</ul>'
+                        },
+                        prerequisite: {
+                            color: '#60a5fa',
+                            titleJa: '健康の8つの前提条件',
+                            titleVi: '8 điều kiện tiên quyết đối với sức khỏe'
+                        }
+                    };
+
+                    function updateOverlay(partId) {
+                        const data = detailsData[partId];
+                        const isVi = document.body.classList.contains('lang-vi');
+                        if (data && overlayBox) {
+                            if (partId === 'prerequisite') {
+                                overlayBox.innerHTML = '<strong style="color: ' + data.color + '; display: block; margin-bottom: 6px; font-size: 0.88rem;">'
+                                    + (isVi ? data.titleVi : data.titleJa)
+                                    + '</strong>'
+                                    + '<div style="font-size: 0.82rem; line-height: 1.5; color: var(--text-secondary); margin-bottom: 12px;">'
+                                    + '<span class="lang-ja">個人の健康は、個人の努力だけでは管理できないグローバルな状況や社会基盤に大きく左右されます。これら8つの状況と資源が確保されて初めて、健康づくりがスタートします。</span>'
+                                    + '<span class="lang-vi">Sức khỏe cá nhân không thể chỉ kiểm soát bằng nỗ lực của bản thân mà phụ thuộc rất lớn vào các điều kiện toàn cầu và cơ sở hạ tầng xã hội. Chỉ khi 8 điều kiện này được đảm bảo thì tiến trình nâng cao sức khỏe mới có thể bắt đầu.</span>'
+                                    + '</div>'
+                                    + '<div class="prereq-blocks-container" style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-bottom: 10px;">'
+                                    + '  <div class="prereq-block" data-prereq="peace">'
+                                    + '    <i class="fa-solid fa-dove prereq-block-icon"></i>'
+                                    + '    <span class="prereq-block-label lang-ja">平和</span>'
+                                    + '    <span class="prereq-block-label lang-vi">Hòa bình</span>'
+                                    + '  </div>'
+                                    + '  <div class="prereq-block" data-prereq="shelter">'
+                                    + '    <i class="fa-solid fa-house prereq-block-icon"></i>'
+                                    + '    <span class="prereq-block-label lang-ja">住居</span>'
+                                    + '    <span class="prereq-block-label lang-vi">Nhà ở</span>'
+                                    + '  </div>'
+                                    + '  <div class="prereq-block" data-prereq="education">'
+                                    + '    <i class="fa-solid fa-book-open prereq-block-icon"></i>'
+                                    + '    <span class="prereq-block-label lang-ja">教育</span>'
+                                    + '    <span class="prereq-block-label lang-vi">Giáo dục</span>'
+                                    + '  </div>'
+                                    + '  <div class="prereq-block" data-prereq="food">'
+                                    + '    <i class="fa-solid fa-wheat-awn prereq-block-icon"></i>'
+                                    + '    <span class="prereq-block-label lang-ja">食糧</span>'
+                                    + '    <span class="prereq-block-label lang-vi">Thực phẩm</span>'
+                                    + '  </div>'
+                                    + '  <div class="prereq-block" data-prereq="income">'
+                                    + '    <i class="fa-solid fa-coins prereq-block-icon"></i>'
+                                    + '    <span class="prereq-block-label lang-ja">収入</span>'
+                                    + '    <span class="prereq-block-label lang-vi">Thu nhập</span>'
+                                    + '  </div>'
+                                    + '  <div class="prereq-block" data-prereq="ecosystem">'
+                                    + '    <i class="fa-solid fa-tree prereq-block-icon"></i>'
+                                    + '    <span class="prereq-block-label lang-ja">安定環境</span>'
+                                    + '    <span class="prereq-block-label lang-vi">Môi trường</span>'
+                                    + '  </div>'
+                                    + '  <div class="prereq-block" data-prereq="resources">'
+                                    + '    <i class="fa-solid fa-infinity prereq-block-icon"></i>'
+                                    + '    <span class="prereq-block-label lang-ja">持続資源</span>'
+                                    + '    <span class="prereq-block-label lang-vi">Tài nguyên</span>'
+                                    + '  </div>'
+                                    + '  <div class="prereq-block" data-prereq="equity">'
+                                    + '    <i class="fa-solid fa-scale-balanced prereq-block-icon"></i>'
+                                    + '    <span class="prereq-block-label lang-ja">社会的公正</span>'
+                                    + '    <span class="prereq-block-label lang-vi">Công bằng</span>'
+                                    + '  </div>'
+                                    + '</div>'
+                                    + '<div id="prereq-desc-box" style="border-top: 1px dashed rgba(255,255,255,0.12); padding-top: 8px; font-size: 0.78rem; min-height: 48px; color: var(--text-secondary);">'
+                                    + '  <i class="fa-solid fa-hand-pointer"></i> '
+                                    + '  <span class="lang-ja">ブロックをクリックすると詳細が表示されます。</span>'
+                                    + '  <span class="lang-vi">Nhấp vào ô để xem chi tiết.</span>'
+                                    + '</div>';
+                                
+                                const pBlocks = overlayBox.querySelectorAll('.prereq-block');
+                                const pDescBox = document.getElementById('prereq-desc-box');
+                                const prereqData = {
+                                    peace: {
+                                        ja: '<strong>平和 (Peace):</strong> 紛争のない状態は、あらゆる人間の営みの土台であり、健康にとっても最優先の前提条件です。',
+                                        vi: '<strong>Hòa bình (Peace):</strong> Sự vắng bóng của xung đột là nền tảng cho mọi hoạt động của con người và là điều kiện tiên quyết hàng đầu cho sức khỏe.'
+                                    },
+                                    shelter: {
+                                        ja: '<strong>住居 (Shelter):</strong> 暑さ寒さや危険から身を守り、プライバシーが保たれる安全で衛生的な居住空間。',
+                                        vi: '<strong>Nhà ở (Shelter):</strong> Không gian sống an toàn, vệ sinh, bảo vệ cơ thể khỏi thời tiết khắc nghiệt và nguy hiểm.'
+                                    },
+                                    education: {
+                                        ja: '<strong>教育 (Education):</strong> 正しい情報を選択し、自立した意思決定を行い、社会で適切に生きるための知識を得る機会。',
+                                        vi: '<strong>Giáo dục (Education):</strong> Cơ hội tiếp thu tri thức để đưa ra các quyết định độc lập, đúng đắn bảo vệ sức khỏe.'
+                                    },
+                                    food: {
+                                        ja: '<strong>食糧 (Food):</strong> 生命維持と活力ある生活に必要な、安全で栄養価の高い食料が持続的に確保されていること。',
+                                        vi: '<strong>Thực phẩm (Food):</strong> Nguồn lương thực an toàn, giàu dinh dưỡng được đảm bảo cung cấp một cách bền vững.'
+                                    },
+                                    income: {
+                                        ja: '<strong>収入 (Income):</strong> 必要な生活物資やサービスを手に入れ、尊厳ある生活設計を立てるための経済的基盤。',
+                                        vi: '<strong>Thu nhập (Income):</strong> Nền tảng tài chính ổn định để trang trải cuộc sống và tiếp cận các dịch vụ cần thiết.'
+                                    },
+                                    ecosystem: {
+                                        ja: '<strong>安定した環境 (Stable Ecosystem):</strong> 大気、水、土壌などの自然環境が保全され、生態系のバランスが維持されている状態。',
+                                        vi: '<strong>Môi trường ổn định (Ecosystem):</strong> Sự bảo tồn không khí, nguồn nước, đất đai và duy trì sự cân bằng sinh thái.'
+                                    },
+                                    resources: {
+                                        ja: '<strong>持続可能な資源 (Sustainable Resources):</strong> 次世代の健康や社会を脅かすことなく、継続的に利用可能なエネルギーや資源の管理。',
+                                        vi: '<strong>Tài nguyên bền vững (Resources):</strong> Sử dụng hợp lý năng lượng và tài nguyên để không ảnh hưởng thế hệ mai sau.'
+                                    },
+                                    equity: {
+                                        ja: '<strong>社会的公正と公平 (Social Justice and Equity):</strong> すべての人が公平に社会資源やサービスにアクセスできる平等の保障。',
+                                        vi: '<strong>Công bằng xã hội (Equity):</strong> Đảm bảo mọi người đều có cơ hội tiếp cận công bằng các nguồn lực và dịch vụ.'
+                                    }
+                                };
+                                
+                                pBlocks.forEach(blk => {
+                                    blk.addEventListener('click', () => {
+                                        pBlocks.forEach(b => b.classList.remove('active'));
+                                        blk.classList.add('active');
+                                        const key = blk.getAttribute('data-prereq');
+                                        const detail = prereqData[key];
+                                        if (detail && pDescBox) {
+                                            pDescBox.innerHTML = '<span class="lang-ja">' + detail.ja + '</span>'
+                                                + '<span class="lang-vi">' + detail.vi + '</span>';
+                                            if (typeof window.syncLanguages === 'function') window.syncLanguages();
+                                        }
+                                    });
+                                });
+                                
+                                // Auto-click first one
+                                if (pBlocks.length > 0) pBlocks[0].click();
+                            } else if (partId === 'strategy') {
+                                overlayBox.innerHTML = '<strong style="color: ' + data.color + '; display: block; margin-bottom: 12px; font-size: 0.88rem;">'
+                                    + (isVi ? data.titleVi : data.titleJa)
+                                    + '</strong>'
+                                    + '<div class="strategy-pillars-container">'
+                                    + '  <div class="strategy-pillar-card">'
+                                    + '    <i class="fa-solid fa-arrow-up-long strategy-arrow-icon"></i>'
+                                    + '    <div class="strategy-pillar-title">'
+                                    + '      <span class="lang-ja">推奨する (Advocate)</span>'
+                                    + '      <span class="lang-vi">Biện hộ (Advocate)</span>'
+                                    + '    </div>'
+                                    + '    <div class="strategy-pillar-desc">'
+                                    + '      <span class="lang-ja">健康の利点を明確にし、健康的な環境の創造を社会全体に推進・提唱する。</span>'
+                                    + '      <span class="lang-vi">Làm rõ lợi ích của sức khỏe, thúc đẩy và vận động toàn xã hội tạo dựng môi trường sống lành mạnh.</span>'
+                                    + '    </div>'
+                                    + '  </div>'
+                                    + '  <div class="strategy-pillar-card">'
+                                    + '    <i class="fa-solid fa-arrow-up-long strategy-arrow-icon"></i>'
+                                    + '    <div class="strategy-pillar-title">'
+                                    + '      <span class="lang-ja">可能にする (Enable)</span>'
+                                    + '      <span class="lang-vi">Tạo điều kiện (Enable)</span>'
+                                    + '    </div>'
+                                    + '    <div class="strategy-pillar-desc">'
+                                    + '      <span class="lang-ja">全ての人々が健康面での潜在能力を最大限に引き出せるよう、機会や資源を確保し支援する。</span>'
+                                    + '      <span class="lang-vi">Đảm bảo cơ hội và cung cấp nguồn lực hỗ trợ giúp tất cả mọi người phát huy tối đa tiềm năng sức khỏe.</span>'
+                                    + '    </div>'
+                                    + '  </div>'
+                                    + '  <div class="strategy-pillar-card">'
+                                    + '    <i class="fa-solid fa-arrow-up-long strategy-arrow-icon"></i>'
+                                    + '    <div class="strategy-pillar-title">'
+                                    + '      <span class="lang-ja">調停する (Mediate)</span>'
+                                    + '      <span class="lang-vi">Hòa giải (Mediate)</span>'
+                                    + '    </div>'
+                                    + '    <div class="strategy-pillar-desc">'
+                                    + '      <span class="lang-ja">健康の追求において対立する様々な利害関係者の間に立ち、妥協点と協力を模索する。</span>'
+                                    + '      <span class="lang-vi">Làm cầu nối giữa các bên có lợi ích mâu thuẫn, tìm kiếm điểm chung và sự hợp tác để cùng nâng cao sức khỏe.</span>'
+                                    + '    </div>'
+                                    + '  </div>'
+                                    + '</div>';
+                            } else if (partId === 'action') {
+                                overlayBox.innerHTML = '<strong style="color: ' + data.color + '; display: block; margin-bottom: 8px; font-size: 0.88rem;">'
+                                    + (isVi ? data.titleVi : data.titleJa)
+                                    + '</strong>'
+                                    + '<div class="action-gears-container">'
+                                    + '  <div class="action-gear-card">'
+                                    + '    <div class="action-gear-icon-wrapper"><i class="fa-solid fa-gear"></i></div>'
+                                    + '    <div class="action-gear-content">'
+                                    + '      <div class="action-gear-title">'
+                                    + '        <span class="lang-ja">健康的な公共政策づくり</span>'
+                                    + '        <span class="lang-vi">Xây dựng chính sách công khỏe mạnh</span>'
+                                    + '      </div>'
+                                    + '      <div class="action-gear-desc">'
+                                    + '        <span class="lang-ja">すべての政策決定において健康を最優先項目として組み込むこと。</span>'
+                                    + '        <span class="lang-vi">Đưa yếu tố bảo vệ sức khỏe thành ưu tiên hàng đầu trong mọi quyết định chính sách.</span>'
+                                    + '      </div>'
+                                    + '    </div>'
+                                    + '  </div>'
+                                    + '  <div class="action-gear-card">'
+                                    + '    <div class="action-gear-icon-wrapper"><i class="fa-solid fa-gear"></i></div>'
+                                    + '    <div class="action-gear-content">'
+                                    + '      <div class="action-gear-title">'
+                                    + '        <span class="lang-ja">健康を支援する環境づくり</span>'
+                                    + '        <span class="lang-vi">Tạo môi trường hỗ trợ sức khỏe</span>'
+                                    + '      </div>'
+                                    + '      <div class="action-gear-desc">'
+                                    + '        <span class="lang-ja">安全で快適に暮らせ、健康的な選択が容易にできる社会環境をつくること。</span>'
+                                    + '        <span class="lang-vi">Xây dựng không gian sống và làm việc an toàn, tạo điều kiện thuận lợi cho các lựa chọn lành mạnh.</span>'
+                                    + '      </div>'
+                                    + '    </div>'
+                                    + '  </div>'
+                                    + '  <div class="action-gear-card">'
+                                    + '    <div class="action-gear-icon-wrapper"><i class="fa-solid fa-gear"></i></div>'
+                                    + '    <div class="action-gear-content">'
+                                    + '      <div class="action-gear-title">'
+                                    + '        <span class="lang-ja">地域活動の強化</span>'
+                                    + '        <span class="lang-vi">Tăng cường hành động cộng đồng</span>'
+                                    + '      </div>'
+                                    + '      <div class="action-gear-desc">'
+                                    + '        <span class="lang-ja">地域コミュニティが主体となって健康課題に取り組み、決定権を持つこと。</span>'
+                                    + '        <span class="lang-vi">Khuyến khích và hỗ trợ các cộng đồng tự chủ giải quyết các vấn đề sức khỏe của chính họ.</span>'
+                                    + '      </div>'
+                                    + '    </div>'
+                                    + '  </div>'
+                                    + '  <div class="action-gear-card">'
+                                    + '    <div class="action-gear-icon-wrapper"><i class="fa-solid fa-gear"></i></div>'
+                                    + '    <div class="action-gear-content">'
+                                    + '      <div class="action-gear-title">'
+                                    + '        <span class="lang-ja">個人のスキルの開発</span>'
+                                    + '        <span class="lang-vi">Phát triển kỹ năng cá nhân</span>'
+                                    + '      </div>'
+                                    + '      <div class="action-gear-desc">'
+                                    + '        <span class="lang-ja">生涯を通じて健康を自ら管理し、賢明な判断ができる知識や能力を培うこと。</span>'
+                                    + '        <span class="lang-vi">Cung cấp thông tin, giáo dục sức khỏe giúp mọi người tự kiểm soát và cải thiện sức khỏe suốt đời.</span>'
+                                    + '      </div>'
+                                    + '    </div>'
+                                    + '  </div>'
+                                    + '  <div class="action-gear-card">'
+                                    + '    <div class="action-gear-icon-wrapper"><i class="fa-solid fa-gear"></i></div>'
+                                    + '    <div class="action-gear-content">'
+                                    + '      <div class="action-gear-title">'
+                                    + '        <span class="lang-ja">医療の再設定</span>'
+                                    + '        <span class="lang-vi">Định hướng lại dịch vụ y tế</span>'
+                                    + '      </div>'
+                                    + '      <div class="action-gear-desc">'
+                                    + '        <span class="lang-ja">治療偏重から予防や健康の維持・増進を重視するシステムへと再設計すること。</span>'
+                                    + '        <span class="lang-vi">Chuyển đổi trọng tâm từ chăm sóc lâm sàng/điều trị sang dự phòng và nâng cao sức khỏe chủ động.</span>'
+                                    + '      </div>'
+                                    + '    </div>'
+                                    + '  </div>'
+                                    + '</div>';
+                            } else {
+                                overlayBox.innerHTML = '<strong style="color: ' + data.color + '; display: block; margin-bottom: 6px; font-size: 0.88rem;">'
+                                    + (isVi ? data.titleVi : data.titleJa)
+                                    + '</strong>'
+                                    + (isVi ? data.bodyVi : data.bodyJa);
+                            }
+                            if (typeof window.syncLanguages === 'function') window.syncLanguages();
+                        }
+
+                        // Update SVG highlight active classes
+                        if (templeRoof) templeRoof.classList.toggle('active', partId === 'action');
+                        if (templePillars) templePillars.classList.toggle('active', partId === 'strategy');
+                        if (templeBase) templeBase.classList.toggle('active', partId === 'prerequisite');
+                    }
+
+                    menuItems.forEach(item => {
+                        item.addEventListener('click', () => {
+                            menuItems.forEach(i => i.classList.remove('active'));
+                            item.classList.add('active');
+                            updateOverlay(item.getAttribute('data-ottawa-part'));
+                        });
+                    });
+
+                    // Init overlay with Action Areas
+                    updateOverlay('action');
+
+                    conceptDetailsPanel.style.opacity = '1';
+                    conceptDetailsPanel.style.transform = 'translateY(0)';
+                }, 180);
+            } else {
+                conceptDetailsPanel.style.opacity = '0.1';
+                conceptDetailsPanel.style.transform = 'translateY(5px)';
+                setTimeout(() => {
+                    conceptDetailsPanel.style.borderTopColor = data.color;
+                    conceptDetailsPanel.innerHTML = '<h3 style="color: ' + data.color + '; margin-top: 0; margin-bottom: 16px; font-size: 1.15rem; display: flex; align-items: center; gap: 10px; font-weight: 600;">'
+                        + '<i class="fa-solid ' + data.icon + '" style="font-size: 1.2rem;"></i>'
+                        + '<span class="lang-ja">' + data.titleJa + '</span>'
+                        + '<span class="lang-vi">' + data.titleVi + '</span>'
+                        + '</h3>'
+                        + '<div style="font-size: 0.98rem; line-height: 1.8; color: var(--text-secondary);">'
+                        + '<div class="lang-ja">' + data.bodyJa + '</div>'
+                        + '<div class="lang-vi">' + data.bodyVi + '</div>'
+                        + '</div>';
+                    if (typeof window.syncLanguages === 'function') window.syncLanguages();
+                    conceptDetailsPanel.style.opacity = '1';
+                    conceptDetailsPanel.style.transform = 'translateY(0)';
+                }, 180);
+            }
+        }
+    }
+
+    if (conceptTabsGroup) {
+        conceptTabsGroup.querySelectorAll('.sbo111-concept-node').forEach(btn => {
+            btn.addEventListener('click', () => {
+                activateConceptTab(btn.getAttribute('data-concept-tab'));
+            });
+        });
+        activateConceptTab('who1948');
+    }
+
+    // --- PART 2: Roadmap Steps Simulator ---
     const steps = document.querySelectorAll('.roadmap-step');
     const labelItems = document.querySelectorAll('.roadmap-label-item');
     const detailCard = document.getElementById('roadmap-details-card');
@@ -2010,7 +2563,7 @@ window.initSbo111Simulator = function() {
             titleJa: '一連のプロセスとしての健康（基本的理念）',
             titleVi: 'Sức khỏe là một quá trình liên tục (Triết lý cơ bản)',
             bodyJa: '<p style="margin: 0 0 8px 0;">• <strong>包括的ヘルスケア：</strong>健康、医療と介護は人生における一連の経過であり、施設ごとに分断するのではなく統合的なシステムとして構築されるべきです。</p>'
-                 + '<p style="margin: 0;">• <strong>法律上の規定：</strong>医療法や社会福祉法にも「医療提供時に福祉サービス等と有機的な連携を図る」ことが明記され、三者の連携 submerged となっています。</p>',
+                 + '<p style="margin: 0;">• <strong>法律上の規定：</strong>医療法や社会福祉法にも「医療提供時に福祉サービス等と有機的な連携を図る」ことが明記され、三者の連携が必須となっています。</p>',
             bodyVi: '<p style="margin: 0 0 8px 0;">• <strong>Hệ thống tích hợp:</strong> Sức khỏe, y tế và Kaigo (điều dưỡng) là chuỗi liên tục suốt đời, không được chia cắt hay cô lập theo từng cơ sở đơn lẻ.</p>'
                  + '<p style="margin: 0;">• <strong>Liên kết pháp lý:</strong> Luật Y tế và Luật Phúc lợi xã hội Nhật Bản quy định rõ dịch vụ bảo vệ sức khỏe, y tế và phúc lợi phải "đảm bảo liên kết hữu cơ" với nhau.</p>'
         },
@@ -2077,9 +2630,231 @@ window.initSbo111Simulator = function() {
         label.addEventListener('click', () => activateStep(label.getAttribute('data-step')));
     });
 
+
+    // --- 14b & 14c. Interactive Prevention & Health Checkups Listeners ---
+        // --- 14b. Interactive Preventive Medicine Levels ---
+    const prevLvlSegments = document.querySelectorAll('[data-prev-lvl]');
+    const prevLvlTitle = document.getElementById('prev-lvl-title');
+    const prevLvlBody = document.getElementById('prev-lvl-body');
+    const svgShields = document.querySelectorAll('.prev-svg-shield');
+    const radarLayer = document.getElementById('integrated-radar-layer');
+    const recoveryLoop = document.getElementById('svg-recovery-loop');
+
+    const updateSvgShields = (activeLvl) => {
+        const shieldStyles = {
+            '1': { stroke: '#10b981', fill: 'rgba(16, 185, 129, 0.25)', filter: 'url(#glow-green)' },
+            '2': { stroke: '#f59e0b', fill: 'rgba(245, 158, 11, 0.25)', filter: 'url(#glow-gold)' },
+            '3': { stroke: '#ef4444', fill: 'rgba(239, 68, 68, 0.25)', filter: 'url(#glow-red)' }
+        };
+
+        // 1. Highlight shields
+        ['1', '2', '3'].forEach(lvl => {
+            const shieldPath = document.getElementById('svg-shield-' + lvl);
+            if (!shieldPath) return;
+
+            if (lvl === activeLvl) {
+                const style = shieldStyles[lvl];
+                shieldPath.setAttribute('stroke', style.stroke);
+                shieldPath.setAttribute('stroke-width', '2.5');
+                shieldPath.setAttribute('fill', style.fill);
+                shieldPath.setAttribute('filter', style.filter);
+            } else {
+                shieldPath.setAttribute('stroke', 'rgba(255,255,255,0.3)');
+                shieldPath.setAttribute('stroke-width', '1.5');
+                shieldPath.setAttribute('fill', 'rgba(255,255,255,0.06)');
+                shieldPath.removeAttribute('filter');
+            }
+        });
+
+        // 2. Control dynamic overlays inside SVG
+        if (radarLayer) {
+            radarLayer.style.opacity = (activeLvl === '2') ? '1' : '0';
+        }
+        
+        if (recoveryLoop) {
+            if (activeLvl === '3') {
+                recoveryLoop.style.opacity = '1';
+                recoveryLoop.setAttribute('stroke-width', '4');
+                recoveryLoop.style.filter = 'drop-shadow(0 0 6px #10b981)';
+            } else {
+                recoveryLoop.style.opacity = '0.2';
+                recoveryLoop.setAttribute('stroke-width', '3');
+                recoveryLoop.style.filter = 'none';
+            }
+        }
+    };
+
+    prevLvlSegments.forEach(segment => {
+        segment.addEventListener('click', () => {
+            prevLvlSegments.forEach(s => s.classList.remove('active'));
+            segment.classList.add('active');
+
+            const key = segment.getAttribute('data-prev-lvl');
+            const data = (window.prevLvlData || {})[key];
+
+            if (data && prevLvlTitle) {
+                const infoCard = document.getElementById('prev-lvl-info');
+                infoCard.style.opacity = '0.3';
+                setTimeout(() => {
+                    const isVi = document.body.classList.contains('lang-vi');
+                    prevLvlTitle.innerHTML = isVi ? data.title.vi : data.title.ja;
+                    prevLvlBody.innerHTML = isVi ? data.body.vi : data.body.ja;
+                    infoCard.style.opacity = '1';
+                }, 200);
+            }
+            updateSvgShields(key);
+        });
+    });
+
+    if (svgShields) {
+        svgShields.forEach(shield => {
+            shield.addEventListener('click', () => {
+                const idx = shield.getAttribute('data-shield-idx');
+                const matchingBtn = document.querySelector('[data-prev-lvl="' + idx + '"]');
+                if (matchingBtn) matchingBtn.click();
+            });
+        });
+    }
+
+    // Initialize
+    const firstBtn = document.querySelector('[data-prev-lvl="1"]');
+    if (firstBtn) firstBtn.click();
+
+    // --- 14c. Specific Health Checkups (特定健診の階層化) Simulator Logic ---
+    const stratCheckboxes = document.querySelectorAll('.strat-checkbox');
+    const checkWaist = document.getElementById('check-waist');
+    const checkBmi = document.getElementById('check-bmi');
+    const checkAge65 = document.getElementById('check-age65');
+    const checkBp = document.getElementById('check-bp');
+    const checkBs = document.getElementById('check-bs');
+    const checkLipid = document.getElementById('check-lipid');
+    const checkSmoke = document.getElementById('check-smoke');
+
+    const stratFeedbackTitle = document.getElementById('strat-feedback-title');
+    const stratFeedbackBody = document.getElementById('strat-feedback-body');
+
+    const updateStratification = () => {
+        if (!checkWaist || !checkBmi || !checkAge65 || !checkBp || !checkBs || !checkLipid || !checkSmoke || !stratFeedbackTitle || !stratFeedbackBody) return;
+
+        const isWaistChecked = checkWaist.checked;
+        const isBmiChecked = checkBmi.checked;
+        const isAge65Checked = checkAge65.checked;
+        
+        // Count additional risk factors (Step 2)
+        let factorCount = 0;
+        if (checkBp.checked) factorCount++;
+        if (checkBs.checked) factorCount++;
+        if (checkLipid.checked) factorCount++;
+        
+        // Smoking is only counted if there is at least 1 other risk factor (blood pressure, blood glucose, or lipid)
+        const isSmokeChecked = checkSmoke.checked;
+        const countSmoke = (isSmokeChecked && factorCount >= 1);
+        
+        const totalFactors = factorCount + (countSmoke ? 1 : 0);
+
+        let categoryJa = '情報提供 (Information Provision)';
+        let categoryVi = 'Cung cấp thông tin (Information Provision)';
+        let descJa = '内臓脂肪蓄積の基準に該当しないか、追加のリスク因子がありません。現状の健康生活を維持するための情報提供のみを行います。';
+        let descVi = 'Không tích tụ mỡ nội tạng hoặc không có yếu tố nguy cơ bổ sung. Thực hiện cung cấp thông tin duy trì lối sống lành mạnh.';
+        let colorClass = '#2dd4bf'; // Teal
+
+        // Group A: Waist size >= 85cm (male) / >= 90cm (female)
+        // Group B: Waist normal but BMI >= 25
+        
+        if (isAge65Checked) {
+            // Age 65-74 (前期高齢者): No "積極的支援" (Active Support) is applied to avoid over-intervention.
+            if (isWaistChecked) {
+                categoryJa = '動機付け支援 (Motivational Support)';
+                categoryVi = 'Hỗ trợ khuyến khích (Motivational Support)';
+                descJa = '【前期高齢者（65〜74歳）特例判定】内臓脂肪蓄積を認めるため「動機付け支援」の対象です。65歳以上の方は身体的負担や過度な介入を防ぐため、基準上は積極的支援に該当する場合でも「動機付け支援」に区分されます。原則1回の生活習慣改善面接が提供されます。';
+                descVi = '【Đánh giá đặc biệt người cao tuổi giai đoạn đầu (65-74 tuổi)】Do tích tụ mỡ nội tạng nên thuộc đối tượng "Hỗ trợ khuyến khích". Để tránh gánh nặng thể chất và can thiệp quá mức ở người từ 65 tuổi trở lên, ngay cả khi đủ tiêu chuẩn hỗ trợ tích cực theo lý thuyết thì vẫn được phân vào nhóm "Hỗ trợ khuyến khích". Nguyên tắc là cung cấp 1 buổi phỏng vấn cải thiện lối sống.';
+                colorClass = '#f59e0b'; // Gold
+            } else if (isBmiChecked) {
+                if (totalFactors >= 1) {
+                    categoryJa = '動機付け支援 (Motivational Support)';
+                    categoryVi = 'Hỗ trợ khuyến khích (Motivational Support)';
+                    descJa = '【前期高齢者（65〜74歳）特例判定】腹囲は基準値未満ですが、BMI 25以上かつ追加リスク因子があるため「動機付け支援」の対象です（65歳以上のため積極的支援への移行はありません）。';
+                    descVi = '【Đánh giá đặc biệt người cao tuổi giai đoạn đầu (65-74 tuổi)】Vòng bụng dưới mức tiêu chuẩn nhưng BMI ≥ 25 và có yếu tố nguy cơ bổ sung nên thuộc đối tượng "Hỗ trợ khuyến khích" (không chuyển sang hỗ trợ tích cực vì đã từ 65 tuổi trở lên).';
+                    colorClass = '#f59e0b';
+                } else {
+                    categoryJa = '情報提供 (Information Provision)';
+                    categoryVi = 'Cung cấp thông tin (Information Provision)';
+                    descJa = '腹囲基準未満かつBMI 25以上ですが、追加リスク因子が認められないため、現状維持のための「情報提供」を行います。';
+                    descVi = 'Vòng bụng dưới mức tiêu chuẩn và BMI ≥ 25 nhưng không phát hiện yếu tố nguy cơ bổ sung, thực hiện "Cung cấp thông tin" để duy trì hiện trạng.';
+                    colorClass = '#2dd4bf';
+                }
+            } else {
+                categoryJa = '情報提供 (Information Provision)';
+                categoryVi = 'Cung cấp thông tin (Information Provision)';
+                descJa = '腹囲およびBMIが基準未満であり、追加のリスク因子がありません。現状の健康生活習慣を継続するための「情報提供」を行います。';
+                descVi = 'Vòng bụng và BMI đều dưới mức tiêu chuẩn, đồng thời không có yếu tố nguy cơ bổ sung. Thực hiện "Cung cấp thông tin" để tiếp tục duy trì lối sống lành mạnh.';
+                colorClass = '#2dd4bf';
+            }
+        } else {
+            // Age under 65 (65歳未満) - Standard Stratification Rules
+            if (isWaistChecked) {
+                if (totalFactors >= 2) {
+                    categoryJa = '積極的支援 (Active Support)';
+                    categoryVi = 'Hỗ trợ tích cực (Active Support)';
+                    descJa = '【65歳未満・内臓脂肪型】内臓脂肪蓄積に加え、2つ以上の追加リスク因子を認めるため「積極的支援」の対象です。初回面接による行動計画作成後、3ヶ月以上の継続的な保健指導（対面、電話、メール等）および評価が行われます。';
+                    descVi = '【Dưới 65 tuổi - Nhóm mỡ nội tạng】Tích tụ mỡ nội tạng kèm theo từ 2 yếu tố nguy cơ bổ sung trở lên nên thuộc đối tượng "Hỗ trợ tích cực". Sau khi lập kế hoạch hành động qua phỏng vấn lần đầu, hướng dẫn sức khỏe liên tục (gặp mặt, điện thoại, email...) và đánh giá sẽ được thực hiện trong ít nhất 3 tháng.';
+                    colorClass = '#ef4444'; // Red
+                } else if (totalFactors === 1) {
+                    categoryJa = '動機付け支援 (Motivational Support)';
+                    categoryVi = 'Hỗ trợ khuyến khích (Motivational Support)';
+                    descJa = '【65歳未満・内臓脂肪型】内臓脂肪蓄積に加え、追加リスク因子が1つ認められるため「動機付け支援」の対象です。原則1回の個別・グループ面接が行われ、自主的な生活習慣改善を促します。';
+                    descVi = '【Dưới 65 tuổi - Nhóm mỡ nội tạng】Tích tụ mỡ nội tạng kèm theo 1 yếu tố nguy cơ bổ sung nên thuộc đối tượng "Hỗ trợ khuyến khích". Nguyên tắc là thực hiện 1 buổi phỏng vấn cá nhân hoặc nhóm để khuyến khích tự cải thiện lối sống.';
+                    colorClass = '#f59e0b'; // Gold
+                } else {
+                    categoryJa = '動機付け支援 (Motivational Support)';
+                    categoryVi = 'Hỗ trợ khuyến khích (Motivational Support)';
+                    descJa = '【65歳未満・内臓脂肪型】内臓脂肪の蓄積が見られるものの、他のリスク因子が現在認められないため「動機付け支援」の対象となります。自主的な行動計画を策定します。';
+                    descVi = '【Dưới 65 tuổi - Nhóm mỡ nội tạng】Có tích tụ mỡ nội tạng nhưng chưa phát hiện yếu tố nguy cơ bổ sung nào khác, thuộc đối tượng "Hỗ trợ khuyến khích". Thiết lập kế hoạch hành động tự nguyện.';
+                    colorClass = '#f59e0b';
+                }
+            } else if (isBmiChecked) {
+                if (totalFactors >= 3) {
+                    categoryJa = '積極的支援 (Active Support)';
+                    categoryVi = 'Hỗ trợ tích cực (Active Support)';
+                    descJa = '【65歳未満・非肥満内臓型】腹囲は基準値未満ですが、BMI 25以上かつ3つ以上の追加リスク因子を認めるため「積極的支援」の対象です。3ヶ月以上の手厚い生活習慣改善支援が提供されます。';
+                    descVi = '【Dưới 65 tuổi - Nhóm nội tạng không béo phì】Vòng bụng dưới mức tiêu chuẩn nhưng BMI ≥ 25 và có từ 3 yếu tố nguy cơ bổ sung trở lên, thuộc đối tượng "Hỗ trợ tích cực". Hỗ trợ cải thiện lối sống chu đáo trong từ 3 tháng trở lên.';
+                    colorClass = '#ef4444';
+                } else if (totalFactors >= 1) {
+                    categoryJa = '動機付け支援 (Motivational Support)';
+                    categoryVi = 'Hỗ trợ khuyến khích (Motivational Support)';
+                    descJa = '【65歳未満・非肥満内臓型】腹囲は基準値未満ですが、BMI 25以上かつ1〜2個の追加リスク因子があるため「動機付け支援」の対象です。生活習慣の改善に取り組んでください。';
+                    descVi = '【Dưới 65 tuổi - Nhóm nội tạng không béo phì】Vòng bụng dưới mức tiêu chuẩn nhưng BMI ≥ 25 và có 1-2 yếu tố nguy cơ bổ sung nên thuộc đối tượng "Hỗ trợ khuyến khích". Hãy bắt đầu cải thiện lối sống.';
+                    colorClass = '#f59e0b';
+                } else {
+                    categoryJa = '情報提供 (Information Provision)';
+                    categoryVi = 'Cung cấp thông tin (Information Provision)';
+                    descJa = '腹囲基準未満かつBMI 25以上ですが、追加リスク因子が認められないため、現状維持のための「情報提供」を行います。';
+                    descVi = 'Vòng bụng dưới mức tiêu chuẩn và BMI ≥ 25 nhưng không phát hiện yếu tố nguy cơ bổ sung, thực hiện "Cung cấp thông tin" để duy trì hiện trạng.';
+                    colorClass = '#2dd4bf';
+                }
+            } else {
+                categoryJa = '情報提供 (Information Provision)';
+                categoryVi = 'Cung cấp thông tin (Information Provision)';
+                descJa = '腹囲およびBMIが基準未満であり、追加のリスク因子がありません。現状の健康生活習慣を継続するための「情報提供」を行います。';
+                descVi = 'Vòng bụng và BMI đều dưới mức tiêu chuẩn, đồng thời không có yếu tố nguy cơ bổ sung. Thực hiện "Cung cấp thông tin" để tiếp tục duy trì lối sống lành mạnh.';
+                colorClass = '#2dd4bf';
+            }
+        }
+
+        const isVi = document.body.classList.contains('lang-vi');
+        stratFeedbackTitle.textContent = isVi ? `判定：${categoryVi}` : `判定：${categoryJa}`;
+        stratFeedbackTitle.style.color = colorClass;
+        stratFeedbackBody.textContent = isVi ? descVi : descJa;
+    };
+
+    stratCheckboxes.forEach(cb => {
+        cb.addEventListener('change', updateStratification);
+    });
+
+    updateStratification();
+
     activateStep('1');
 };
-
 window.initSbo112Simulator = function() {
 
     // --- PART 1: Patient Relation Tabs ---
