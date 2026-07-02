@@ -2821,6 +2821,327 @@ window.initSbo111Simulator = function() {
     updateStratification();
 
     activateStep('1');
+
+    // --- PART 4: Demographic Structural Paradox Simulator ---
+    const paradoxSlider = document.getElementById('paradox-slider');
+    const areaFill = document.getElementById('paradox-area-fill');
+    const lifeLine = document.getElementById('life-expectancy-line');
+    const fertLine = document.getElementById('fertility-rate-line');
+    const trackerLine = document.getElementById('tracker-line');
+    const trackerLifeDot = document.getElementById('tracker-life-dot');
+    const trackerFertDot = document.getElementById('tracker-fert-dot');
+    const explanationContent = document.getElementById('paradox-explanation-content');
+    
+    const labelLife = document.getElementById('label-life');
+    const labelFert = document.getElementById('label-fert');
+
+    const paradoxStages = {
+        past: {
+            titleJa: '過去 (Past)',
+            titleVi: 'Quá khứ',
+            descJa: `
+                <p style="margin: 0 0 10px 0;">• <strong>高出生率と低寿命の均衡：</strong>医学や医療技術が発展途上であったため、平均寿命は比較的短い状態でした。しかし出生率が高く、生産年齢人口の割合も十分にあったため、国民全体の医療費負担は小さく保たれていました。</p>
+                <p style="margin: 0;">• <strong>支え手と需要のバランス：</strong>高齢化の比率が低く、医療の需要が限定的であったため、社会保障費にかかる圧迫はほぼありませんでした。</p>
+            `,
+            descVi: `
+                <p style="margin: 0 0 10px 0;">• <strong>Tỷ lệ sinh cao & Tuổi thọ thấp:</strong> Khi y học chưa phát triển đột phá, tuổi thọ trung bình tương đối thấp. Tỷ lệ sinh cao duy trì cơ cấu dân số trẻ, giúp gánh nặng chi phí y tế quốc gia ở mức thấp và ổn định.</p>
+                <p style="margin: 0;">• <strong>Cân đối hỗ trợ:</strong> Tỷ lệ người già thấp, nhu cầu y tế ở mức tối thiểu nên hệ thống an sinh xã hội không bị áp lực lớn.</p>
+            `
+        },
+        transition: {
+            titleJa: '移行期 (Transition)',
+            titleVi: 'Giai đoạn chuyển tiếp',
+            descJa: `
+                <p style="margin: 0 0 10px 0;">• <strong>医療技術の進歩と少子化の始まり：</strong>抗生物質の発明や公衆衛生の向上により、平均寿命が急速に上昇し始めます。一方で社会構造の変化に伴って合計特殊出生率が徐々に低下し、少子化が進行します。</p>
+                <p style="margin: 0;">• <strong>乖離の開始：</strong>寿命が延びて出生率が下がるという2本の曲線が乖離を始め、国民医療費が右肩上がりに上昇し始めます。</p>
+            `,
+            descVi: `
+                <p style="margin: 0 0 10px 0;">• <strong>Y học tiến bộ & Bắt đầu giảm sinh:</strong> Tuổi thọ trung bình tăng nhanh nhờ cải tiến điều trị và vệ sinh phòng bệnh. Ngược lại, đô thị hóa và thay đổi xã hội khiến tỷ lệ sinh bắt đầu đi xuống.</p>
+                <p style="margin: 0;">• <strong>Bắt đầu phân kỳ:</strong> Hai đường cong tuổi thọ (tăng) và tỷ lệ sinh (giảm) tách xa nhau, làm cho chi phí y tế quốc gia bắt đầu gia tăng.</p>
+            `
+        },
+        future: {
+            titleJa: '未来 / 構造的パラドックス (Future / Structural Paradox)',
+            titleVi: 'Tương lai / Nghịch lý cấu trúc',
+            descJa: `
+                <p style="margin: 0 0 10px 0;">• <strong>超高齢社会と持続可能性の危機：</strong>平均寿命は世界トップクラスまで延伸し続ける一方、少子化が極端に進行。支え手（生産年齢人口）が激減する中で、医療需要の高い高齢者層が最大化します。</p>
+                <p style="margin: 0;">• <strong>構造的パラドックス：</strong>「長寿」という医学的成功が、皮肉にも「国民医療費の膨脹」と「社会保障制度の財政破綻リスク」をもたらす国家的な課題となっています。</p>
+            `,
+            descVi: `
+                <p style="margin: 0 0 10px 0;">• <strong>Xã hội siêu già & Khủng hoảng bền vững:</strong> Tuổi thọ tiếp tục kéo dài thuộc hàng top thế giới, trong khi tỷ lệ sinh chạm đáy. Số lượng người hỗ trợ giảm mạnh trong khi người cao tuổi có nhu cầu y tế cao tăng vọt.</p>
+                <p style="margin: 0;">• <strong>Nghịch lý cấu trúc:</strong> Việc kéo dài tuổi thọ (thành tựu y học) trớ trêu thay lại gây ra "bùng nổ chi phí y tế" (国民医療費) và đe dọa sự bền vững tài chính quốc gia.</p>
+            `
+        }
+    };
+
+    function updateParadoxChart(value) {
+        if (!areaFill || !lifeLine || !fertLine) return;
+        const t = value / 100; // 0 to 1
+        
+        // Coordinates Calculation (viewBox 0 0 500 250)
+        // Life Expectancy Line (starts at x=50, ends at x=450)
+        const yLifeStart = 130;
+        const yLifeMid = 130 - 200 * (0.08 + 0.12 * t);
+        const yLifeEnd = 130 - 400 * (0.1 + 0.1 * t);
+        
+        // Fertility Rate Line (starts at x=50, ends at x=450)
+        const yFertStart = 100;
+        const yFertMid = 100 + 200 * (0.03 + 0.22 * t);
+        const yFertEnd = 100 + 400 * (0.025 + 0.225 * t);
+        
+        // Define paths
+        const lifePath = `M 50 ${yLifeStart} Q 250 ${yLifeMid} 450 ${yLifeEnd}`;
+        const fertPath = `M 50 ${yFertStart} Q 250 ${yFertMid} 450 ${yFertEnd}`;
+        const fillPath = `M 50 ${yLifeStart} Q 250 ${yLifeMid} 450 ${yLifeEnd} L 450 ${yFertEnd} Q 250 ${yFertMid} 50 ${yFertStart} Z`;
+        
+        lifeLine.setAttribute('d', lifePath);
+        fertLine.setAttribute('d', fertPath);
+        areaFill.setAttribute('d', fillPath);
+        
+        // Update Tracker positions
+        const trackerX = 50 + t * 400;
+        
+        // Calculate Y on Bezier curves at t
+        const cyLife = (1-t)*(1-t)*yLifeStart + 2*(1-t)*t*yLifeMid + t*t*yLifeEnd;
+        const cyFert = (1-t)*(1-t)*yFertStart + 2*(1-t)*t*yFertMid + t*t*yFertEnd;
+        
+        trackerLine.setAttribute('x1', trackerX);
+        trackerLine.setAttribute('x2', trackerX);
+        
+        trackerLifeDot.setAttribute('cx', trackerX);
+        trackerLifeDot.setAttribute('cy', cyLife);
+        
+        trackerFertDot.setAttribute('cx', trackerX);
+        trackerFertDot.setAttribute('cy', cyFert);
+
+        // Reposition labels statically to prevent overlapping
+        if (labelLife) {
+            labelLife.setAttribute('x', '240');
+            labelLife.setAttribute('y', '65');
+        }
+        if (labelFert) {
+            labelFert.setAttribute('x', '220');
+            labelFert.setAttribute('y', '190');
+        }
+        
+        // Update Explanation Text
+        let stage;
+        if (value < 30) stage = 'past';
+        else if (value < 75) stage = 'transition';
+        else stage = 'future';
+        
+        const data = paradoxStages[stage];
+        if (data && explanationContent) {
+            const isVi = document.body.classList.contains('lang-vi');
+            explanationContent.style.opacity = '0';
+            setTimeout(() => {
+                explanationContent.innerHTML = `
+                    <h4 style="color: var(--accent-gold); margin-top: 0; margin-bottom: 12px; font-size: 1.2rem; display: flex; align-items: center; gap: 8px;">
+                        <i class="fa-solid fa-clock-rotate-left"></i>
+                        <span>${isVi ? data.titleVi : data.titleJa}</span>
+                    </h4>
+                    <div style="font-size: 1.05rem; line-height: 1.8; color: var(--text-secondary);">
+                        ${isVi ? data.descVi : data.descJa}
+                    </div>
+                `;
+                if (typeof window.syncLanguages === 'function') window.syncLanguages();
+                explanationContent.style.opacity = '1';
+            }, 100);
+        }
+    }
+
+    if (paradoxSlider) {
+        paradoxSlider.addEventListener('input', (e) => {
+            updateParadoxChart(parseInt(e.target.value));
+        });
+        // Initial call
+        updateParadoxChart(parseInt(paradoxSlider.value));
+    }
+
+    // === Domino Effect Interaction ===
+    const dominoStages = {
+        '1': {
+            titleJa: '不適切な生活習慣 (不健康な生活習慣)',
+            titleVi: 'Lối sống không lành mạnh (Thói quen không tốt)',
+            descJa: '偏った食生活、運動不足、喫煙、過度な飲酒などの蓄積がすべての悪循環の始まりであり、健康なからだを損なう根本要因となります。',
+            descVi: 'Chế độ ăn lệch lạc, lười vận động, hút thuốc, uống rượu bia nhiều... là khởi nguồn của mọi vòng lặp suy giảm sức khỏe.'
+        },
+        '2': {
+            titleJa: 'メタボリック・シンドロームの進行',
+            titleVi: 'Tiến triển Hội chứng chuyển hóa',
+            descJa: '内臓脂肪の過剰蓄積、インスリン抵抗性、脂質異常、高血糖などが重なり合い、生活習慣病前夜の危険な状態を作ります。',
+            descVi: 'Tích tụ mỡ nội tạng, kháng insulin, rối loạn lipid máu, đường huyết cao kết hợp tạo nên giai đoạn tiền phát bệnh lối sống nguy hiểm.'
+        },
+        '3': {
+            titleJa: '生活習慣病の発症',
+            titleVi: 'Khởi phát bệnh lý lối sống',
+            descJa: '高血圧、糖尿病、脂質異常症が完全に定着し、動脈硬化が進むことで、脳卒中や心筋梗塞など重大な疾患の引き金となります。',
+            descVi: 'Tăng huyết áp, tiểu đường, mỡ máu cao định hình hoàn toàn, thúc đẩy xơ vữa động mạch - ngòi nổ cho đột quỵ, nhồi máu cơ tim.'
+        },
+        '4': {
+            titleJa: '日常生活動作 (ADL) の制限',
+            titleVi: 'Hạn chế hoạt động sinh hoạt (ADL)',
+            descJa: '生活習慣病の悪化や脳血管疾患の合併、加齢に伴う身体・認知機能の低下により、自立した日常生活を送ることが困難になります。',
+            descVi: 'Sự biến chứng của bệnh, lão hóa làm suy giảm nhận thức & thể chất, cản trở việc thực hiện tự lập các hoạt động sinh hoạt hàng ngày.'
+        },
+        '5': {
+            titleJa: '要介護状態への転落',
+            titleVi: 'Rơi vào trạng thái cần điều dưỡng (Kaigo)',
+            descJa: '寝たきり状態、脳血管障害の後遺症、あるいは認知症の進行により、他者からの持続的な介護や支援が不可欠な社会生活限界状態に陥ります。',
+            descVi: 'Do nằm liệt giường, di chứng mạch máu não hoặc sa sút trí tuệ tiến triển, bắt buộc phải có sự hỗ trợ, chăm sóc Kaigo liên tục.'
+        }
+    };
+
+    const dominoTiles = document.querySelectorAll('.domino-tile');
+    const dominoDetailsPane = document.getElementById('domino-details-pane');
+    const dominoDetailsContent = document.getElementById('domino-details-content');
+
+    function updateDominoDetails(id) {
+        if (!dominoStages[id]) return;
+        const data = dominoStages[id];
+        const isVi = document.body.classList.contains('lang-vi');
+        
+        let accentColor = '#ef4444';
+        if (id === '2') accentColor = '#f97316';
+        if (id === '3') accentColor = '#fbbf24';
+        if (id === '4') accentColor = '#a855f7';
+        
+        if (dominoDetailsPane) {
+            dominoDetailsPane.style.borderColor = accentColor;
+        }
+
+        if (dominoDetailsContent) {
+            dominoDetailsContent.style.opacity = '0';
+            setTimeout(() => {
+                dominoDetailsContent.innerHTML = `
+                    <h4 style="color: ${accentColor}; margin-top: 0; margin-bottom: 10px; font-size: 1.15rem; display: flex; align-items: center; gap: 8px;">
+                        <i class="fa-solid fa-circle-exclamation"></i>
+                        <span>${isVi ? data.titleVi : data.titleJa}</span>
+                    </h4>
+                    <div style="font-size: 1rem; line-height: 1.7; color: var(--text-secondary);">
+                        ${isVi ? data.descVi : data.descJa}
+                    </div>
+                `;
+                if (typeof window.syncLanguages === 'function') window.syncLanguages();
+                dominoDetailsContent.style.opacity = '1';
+            }, 100);
+        }
+    }
+
+    if (dominoTiles && dominoTiles.length > 0) {
+        dominoTiles.forEach(tile => {
+            tile.addEventListener('click', () => {
+                dominoTiles.forEach(t => t.classList.remove('active'));
+                tile.classList.add('active');
+                updateDominoDetails(tile.getAttribute('data-domino'));
+            });
+        });
+        
+        updateDominoDetails('1');
+    }
+
+    // === Circular Specific Approach Interaction ===
+    const approachStages = {
+        '1': {
+            titleJa: '基盤：データヘルス改革の推進',
+            titleVi: 'Nền tảng: Thúc đẩy Cải cách dữ liệu sức khỏe',
+            descJa: 'レセプトデータや健診データの電子化・ビッグデータ分析（NDB等の活用）を行い、PDCAサイクルに基づく科学的で効率的な予防事業を展開します。AI等の解析を用いることで、個人に最適化された医療・予防プログラム（PHR）を提供します。',
+            descVi: 'Thực hiện số hóa và phân tích dữ liệu lớn từ hóa đơn thanh toán bảo hiểm (receipt) và dữ liệu khám sức khỏe (khai thác NDB). Phát triển các hoạt động phòng ngừa khoa học, hiệu quả dựa trên chu trình PDCA, cá nhân hóa y tế phòng ngừa (PHR).',
+            icon: 'fa-server',
+            color: '#f97316'
+        },
+        '2': {
+            titleJa: '政策：健康増進と「健康日本21」',
+            titleVi: 'Chính sách: Nâng cao sức khỏe & "Health Japan 21"',
+            descJa: '国民の健康づくりを総合的に推進するための国家戦略。健康寿命の延伸や生活習慣病の発症予防、社会環境の整備など具体的な数値目標を設定し、国民が主体的に取り組む健康管理を強力に支援します。',
+            descVi: 'Chiến lược quốc gia nhằm thúc đẩy toàn diện việc chăm sóc sức khỏe người dân. Thiết lập các mục tiêu số cụ thể về kéo dài tuổi thọ khỏe mạnh, phòng ngừa bệnh lối sống và cải thiện môi trường xã hội hỗ trợ sức khỏe.',
+            icon: 'fa-compass',
+            color: '#3b82f6'
+        },
+        '3': {
+            titleJa: '介入：特定健康診査・特定保健指導',
+            titleVi: 'Can thiệp: Khám sức khỏe & Chỉ đạo đặc định',
+            descJa: '40歳から74歳の加入者を対象に、メタボリックシンドロームに着目した健康診査を実施。リスク因子がある者に対し、保健師や管理栄養士が行動変容を促す直接的な指導（特定保健指導）を義務付けます。',
+            descVi: 'Khám sức khỏe tập trung vào Hội chứng chuyển hóa cho nhóm tuổi 40-74. Đối với người có yếu tố nguy cơ, nhân viên y tế/dinh dưỡng sẽ trực tiếp hướng dẫn và hỗ trợ điều chỉnh hành vi lối sống lành mạnh.',
+            icon: 'fa-user-doctor',
+            color: '#0d9488'
+        }
+    };
+
+    const approachSegments = document.querySelectorAll('.approach-segment');
+    const approachExplanationPane = document.getElementById('approach-explanation-pane');
+    const approachExplanationContent = document.getElementById('approach-explanation-content');
+    const approachCenterIcon = document.getElementById('approach-center-icon');
+
+    function updateApproachDetails(id) {
+        if (!approachStages[id]) return;
+        const data = approachStages[id];
+        const isVi = document.body.classList.contains('lang-vi');
+
+        if (approachExplanationPane) {
+            approachExplanationPane.style.borderColor = data.color;
+        }
+
+        if (approachCenterIcon) {
+            approachCenterIcon.style.color = data.color;
+            approachCenterIcon.style.filter = `drop-shadow(0 0 8px ${data.color}80)`;
+            approachCenterIcon.innerHTML = `<i class="fa-solid ${data.icon}"></i>`;
+        }
+
+        if (approachExplanationContent) {
+            approachExplanationContent.style.opacity = '0';
+            setTimeout(() => {
+                approachExplanationContent.innerHTML = `
+                    <h4 style="color: ${data.color}; margin-top: 0; margin-bottom: 10px; font-size: 1.15rem; display: flex; align-items: center; gap: 8px;">
+                        <i class="fa-solid ${data.icon}"></i>
+                        <span>${isVi ? data.titleVi : data.titleJa}</span>
+                    </h4>
+                    <div style="font-size: 1rem; line-height: 1.7; color: var(--text-secondary);">
+                        ${isVi ? data.descVi : data.descJa}
+                    </div>
+                `;
+                if (typeof window.syncLanguages === 'function') window.syncLanguages();
+                approachExplanationContent.style.opacity = '1';
+            }, 100);
+        }
+    }
+
+    if (approachSegments && approachSegments.length > 0) {
+        approachSegments.forEach(segment => {
+            segment.addEventListener('click', () => {
+                approachSegments.forEach(s => {
+                    s.classList.remove('active');
+                    s.style.opacity = '0.6';
+                });
+                segment.classList.add('active');
+                segment.style.opacity = '1';
+                updateApproachDetails(segment.getAttribute('data-approach'));
+            });
+        });
+
+        // Set initial active state
+        updateApproachDetails('1');
+    }
+
+    // Language switch helper hook
+    const langToggleBtn = document.getElementById('lang-toggle-btn');
+    if (langToggleBtn) {
+        langToggleBtn.addEventListener('click', () => {
+            setTimeout(() => {
+                const activeDomino = document.querySelector('.domino-tile.active');
+                if (activeDomino) {
+                    updateDominoDetails(activeDomino.getAttribute('data-domino'));
+                }
+                const activeApproach = document.querySelector('.approach-segment.active');
+                if (activeApproach) {
+                    updateApproachDetails(activeApproach.getAttribute('data-approach'));
+                }
+                if (paradoxSlider) {
+                    updateParadoxChart(parseInt(paradoxSlider.value));
+                }
+            }, 50);
+        });
+    }
 };
 window.initSbo112Simulator = function() {
 

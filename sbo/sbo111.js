@@ -996,117 +996,402 @@ window.SBO_TEMPLATES['sbo111'] = `<div id="sbo111" class="sbo-section-wrapper">
                         </p>
 
                         <!-- Symmetrical 2x2 Grid of 4 Cards -->
-                        <div class="grid-2col" style="gap: 20px;">
-                            <!-- Card 1: 少子高齢化 -->
-                            <div class="card glass-card"
-                                style="border-left: 5px solid var(--accent-teal); padding: 22px;">
-                                <h3
-                                    style="color: var(--accent-teal); margin-bottom: 12px; display: flex; align-items: center; gap: 8px; font-size: 0.96rem;">
-                                    <i class="fa-solid fa-people-down"></i>
-                                    <span class="lang-ja">少子高齢化の進行</span>
-                                    <span class="lang-vi">Già hóa dân số và tỷ lệ sinh giảm</span>
-                                </h3>
-                                <div style="font-size: 0.96rem; line-height: 1.8; color: var(--text-secondary);">
-                                    <div class="lang-ja">
-                                        <p style="margin: 0 0 8px 0;">•
-                                            <strong>平均寿命の上昇と出生率低下：</strong>医学や医療技術の向上により寿命が延びる一方、少子化が進み高齢化比率が増大しています。
-                                        </p>
-                                        <p style="margin: 0;">•
-                                            <strong>財政的課題：</strong>生産年齢人口の減少と高齢者急増に伴い、国民医療費の負担増が国家的な問題となっています。
-                                        </p>
+                                                <!-- 1. Interactive Structural Paradox Panel -->
+                        <div style="background: rgba(15, 23, 42, 0.4); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 16px; padding: 30px 24px; position: relative; margin: 30px 0; box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2); overflow: hidden;">
+                            <!-- Circuit Grid Background Overlay -->
+                            <div style="position: absolute; inset: 0; background-image: radial-gradient(rgba(6, 182, 212, 0.06) 1px, transparent 0); background-size: 24px 24px; opacity: 0.5; pointer-events: none;"></div>
+
+                            <h3 style="color: var(--accent-teal); margin-bottom: 20px; font-size: 1.1rem; display: flex; align-items: center; gap: 8px; position: relative; z-index: 2;">
+                                <i class="fa-solid fa-chart-line"></i>
+                                <span class="lang-ja">寿命の延伸と少子化がもたらす「構造的パラドックス」</span>
+                                <span class="lang-vi">"Nghịch lý cấu trúc" từ tăng tuổi thọ và giảm tỷ lệ sinh</span>
+                            </h3>
+                            
+                            <div class="paradox-layout" style="display: flex; gap: 25px; flex-wrap: wrap; position: relative; z-index: 2;">
+                                <!-- Left: SVG Chart -->
+                                <div class="paradox-chart-pane" style="flex: 1.2 1 400px; min-width: 290px; display: flex; flex-direction: column; gap: 15px;">
+                                    <div style="position: relative; background: rgba(0,0,0,0.3); border-radius: 8px; padding: 20px 15px 15px 15px; border: 1px solid rgba(255,255,255,0.06);">
+                                        <svg id="paradox-svg" viewBox="0 0 500 250" style="width: 100%; height: auto; overflow: visible;">
+                                            <defs>
+                                                <!-- Gradients -->
+                                                <linearGradient id="medical-grad" x1="0%" y1="0%" x2="100%" y2="0%">
+                                                    <stop offset="0%" stop-color="#f59e0b" stop-opacity="0.12" />
+                                                    <stop offset="50%" stop-color="#ea580c" stop-opacity="0.45" />
+                                                    <stop offset="100%" stop-color="#dc2626" stop-opacity="0.7" />
+                                                </linearGradient>
+                                                <linearGradient id="life-line-grad" x1="0%" y1="0%" x2="100%" y2="0%">
+                                                    <stop offset="0%" stop-color="#2dd4bf" />
+                                                    <stop offset="100%" stop-color="#14b8a6" />
+                                                </linearGradient>
+                                                <linearGradient id="fertility-line-grad" x1="0%" y1="0%" x2="100%" y2="0%">
+                                                    <stop offset="0%" stop-color="#fb7185" />
+                                                    <stop offset="100%" stop-color="#f43f5e" />
+                                                </linearGradient>
+                                                <!-- Glow Filters for Refined Trend Lines -->
+                                                <filter id="glow-teal" x="-20%" y="-20%" width="140%" height="140%">
+                                                    <feGaussianBlur stdDeviation="3" result="blur" />
+                                                    <feMerge>
+                                                        <feMergeNode in="blur" />
+                                                        <feMergeNode in="SourceGraphic" />
+                                                    </feMerge>
+                                                </filter>
+                                                <filter id="glow-rose" x="-20%" y="-20%" width="140%" height="140%">
+                                                    <feGaussianBlur stdDeviation="3" result="blur" />
+                                                    <feMerge>
+                                                        <feMergeNode in="blur" />
+                                                        <feMergeNode in="SourceGraphic" />
+                                                    </feMerge>
+                                                </filter>
+                                            </defs>
+                                            
+                                            <!-- Background Grid Lines -->
+                                            <line x1="50" y1="50" x2="450" y2="50" stroke="rgba(255,255,255,0.05)" stroke-dasharray="4" />
+                                            <line x1="50" y1="100" x2="450" y2="100" stroke="rgba(255,255,255,0.05)" stroke-dasharray="4" />
+                                            <line x1="50" y1="150" x2="450" y2="150" stroke="rgba(255,255,255,0.05)" stroke-dasharray="4" />
+                                            <line x1="50" y1="200" x2="450" y2="200" stroke="rgba(255,255,255,0.05)" stroke-dasharray="4" />
+                                            
+                                            <line x1="50" y1="30" x2="50" y2="205" stroke="rgba(255,255,255,0.1)" />
+                                            <line x1="250" y1="30" x2="250" y2="205" stroke="rgba(255,255,255,0.05)" stroke-dasharray="4" />
+                                            <line x1="450" y1="30" x2="450" y2="205" stroke="rgba(255,255,255,0.1)" />
+                                            
+                                            <!-- Text markers for Timeline X-axis -->
+                                            <text x="50" y="222" fill="var(--text-muted)" font-size="10.5" text-anchor="middle" font-weight="600">
+                                                過去 (Past)
+                                            </text>
+                                            <text x="250" y="222" fill="var(--text-muted)" font-size="10.5" text-anchor="middle">
+                                                移行期 (Transition)
+                                            </text>
+                                            <text x="450" y="222" fill="var(--text-muted)" font-size="10.5" text-anchor="middle" font-weight="600">
+                                                未来 (Future)
+                                            </text>
+
+                                            <!-- Filled Area representing Medical Costs -->
+                                            <path id="paradox-area-fill" d="" fill="url(#medical-grad)" style="transition: d 0.1s linear;" />
+                                            
+                                            <!-- Curves -->
+                                            <path id="life-expectancy-line" d="" fill="none" stroke="url(#life-line-grad)" stroke-width="3" stroke-linecap="round" filter="url(#glow-teal)" style="transition: d 0.1s linear;" />
+                                            <path id="fertility-rate-line" d="" fill="none" stroke="url(#fertility-line-grad)" stroke-width="3" stroke-linecap="round" filter="url(#glow-rose)" style="transition: d 0.1s linear;" />
+                                            
+                                            <!-- Interactive indicator line tracking the slider -->
+                                            <line id="tracker-line" x1="50" y1="30" x2="50" y2="205" stroke="rgba(255,255,255,0.25)" stroke-width="1.5" stroke-dasharray="2 2" />
+                                            <circle id="tracker-life-dot" cx="50" cy="130" r="6" fill="#14b8a6" stroke="#fff" stroke-width="1.5" />
+                                            <circle id="tracker-fert-dot" cx="50" cy="100" r="6" fill="#fb7185" stroke="#fff" stroke-width="1.5" />
+
+                                            <!-- Annotations -->
+                                            <text id="label-life" x="240" y="65" fill="#2dd4bf" font-size="12.5" font-weight="bold" filter="drop-shadow(0px 1px 3px rgba(0,0,0,0.5))">平均寿命の延伸</text>
+                                            <text id="label-fert" x="220" y="190" fill="#fb7185" font-size="12.5" font-weight="bold" filter="drop-shadow(0px 1px 3px rgba(0,0,0,0.5))">合計特殊出生率の低下</text>
+                                            <text id="label-medical" x="350" y="125" fill="#f59e0b" font-size="14.5" font-weight="bold" text-anchor="middle" opacity="0.95" filter="drop-shadow(0px 1px 3px rgba(0,0,0,0.5))">
+                                                国民医療費の膨脹
+                                            </text>
+                                        </svg>
                                     </div>
-                                    <div class="lang-vi">
-                                        <p style="margin: 0 0 8px 0;">• <strong>Tuổi thọ tăng &amp; Sinh giảm:</strong>
-                                            Tuổi thọ trung bình tăng lên nhờ sự phát triển y học, nhưng tỷ lệ sinh sụt
-                                            giảm khiến tỷ lệ người cao tuổi tăng nhanh.</p>
-                                        <p style="margin: 0;">• <strong>Gánh nặng tài chính:</strong> Lực lượng lao động
-                                            co hẹp trong khi lượng người già tăng vọt tạo áp lực lớn lên chi phí y tế
-                                            quốc gia (国民医療費).</p>
+                                    
+                                    <!-- Slider Control -->
+                                    <div style="display: flex; align-items: center; gap: 15px; background: rgba(255,255,255,0.02); padding: 10px 15px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.05);">
+                                        <span class="lang-ja" style="font-size: 0.85rem; color: var(--text-secondary); font-weight: bold; width: 45px; text-align: right;">過去</span>
+                                        <span class="lang-vi" style="font-size: 0.85rem; color: var(--text-secondary); font-weight: bold; width: 65px; text-align: right;">Quá khứ</span>
+                                        
+                                        <input type="range" id="paradox-slider" min="0" max="100" value="50" class="health-slider" style="flex: 1; background: linear-gradient(90deg, var(--accent-teal) 0%, var(--accent-gold) 50%, #f43f5e 100%);" />
+                                        
+                                        <span class="lang-ja" style="font-size: 0.85rem; color: var(--text-secondary); font-weight: bold; width: 70px;">未来 (課題)</span>
+                                        <span class="lang-vi" style="font-size: 0.85rem; color: var(--text-secondary); font-weight: bold; width: 65px;">Tương lai</span>
+                                    </div>
+                                </div>
+                                
+                                <!-- Right: Explanation Card -->
+                                <div id="paradox-explanation-pane" class="card glass-card" style="flex: 1 1 300px; min-width: 270px; padding: 22px; border-left: 4px solid var(--accent-gold); display: flex; flex-direction: column; justify-content: center; background: rgba(255,255,255,0.01); border-radius: 8px;">
+                                    <div id="paradox-explanation-content" style="transition: opacity 0.2s ease;">
+                                        <!-- Dynamically loaded content -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 2. Disease Structure Paradigm Shift Panel -->
+                        <div style="background: rgba(15, 23, 42, 0.4); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 16px; padding: 30px 24px; position: relative; margin: 30px 0; box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2); overflow: hidden;">
+                            <!-- Circuit Grid Background Overlay -->
+                            <div style="position: absolute; inset: 0; background-image: radial-gradient(rgba(245, 158, 11, 0.04) 1px, transparent 0); background-size: 24px 24px; opacity: 0.5; pointer-events: none;"></div>
+
+                            <h3 style="color: var(--accent-gold); margin-bottom: 20px; font-size: 1.1rem; display: flex; align-items: center; gap: 8px; position: relative; z-index: 2;">
+                                <i class="fa-solid fa-arrows-spin"></i>
+                                <span class="lang-ja">疾病構造の劇的なシフト：急性疾患から非感染性疾患（NCDs）へ</span>
+                                <span class="lang-vi">Sự dịch chuyển cơ cấu bệnh tật: Từ cấp tính sang không lây nhiễm (NCDs)</span>
+                            </h3>
+
+                            <div style="position: relative; z-index: 2; overflow-x: auto;">
+                                <table style="width: 100%; border-collapse: collapse; text-align: left; font-size: 0.96rem; min-width: 500px;">
+                                    <thead>
+                                        <tr style="border-bottom: 1.5px solid rgba(255,255,255,0.12);">
+                                            <th style="padding: 12px 16px; color: var(--text-muted); font-weight: 600; width: 33.33%;">
+                                                <span class="lang-ja">比較項目</span>
+                                                <span class="lang-vi">Tiêu chí so sánh</span>
+                                            </th>
+                                            <th style="padding: 12px 16px; background: rgba(255,255,255,0.03); color: var(--text-secondary); font-weight: bold; width: 33.33%; border-left: 1px solid rgba(255,255,255,0.06); text-align: center;">
+                                                <span class="lang-ja">旧パラダイム (Old Paradigm)</span>
+                                                <span class="lang-vi">Hệ hình cũ (Old Paradigm)</span>
+                                            </th>
+                                            <th style="padding: 12px 16px; background: rgba(245, 158, 11, 0.08); color: var(--accent-gold); font-weight: bold; width: 33.33%; border-left: 1px solid rgba(255,255,255,0.06); text-align: center;">
+                                                <span class="lang-ja">新パラダイム (New Paradigm)</span>
+                                                <span class="lang-vi">Hệ hình mới (New Paradigm)</span>
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr style="border-bottom: 1px solid rgba(255,255,255,0.06); transition: background 0.2s;" onmouseover="this.style.background='rgba(255,255,255,0.01)'" onmouseout="this.style.background='none'">
+                                            <td style="padding: 16px; font-weight: bold; color: var(--text-primary); vertical-align: middle;">
+                                                <i class="fa-solid fa-virus" style="margin-right: 8px; color: var(--text-muted);"></i>
+                                                <span class="lang-ja">主な対象疾患</span>
+                                                <span class="lang-vi">Bệnh lý chính</span>
+                                            </td>
+                                            <td style="padding: 16px; background: rgba(255,255,255,0.01); border-left: 1px solid rgba(255,255,255,0.04); vertical-align: middle;">
+                                                <div style="font-weight: 600; margin-bottom: 4px; color: var(--text-primary);">
+                                                    <span class="lang-ja">感染症・急性疾患</span>
+                                                    <span class="lang-vi">Bệnh truyền nhiễm & Cấp tính</span>
+                                                </div>
+                                                <div style="font-size: 0.88rem; color: var(--text-secondary);">
+                                                    <span class="lang-ja">（単一の病原体によるもの）</span>
+                                                    <span class="lang-vi">(Gây ra bởi một tác nhân pathogen duy nhất)</span>
+                                                </div>
+                                            </td>
+                                            <td style="padding: 16px; background: rgba(245, 158, 11, 0.02); border-left: 1px solid rgba(255,255,255,0.04); vertical-align: middle;">
+                                                <div style="font-weight: 600; margin-bottom: 4px; color: var(--accent-gold); display: flex; align-items: center; gap: 6px;">
+                                                    <span class="lang-ja">非感染性疾患 (NCDs)・生活習慣病</span>
+                                                    <span class="lang-vi">Bệnh không lây nhiễm (NCDs) & Bệnh lối sống</span>
+                                                    <i class="fa-solid fa-chart-line" style="font-size: 0.85rem;"></i>
+                                                </div>
+                                                <div style="font-size: 0.88rem; color: var(--text-secondary);">
+                                                    <span class="lang-ja">がん、心疾患、脳血管疾患、COPD、糖尿病など</span>
+                                                    <span class="lang-vi">Ung thư, tim mạch, đột quỵ, COPD, tiểu đường...</span>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr style="border-bottom: 1px solid rgba(255,255,255,0.06); transition: background 0.2s;" onmouseover="this.style.background='rgba(255,255,255,0.01)'" onmouseout="this.style.background='none'">
+                                            <td style="padding: 16px; font-weight: bold; color: var(--text-primary); vertical-align: middle;">
+                                                <i class="fa-solid fa-circle-question" style="margin-right: 8px; color: var(--text-muted);"></i>
+                                                <span class="lang-ja">発症要因</span>
+                                                <span class="lang-vi">Nguyên nhân phát bệnh</span>
+                                            </td>
+                                            <td style="padding: 16px; background: rgba(255,255,255,0.01); border-left: 1px solid rgba(255,255,255,0.04); vertical-align: middle;">
+                                                <div style="color: var(--text-primary);">
+                                                    <span class="lang-ja">外部からの病原体侵入</span>
+                                                    <span class="lang-vi">Tác nhân pathogen xâm nhập từ bên ngoài</span>
+                                                </div>
+                                            </td>
+                                            <td style="padding: 16px; background: rgba(245, 158, 11, 0.02); border-left: 1px solid rgba(255,255,255,0.04); vertical-align: middle;">
+                                                <div style="color: var(--text-primary); display: flex; align-items: center; gap: 6px;">
+                                                    <span class="lang-ja">個人の素因と生活習慣の蓄積</span>
+                                                    <span class="lang-vi">Thể trạng cá nhân & Tích tụ thói quen lối sống</span>
+                                                    <i class="fa-solid fa-user-doctor" style="color: var(--accent-gold); font-size: 0.85rem;"></i>
+                                                </div>
+                                                <div style="font-size: 0.88rem; color: var(--text-secondary); margin-top: 4px;">
+                                                    <span class="lang-ja">加齢、食生活、運動不足、喫煙などの複合的要因</span>
+                                                    <span class="lang-vi">Sự kết hợp của lão hóa, chế độ ăn, lười vận động, hút thuốc...</span>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr style="border-bottom: 1px solid rgba(255,255,255,0.06); transition: background 0.2s;" onmouseover="this.style.background='rgba(255,255,255,0.01)'" onmouseout="this.style.background='none'">
+                                            <td style="padding: 16px; font-weight: bold; color: var(--text-primary); vertical-align: middle;">
+                                                <i class="fa-solid fa-house-medical-flag" style="margin-right: 8px; color: var(--text-muted);"></i>
+                                                <span class="lang-ja">医療の目的と期間</span>
+                                                <span class="lang-vi">Mục tiêu & Thời gian y tế</span>
+                                            </td>
+                                            <td style="padding: 16px; background: rgba(255,255,255,0.01); border-left: 1px solid rgba(255,255,255,0.04); vertical-align: middle;">
+                                                <div style="font-weight: 600; color: var(--text-primary); display: flex; align-items: center; gap: 6px;">
+                                                    <span class="lang-ja">短期的な「治癒」（Cure）</span>
+                                                    <span class="lang-vi">Chữa khỏi ngắn hạn (Cure)</span>
+                                                    <i class="fa-solid fa-dna" style="font-size: 0.85rem; color: var(--text-muted);"></i>
+                                                </div>
+                                            </td>
+                                            <td style="padding: 16px; background: rgba(245, 158, 11, 0.02); border-left: 1px solid rgba(255,255,255,0.04); vertical-align: middle;">
+                                                <div style="font-weight: 600; color: var(--accent-gold); display: flex; align-items: center; gap: 6px;">
+                                                    <span class="lang-ja">長期的な「コントロール」とQOLの維持（Care）</span>
+                                                    <span class="lang-vi">Quản lý lâu dài & Duy trì QOL (Care)</span>
+                                                    <i class="fa-solid fa-hand-holding-heart" style="font-size: 0.85rem;"></i>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                        <!-- 3. Domino Effect Panel -->
+                        <div style="background: rgba(15, 23, 42, 0.4); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 16px; padding: 30px 24px; position: relative; margin: 30px 0; box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2); overflow: hidden;">
+                            <div style="position: absolute; inset: 0; background-image: radial-gradient(rgba(239, 68, 68, 0.04) 1px, transparent 0); background-size: 24px 24px; opacity: 0.5; pointer-events: none;"></div>
+                            
+                            <h3 style="color: #f87171; margin-bottom: 20px; font-size: 1.1rem; display: flex; align-items: center; gap: 8px; position: relative; z-index: 2;">
+                                <i class="fa-solid fa-people-arrows"></i>
+                                <span class="lang-ja">発症から要介護へのドミノ現象</span>
+                                <span class="lang-vi">Hiệu ứng Domino: Từ phát bệnh đến trạng thái cần Kaigo (Chăm sóc điều dưỡng)</span>
+                            </h3>
+
+                            <p style="color: var(--text-secondary); font-size: 0.94rem; margin-bottom: 25px; position: relative; z-index: 2;">
+                                <span class="lang-ja">不健康な生活習慣のドミノが倒れると、連鎖的に生活習慣病が発症し、最終的に要介護状態へと転落します。各タイルをクリックして詳細を確認してください。</span>
+                                <span class="lang-vi">Khi quân cờ domino lối sống không lành mạnh ngã xuống, nó sẽ kéo theo chuỗi phát sinh bệnh mạn tính và cuối cùng rơi vào trạng thái cần điều dưỡng. Hãy click từng quân cờ để xem chi tiết.</span>
+                            </p>
+
+                            <!-- Domino Chain Row -->
+                            <div class="domino-row" style="display: flex; justify-content: space-between; gap: 12px; margin-bottom: 30px; position: relative; z-index: 2; padding: 25px 12px; overflow-x: auto; min-height: 200px;">
+                                <!-- Domino Tile 1 -->
+                                <button type="button" class="domino-tile active" data-domino="1" style="flex: 1; min-width: 90px; height: 140px; background: linear-gradient(135deg, rgba(255,255,255,0.08) 0%, rgba(255,255,255,0.02) 100%); border: 1px solid rgba(255,255,255,0.12); border-radius: 8px; cursor: pointer; display: flex; flex-direction: column; justify-content: space-between; padding: 12px 8px; text-align: left; transition: all 0.3s ease; box-shadow: 0 4px 12px rgba(0,0,0,0.25); outline: none;">
+                                    <i class="fa-solid fa-utensils" style="font-size: 1.6rem; color: #ef4444; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3));"></i>
+                                    <div>
+                                        <div class="lang-ja" style="font-size: 0.82rem; font-weight: 700; color: #fff; line-height: 1.3;">不適切な生活習慣</div>
+                                        <div class="lang-vi" style="font-size: 0.75rem; font-weight: 700; color: #fff; line-height: 1.2;">Lối sống không lành mạnh</div>
+                                    </div>
+                                </button>
+
+                                <!-- Domino Tile 2 -->
+                                <button type="button" class="domino-tile" data-domino="2" style="flex: 1; min-width: 90px; height: 140px; background: linear-gradient(135deg, rgba(255,255,255,0.08) 0%, rgba(255,255,255,0.02) 100%); border: 1px solid rgba(255,255,255,0.12); border-radius: 8px; cursor: pointer; display: flex; flex-direction: column; justify-content: space-between; padding: 12px 8px; text-align: left; transition: all 0.3s ease; box-shadow: 0 4px 12px rgba(0,0,0,0.25); outline: none;">
+                                    <i class="fa-solid fa-weight-scale" style="font-size: 1.6rem; color: #f97316; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3));"></i>
+                                    <div>
+                                        <div class="lang-ja" style="font-size: 0.82rem; font-weight: 700; color: #fff; line-height: 1.3;">メタボリックの進行</div>
+                                        <div class="lang-vi" style="font-size: 0.75rem; font-weight: 700; color: #fff; line-height: 1.2;">Tiến triển chuyển hóa</div>
+                                    </div>
+                                </button>
+
+                                <!-- Domino Tile 3 -->
+                                <button type="button" class="domino-tile" data-domino="3" style="flex: 1; min-width: 90px; height: 140px; background: linear-gradient(135deg, rgba(255,255,255,0.08) 0%, rgba(255,255,255,0.02) 100%); border: 1px solid rgba(255,255,255,0.12); border-radius: 8px; cursor: pointer; display: flex; flex-direction: column; justify-content: space-between; padding: 12px 8px; text-align: left; transition: all 0.3s ease; box-shadow: 0 4px 12px rgba(0,0,0,0.25); outline: none;">
+                                    <i class="fa-solid fa-heart-pulse" style="font-size: 1.6rem; color: #fbbf24; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3));"></i>
+                                    <div>
+                                        <div class="lang-ja" style="font-size: 0.82rem; font-weight: 700; color: #fff; line-height: 1.3;">生活習慣病の発症</div>
+                                        <div class="lang-vi" style="font-size: 0.75rem; font-weight: 700; color: #fff; line-height: 1.2;">Khởi phát bệnh lý</div>
+                                    </div>
+                                </button>
+
+                                <!-- Domino Tile 4 -->
+                                <button type="button" class="domino-tile" data-domino="4" style="flex: 1; min-width: 90px; height: 140px; background: linear-gradient(135deg, rgba(255,255,255,0.08) 0%, rgba(255,255,255,0.02) 100%); border: 1px solid rgba(255,255,255,0.12); border-radius: 8px; cursor: pointer; display: flex; flex-direction: column; justify-content: space-between; padding: 12px 8px; text-align: left; transition: all 0.3s ease; box-shadow: 0 4px 12px rgba(0,0,0,0.25); outline: none;">
+                                    <i class="fa-solid fa-person-cane" style="font-size: 1.6rem; color: #a855f7; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3));"></i>
+                                    <div>
+                                        <div class="lang-ja" style="font-size: 0.82rem; font-weight: 700; color: #fff; line-height: 1.3;">日常生活動作の制限</div>
+                                        <div class="lang-vi" style="font-size: 0.75rem; font-weight: 700; color: #fff; line-height: 1.2;">Hạn chế hoạt động (ADL)</div>
+                                    </div>
+                                </button>
+
+                                <!-- Domino Tile 5 -->
+                                <button type="button" class="domino-tile" data-domino="5" style="flex: 1; min-width: 90px; height: 140px; background: linear-gradient(135deg, rgba(255,255,255,0.08) 0%, rgba(255,255,255,0.02) 100%); border: 1px solid rgba(255,255,255,0.12); border-radius: 8px; cursor: pointer; display: flex; flex-direction: column; justify-content: space-between; padding: 12px 8px; text-align: left; transition: all 0.3s ease; box-shadow: 0 4px 12px rgba(0,0,0,0.25); outline: none;">
+                                    <i class="fa-solid fa-bed-pulse" style="font-size: 1.6rem; color: #ef4444; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3));"></i>
+                                    <div>
+                                        <div class="lang-ja" style="font-size: 0.82rem; font-weight: 700; color: #fff; line-height: 1.3;">要介護状態への転落</div>
+                                        <div class="lang-vi" style="font-size: 0.75rem; font-weight: 700; color: #fff; line-height: 1.2;">Trạng thái cần Kaigo</div>
+                                    </div>
+                                </button>
+                            </div>
+
+                            <!-- Domino Active Details Display Pane -->
+                            <div id="domino-details-pane" style="background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.08); border-left: 4px solid #ef4444; border-radius: 8px; padding: 20px; min-height: 100px; display: flex; align-items: center; transition: all 0.3s ease;">
+                                <div id="domino-details-content" style="width: 100%; transition: opacity 0.2s ease;">
+                                    <!-- Dynamic content injected via JS -->
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 4. Two Major Directions for Solutions -->
+                        <div style="background: rgba(15, 23, 42, 0.4); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 16px; padding: 30px 24px; position: relative; margin: 30px 0; box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2); overflow: hidden;">
+                            <!-- Circuit Grid Background Overlay -->
+                            <div style="position: absolute; inset: 0; background-image: radial-gradient(rgba(59, 130, 246, 0.04) 1px, transparent 0); background-size: 24px 24px; opacity: 0.5; pointer-events: none;"></div>
+
+                            <h3 style="color: #60a5fa; margin-bottom: 20px; font-size: 1.1rem; display: flex; align-items: center; gap: 8px; position: relative; z-index: 2;">
+                                <i class="fa-solid fa-circle-chevron-right" style="color: #60a5fa;"></i>
+                                <span class="lang-ja">解決への方向性：一次予防と健康寿命の延伸</span>
+                                <span class="lang-vi">Hướng giải quyết: Dự phòng cấp 1 và Kéo dài tuổi thọ khỏe mạnh</span>
+                            </h3>
+
+                            <div class="grid-2col" style="gap: 20px; position: relative; z-index: 2; align-items: stretch; margin-bottom: 25px;">
+                                <!-- Direction 1: Primary Prevention -->
+                                <div class="card glass-card" style="padding: 0; border: 1px solid rgba(255,255,255,0.08); border-left: 4px solid var(--accent-teal); border-radius: 12px; background: rgba(255,255,255,0.015); display: flex; flex-direction: column; overflow: hidden; box-shadow: var(--shadow-md);">
+                                    <!-- Header -->
+                                    <div style="background: rgba(255,255,255,0.06); padding: 14px 20px; border-bottom: 1px solid rgba(255,255,255,0.08); font-weight: 700; font-size: 1rem; color: #fff;">
+                                        <span class="lang-ja">一次予防 (Primary Prevention)</span>
+                                        <span class="lang-vi">Dự phòng cấp 1 (Primary Prevention)</span>
+                                    </div>
+                                    <!-- Body -->
+                                    <div style="padding: 24px 20px; display: flex; align-items: center; justify-content: space-between; gap: 15px; flex-grow: 1;">
+                                        <div style="flex: 1; font-size: 0.94rem; line-height: 1.7; color: var(--text-secondary);">
+                                            <span class="lang-ja">発病そのものの阻止、リスクの遮断を目標とする活動。</span>
+                                            <span class="lang-vi">Ngăn ngừa nguy cơ khởi phát bệnh ngay từ đầu và chủ động loại bỏ các yếu tố rủi ro.</span>
+                                        </div>
+                                        <div style="width: 80px; height: 80px; display: flex; justify-content: center; align-items: center; flex-shrink: 0;">
+                                            <svg viewBox="0 0 100 100" width="70" height="70" style="overflow: visible; filter: drop-shadow(0 0 8px rgba(45,212,191,0.3));">
+                                                <!-- Shield path -->
+                                                <path d="M 50,15 C 65,15 80,10 80,25 C 80,55 50,85 50,85 C 50,85 20,55 20,25 C 20,10 35,15 50,15 Z" fill="rgba(45, 212, 191, 0.08)" stroke="#2dd4bf" stroke-width="2.5" stroke-linejoin="round" />
+                                                <path d="M 50,20 C 62,20 75,16 75,28 C 75,52 50,78 50,78 C 50,78 25,52 25,28 C 25,16 38,20 50,20 Z" fill="none" stroke="#2dd4bf" stroke-width="1" stroke-dasharray="2 2" opacity="0.6" />
+                                                <!-- Human figure inside shield -->
+                                                <circle cx="50" cy="38" r="6.5" fill="#2dd4bf" />
+                                                <path d="M 50,44.5 C 40,44.5 33,51 33,51" stroke="#2dd4bf" stroke-width="3" stroke-linecap="round" fill="none" />
+                                                <path d="M 50,44.5 C 60,44.5 67,51 67,51" stroke="#2dd4bf" stroke-width="3" stroke-linecap="round" fill="none" />
+                                                <path d="M 50,44.5 L 50,60 L 41,72" stroke="#2dd4bf" stroke-width="3" stroke-linecap="round" fill="none" />
+                                                <path d="M 50,60 L 59,72" stroke="#2dd4bf" stroke-width="3" stroke-linecap="round" fill="none" />
+                                            </svg>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Direction 2: Extending Healthy Life Expectancy -->
+                                <div class="card glass-card" style="padding: 0; border: 1px solid rgba(255,255,255,0.08); border-left: 4px solid #10b981; border-radius: 12px; background: rgba(255,255,255,0.015); display: flex; flex-direction: column; overflow: hidden; box-shadow: var(--shadow-md);">
+                                    <!-- Header -->
+                                    <div style="background: rgba(255,255,255,0.06); padding: 14px 20px; border-bottom: 1px solid rgba(255,255,255,0.08); font-weight: 700; font-size: 1rem; color: #fff;">
+                                        <span class="lang-ja">健康寿命の延伸 (Extending Healthy Life Expectancy)</span>
+                                        <span class="lang-vi">Kéo dài tuổi thọ khỏe mạnh (Extending Healthy Life Expectancy)</span>
+                                    </div>
+                                    <!-- Body -->
+                                    <div style="padding: 24px 20px; display: flex; align-items: center; justify-content: space-between; gap: 20px; flex-grow: 1;">
+                                        <div style="flex: 1.2; font-size: 0.94rem; line-height: 1.7; color: var(--text-secondary);">
+                                            <span class="lang-ja">日常生活が制限されることなく自立して生活できる期間である「健康寿命」を延伸させること。</span>
+                                            <span class="lang-vi">Kéo dài thời gian sống khỏe mạnh (健康寿命) - khoảng thời gian con người có thể sống tự lập, tự chủ không cần chăm sóc điều dưỡng.</span>
+                                        </div>
+                                        <div style="flex: 0.8; display: flex; flex-direction: column; align-items: center; justify-content: center; min-width: 130px; flex-shrink: 0; background: rgba(0,0,0,0.2); padding: 12px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.04);">
+                                            <!-- Green and Red Bar Chart -->
+                                            <div style="display: flex; width: 100%; height: 18px; border-radius: 4px; overflow: hidden; box-shadow: 0 0 10px rgba(16,185,129,0.25);">
+                                                <div style="width: 80%; background: linear-gradient(90deg, #10b981, #34d399); height: 100%; position: relative;"></div>
+                                                <div style="width: 20%; background: linear-gradient(90deg, #dc2626, #ef4444); height: 100%; position: relative;"></div>
+                                            </div>
+                                            <div style="display: flex; justify-content: space-between; width: 100%; margin-top: 8px; font-size: 0.72rem; font-weight: 700; line-height: 1.2;">
+                                                <span style="color: #34d399; text-shadow: 0 1px 2px rgba(0,0,0,0.5);">
+                                                    <span class="lang-ja">健康寿命</span>
+                                                    <span class="lang-vi">Tuổi thọ khỏe mạnh</span>
+                                                </span>
+                                                <span style="color: #f87171; text-align: right; text-shadow: 0 1px 2px rgba(0,0,0,0.5);">
+                                                    <span class="lang-ja">要介護<br>期間</span>
+                                                    <span class="lang-vi">Thời gian<br>Kaigo</span>
+                                                </span>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
 
-                            <!-- Card 2: 疾病構造の変化 -->
-                            <div class="card glass-card"
-                                style="border-left: 5px solid var(--accent-gold); padding: 22px;">
-                                <h3
-                                    style="color: var(--accent-gold); margin-bottom: 12px; display: flex; align-items: center; gap: 8px; font-size: 0.96rem;">
-                                    <i class="fa-solid fa-heart-crack"></i>
-                                    <span class="lang-ja">疾病構造の変化と生活習慣病の増加</span>
-                                    <span class="lang-vi">Thay đổi cấu trúc bệnh &amp; Bệnh lối sống</span>
-                                </h3>
-                                <div style="font-size: 0.96rem; line-height: 1.8; color: var(--text-secondary);">
-                                    <div class="lang-ja">
-                                        <p style="margin: 0 0 8px 0;">•
-                                            <strong>生活習慣病の台頭：</strong>疾患の中心が感染症から、がん、心疾患、脳血管疾患などの生活習慣病へシフトしています。
-                                        </p>
-                                        <p style="margin: 0;">• <strong>非感染性疾患 (NCD)：</strong>慢性閉塞性肺疾患 (COPD)
-                                            や糖尿病など、長期の管理や療養が必要な疾患が大部分を占めています。</p>
-                                    </div>
-                                    <div class="lang-vi">
-                                        <p style="margin: 0 0 8px 0;">• <strong>Dịch chuyển cấu trúc bệnh:</strong> Cơ
-                                            cấu bệnh dịch chuyển từ bệnh truyền nhiễm sang nhóm bệnh lối sống (ung thư,
-                                            tim mạch, đột quỵ, tiểu đường...).</p>
-                                        <p style="margin: 0;">• <strong>Bệnh không lây nhiễm (NCD):</strong> Các bệnh
-                                            như phổi tắc nghẽn mạn tính (COPD) đòi hỏi việc quản lý, điều trị và chăm
-                                            sóc y tế lâu dài.</p>
-                                    </div>
+                            <!-- Detailed columns -->
+                            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 15px; position: relative; z-index: 2;">
+                                <div style="background: rgba(255,255,255,0.02); padding: 15px; border-radius: 8px; border-left: 4px solid var(--accent-teal);">
+                                    <h4 style="color: var(--accent-teal); margin: 0 0 8px 0; font-size: 0.95rem; font-weight: bold;">
+                                        <span class="lang-ja">一次予防への注力</span>
+                                        <span class="lang-vi">Tập trung Dự phòng cấp 1</span>
+                                    </h4>
+                                    <p style="margin: 0; font-size: 0.88rem; line-height: 1.6; color: var(--text-secondary);">
+                                        <span class="lang-ja">病気になった後の治療（Cure）だけではなく、食事や運動習慣の改善により発病そのものを防ぐ対策を強力に推進します。</span>
+                                        <span class="lang-vi">Thay vì chỉ tập trung điều trị (Cure) khi đã có bệnh, cần cải thiện chế độ ăn uống, thói quen vận động để ngăn ngừa nguy cơ khởi phát bệnh ngay từ đầu.</span>
+                                    </p>
                                 </div>
-                            </div>
-
-                            <!-- Card 3: 要介護者の増加 -->
-                            <div class="card glass-card" style="border-left: 5px solid #ef4444; padding: 22px;">
-                                <h3
-                                    style="color: #f87171; margin-bottom: 12px; display: flex; align-items: center; gap: 8px; font-size: 0.96rem;">
-                                    <i class="fa-solid fa-wheelchair"></i>
-                                    <span class="lang-ja">要介護者等の増加</span>
-                                    <span class="lang-vi">Gia tăng người cần chăm sóc điều dưỡng</span>
-                                </h3>
-                                <div style="font-size: 0.96rem; line-height: 1.8; color: var(--text-secondary);">
-                                    <div class="lang-ja">
-                                        <p style="margin: 0 0 8px 0;">•
-                                            <strong>日常生活の制限：</strong>生活習慣病の悪化に伴い、日常生活が制限される高齢者が増えています。
-                                        </p>
-                                        <p style="margin: 0;">•
-                                            <strong>社会保障への圧力：</strong>認知症や寝たきり状態の「要介護者」が増加し、社会的な介護提供体制の確保が急務です。
-                                        </p>
-                                    </div>
-                                    <div class="lang-vi">
-                                        <p style="margin: 0 0 8px 0;">• <strong>Hạn chế hoạt động:</strong> Bệnh lối
-                                            sống tiến triển làm suy giảm thể trạng, gây khó khăn cho việc tự sinh hoạt
-                                            hàng ngày.</p>
-                                        <p style="margin: 0;">• <strong>Áp lực lên an sinh:</strong> Lượng người cần
-                                            chăm sóc điều dưỡng (sa sút trí tuệ, nằm liệt giường) tăng mạnh, gây áp lực
-                                            cực lớn lên hệ thống.</p>
-                                    </div>
+                                <div style="background: rgba(255,255,255,0.02); padding: 15px; border-radius: 8px; border-left: 4px solid #10b981;">
+                                    <h4 style="color: #10b981; margin: 0 0 8px 0; font-size: 0.95rem; font-weight: bold;">
+                                        <span class="lang-ja">健康寿命のさらなる延伸</span>
+                                        <span class="lang-vi">Kéo dài tuổi thọ khỏe mạnh</span>
+                                    </h4>
+                                    <p style="margin: 0; font-size: 0.88rem; line-height: 1.6; color: var(--text-secondary);">
+                                        <span class="lang-ja">現代医療の最大の目標は、単に平均寿命（生命の長さ）を延ばすことではなく、日常生活が制限されることなく自立して生活できる「健康寿命」を平均寿命以上のスピードで延伸させることです。</span>
+                                        <span class="lang-vi">Mục tiêu lớn nhất của y tế hiện đại không chỉ đơn thuần là kéo dài tuổi thọ trung bình, mà là kéo dài tốc độ tăng trưởng của "Tuổi thọ khỏe mạnh" nhanh hơn tốc độ tăng tuổi thọ trung bình.</span>
+                                    </p>
                                 </div>
-                            </div>
-
-                            <!-- Card 4: 解決への方向性 -->
-                            <div class="card glass-card" style="border-left: 5px solid #3b82f6; padding: 22px;">
-                                <h3
-                                    style="color: #93c5fd; margin-bottom: 12px; display: flex; align-items: center; gap: 8px; font-size: 0.96rem;">
-                                    <i class="fa-solid fa-circle-chevron-right"></i>
-                                    <span class="lang-ja">解決への方向性：一次予防と健康寿命の延伸</span>
-                                    <span class="lang-vi">Hướng giải quyết và kéo dài tuổi thọ khỏe mạnh</span>
-                                </h3>
-                                <div style="font-size: 0.96rem; line-height: 1.8; color: var(--text-secondary);">
-                                    <div class="lang-ja">
-                                        <p style="margin: 0 0 8px 0;">•
-                                            <strong>一次予防への注力：</strong>病気になった後の治療だけではなく、食事や運動習慣の改善により発病そのものを防ぐ対策を推進します。
-                                        </p>
-                                        <p style="margin: 0;">•
-                                            <strong>健康寿命の延伸：</strong>介護や生活制限を受けずに自立して元気に生活できる期間を最大限延ばすことが究極の目標です。
-                                        </p>
-                                    </div>
-                                    <div class="lang-vi">
-                                        <p style="margin: 0 0 8px 0;">• <strong>Tập trung Dự phòng cấp 1:</strong> Thay
-                                            vì chỉ điều trị khi có bệnh, cần cải thiện lối sống để ngăn ngừa nguy cơ
-                                            khởi phát bệnh ngay từ đầu.</p>
-                                        <p style="margin: 0;">• <strong>Kéo dài tuổi thọ khỏe mạnh:</strong> Mục tiêu
-                                            cốt lõi là giúp người dân sống vui khỏe, tự lập và không bị giới hạn bởi
-                                            bệnh tật (健康寿命).</p>
-                                    </div>
+                                <div style="background: rgba(255,255,255,0.02); padding: 15px; border-radius: 8px; border-left: 4px solid #ef4444;">
+                                    <h4 style="color: #f87171; margin: 0 0 8px 0; font-size: 0.95rem; font-weight: bold;">
+                                        <span class="lang-ja">要介護期間 (レッドゾーン) の圧縮</span>
+                                        <span class="lang-vi">Nén chặt thời gian cần điều dưỡng</span>
+                                    </h4>
+                                    <p style="margin: 0; font-size: 0.88rem; line-height: 1.6; color: var(--text-secondary);">
+                                        <span class="lang-ja">平均寿命と健康寿命の間にある「赤い領域（要介護期間）」を可能な限り圧縮（縮小）することこそが、個人のQOL向上と社会保障制度の持続可能性を両立させる唯一の解です。</span>
+                                        <span class="lang-vi">Việc thu hẹp và nén chặt "vùng đỏ" (khoảng cách cần chăm sóc Kaigo) là giải pháp duy nhất giúp vừa nâng cao chất lượng cuộc sống (QOL) cá nhân, vừa đảm bảo tính bền vững của quỹ an sinh xã hội.</span>
+                                    </p>
                                 </div>
                             </div>
                         </div>

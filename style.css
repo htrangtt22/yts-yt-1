@@ -2684,3 +2684,63 @@ body.lang-vi *:not([class*="fa-"]):not(.fa):not(.fas):not(.far):not(.fab) {
 .roadmap-step:hover {
     transform: scale(1.1) !important;
 }
+
+/* Domino Tile Styles */
+.domino-tile {
+    position: relative;
+    z-index: 2;
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), background-color 0.3s, border-color 0.3s, box-shadow 0.3s !important;
+}
+
+.domino-tile:hover {
+    transform: translateY(-5px);
+    border-color: rgba(255, 255, 255, 0.25) !important;
+    background: rgba(255, 255, 255, 0.12) !important;
+    z-index: 5;
+}
+
+.domino-tile.active {
+    z-index: 10;
+    background: rgba(239, 68, 68, 0.08) !important;
+    border-color: #ef4444 !important;
+    transform: rotate(-6deg) translateY(4px);
+    box-shadow: 0 10px 24px rgba(239, 68, 68, 0.22) !important;
+}
+
+/* Specific colors for different domino numbers when active */
+.domino-tile[data-domino="2"].active {
+    background: rgba(249, 115, 22, 0.08) !important;
+    border-color: #f97316 !important;
+    box-shadow: 0 10px 24px rgba(249, 115, 22, 0.22) !important;
+}
+
+.domino-tile[data-domino="3"].active {
+    background: rgba(251, 191, 36, 0.08) !important;
+    border-color: #fbbf24 !important;
+    box-shadow: 0 10px 24px rgba(251, 191, 36, 0.22) !important;
+}
+
+.domino-tile[data-domino="4"].active {
+    background: rgba(168, 85, 247, 0.08) !important;
+    border-color: #a855f7 !important;
+    box-shadow: 0 10px 24px rgba(168, 85, 247, 0.22) !important;
+}
+
+.domino-tile[data-domino="5"].active {
+    background: rgba(239, 68, 68, 0.08) !important;
+    border-color: #ef4444 !important;
+    box-shadow: 0 10px 24px rgba(239, 68, 68, 0.22) !important;
+}
+
+/* Circular Approach Segment Styles */
+.approach-segment {
+    transition: stroke-width 0.3s ease, stroke 0.3s, opacity 0.3s, transform 0.3s ease !important;
+}
+.approach-segment:hover {
+    stroke-width: 24px !important;
+    opacity: 1 !important;
+}
+.approach-segment.active {
+    stroke-width: 25px !important;
+    opacity: 1 !important;
+}
