@@ -628,15 +628,9 @@ document.addEventListener('DOMContentLoaded', () => {
                     });
                 });
 
-                // Initialize SBO 2.1.1 specific interactive functions if defined
-                if (typeof window.updateSbo211Pillar === 'function') {
-                    window.updateSbo211Pillar();
-                }
-                if (typeof window.updateSbo211Copay === 'function') {
-                    window.updateSbo211Copay();
-                }
-                if (typeof window.updateSbo211Step === 'function') {
-                    window.updateSbo211Step();
+                // Initialize SBO 2.1.1 specific simulator
+                if (typeof window.initSbo211Simulator === 'function') {
+                    window.initSbo211Simulator();
                 }
             }
 

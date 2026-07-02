@@ -1432,11 +1432,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
     // --- SBO 2.1.1: The 4 Pillars of Social Security ---
-    const sbo211Pillars = document.querySelectorAll('[data-sbo211-pillar]');
-    const sbo211PillarTitle = document.getElementById('sbo211-pillar-title');
-    const sbo211PillarBody = document.getElementById('sbo211-pillar-body');
-    const sbo211PillarInfoCard = document.getElementById('sbo211-pillar-info-card');
-
+    // Datasets defined in a scope accessible by both init and update functions
     const sbo211PillarsData = {
         insurance: {
             icon: 'fa-shield-halved',
@@ -1453,11 +1449,11 @@ document.addEventListener('DOMContentLoaded', () => {
             icon: 'fa-hand-holding-hand',
             title: {
                 ja: '公的扶助 (Public Assistance)',
-                vi: 'Cứu trợ công (Public Assistance)'
+                vi: 'Cứu tế công cộng (Public Assistance)'
             },
             body: {
-                ja: '憲法第25条の生存権（最低限度の生活保障）に基づき、生活に困窮する国民に対して最低限度の生活を保障し、自立を助長する「救貧的機能」を持ちます。生活保護や医療扶助などがこれにあたります。',
-                vi: 'Dựa trên Quyền sinh tồn quy định tại Điều 25 Hiến pháp (bảo đảm mức sống tối thiểu), cứu trợ công thiết lập mạng lưới an sinh xã hội cuối cùng nhằm bảo đảm đời sống tối thiểu và thúc đẩy sự tự lập của người dân nghèo khó. Gồm hỗ trợ đời sống, hỗ trợ y tế (Medical Assistance).'
+                ja: '憲法第25条に基づき、生活困窮者に対して最低限度の生活を保障し、自立を助長する「救貧的機能」を持ちます。厳格な資産調査（資力調査）を要件とする生活保護制度などがこれに該当します。',
+                vi: 'Dựa trên Điều 25 Hiến pháp, cứu tế công cộng thực hiện chức năng cứu nghèo bằng cách bảo đảm mức sống tối thiểu và thúc đẩy tự lập cho người nghèo khó thông qua điều tra tài sản nghiêm ngặt (生活保護制度).'
             }
         },
         welfare: {
@@ -1467,8 +1463,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 vi: 'Phúc lợi xã hội (Social Welfare)'
             },
             body: {
-                ja: '高齢者、障害者、児童、ひとり親家庭などの社会的弱者が自立した日常生活を送れるよう公的にサポートし、ノーマライゼーション（誰もが普通の生活を送れる社会環境整備）の実現を目指します。',
-                vi: 'Hỗ trợ công để những nhóm yếu thế trong xã hội như người cao tuổi, người khuyết tật, trẻ em, gia dịch đơn thân... có thể tự lập trong sinh hoạt hàng ngày, hướng tới bình thường hóa xã hội (Normalization) - tạo dựng môi trường xã hội nơi ai cũng có thể sống bình thường.'
+                ja: '障害者、母子家庭、児童、高齢者など、社会的ハンディキャップを持つ人々が共同体で共に生きるための公的支援。ノーマライゼーション（Normalization）の理念を基盤とします。',
+                vi: 'Hỗ trợ công cộng để những người có rào cản xã hội (người khuyết tật, gia đình mẹ đơn thân, trẻ em, người già) có thể sống bình thường trong cộng đồng, dựa trên triết lý "Bình thường hóa" (Normalization).'
             }
         },
         health: {
@@ -1484,7 +1480,91 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     };
 
+    const sbo211CopayData = {
+        child: {
+            percent: { ja: '2割', vi: '20%' },
+            title: { ja: '義務教育就学前の乳幼児', vi: 'Trẻ em trước tuổi đi học' },
+            desc: {
+                ja: '原則2割負担。多くの自治体では独自の子ども医療費助成制度により、窓口負担を実質無料化または少額に抑えています。',
+                vi: 'Về nguyên tắc tự chi trả 20% (2割). Nhiều chính quyền địa phương có chế độ hỗ trợ chi phí y tế cho trẻ em giúp chi phí thực tế tại quầy bằng 0 hoặc rất nhỏ.'
+            },
+            color: '#3b82f6'
+        },
+        adult: {
+            percent: { ja: '3割', vi: '30%' },
+            title: { ja: '小学生〜69歳の現役世代', vi: 'Học sinh〜69 tuổi (Thế hệ lao động)' },
+            desc: {
+                ja: '原則3割負担。出来高払い方式またはDPC/PDPSに基づき計算された費用の3割を自己負担します。高額時は高額療養費制度が適用されます。',
+                vi: 'Thường tự chi trả 3割 (30%). Trả 30% chi phí tính theo phương thức thanh toán dịch vụ hoặc DPC/PDPS. Được bảo vệ bởi chế độ thanh toán chi phí y tế cao.'
+            },
+            color: '#ef4444'
+        },
+        'early-elder': {
+            percent: { ja: '2割', vi: '20%' },
+            title: { ja: '70〜74歳の前期高齢者', vi: '70〜74 tuổi' },
+            desc: {
+                ja: '原則2割負担。ただし、現役並みの所得がある高齢者は、現役世代と同様に3割負担となり、負担の公平性が図られています。',
+                vi: 'Về nguyên tắc tự chi trả 20% (2割). Tuy nhiên, người có thu nhập tương đương thế hệ đang lao động sẽ chịu tỷ lệ 30% để đảm bảo tính công bằng.'
+            },
+            color: '#10b981'
+        },
+        'late-elder': {
+            percent: { ja: '1割', vi: '10%' },
+            title: { ja: '75歳以上の後期高齢者', vi: '75 tuổi trở lên' },
+            desc: {
+                ja: '原則1割負担（現役並み所得者は3割、一定以上の所得者は2割）。2025年問題への対応において持続可能性が重視されています。',
+                vi: 'Về nguyên tắc tự chi trả 10% (1割) (thu nhập cao trả 20% hoặc 30%). Vận hành nhằm đảm bảo lưới an sinh xã hội cho người cao tuổi.'
+            },
+            color: '#a855f7'
+        }
+    };
+
+    const sbo211StepsData = {
+        step1: {
+            title: {
+                ja: '【Step 1】申請',
+                vi: '【Bước 1】Nộp đơn'
+            },
+            body: {
+                ja: 'お住まいの市区町村の介護保険担当窓口、または地域包括支援センターにて要介護認定の申請手続きを行います。申請には介護保険被保険者証が必要です。',
+                vi: 'Đến bộ phận một cửa của quận/thị trấn nơi cư trú hoặc Trung tâm hỗ trợ toàn diện khu vực để nộp đơn xin chứng nhận cần chăm sóc điều dưỡng.'
+            }
+        },
+        step2: {
+            title: {
+                ja: '【Step 2】要介護認定',
+                vi: '【Bước 2】Chứng nhận'
+            },
+            body: {
+                ja: '訪問調査（認定調査）の実施と、主治医意見書の作成に基づき、介護認定審査会による要介護認定の判定（自立、要支援1〜2、要介護1〜5）が行われます。',
+                vi: 'Thực hiện điều tra tại nhà bởi điều tra viên và xin ý kiến của bác sĩ chủ trị để Hội đồng thẩm định đưa ra phân loại (Tự lập, Cần hỗ trợ 1-2, Cần chăm sóc 1-5).'
+            }
+        },
+        step3: {
+            title: {
+                ja: '【Step 3】ケアプラン作成',
+                vi: '【Bước 3】Lập kế hoạch'
+            },
+            body: {
+                ja: 'ケアマネージャー（介護支援専門員）が本人の状態や希望に合わせて、最適な介護サービス計画（ケアプラン）を作成します。',
+                vi: 'Care Manager (chuyên viên hỗ trợ chăm sóc) lập kế hoạch chăm sóc cụ thể (Care Plan) phù hợp với nhu cầu và thể trạng của người dùng.'
+            }
+        },
+        step4: {
+            title: {
+                ja: '【Step 4】サービス利用',
+                vi: '【Bước 4】Sử dụng'
+            },
+            body: {
+                ja: '作成されたケアプランに基づき、居宅や施設でのサービス利用を開始します。自己負担割合は原則1割（所得により2～3割）です。',
+                vi: 'Bắt đầu sử dụng dịch vụ tại nhà hoặc tại cơ sở chăm sóc dựa trên kế hoạch đã lập. Tỷ lệ tự chi trả là 1割 (10%), trường hợp thu nhập cao là 2-3割.'
+            }
+        }
+    };
+
     function updateSbo211Pillar() {
+        const sbo211PillarTitle = document.getElementById('sbo211-pillar-title');
+        const sbo211PillarBody = document.getElementById('sbo211-pillar-body');
         const activePillar = document.querySelector('[data-sbo211-pillar].active') || document.querySelector('[data-sbo211-pillar]');
         if (!activePillar || !sbo211PillarTitle || !sbo211PillarBody) return;
         const key = activePillar.getAttribute('data-sbo211-pillar');
@@ -1496,71 +1576,12 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    sbo211Pillars.forEach(pillar => {
-        pillar.addEventListener('click', () => {
-            sbo211Pillars.forEach(p => p.classList.remove('active'));
-            pillar.classList.add('active');
-            if (sbo211PillarInfoCard) {
-                sbo211PillarInfoCard.style.opacity = '0.3';
-                setTimeout(() => {
-                    updateSbo211Pillar();
-                    sbo211PillarInfoCard.style.opacity = '1';
-                }, 200);
-            } else {
-                updateSbo211Pillar();
-            }
-        });
-    });
-
-
-    // --- SBO 2.1.1: Copayment Simulator ---
-    const sbo211AgeTabs = document.querySelectorAll('[data-sbo211-age]');
-    const sbo211CopayPercent = document.getElementById('sbo211-copay-percent');
-    const sbo211CopayCircle = document.getElementById('sbo211-copay-circle');
-    const sbo211CopayTitle = document.getElementById('sbo211-copay-title');
-    const sbo211CopayDesc = document.getElementById('sbo211-copay-desc');
-
-    const sbo211CopayData = {
-        child: {
-            percent: { ja: '2割', vi: '20%' },
-            title: { ja: '義務教育就学前の乳幼児', vi: 'Trẻ em trước tuổi đi học' },
-            desc: {
-                ja: '原則2割負担。多くの自治体では独自の子ども医療費助成制度により、窓口負担を実質無料化または少額のワンコインに抑えています。',
-                vi: 'Về nguyên tắc tự chi trả 20% (2割). Nhiều chính quyền địa phương có chế độ hỗ trợ chi phí y tế cho trẻ em giúp chi phí thực tế tại quầy bằng 0 hoặc rất nhỏ.'
-            },
-            color: '#3b82f6'
-        },
-        adult: {
-            percent: { ja: '3割', vi: '30%' },
-            title: { ja: '小学生〜69歳の現役世代', vi: 'Học sinh〜69 tuổi (Thế hệ lao động)' },
-            desc: {
-                ja: '原則3割負担。高額な医療費が必要となった場合は、所得に応じた「高額療養費制度」の適用により、自己負担上限額を超えた分が払い戻されます。',
-                vi: 'Về nguyên tắc tự chi trả 30% (3割). Khi chi phí y tế tăng quá cao, "Chế độ chi phí y tế cao" (高額療養費制度) sẽ áp dụng giúp hoàn lại phần vượt quá giới hạn tối đa tùy thu nhập.'
-            },
-            color: '#ef4444'
-        },
-        'early-elder': {
-            percent: { ja: '2割', vi: '20%' },
-            title: { ja: '70〜74歳の前期高齢者', vi: '70〜74 tuổi (前期高齢者)' },
-            desc: {
-                ja: '原則2割負担。ただし、現役並みの所得がある高齢者は、現役世代と同様に3割負担となり、負担の公平性が図られています。',
-                vi: 'Về nguyên tắc tự chi trả 20% (2割). Tuy nhiên, người có thu nhập tương đương thế hệ đang lao động sẽ chịu tỷ lệ 30% để đảm bảo tính công bằng.'
-            },
-            color: '#10b981'
-        },
-        'late-elder': {
-            percent: { ja: '1割', vi: '10%' },
-            title: { ja: '75歳以上の後期高齢者', vi: '75 tuổi trở lên (後期高齢者)' },
-            desc: {
-                ja: '原則1割負担（現役並み所得者は3割、一定以上の所得者は2割）。長寿社会において受診しやすさを支えるセーフティネットとして機能しています。',
-                vi: 'Về nguyên tắc tự chi trả 10% (1割) (thu nhập cao trả 20% hoặc 30%). Vận hành nhằm hỗ trợ chi phí khám trong xã hội thọ mệnh.'
-            },
-            color: '#a855f7'
-        }
-    };
-
     function updateSbo211Copay() {
         const activeTab = document.querySelector('[data-sbo211-age].active') || document.querySelector('[data-sbo211-age]');
+        const sbo211CopayPercent = document.getElementById('sbo211-copay-percent');
+        const sbo211CopayTitle = document.getElementById('sbo211-copay-title');
+        const sbo211CopayDesc = document.getElementById('sbo211-copay-desc');
+        const sbo211CopayCircle = document.getElementById('sbo211-copay-circle');
         if (!activeTab || !sbo211CopayPercent || !sbo211CopayTitle || !sbo211CopayDesc) return;
         const key = activeTab.getAttribute('data-sbo211-age');
         const data = sbo211CopayData[key];
@@ -1576,66 +1597,10 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    sbo211AgeTabs.forEach(tab => {
-        tab.addEventListener('click', () => {
-            sbo211AgeTabs.forEach(t => t.classList.remove('active'));
-            tab.classList.add('active');
-            updateSbo211Copay();
-        });
-    });
-
-
-    // --- SBO 2.1.1: Long-term Care Insurance Process Steps ---
-    const sbo211Steps = document.querySelectorAll('[data-sbo211-step]');
-    const sbo211StepTitle = document.getElementById('sbo211-step-title');
-    const sbo211StepBody = document.getElementById('sbo211-step-body');
-    const sbo211StepBox = document.getElementById('sbo211-step-box');
-
-    const sbo211StepsData = {
-        step1: {
-            title: {
-                ja: '【Step 1】申請',
-                vi: '【Bước 1】Nộp đơn'
-            },
-            body: {
-                ja: 'お住まいの市区町村の介護保険担当窓口、または地域包括支援センターにて要介護認定の申請手続きを行います。申請には介護保険被保険者証が必要です。',
-                vi: 'Tiến hành thủ tục đăng ký chứng nhận cần chăm sóc điều dưỡng tại quầy phụ trách bảo hiểm chăm sóc của quận/thị trấn nơi cư trú hoặc Trung tâm hỗ trợ toàn diện khu vực. Cần có Thẻ bảo hiểm chăm sóc khi đăng ký.'
-            }
-        },
-        step2: {
-            title: {
-                ja: '【Step 2】要介護認定',
-                vi: '【Bước 2】Chứng nhận cần chăm sóc'
-            },
-            body: {
-                ja: '調査員による自宅訪問での調査項目確認と、主治医意見書をもとに、介護認定審査会による判定が行われます。判定結果は非該当（自立）、要支援1〜2、要介護1〜5に分かれます。',
-                vi: 'Dựa trên kết quả khảo sát thực tế tại nhà của điều tra viên và ý kiến của bác sĩ chủ trị, Hội đồng thẩm định chăm sóc điều dưỡng sẽ đưa ra quyết định phân loại: Tự lập (Không thuộc nhóm hỗ trợ), Cần hỗ trợ 1〜2, hoặc Cần chăm sóc 1〜5.'
-            }
-        },
-        step3: {
-            title: {
-                ja: '【Step 3】ケアプラン作成',
-                vi: '【Bước 3】Lập kế hoạch chăm sóc'
-            },
-            body: {
-                ja: 'ケアマネージャー（介護支援専門員）が本人の状態や希望に合わせて、月単位の利用限度額の範囲内で最適な介護サービス計画（ケアプラン）を作成します。',
-                vi: 'Care Manager (chuyên viên hỗ trợ chăm sóc) sẽ thiết lập kế hoạch dịch vụ chăm sóc tối ưu (Care Plan) hàng tháng phù hợp với tình trạng thể chất và nguyện vọng của đối tượng trong phạm vi giới hạn chi trả.'
-            }
-        },
-        step4: {
-            title: {
-                ja: '【Step 4】サービス利用',
-                vi: '【Bước 4】Sử dụng dịch vụ'
-            },
-            body: {
-                ja: '作成されたケアプランに基づき、居宅サービス（訪問介護・デイサービス等）、施設サービス（特別養護老人ホーム等）、地域密着型サービスなど必要な支援を開始します。',
-                vi: 'Bắt đầu nhận hỗ trợ thực tế dựa trên kế hoạch chăm sóc đã lập, bao gồm dịch vụ tại nhà (chăm sóc tại nhà, trung tâm trong ngày...), dịch vụ tại cơ sở (như nhà dưỡng lão đặc biệt...), hoặc dịch vụ gắn liền với địa phương.'
-            }
-        }
-    };
-
     function updateSbo211Step() {
         const activeStep = document.querySelector('[data-sbo211-step].active') || document.querySelector('[data-sbo211-step]');
+        const sbo211StepTitle = document.getElementById('sbo211-step-title');
+        const sbo211StepBody = document.getElementById('sbo211-step-body');
         if (!activeStep || !sbo211StepTitle || !sbo211StepBody) return;
         const key = activeStep.getAttribute('data-sbo211-step');
         const data = sbo211StepsData[key];
@@ -1646,33 +1611,67 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    sbo211Steps.forEach(step => {
-        step.addEventListener('click', () => {
-            sbo211Steps.forEach(s => {
-                s.classList.remove('active');
-                s.style.border = '1px solid var(--border-card)';
-            });
-            step.classList.add('active');
-            step.style.border = '1px solid var(--accent-teal)';
-            if (sbo211StepBox) {
-                sbo211StepBox.style.opacity = '0.3';
-                setTimeout(() => {
-                    updateSbo211Step();
-                    sbo211StepBox.style.opacity = '1';
-                }, 200);
-            } else {
-                updateSbo211Step();
-            }
-        });
-    });
-
     window.updateSbo211Pillar = updateSbo211Pillar;
     window.updateSbo211Copay = updateSbo211Copay;
     window.updateSbo211Step = updateSbo211Step;
 
-    updateSbo211Pillar();
-    updateSbo211Copay();
-    updateSbo211Step();
+    window.initSbo211Simulator = function() {
+        const sbo211Pillars = document.querySelectorAll('[data-sbo211-pillar]');
+        const sbo211PillarInfoCard = document.getElementById('sbo211-pillar-info-card');
+
+        sbo211Pillars.forEach(pillar => {
+            pillar.addEventListener('click', () => {
+                sbo211Pillars.forEach(p => p.classList.remove('active'));
+                pillar.classList.add('active');
+                if (sbo211PillarInfoCard) {
+                    sbo211PillarInfoCard.style.opacity = '0.3';
+                    setTimeout(() => {
+                        updateSbo211Pillar();
+                        sbo211PillarInfoCard.style.opacity = '1';
+                    }, 200);
+                } else {
+                    updateSbo211Pillar();
+                }
+            });
+        });
+
+        const sbo211AgeTabs = document.querySelectorAll('[data-sbo211-age]');
+        sbo211AgeTabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                sbo211AgeTabs.forEach(t => t.classList.remove('active'));
+                tab.classList.add('active');
+                updateSbo211Copay();
+            });
+        });
+
+        const sbo211Steps = document.querySelectorAll('[data-sbo211-step]');
+        const sbo211StepBox = document.getElementById('sbo211-step-box');
+
+        sbo211Steps.forEach(step => {
+            step.addEventListener('click', () => {
+                sbo211Steps.forEach(s => {
+                    s.classList.remove('active');
+                    s.style.border = '1px solid var(--border-card)';
+                });
+                step.classList.add('active');
+                step.style.border = '1px solid var(--accent-teal)';
+                if (sbo211StepBox) {
+                    sbo211StepBox.style.opacity = '0.3';
+                    setTimeout(() => {
+                        updateSbo211Step();
+                        sbo211StepBox.style.opacity = '1';
+                    }, 200);
+                } else {
+                    updateSbo211Step();
+                }
+            });
+        });
+
+        updateSbo211Pillar();
+        updateSbo211Copay();
+        updateSbo211Step();
+    };
+
 
     // --- 介護保険の3つの基本理念 Interactive Cards ---
     const kaigoPrincipleData = {
