@@ -718,6 +718,98 @@ window.SBO_TEMPLATES['sbo111'] = `<div id="sbo111" class="sbo-section-wrapper">
                         color: var(--text-secondary);
                         line-height: 1.35;
                     }
+
+                    /* ==================================
+                       LIFE EXPECTANCY COMPARISON CHART
+                    ================================== */
+                    .life-expectancy-chart {
+                        margin-top: 25px;
+                        padding: 24px;
+                        background: rgba(15, 23, 42, 0.25);
+                        border: 1px solid rgba(255, 255, 255, 0.05);
+                        border-radius: 16px;
+                    }
+                    .life-bar-container {
+                        position: relative;
+                        padding-top: 30px; /* Space for average life line label */
+                        margin-bottom: 12px;
+                    }
+                    .average-life-line {
+                        position: absolute;
+                        right: 0;
+                        top: 20px;
+                        bottom: 0;
+                        width: 2px;
+                        background: #ef4444;
+                        z-index: 10;
+                        box-shadow: 0 0 8px rgba(239, 68, 68, 0.5);
+                    }
+                    .average-life-label {
+                        position: absolute;
+                        top: -24px;
+                        left: 50%;
+                        transform: translateX(-50%);
+                        white-space: nowrap;
+                        font-size: 0.74rem;
+                        color: #ef4444;
+                        font-weight: 700;
+                        background: rgba(15, 23, 42, 0.9);
+                        padding: 3px 8px;
+                        border-radius: 4px;
+                        border: 1px solid rgba(239, 68, 68, 0.3);
+                        z-index: 12;
+                    }
+                    .main-life-bar {
+                        display: flex;
+                        height: 38px;
+                        border-radius: 8px;
+                        overflow: hidden;
+                        background: rgba(255, 255, 255, 0.05);
+                        border: 1px solid rgba(255, 255, 255, 0.08);
+                        position: relative;
+                        width: 100%;
+                    }
+                    .healthy-part {
+                        background: linear-gradient(90deg, #10b981, #059669);
+                        width: 88%; /* Health life ratio typically ~88% in JP */
+                        height: 100%;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center; /* Centered horizontally */
+                        font-size: 0.8rem;
+                        font-weight: 700;
+                        color: #fff;
+                        white-space: nowrap;
+                        overflow: hidden;
+                        text-overflow: ellipsis;
+                        box-sizing: border-box;
+                    }
+                    .gap-part {
+                        background: repeating-linear-gradient(
+                            45deg,
+                            rgba(245, 158, 11, 0.15),
+                            rgba(245, 158, 11, 0.15) 10px,
+                            rgba(217, 119, 6, 0.3) 10px,
+                            rgba(217, 119, 6, 0.3) 20px
+                        );
+                        width: 12%;
+                        height: 100%;
+                        position: relative;
+                        box-sizing: border-box;
+                    }
+                    .extend-arrow {
+                        position: absolute;
+                        right: 8px;
+                        top: 50%;
+                        transform: translateY(-50%);
+                        color: #f59e0b;
+                        font-size: 0.95rem;
+                        animation: pulseArrow 1.5s infinite alternate ease-in-out;
+                    }
+                    @keyframes pulseArrow {
+                        0% { transform: translateY(-50%) translateX(0); }
+                        100% { transform: translateY(-50%) translateX(4px); }
+                    }
 </style>
                 <!-- 1. HEALTH CONCEPT -->
                 <section id="section-concept" class="section">
@@ -1532,229 +1624,105 @@ window.SBO_TEMPLATES['sbo111'] = `<div id="sbo111" class="sbo-section-wrapper">
                             </p>
                         </div>
 
-                        <!-- Card 2: 5 Directions & Support Structure -->
-                        <div class="card glass-card" style="padding: 28px; margin-bottom: 25px;">
-                            <h3 style="color: var(--accent-gold); margin-bottom: 24px; font-size: 1.1rem; display: flex; align-items: center; gap: 8px;">
-                                <i class="fa-solid fa-compass"></i>
-                                <span class="lang-ja">【5つの基本方向と多層構造】健康日本21（第二次）の柱</span>
-                                <span class="lang-vi">【5 Trụ cột & Cấu trúc đa tầng】Các định hướng và liên kết hỗ trợ</span>
+                        <!-- 5 Basic Directions Card -->
+                        <div class="card glass-card" style="padding: 28px;">
+                            <h3 style="margin-top: 0; margin-bottom: 20px; font-size: 0.95rem; border-bottom: 1px solid rgba(255,255,255,0.08); padding-bottom: 10px; font-weight: 700;">
+                                <i class="fa-solid fa-compass" style="color: var(--accent-gold); margin-right: 8px;"></i>
+                                <span class="lang-ja">「健康日本21（第二次）」における5つの基本的な方向性</span>
+                                <span class="lang-vi" style="font-size: 0.85rem; font-weight: 600; display: block; margin-top: 2px; color: var(--text-secondary);">5 Phương hướng cơ bản của "Health Japan 21 (Giai đoạn 2)"</span>
                             </h3>
 
-                            <!-- Side by Side Layout for Temple and Concentric Circles -->
-                            <div style="display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 24px; align-items: start;">
-                                <!-- Left Column: Temple -->
-                                <div class="temple-container" style="margin-top: 0;">
-                                    <!-- Roof: Direction 1 -->
-                                    <div class="temple-roof" style="padding: 16px;">
-                                        <h4 class="temple-title" style="margin-bottom: 4px;">
-                                            <span class="temple-badge">1</span>
+                            <div style="display: flex; flex-direction: column; gap: 20px;">
+                                <!-- Direction 1 -->
+                                <div style="display: flex; gap: 16px; align-items: flex-start;">
+                                    <div style="min-width: 36px; height: 36px; border-radius: 50%; background: rgba(20,184,166,0.15); border: 2px solid var(--accent-teal); display: flex; align-items: center; justify-content: center; color: var(--accent-teal); flex-shrink: 0;">
+                                        <i class="fa-solid fa-heart-pulse" style="font-size: 1rem;"></i>
+                                    </div>
+                                    <div>
+                                        <h5 style="color: var(--accent-teal); margin: 0 0 6px; font-size: 0.95rem; font-weight: 700; line-height: 1.3;">
                                             <span class="lang-ja">健康寿命の延伸と健康格差の縮小</span>
-                                            <span class="lang-vi">Kéo dài tuổi thọ khỏe mạnh và thu hẹp khoảng cách sức khỏe</span>
-                                        </h4>
-                                        <p class="temple-desc" style="font-size: 0.8rem; margin: 0;">
-                                            <span class="lang-ja">地域や社会経済状況による健康格差を縮小します。</span>
-                                            <span class="lang-vi">Giảm thiểu khoảng cách sức khỏe do điều kiện kinh tế xã hội.</span>
-                                        </p>
-                                    </div>
-                                    
-                                    <!-- Pillars: 2, 3, 5 -->
-                                    <div class="temple-pillars" style="gap: 12px; margin-top: 12px;">
-                                        <!-- Pillar 2 -->
-                                        <div class="temple-pillar" style="padding: 14px;">
-                                            <span class="temple-badge">2</span>
-                                            <h4 class="temple-title" style="font-size: 0.92rem; margin-bottom: 6px;">
-                                                <span class="lang-ja">生活習慣病の予防</span>
-                                                <span class="lang-vi">Dự phòng NCDs</span>
-                                            </h4>
-                                            <p class="temple-desc" style="font-size: 0.78rem; margin: 0; line-height: 1.5;">
-                                                <span class="lang-ja">がん、心疾患、糖尿病などの発症・重症化予防を徹底。</span>
-                                                <span class="lang-vi">Tập trung ngăn ngừa phát bệnh và biến chứng nặng của NCDs.</span>
-                                            </p>
-                                        </div>
-                                        
-                                        <!-- Pillar 3 -->
-                                        <div class="temple-pillar" style="padding: 14px;">
-                                            <span class="temple-badge">3</span>
-                                            <h4 class="temple-title" style="font-size: 0.92rem; margin-bottom: 6px;">
-                                                <span class="lang-ja">社会生活機能維持</span>
-                                                <span class="lang-vi">Duy trì thể chất</span>
-                                            </h4>
-                                            <p class="temple-desc" style="font-size: 0.78rem; margin: 0; line-height: 1.5;">
-                                                <span class="lang-ja">各ライフステージでの心身機能維持とこころの健康。</span>
-                                                <span class="lang-vi">Duy trì chức năng sinh hoạt & chăm sóc sức khỏe tinh thần.</span>
-                                            </p>
-                                        </div>
-                                        
-                                        <!-- Pillar 5 -->
-                                        <div class="temple-pillar" style="padding: 14px;">
-                                            <span class="temple-badge">5</span>
-                                            <h4 class="temple-title" style="font-size: 0.92rem; margin-bottom: 6px;">
-                                                <span class="lang-ja">生活習慣の改善</span>
-                                                <span class="lang-vi">Cải thiện lối sống</span>
-                                            </h4>
-                                            <p class="temple-desc" style="font-size: 0.78rem; margin: 0; line-height: 1.5;">
-                                                <span class="lang-ja">栄養、運動、休養、喫煙・飲酒等の行動改善。</span>
-                                                <span class="lang-vi">Cải thiện dinh dưỡng, thói quen tập luyện, cai thuốc.</span>
-                                            </p>
-                                        </div>
-                                    </div>
-                                    
-                                    <!-- Foundation: Direction 4 -->
-                                    <div class="temple-foundation" style="padding: 16px; margin-top: 12px;">
-                                        <h4 class="temple-title" style="margin-bottom: 4px;">
-                                            <span class="temple-badge">4</span>
-                                            <span class="lang-ja">社会環境の整備</span>
-                                            <span class="lang-vi">Kiến tạo môi trường xã hội</span>
-                                        </h4>
-                                        <p class="temple-desc" style="font-size: 0.8rem; margin: 0;">
-                                            <span class="lang-ja">企業や民間団体が協力し、健康を守る環境を整備します。</span>
-                                            <span class="lang-vi">Huy động toàn xã hội chung tay xây dựng môi trường lành mạnh.</span>
+                                            <span class="lang-vi" style="font-size: 0.85rem; font-weight: 600; display: block; margin-top: 2px;">Kéo dài tuổi thọ khỏe mạnh và thu hẹp khoảng cách sức khỏe</span>
+                                        </h5>
+                                        <p style="margin: 0; line-height: 1.7;">
+                                            <span class="lang-ja" style="font-size: 0.88rem; color: var(--text-primary);">日常生活が制限されることなく生活できる期間（健康寿命）の延伸と、地域や社会経済状況の違いによる集団間の健康格差の縮小を実現します。</span>
+                                            <span class="lang-vi" style="font-size: 0.82rem; color: var(--text-muted); display: block; margin-top: 4px;">Kéo dài thời gian sống khỏe mạnh và giảm thiểu khoảng cách sức khỏe sinh ra do sự khác biệt về khu vực hoặc điều kiện kinh tế xã hội.</span>
                                         </p>
                                     </div>
                                 </div>
 
-                                <!-- Right Column: Concentric Circles & Funnel Concept -->
-                                <div style="display: flex; flex-direction: column; gap: 16px;">
-                                    <div class="circle-visualization" style="width: 240px; height: 240px;">
-                                        <div class="ring-outer" style="width: 240px; height: 240px;">
-                                            <span class="ring-label-outer" style="font-size: 0.65rem; top: 10px;">社会環境 (Pillar 4)</span>
-                                            <div class="ring-inner" style="width: 170px; height: 170px;">
-                                                <span class="ring-label-inner" style="font-size: 0.65rem; top: 40px;">心身機能 (Pillar 3)</span>
-                                                <div class="ring-center" style="width: 100px; height: 100px;">
-                                                    <span class="lang-ja" style="font-size: 0.68rem;">生活習慣<br>(Pillar 5)</span>
-                                                    <span class="lang-vi" style="font-size: 0.6rem;">Lối sống</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div style="background: rgba(255,255,255,0.02); border: 1px solid var(--border-card); border-radius: 8px; padding: 12px; font-size: 0.8rem; line-height: 1.5; color: var(--text-secondary);">
-                                        <span class="lang-ja"><strong>関係性：</strong>個人の努力（中心）を支えるために、ライフステージ別支援（内周）と社会環境の整備（外周）が不可欠であるという多層構造を示しています。</span>
-                                        <span class="lang-vi"><strong>Quan hệ:</strong> Nỗ lực cải thiện lối sống của cá nhân (trung tâm) phải được nâng đỡ bởi hỗ trợ theo độ tuổi (vòng trong) và môi trường xã hội (vòng ngoài).</span>
-                                    </div>
-                                </div>
-                            </div>
+                                <div style="height: 1px; background: rgba(255,255,255,0.05);"></div>
 
-                            <!-- Prevention Stages Funnel Graphic (Merged inline) -->
-                            <div style="margin-top: 25px; border-top: 1px solid rgba(255,255,255,0.08); padding-top: 20px;">
-                                <h4 style="color: var(--accent-teal); font-size: 0.95rem; margin-bottom: 15px;">
-                                    <i class="fa-solid fa-filter"></i>
-                                    <span class="lang-ja">生活習慣病（NCDs）対策と予防の３段階</span>
-                                    <span class="lang-vi">Đối phó bệnh lối sống (NCDs) và 3 Cấp độ dự phòng</span>
-                                </h4>
-                                <div class="funnel-layout">
-                                    <div class="funnel-container">
-                                        <div class="funnel-stage stage-primary" style="padding: 10px;">
-                                            <span class="lang-ja" style="font-size: 0.9rem;">一次予防 - 最重要領域 (発病防止)</span>
-                                            <span class="lang-vi" style="font-size: 0.75rem;">Dự phòng cấp 1 - Ngừa phát bệnh</span>
-                                        </div>
-                                        <div class="funnel-stage stage-secondary" style="padding: 10px;">
-                                            <span class="lang-ja" style="font-size: 0.85rem;">重症化予防 (合併症発症や進展防止)</span>
-                                            <span class="lang-vi" style="font-size: 0.72rem;">Phòng ngừa biến chứng / Trở nặng</span>
-                                        </div>
-                                        <div class="funnel-stage stage-treatment" style="padding: 10px;">
-                                            <span class="lang-ja" style="font-size: 0.8rem;">治療 (事後対応・非主眼)</span>
-                                            <span class="lang-vi" style="font-size: 0.68rem;">Điều trị - Đối phó sau khi mắc bệnh</span>
-                                        </div>
+                                <!-- Direction 2 -->
+                                <div style="display: flex; gap: 16px; align-items: flex-start;">
+                                    <div style="min-width: 36px; height: 36px; border-radius: 50%; background: rgba(245,158,11,0.15); border: 2px solid var(--accent-gold); display: flex; align-items: center; justify-content: center; color: var(--accent-gold); flex-shrink: 0;">
+                                        <i class="fa-solid fa-shield-heart" style="font-size: 1rem;"></i>
                                     </div>
-                                    <div class="funnel-callout" style="padding: 15px;">
-                                        <div class="callout-title" style="font-size: 0.9rem; margin-bottom: 4px;">
-                                            <i class="fa-solid fa-circle-exclamation"></i>
-                                            <span class="lang-ja">NCDs（非感染性疾患）への介入</span>
-                                            <span class="lang-vi">Can thiệp NCDs</span>
-                                        </div>
-                                        <div class="callout-desc" style="font-size: 0.8rem;">
-                                            <span class="lang-ja">がん、循環器疾患、糖尿病、COPDが対象。本政策では一次予防（発病予防）に最重点を置いています。</span>
-                                            <span class="lang-vi">Mục tiêu chính là Ung thư, Tim mạch, Tiểu đường, COPD, ưu tiên dự phòng từ đầu.</span>
-                                        </div>
+                                    <div>
+                                        <h5 style="color: var(--accent-gold); margin: 0 0 6px; font-size: 0.95rem; font-weight: 700; line-height: 1.3;">
+                                            <span class="lang-ja">生活習慣病の発症予防と重症化予防の徹底</span>
+                                            <span class="lang-vi" style="font-size: 0.85rem; font-weight: 600; display: block; margin-top: 2px;">Phòng ngừa triệt để sự phát bệnh và trở nặng của bệnh lối sống (NCDs)</span>
+                                        </h5>
+                                        <p style="margin: 0; line-height: 1.7;">
+                                            <span class="lang-ja" style="font-size: 0.88rem; color: var(--text-primary);">NCD（非感染性疾患：がん、循環器疾患、糖尿病及びCOPD）に対処するため、一次予防に重点を置いた対策を推進するとともに、合併症の発症や症状の進展等の重症化予防を徹底します。</span>
+                                            <span class="lang-vi" style="font-size: 0.82rem; color: var(--text-muted); display: block; margin-top: 4px;">Tập trung phòng ngừa dự phòng cấp 1 và ngăn chặn sự tiến triển nặng của các bệnh không lây nhiễm (ung thư, bệnh tim mạch, tiểu đường và bệnh phổi tắc nghẽn mạn tính COPD).</span>
+                                        </p>
                                     </div>
                                 </div>
-                            </div>
-                        </div>
 
-                        <!-- Card 3: Exam Tips -->
-                        <!-- Exam Tips -->
-                        <div class="card glass-card" style="padding: 28px; margin-top: 25px; border-left: 4px solid var(--accent-gold);">
-                            <h3 style="margin-top: 0; margin-bottom: 12px; font-size: 1.1rem; display: flex; align-items: center; gap: 8px;">
-                                <i class="fa-solid fa-lightbulb" style="color: var(--accent-gold);"></i>
-                                <span class="lang-ja">試験対策・重要ポイント：健康日本21（第二次）の「対象外」を見極める</span>
-                                <span class="lang-vi">Điểm thi quan trọng: Nhận diện yếu tố "Nằm ngoài phạm vi" của Health Japan 21</span>
-                            </h3>
-                            
-                            <p style="font-size: 0.9rem; color: var(--text-secondary); margin-bottom: 20px;">
-                                <span class="lang-ja">試験では、本政策に含まれる「基本方向」と、含まれない「制度的課題」を区別する問題が頻出します。</span>
-                                <span class="lang-vi">Trong kỳ thi, các câu hỏi phân biệt giữa "phương hướng cơ bản" của chính sách và "vấn đề chế độ/kinh tế" rất thường gặp.</span>
-                            </p>
-                            
-                            <div class="exam-tips-table">
-                                <!-- Column 1: Traps -->
-                                <div class="tips-column column-traps">
-                                    <div class="tips-column-title" style="color: #ef4444;">
-                                        <i class="fa-solid fa-circle-xmark"></i>
-                                        <span class="lang-ja">典型的な誤りの選択肢 (Exam Traps)</span>
-                                        <span class="lang-vi">Các bẫy đáp án sai điển hình</span>
+                                <div style="height: 1px; background: rgba(255,255,255,0.05);"></div>
+
+                                <!-- Direction 3 -->
+                                <div style="display: flex; gap: 16px; align-items: flex-start;">
+                                    <div style="min-width: 36px; height: 36px; border-radius: 50%; background: rgba(16,185,129,0.15); border: 2px solid #10b981; display: flex; align-items: center; justify-content: center; color: #10b981; flex-shrink: 0;">
+                                        <i class="fa-solid fa-people-roof" style="font-size: 1rem;"></i>
                                     </div>
-                                    <ul class="tips-list">
-                                        <li class="tips-list-item" style="color: var(--text-primary);">
-                                            <i class="fa-solid fa-xmark" style="color: #ef4444;"></i>
-                                            <div>
-                                                <span class="lang-ja"><strong>医療費の削減：</strong>予算や経済設計の課題であり本運動の基本方向ではない。</span>
-                                                <span class="lang-vi"><strong>Giảm chi phí y tế:</strong> Đây là bài toán kinh tế y tế, không thuộc định hướng trực tiếp.</span>
-                                            </div>
-                                        </li>
-                                        <li class="tips-list-item" style="color: var(--text-primary);">
-                                            <i class="fa-solid fa-xmark" style="color: #ef4444;"></i>
-                                            <div>
-                                                <span class="lang-ja"><strong>病院の統廃合：</strong>医療提供体制の再編課題。</span>
-                                                <span class="lang-vi"><strong>Sáp nhập bệnh viện:</strong> Đây là vấn đề tái cấu trúc cơ sở y tế cung ứng.</span>
-                                            </div>
-                                        </li>
-                                        <li class="tips-list-item" style="color: var(--text-primary);">
-                                            <i class="fa-solid fa-xmark" style="color: #ef4444;"></i>
-                                            <div>
-                                                <span class="lang-ja"><strong>公的医療保険の拡充：</strong>社会保険制度の設計課題。</span>
-                                                <span class="lang-vi"><strong>Mở rộng bảo hiểm y tế công:</strong> Vấn đề thiết kế hệ thống an sinh xã hội.</span>
-                                            </div>
-                                        </li>
-                                    </ul>
-                                    <div class="tips-bottom-box tips-bottom-traps">
-                                        <span class="lang-ja">これらは医療経済や制度設計の課題であり、本運動の「直接的な基本方向」ではない。</span>
-                                        <span class="lang-vi">Đây là những vấn đề về kinh tế y tế và thiết kế hệ thống, không phải định hướng hành động trực tiếp.</span>
+                                    <div>
+                                        <h5 style="color: #34d399; margin: 0 0 6px; font-size: 0.95rem; font-weight: 700; line-height: 1.3;">
+                                            <span class="lang-ja">社会生活を営むために必要な機能の維持及び向上</span>
+                                            <span class="lang-vi" style="font-size: 0.85rem; font-weight: 600; display: block; margin-top: 2px;">Duy trì và nâng cao các chức năng cần thiết để duy trì cuộc sống xã hội</span>
+                                        </h5>
+                                        <p style="margin: 0; line-height: 1.7;">
+                                            <span class="lang-ja" style="font-size: 0.88rem; color: var(--text-primary);">乳幼児期から高齢期まで、それぞれのライフステージにおいて心身機能の維持向上に努め、「こころの健康づくり」に取り組みます。</span>
+                                            <span class="lang-vi" style="font-size: 0.82rem; color: var(--text-muted); display: block; margin-top: 4px;">Hỗ trợ duy trì chức năng tâm sinh lý từ lúc sơ sinh đến khi cao tuổi để con người sống tự lập, đồng thời tập trung vào "sức khỏe tinh thần" (こころの健康づくり).</span>
+                                        </p>
                                     </div>
                                 </div>
-                                
-                                <!-- Column 2: Focus -->
-                                <div class="tips-column column-focus">
-                                    <div class="tips-column-title" style="color: #10b981;">
-                                        <i class="fa-solid fa-circle-check"></i>
-                                        <span class="lang-ja">核心となる基本方向 (Actual Focus)</span>
-                                        <span class="lang-vi">Các phương hướng cốt lõi thực tế</span>
+
+                                <div style="height: 1px; background: rgba(255,255,255,0.05);"></div>
+
+                                <!-- Direction 4 -->
+                                <div style="display: flex; gap: 16px; align-items: flex-start;">
+                                    <div style="min-width: 36px; height: 36px; border-radius: 50%; background: rgba(239,68,68,0.15); border: 2px solid #ef4444; display: flex; align-items: center; justify-content: center; color: #f87171; flex-shrink: 0;">
+                                        <i class="fa-solid fa-handshake-angle" style="font-size: 1rem;"></i>
                                     </div>
-                                    <ul class="tips-list">
-                                        <li class="tips-list-item" style="color: var(--text-primary);">
-                                            <i class="fa-solid fa-check" style="color: #10b981;"></i>
-                                            <div>
-                                                <span class="lang-ja"><strong>健康寿命の延伸・格差縮小：</strong>日常生活を自立して送れる期間を延ばす。</span>
-                                                <span class="lang-vi"><strong>Kéo dài tuổi thọ khỏe mạnh & thu hẹp khoảng cách sức khỏe:</strong> Tự lập sống không cần điều dưỡng.</span>
-                                            </div>
-                                        </li>
-                                        <li class="tips-list-item" style="color: var(--text-primary);">
-                                            <i class="fa-solid fa-check" style="color: #10b981;"></i>
-                                            <div>
-                                                <span class="lang-ja"><strong>生活習慣病（NCDs）の予防：</strong>がん・循環器疾患等の発症予防・重症化予防。</span>
-                                                <span class="lang-vi"><strong>Phòng ngừa bệnh lối sống (NCDs):</strong> Ngừa phát bệnh và biến chứng nặng.</span>
-                                            </div>
-                                        </li>
-                                        <li class="tips-list-item" style="color: var(--text-primary);">
-                                            <i class="fa-solid fa-check" style="color: #10b981;"></i>
-                                            <div>
-                                                <span class="lang-ja"><strong>生活習慣の改善：</strong>栄養、運動、休養、禁煙、口腔ケアなどの改善。</span>
-                                                <span class="lang-vi"><strong>Cải thiện thói quen sinh hoạt:</strong> Dinh dưỡng, thể thao, răng miệng, cai thuốc.</span>
-                                            </div>
-                                        </li>
-                                    </ul>
-                                    <div class="tips-bottom-box tips-bottom-focus">
-                                        <span class="lang-ja">あくまで「一次予防」と「健康増進」が政策の中心軸である（キーワード：一次予防、社会環境の整備）。</span>
-                                        <span class="lang-vi">Trọng tâm cốt lõi luôn là "Dự phòng cấp 1" và "Nâng cao sức khỏe" (Từ khóa: Dự phòng cấp 1, Kiến tạo môi trường xã hội).</span>
+                                    <div>
+                                        <h5 style="color: #f87171; margin: 0 0 6px; font-size: 0.95rem; font-weight: 700; line-height: 1.3;">
+                                            <span class="lang-ja">健康を支え、守るための社会環境の整備</span>
+                                            <span class="lang-vi" style="font-size: 0.85rem; font-weight: 600; display: block; margin-top: 2px;">Xây dựng môi trường xã hội hỗ trợ và bảo vệ sức khỏe</span>
+                                        </h5>
+                                        <p style="margin: 0; line-height: 1.7;">
+                                            <span class="lang-ja" style="font-size: 0.88rem; color: var(--text-primary);">行政機関のみならず、企業、民間団体等の積極的な参加協力を得て、社会全体が相互に支え合いながら国民の健康を守る環境を整備します。</span>
+                                            <span class="lang-vi" style="font-size: 0.82rem; color: var(--text-muted); display: block; margin-top: 4px;">Huy động sự tham gia của các tổ chức hành chính, doanh nghiệp và cộng đồng để tạo ra một môi trường tương trợ lẫn nhau, hỗ trợ nâng cao sức khỏe cho người dân.</span>
+                                        </p>
+                                    </div>
+                                </div>
+
+                                <div style="height: 1px; background: rgba(255,255,255,0.05);"></div>
+
+                                <!-- Direction 5 -->
+                                <div style="display: flex; gap: 16px; align-items: flex-start;">
+                                    <div style="min-width: 36px; height: 36px; border-radius: 50%; background: rgba(59,130,246,0.15); border: 2px solid #3b82f6; display: flex; align-items: center; justify-content: center; color: #93c5fd; flex-shrink: 0;">
+                                        <i class="fa-solid fa-person-running" style="font-size: 1rem;"></i>
+                                    </div>
+                                    <div>
+                                        <h5 style="color: #93c5fd; margin: 0 0 6px; font-size: 0.95rem; font-weight: 700; line-height: 1.3;">
+                                            <span class="lang-ja">生活習慣及び社会環境の改善</span>
+                                            <span class="lang-vi" style="font-size: 0.85rem; font-weight: 600; display: block; margin-top: 2px;">Cải thiện thói quen sinh hoạt và môi trường xã hội</span>
+                                        </h5>
+                                        <p style="margin: 0; line-height: 1.7;">
+                                            <span class="lang-ja" style="font-size: 0.88rem; color: var(--text-primary);">栄養・食生活、身体活動・運動、休養、飲酒、喫煙及び歯・口腔の健康に関する生活習慣及び社会環境の改善と、具体的な健康増進活動を推進します。</span>
+                                            <span class="lang-vi" style="font-size: 0.82rem; color: var(--text-muted); display: block; margin-top: 4px;">Thúc đẩy thay đổi các thói quen cụ thể như dinh dưỡng và ăn uống, hoạt động thể chất và vận động, nghỉ ngơi, uống rượu, hút thuốc và sức khỏe răng miệng.</span>
+                                        </p>
                                     </div>
                                 </div>
                             </div>

@@ -1844,7 +1844,7 @@ window.initSbo111Simulator = function() {
         const buttons = conceptTabsGroup.querySelectorAll('.sbo111-concept-node');
         
         if (conceptProgressBar) {
-            const percentages = { 'who1948': '0%', 'who1998': '50%', 'ottawa': '100%' };
+            const percentages = { 'who1948': '0%', 'ottawa': '50%', 'who1998': '100%' };
             conceptProgressBar.style.width = percentages[tabId] || '0%';
         }
 
