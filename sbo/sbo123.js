@@ -193,8 +193,175 @@ window.SBO_TEMPLATES['sbo123'] = `<div id="sbo123" class="sbo-section-wrapper">
                                                     giữ gìn tôn nghiêm với tư cách một con người.</span>
                                             </p>
                                         </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Patient-Centered Medicine Venn Diagram -->
+                        <div class="card glass-card" style="margin-top: 30px; text-align: center; padding: 30px;">
+                            <div class="sub-module-badge" style="margin-bottom: 20px;">
+                                <span class="lang-ja">I-2. 患者中心の医療</span>
+                                <span class="lang-vi">I-2. Y tế lấy bệnh nhân làm trung tâm</span>
+                            </div>
+                            
+                            <style>
+                                .sbo123-venn-wrapper {
+                                    display: flex;
+                                    justify-content: center;
+                                    align-items: center;
+                                    position: relative;
+                                    width: 100%;
+                                    max-width: 650px;
+                                    height: 380px;
+                                    margin: 0 auto 30px auto;
+                                }
+                                .sbo123-venn-circle {
+                                    width: 260px;
+                                    height: 260px;
+                                    border-radius: 50%;
+                                    position: absolute;
+                                    display: flex;
+                                    flex-direction: column;
+                                    align-items: center;
+                                    justify-content: center;
+                                    padding: 20px;
+                                    text-align: center;
+                                    cursor: pointer;
+                                    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+                                    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+                                }
+                                .sbo123-venn-left {
+                                    left: calc(50% - 210px);
+                                    background: rgba(30, 58, 138, 0.55);
+                                    border: 2px solid rgba(59, 130, 246, 0.4);
+                                    z-index: 2;
+                                }
+                                .sbo123-venn-left:hover, .sbo123-venn-left.active {
+                                    background: rgba(30, 58, 138, 0.85);
+                                    border-color: #3b82f6;
+                                    box-shadow: 0 0 30px rgba(59, 130, 246, 0.5);
+                                    transform: scale(1.05);
+                                    z-index: 5;
+                                }
+                                .sbo123-venn-right {
+                                    right: calc(50% - 210px);
+                                    background: rgba(249, 115, 22, 0.3);
+                                    border: 2px solid rgba(249, 115, 22, 0.5);
+                                    z-index: 2;
+                                }
+                                .sbo123-venn-right:hover, .sbo123-venn-right.active {
+                                    background: rgba(249, 115, 22, 0.55);
+                                    border-color: #f97316;
+                                    box-shadow: 0 0 30px rgba(249, 115, 22, 0.6);
+                                    transform: scale(1.05);
+                                    z-index: 5;
+                                }
+                                .sbo123-venn-center {
+                                    position: absolute;
+                                    width: 140px;
+                                    height: 180px;
+                                    z-index: 4;
+                                    display: flex;
+                                    flex-direction: column;
+                                    align-items: center;
+                                    justify-content: center;
+                                    cursor: pointer;
+                                    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+                                    border-radius: 60px / 90px;
+                                }
+                                .sbo123-venn-center-content {
+                                    z-index: 6;
+                                    display: flex;
+                                    flex-direction: column;
+                                    align-items: center;
+                                    justify-content: center;
+                                    text-align: center;
+                                }
+                                .sbo123-radiating-line {
+                                    position: absolute;
+                                    border: 1.5px solid rgba(245, 158, 11, 0.2);
+                                    border-radius: 50%;
+                                    pointer-events: none;
+                                    z-index: 1;
+                                    transition: all 0.4s ease;
+                                }
+                                .sbo123-venn-center:hover ~ .sbo123-radiating-line,
+                                .sbo123-venn-center.active ~ .sbo123-radiating-line {
+                                    border-color: rgba(245, 158, 11, 0.55);
+                                    box-shadow: 0 0 15px rgba(245, 158, 11, 0.2);
+                                }
+                                @media (max-width: 600px) {
+                                    .sbo123-venn-wrapper {
+                                        height: 480px;
+                                        display: flex;
+                                        flex-direction: column;
+                                    }
+                                    .sbo123-venn-circle {
+                                        position: relative;
+                                        left: auto !important;
+                                        right: auto !important;
+                                        width: 220px;
+                                        height: 220px;
+                                        margin: -30px 0;
+                                    }
+                                    .sbo123-venn-center {
+                                        position: absolute;
+                                        top: calc(50% - 60px);
+                                        height: 120px;
+                                        width: 140px;
+                                    }
+                                    .sbo123-radiating-line {
+                                        display: none;
+                                    }
+                                }
+                            </style>
+                            
+                            <div class="sbo123-venn-wrapper">
+                                <div class="sbo123-radiating-line" style="width: 160px; height: 160px; z-index: 1;"></div>
+                                <div class="sbo123-radiating-line" style="width: 220px; height: 220px; z-index: 1;"></div>
+                                <div class="sbo123-radiating-line" style="width: 280px; height: 280px; z-index: 1;"></div>
+                                <div class="sbo123-radiating-line" style="width: 340px; height: 340px; z-index: 1;"></div>
+                                <div class="sbo123-radiating-line" style="width: 400px; height: 400px; z-index: 1;"></div>
+                                
+                                <div class="sbo123-venn-circle sbo123-venn-left" data-venn="consent">
+                                    <h4 style="margin: 0; color: #93c5fd; font-size: 1.15rem; font-weight: bold;">
+                                        <span class="lang-ja">説明と同意</span>
+                                        <span class="lang-vi">Giải thích và Đồng ý</span>
+                                    </h4>
+                                    <span style="font-size: 0.85rem; color: #60a5fa; margin-bottom: 8px; font-weight: 500;">Informed Consent</span>
+                                    <p style="font-size: 0.82rem; color: #cbd5e1; margin: 0; line-height: 1.4;">
+                                        <span class="lang-ja">医療者の説明を十分理解した上での同意</span>
+                                        <span class="lang-vi">Đồng ý sau khi thấu hiểu đầy đủ lời giải thích của nhân viên y tế</span>
+                                    </p>
+                                </div>
+                                
+                                <div class="sbo123-venn-center" data-venn="wishes">
+                                    <div class="sbo123-venn-center-content">
+                                        <h4 style="margin: 0; color: var(--accent-gold); font-size: 1.25rem; font-weight: 800; text-shadow: 0 0 10px rgba(245, 158, 11, 0.4);">
+                                            <span class="lang-ja">患者の意向</span>
+                                            <span class="lang-vi">Nguyện vọng của BN</span>
+                                        </h4>
                                     </div>
                                 </div>
+                                
+                                <div class="sbo123-venn-circle sbo123-venn-right" data-venn="choice">
+                                    <h4 style="margin: 0; color: #fdba74; font-size: 1.15rem; font-weight: bold;">
+                                        <span class="lang-ja">説明と選択</span>
+                                        <span class="lang-vi">Giải thích và Lựa chọn</span>
+                                    </h4>
+                                    <span style="font-size: 0.85rem; color: #f97316; margin-bottom: 8px; font-weight: 500;">Informed Choice</span>
+                                    <p style="font-size: 0.82rem; color: #cbd5e1; margin: 0; line-height: 1.4;">
+                                        <span class="lang-ja">複数の選択肢から自ら判断し決定する権利</span>
+                                        <span class="lang-vi">Quyền tự nhận định và đưa ra quyết định từ các lựa chọn</span>
+                                    </p>
+                                </div>
+                            </div>
+                            
+                            <div style="background: rgba(30, 41, 59, 0.8); border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; padding: 18px 24px; text-align: center; max-width: 750px; margin: 0 auto;">
+                                <p style="margin: 0; font-size: 0.95rem; line-height: 1.6; color: #e2e8f0; font-weight: 500;">
+                                    <span class="lang-ja">現代のあらゆる医療行為は、これらを前提とし、患者の意向を最優先する準委任契約関係へと拡がっている。</span>
+                                    <span class="lang-vi">Mọi hành vi y khoa hiện đại đều lấy các điều này làm tiền đề, hướng tới mối quan hệ hợp đồng ủy quyền ưu tiên tối đa nguyện vọng của bệnh nhân.</span>
+                                </p>
                             </div>
                         </div>
                     </div>
