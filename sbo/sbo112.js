@@ -5,6 +5,83 @@ window.SBO_TEMPLATES['sbo112'] = `<div id="sbo112" class="sbo-section-wrapper">
                 <!-- I. Patient & Medical Relationship -->
                 <section id="sbo112-patient-relation" class="section">
                     <div class="container">
+                        <style>
+                            .sbo112-diagram-container {
+                                display: grid;
+                                grid-template-columns: 1fr 1.2fr;
+                                gap: 30px;
+                                margin-bottom: 30px;
+                                background: var(--bg-card);
+                                border: 1px solid var(--border-card);
+                                border-radius: 20px;
+                                padding: 30px;
+                                backdrop-filter: blur(16px);
+                            }
+                            .sbo112-traditional-side {
+                                display: flex;
+                                flex-direction: column;
+                                align-items: center;
+                                justify-content: space-between;
+                                border-right: 1px solid rgba(255,255,255,0.08);
+                                padding-right: 30px;
+                                min-height: 320px;
+                            }
+                            .sbo112-modern-side {
+                                display: flex;
+                                flex-direction: column;
+                                align-items: center;
+                                justify-content: space-between;
+                                padding-left: 10px;
+                                min-height: 320px;
+                                position: relative;
+                            }
+                            .sbo112-factor-node {
+                                position: absolute;
+                                width: 42px;
+                                height: 42px;
+                                border-radius: 50%;
+                                background: rgba(30, 41, 59, 0.9);
+                                border: 2px solid rgba(255, 255, 255, 0.15);
+                                display: flex;
+                                align-items: center;
+                                justify-content: center;
+                                cursor: pointer;
+                                z-index: 4;
+                                outline: none;
+                                transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+                                color: var(--text-secondary);
+                                box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+                            }
+                            .sbo112-factor-node:hover {
+                                transform: scale(1.15);
+                                border-color: var(--accent-gold);
+                                color: #fff;
+                                background: rgba(245, 158, 11, 0.2);
+                                box-shadow: 0 0 15px rgba(245, 158, 11, 0.4);
+                            }
+                            .sbo112-factor-node.active {
+                                background: rgba(245, 158, 11, 0.25);
+                                border-color: var(--accent-gold);
+                                color: #fff;
+                                box-shadow: 0 0 15px rgba(245, 158, 11, 0.4);
+                            }
+                            @media (max-width: 900px) {
+                                .sbo112-diagram-container {
+                                    grid-template-columns: 1fr;
+                                    gap: 40px;
+                                }
+                                .sbo112-traditional-side {
+                                    border-right: none;
+                                    border-bottom: 1px solid rgba(255,255,255,0.08);
+                                    padding-right: 0;
+                                    padding-bottom: 40px;
+                                }
+                                .sbo112-modern-side {
+                                    padding-left: 0;
+                                }
+                            }
+                        </style>
+
                         <div class="section-badge">
                             <span class="lang-ja">患者と医療の関係</span>
                             <span class="lang-vi">Mối quan hệ giữa Bệnh nhân và Y tế</span>
@@ -15,46 +92,96 @@ window.SBO_TEMPLATES['sbo112'] = `<div id="sbo112" class="sbo-section-wrapper">
                         </h2>
                         <p class="section-desc">
                             <span class="lang-ja">従来の意思決定モデルを見直し、個人の人生観や意思決定権を尊重する医療が推進されています。</span>
-                            <span class="lang-vi">Thay đổi mô hình ra quyết định y khoa truyền thống để tôn trọng giá
-                                trị sống và quyền tự quyết của cá nhân.</span>
+                            <span class="lang-vi">Thay đổi mô hình ra quyết định y khoa truyền thống để tôn trọng giá trị sống và quyền tự quyết của cá nhân.</span>
                         </p>
 
-                        
-                        <!-- Interactive Tabs Layout for Part 1 -->
-                        <div class="sbo112-tabs-container" style="display: flex; gap: 30px; margin-bottom: 30px; flex-wrap: wrap;">
-                            <!-- Left Sidebar: Tab Buttons -->
-                            <div style="display: flex; flex-direction: column; gap: 12px; flex: 1 1 260px;" id="sbo112-p1-tabs-group">
-                                <button type="button" class="segment-btn active" data-sbo112-p1-tab="1"
-                                    style="padding: 16px 20px; border-radius: 12px; border: 1px solid var(--accent-teal); background: rgba(45, 212, 191, 0.08); color: #fff; font-size: 0.96rem; cursor: pointer; transition: all 0.3s ease; text-align: left; display: flex; align-items: center; gap: 12px; outline: none; font-weight: 600;">
-                                    <i class="fa-solid fa-handshake" style="font-size: 1.25rem; color: var(--accent-teal); opacity: 0.8;"></i>
-                                    <div>
-                                        <span class="lang-ja">準委任契約関係へ</span>
-                                        <span class="lang-vi">Hợp đồng chuẩn ủy quyền</span>
+                        <!-- Interactive Diagram for Medical Model Shift -->
+                        <div class="sbo112-diagram-container">
+                            <!-- Left: Traditional Model -->
+                            <div class="sbo112-traditional-side">
+                                <h4 style="color: var(--text-primary); font-size: 1.05rem; margin-top: 0; margin-bottom: 20px; font-weight: 600; text-align: center;">
+                                    <span class="lang-ja">従来の医療モデル（パターナリズム）</span>
+                                    <span class="lang-vi">Mô hình y tế truyền thống (Gia trưởng)</span>
+                                </h4>
+                                
+                                <div style="display: flex; flex-direction: column; align-items: center; gap: 15px; flex-grow: 1; justify-content: center;">
+                                    <div style="width: 76px; height: 76px; border-radius: 50%; background: rgba(30, 41, 59, 0.8); border: 2px solid var(--text-muted); display: flex; align-items: center; justify-content: center; font-weight: 600; color: var(--text-primary);">
+                                        <span class="lang-ja">医師</span>
+                                        <span class="lang-vi">Bác sĩ</span>
                                     </div>
-                                </button>
-                                <button type="button" class="segment-btn" data-sbo112-p1-tab="2"
-                                    style="padding: 16px 20px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.08); background: rgba(0,0,0,0.25); color: var(--text-muted); font-size: 0.96rem; cursor: pointer; transition: all 0.3s ease; text-align: left; display: flex; align-items: center; gap: 12px; outline: none; font-weight: 600;">
-                                    <i class="fa-solid fa-clipboard-check" style="font-size: 1.25rem; opacity: 0.5;"></i>
-                                    <div>
-                                        <span class="lang-ja">説明と同意・選択</span>
-                                        <span class="lang-vi">Giải thích & Đồng ý/Lựa chọn</span>
+                                    
+                                    <div style="font-size: 1.5rem; color: var(--text-muted);">
+                                        <i class="fa-solid fa-arrow-down"></i>
                                     </div>
-                                </button>
-                                <button type="button" class="segment-btn" data-sbo112-p1-tab="3"
-                                    style="padding: 16px 20px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.08); background: rgba(0,0,0,0.25); color: var(--text-muted); font-size: 0.96rem; cursor: pointer; transition: all 0.3s ease; text-align: left; display: flex; align-items: center; gap: 12px; outline: none; font-weight: 600;">
-                                    <i class="fa-solid fa-scale-unbalanced" style="font-size: 1.25rem; opacity: 0.5;"></i>
-                                    <div>
-                                        <span class="lang-ja">情報の非対称性</span>
-                                        <span class="lang-vi">Bất đối xứng thông tin</span>
+                                    
+                                    <div style="width: 64px; height: 64px; border-radius: 50%; background: rgba(30, 41, 59, 0.8); border: 2px solid var(--text-muted); display: flex; align-items: center; justify-content: center; font-weight: 600; color: var(--text-secondary);">
+                                        <span class="lang-ja">患者</span>
+                                        <span class="lang-vi">Bệnh nhân</span>
                                     </div>
-                                </button>
+                                </div>
+                                
+                                <p style="font-size: 0.92rem; color: var(--text-secondary); text-align: center; margin: 20px 0 0 0; line-height: 1.6;">
+                                    <span class="lang-ja">医師主導の意思決定。経験と技術を有する医療者に患者が従う構造。</span>
+                                    <span class="lang-vi">Quyết định hoàn toàn do bác sĩ chỉ định. Người bệnh tuân thủ hướng dẫn một chiều.</span>
+                                </p>
                             </div>
 
-                            <!-- Right Side: Content Panels -->
-                            <div class="card glass-card" id="sbo112-p1-details-panel"
-                                style="padding: 30px; border-left: 5px solid var(--accent-teal); background: rgba(255, 255, 255, 0.02); flex: 2 1 450px; min-height: 220px; display: flex; flex-direction: column; justify-content: flex-start; transition: all 0.3s ease;">
-                                <!-- Dynamic content -->
+                            <!-- Right: Modern Model -->
+                            <div class="sbo112-modern-side">
+                                <h4 style="color: var(--accent-gold); font-size: 1.05rem; margin-top: 0; margin-bottom: 20px; font-weight: 600; text-align: center;">
+                                    <span class="lang-ja">現代の医療モデル（多様な価値観の尊重）</span>
+                                    <span class="lang-vi">Mô hình y tế hiện đại (Tôn trọng giá trị đa dạng)</span>
+                                </h4>
+                                
+                                <div style="display: flex; align-items: center; justify-content: center; gap: 40px; flex-grow: 1; position: relative; width: 100%; height: 200px;">
+                                    <div style="width: 76px; height: 76px; border-radius: 50%; background: rgba(30, 41, 59, 0.8); border: 2px solid var(--text-muted); display: flex; align-items: center; justify-content: center; font-weight: 600; color: var(--text-primary); z-index: 2;">
+                                        <span class="lang-ja">医師</span>
+                                        <span class="lang-vi">Bác sĩ</span>
+                                    </div>
+                                    
+                                    <div style="display: flex; flex-direction: column; gap: 6px; color: var(--accent-gold); font-size: 1.3rem; z-index: 2; font-weight: bold;">
+                                        <i class="fa-solid fa-right-left"></i>
+                                    </div>
+                                    
+                                    <!-- Patient Central Circle with Connected Factors -->
+                                    <div style="position: relative; display: flex; align-items: center; justify-content: center; width: 180px; height: 180px;">
+                                        <div style="position: absolute; width: 130px; height: 130px; border: 1.5px dashed rgba(245, 158, 11, 0.35); border-radius: 50%; z-index: 1;"></div>
+                                        
+                                        <div style="width: 80px; height: 80px; border-radius: 50%; background: rgba(245, 158, 11, 0.12); border: 3px solid var(--accent-gold); display: flex; align-items: center; justify-content: center; font-weight: 600; color: var(--accent-gold); z-index: 3; box-shadow: 0 0 15px rgba(245, 158, 11, 0.25);">
+                                            <span class="lang-ja">患者</span>
+                                            <span class="lang-vi">Bệnh nhân</span>
+                                        </div>
+                                        
+                                        <!-- Surrounding Factor Nodes -->
+                                        <button type="button" class="sbo112-factor-node" data-factor="1" style="position: absolute; top: -10px; left: calc(50% - 21px);" title="家族・地域 / Gia đình & Xã hội">
+                                            <i class="fa-solid fa-house-user"></i>
+                                        </button>
+                                        <button type="button" class="sbo112-factor-node" data-factor="2" style="position: absolute; top: 32px; right: -12px;" title="人生観・価値観 / Nhân sinh quan & Giá trị">
+                                            <i class="fa-solid fa-brain"></i>
+                                        </button>
+                                        <button type="button" class="sbo112-factor-node" data-factor="3" style="position: absolute; bottom: 8px; right: 12px;" title="生活習慣 / Thói quen lối sống">
+                                            <i class="fa-solid fa-leaf"></i>
+                                        </button>
+                                        <button type="button" class="sbo112-factor-node" data-factor="4" style="position: absolute; bottom: 8px; left: 12px;" title="経済・支援体制 / Kinh tế & Hỗ trợ">
+                                            <i class="fa-solid fa-hand-holding-dollar"></i>
+                                        </button>
+                                        <button type="button" class="sbo112-factor-node" data-factor="5" style="position: absolute; top: 32px; left: -12px;" title="意思・希望 / Nguyện vọng & Tự quyết">
+                                            <i class="fa-solid fa-scale-balanced"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                                
+                                <p style="font-size: 0.92rem; color: var(--text-secondary); text-align: center; margin: 20px 0 0 0; line-height: 1.6;">
+                                    <span class="lang-ja">個人の多様な価値観や人生観を尊重し、患者が自発的に意思決定を行う構造。</span>
+                                    <span class="lang-vi">Quyết định dựa trên sự tôn trọng lối sống và quyền tự quyết của người bệnh.</span>
+                                </p>
                             </div>
+                        </div>
+
+                        <!-- Details Panel -->
+                        <div class="card glass-card" id="sbo112-p1-details-panel"
+                            style="padding: 24px 30px; border-left: 5px solid var(--accent-gold); background: rgba(255, 255, 255, 0.02); min-height: 140px; display: flex; flex-direction: column; justify-content: flex-start; transition: all 0.3s ease; margin-bottom: 40px;">
+                            <!-- Dynamic content populated by JS -->
                         </div>
                     </div>
                 </section>
@@ -72,16 +199,14 @@ window.SBO_TEMPLATES['sbo112'] = `<div id="sbo112" class="sbo-section-wrapper">
                         </h2>
                         <p class="section-desc">
                             <span class="lang-ja">個人情報保護法に基づく患者データの自己管理（PHR）と、疫学研究のためのビッグデータ二次利用との調和が問われています。</span>
-                            <span class="lang-vi">Đảm bảo quyền riêng tư và phát triển Hồ sơ sức khỏe cá nhân (PHR),
-                                đồng thời tạo sự đồng thuận về việc sử dụng dữ liệu lớn cho dịch tễ học.</span>
+                            <span class="lang-vi">Đảm bảo quyền riêng tư và phát triển Hồ sơ sức khỏe cá nhân (PHR), đồng thời tạo sự đồng thuận về việc sử dụng dữ liệu lớn cho dịch tễ học.</span>
                         </p>
 
-                        
                         <!-- Horizontal Timeline Layout for Part 2 -->
                         <div style="position: relative; margin: 40px 0 35px 0; padding: 0 10px;">
                             <!-- Connecting Line -->
                             <div style="position: absolute; top: 25px; left: 10%; right: 10%; height: 4px; background: rgba(255,255,255,0.06); border-radius: 2px; z-index: 1;">
-                                <div id="sbo112-p2-timeline-progress" style="width: 0%; height: 100%; background: linear-gradient(90deg, var(--accent-teal), var(--accent-gold), #a855f7); transition: width 0.4s ease; border-radius: 2px;"></div>
+                                <div id="sbo112-p2-timeline-progress" style="width: 0%; height: 100%; background: linear-gradient(90deg, var(--accent-teal), var(--accent-gold)); transition: width 0.4s ease; border-radius: 2px;"></div>
                             </div>
 
                             <!-- Timeline Milestones -->
@@ -116,7 +241,6 @@ window.SBO_TEMPLATES['sbo112'] = `<div id="sbo112" class="sbo-section-wrapper">
                                         <span class="lang-vi">Dữ liệu lớn</span>
                                     </span>
                                 </button>
-
                             </div>
                         </div>
 

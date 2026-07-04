@@ -3144,61 +3144,64 @@ window.initSbo111Simulator = function() {
 };
 window.initSbo112Simulator = function() {
 
-    // --- PART 1: Patient Relation Tabs ---
-    const p1TabsGroup = document.getElementById('sbo112-p1-tabs-group');
+    // --- PART 1: Patient Relation Diagram Interactivity ---
     const p1DetailsPanel = document.getElementById('sbo112-p1-details-panel');
 
     const p1Data = {
         '1': {
-            color: 'var(--accent-teal)',
-            icon: 'fa-handshake',
-            titleJa: '「パターナリズム」から「準委任契約関係」への転換',
-            titleVi: 'Sự chuyển dịch sang "Quan hệ hợp đồng chuẩn ủy quyền"',
-            bodyJa: '<p style="margin: 0 0 10px 0;">• <strong>医師主導から相互理解へ：</strong>従来の医師主導による方針決定（パターナリズム）は家長制度の延長線上にあり、経験・知識・技術を持つ者に従うものでした。</p><p style="margin: 0;">• <strong>準委任契約の基本化：</strong>現代医療においては、医師と患者との対等な「準委任契約関係」が基本とされ、お互いの信頼関係に基づく合意が求められます。</p>',
-            bodyVi: '<p style="margin: 0 0 10px 0;">• <strong>Từ bỏ chủ nghĩa gia trưởng:</strong> Trước đây thường tồn tại mối quan hệ do bác sĩ làm chủ đạo (Paternalism) bắt nguồn từ nếp nghĩ gia trưởng, yêu cầu người bệnh tuân theo hoàn toàn chuyên môn của bác sĩ.</p><p style="margin: 0;">• <strong>Thiết lập mối quan hệ bình đẳng:</strong> Ngày nay, mối quan hệ này dựa trên nền tảng "Hợp đồng chuẩn ủy quyền" (準委任契約関係), thúc đẩy hai bên trao đổi bình đẳng và cùng đồng thuận.</p>'
+            color: 'var(--accent-gold)',
+            icon: 'fa-house-user',
+            titleJa: '家族・地域 (Family & Community)',
+            titleVi: 'Gia đình & Xã hội',
+            bodyJa: '<p style="margin: 0 0 10px 0;">• <strong>家族・環境要因：</strong>患者のケアや意思決定をサポートする家族関係や地域社会の支援体制は、治療の継続や在宅医療の移行において重要な考慮要素です。</p><p style="margin: 0;">• <strong>多職種連携の基盤：</strong>医療従事者だけでなく、福祉やケアマネジャー等も含めた地域ネットワークが個人の療養を支えます。</p>',
+            bodyVi: '<p style="margin: 0 0 10px 0;">• <strong>Yếu tố gia đình & môi trường:</strong> Mối quan hệ gia đình và hệ thống hỗ trợ cộng đồng giúp nâng đỡ người bệnh trong việc ra quyết định và tuân thủ điều trị hoặc chuyển sang chăm sóc tại nhà.</p><p style="margin: 0;">• <strong>Nền tảng phối hợp liên ngành:</strong> Không chỉ nhân viên y tế, mà mạng lưới cộng đồng gồm nhân viên phúc lợi, quản lý chăm sóc cũng đóng vai trò hỗ trợ cuộc sống người bệnh.</p>'
         },
         '2': {
             color: 'var(--accent-gold)',
-            icon: 'fa-clipboard-check',
-            titleJa: '「説明と同意」と「説明と選択」の前提',
-            titleVi: 'Tiền đề "Giải thích & Đồng ý" và "Giải thích & Lựa chọn"',
-            bodyJa: '<p style="margin: 0 0 10px 0;">• <strong>インフォームド・コンセント：</strong>医療行為を行う際の絶対的なルールとして、十分な「説明と同意」が不可欠となっています。</p><p style="margin: 0;">• <strong>インフォームド・チョイスと価値観の尊重：</strong>患者自身が納得した上で「選択」を行う権利を保障し、個人の多様な価値観や人生観を十分に考慮します。</p>',
-            bodyVi: '<p style="margin: 0 0 10px 0;">• <strong>Giải thích và Đồng ý (Informed Consent):</strong> Trở thành tiền đề bắt buộc trước mọi hành vi y khoa, bảo đảm người bệnh hiểu rõ mọi lợi ích và rủi ro.</p><p style="margin: 0;">• <strong>Giải thích và Lựa chọn (Informed Choice):</strong> Tôn trọng quyền tự quyết của người bệnh dựa trên thế giới quan, nhân sinh quan và giá trị sống đa dạng của mỗi cá nhân.</p>'
+            icon: 'fa-brain',
+            titleJa: '人生観・価値観 (View of Life & Values)',
+            titleVi: 'Nhân sinh quan & Giá trị',
+            bodyJa: '<p style="margin: 0 0 10px 0;">• <strong>個人の人生観の尊重：</strong>人はそれぞれ異なる信仰、宗教、生きていく上でのこだわりを持っています。画一的な標準治療を押し付けるのではなく、個人の大切にしている価値観を最優先します。</p><p style="margin: 0;">• <strong>生命倫理の調和：</strong>治療による利益と個人の価値観の衝突（例：輸血拒否など）に対して、対話を通じた調和点を見出します。</p>',
+            bodyVi: '<p style="margin: 0 0 10px 0;">• <strong>Tôn trọng nhân sinh quan cá nhân:</strong> Mỗi người có niềm tin, tôn giáo và sự trân quý khác nhau trong cuộc sống. Không áp đặt điều trị chuẩn một cách máy móc, mà ưu tiên các giá trị mà cá nhân coi trọng.</p><p style="margin: 0;">• <strong>Hài hòa đạo đức sinh học:</strong> Khi có sự xung đột giữa lợi ích y khoa và niềm tin cá nhân, cần tìm điểm dung hòa thông qua đối thoại và thấu hiểu.</p>'
         },
         '3': {
-            color: '#c084fc',
-            icon: 'fa-scale-unbalanced',
-            titleJa: '情報の非対称性と「情報弱者」の課題',
-            titleVi: 'Bất đối xứng thông tin và vấn đề "Người yếu thế thông tin"',
-            bodyJa: '<p style="margin: 0 0 10px 0;">• <strong>情報の非対称性の存在：</strong>患者中心の医療が進む一方で、データや専門知識が医療側に偏在する「情報の非対称性」が依然として課題です。</p><p style="margin: 0;">• <strong>情報弱者の支援：</strong>高度情報化社会の中、ネットやITリテラシーの低い高齢者等は「情報弱者」となりやすく、情報提供側の十分なサポートが求められています。</p>',
-            bodyVi: '<p style="margin: 0 0 10px 0;">• <strong>Sự bất đối xứng về thông tin:</strong> Tồn tại sự mất cân bằng sâu sắc khi dữ liệu y khoa và tri thức chuyên môn chủ yếu tập trung ở bên cung cấp dịch vụ y tế.</p><p style="margin: 0;">• <strong>Vấn đề người yếu thế thông tin:</strong> Sự bùng nổ của Internet vô tình đẩy những người hạn chế về kỹ năng công nghệ (IT literacy) như người già thành đối tượng yếu thế. Đòi hỏi y tế cần có các biện pháp hỗ trợ thu hẹp khoảng cách.</p>'
+            color: 'var(--accent-gold)',
+            icon: 'fa-leaf',
+            titleJa: '生活習慣・ライフスタイル (Lifestyle & Habits)',
+            titleVi: 'Thói quen lối sống',
+            bodyJa: '<p style="margin: 0 0 10px 0;">• <strong>フェノタイプ（生活特性）：</strong>日々の食事習慣（塩分・糖分など）、運動習慣、労働環境、睡眠パターンなどは、疾患の発症や回復力に直接影響を及ぼします。</p><p style="margin: 0;">• <strong>行動変容の支援：</strong>無理のない目標設定を対話によって決め、患者自身が生活改善に前向きに取り組めるよう動機付けを行います。</p>',
+            bodyVi: '<p style="margin: 0 0 10px 0;">• <strong>Phenotype (Đặc tính lối sống):</strong> Thói quen ăn uống (muối, đường...), thói quen vận động, môi trường làm việc, giấc ngủ ảnh hưởng trực tiếp đến bệnh lý và khả năng phục hồi.</p><p style="margin: 0;">• <strong>Hỗ trợ thay đổi hành vi:</strong> Đồng thuận đặt ra các mục tiêu lối sống thực tế thông qua trò chuyện, tạo động lực để người bệnh tự chủ cải thiện sức khỏe.</p>'
+        },
+        '4': {
+            color: 'var(--accent-gold)',
+            icon: 'fa-hand-holding-dollar',
+            titleJa: '経済状況・支援体制 (Financial & Support)',
+            titleVi: 'Kinh tế & Hỗ trợ',
+            bodyJa: '<p style="margin: 0 0 10px 0;">• <strong>経済的要因：</strong>治療費の負担、医療助成制度の利用可否などは、患者が安心して治療を受けられるかどうかの決定的な要因になります。</p><p style="margin: 0;">• <strong>社会資源の活用：</strong>高額療養費制度や各種福祉手当、支援団体などの情報を適切に提供し、経済的・精神的な負担を軽減します。</p>',
+            bodyVi: '<p style="margin: 0 0 10px 0;">• <strong>Yếu tố kinh tế:</strong> Chi phí điều trị, diện bảo hiểm, khả năng tiếp cận các quỹ hỗ trợ y tế là những yếu tố quyết định giúp người bệnh yên tâm điều trị dài hạn.</p><p style="margin: 0;">• <strong>Sử dụng nguồn lực xã hội:</strong> Cung cấp kịp thời thông tin về chính sách hỗ trợ chi phí lớn, trợ cấp xã hội để giảm bớt gánh nặng kinh tế và tâm lý.</p>'
+        },
+        '5': {
+            color: 'var(--accent-gold)',
+            icon: 'fa-scale-balanced',
+            titleJa: '意思・自己決定権 (Wishes & Self-determination)',
+            titleVi: 'Nguyện vọng & Tự quyết',
+            bodyJa: '<p style="margin: 0 0 10px 0;">• <strong>インフォームド・チョイス：</strong>従来の「説明と同意（インフォームド・コンセント）」からさらに進み、患者自身が納得した上で「選択」を行う権利を保障します。</p><p style="margin: 0;">• <strong>準委任契約の精神：</strong>医療側と患者は対等な契約関係にあり、患者側の意思に基づく自発的な決定があって初めて医療行為が成立します。</p>',
+            bodyVi: '<p style="margin: 0 0 10px 0;">• <strong>Informed Choice (Lựa chọn có giải thích):</strong> Tiến xa hơn bước "Giải thích và Đồng ý", bảo đảm quyền lợi để người bệnh chủ động chọn lựa phương án tối ưu.</p><p style="margin: 0;">• <strong>Tinh thần hợp đồng ủy quyền:</strong> Bác sĩ và bệnh nhân có mối quan hệ hợp đồng bình đẳng. Hành vi y khoa chỉ được thiết lập dựa trên quyết định tự nguyện và ý chí của người bệnh.</p>'
         }
     };
 
-    function activateP1Tab(tabId) {
-        if (!p1TabsGroup || !p1DetailsPanel) return;
-        const buttons = p1TabsGroup.querySelectorAll('button[data-sbo112-p1-tab]');
-        buttons.forEach(btn => {
-            const isCurrent = btn.getAttribute('data-sbo112-p1-tab') === tabId;
-            const data = p1Data[btn.getAttribute('data-sbo112-p1-tab')];
-            const icon = btn.querySelector('i');
-            
-            if (isCurrent) {
-                btn.classList.add('active');
-                btn.style.background = tabId === '3' ? 'rgba(192, 132, 252, 0.12)' : (tabId === '2' ? 'rgba(245, 158, 11, 0.12)' : 'rgba(45, 212, 191, 0.12)');
-                btn.style.borderColor = data.color;
-                btn.style.color = '#fff';
-                if(icon) { icon.style.color = data.color; icon.style.opacity = '0.8'; }
+    function activateP1Factor(factorId) {
+        if (!p1DetailsPanel) return;
+        const nodes = document.querySelectorAll('.sbo112-factor-node');
+        nodes.forEach(node => {
+            if (node.getAttribute('data-factor') === factorId) {
+                node.classList.add('active');
             } else {
-                btn.classList.remove('active');
-                btn.style.background = 'rgba(0,0,0,0.25)';
-                btn.style.borderColor = 'rgba(255,255,255,0.08)';
-                btn.style.color = 'var(--text-muted)';
-                if(icon) { icon.style.color = 'inherit'; icon.style.opacity = '0.5'; }
+                node.classList.remove('active');
             }
         });
 
-        const data = p1Data[tabId];
+        const data = p1Data[factorId];
         if (data) {
             p1DetailsPanel.style.opacity = '0.1';
             p1DetailsPanel.style.transform = 'translateY(5px)';
@@ -3220,11 +3223,12 @@ window.initSbo112Simulator = function() {
         }
     }
 
-    if (p1TabsGroup) {
-        p1TabsGroup.querySelectorAll('button[data-sbo112-p1-tab]').forEach(btn => {
-            btn.addEventListener('click', () => activateP1Tab(btn.getAttribute('data-sbo112-p1-tab')));
+    const nodes = document.querySelectorAll('.sbo112-factor-node');
+    if (nodes.length > 0) {
+        nodes.forEach(node => {
+            node.addEventListener('click', () => activateP1Factor(node.getAttribute('data-factor')));
         });
-        activateP1Tab('1');
+        activateP1Factor('1');
     }
 
     // --- PART 2: Personal Info Timeline ---
@@ -3250,7 +3254,7 @@ window.initSbo112Simulator = function() {
             bodyVi: '<p style="margin: 0 0 10px 0;">• <strong>Sử dụng sơ cấp nâng cao chất lượng:</strong> Tích lũy thông tin y tế dài hạn dưới dạng PHR và kết hợp hệ My Number giúp chia sẻ dữ liệu hiệu quả trong chăm sóc sức khỏe toàn diện.</p><p style="margin: 0;">• <strong>Ưu tiên bảo vệ tối đa:</strong> Dù chia sẻ mang lại lợi ích to lớn, việc ngăn ngừa rò rỉ dữ liệu và thiết lập quyền truy cập chặt chẽ luôn là ưu tiên tối thượng.</p>'
         },
         '3': {
-            color: '#c084fc',
+            color: 'var(--accent-teal)',
             icon: 'fa-users',
             titleJa: '医療ビッグデータ利活用と「社会的コンセンサス」',
             titleVi: 'Thách thức hình thành sự đồng thuận xã hội',
