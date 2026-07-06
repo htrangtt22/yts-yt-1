@@ -1587,41 +1587,100 @@ window.SBO_TEMPLATES['sbo111'] = `<div id="sbo111" class="sbo-section-wrapper">
                                 </div>
                             </div>
 
-                            <!-- Gap Comparison Chart -->
-                            <div class="life-expectancy-chart" style="margin-top: 20px;">
-                                <div class="life-bar-container">
-                                    <div class="average-life-line">
-                                        <div class="average-life-label">
-                                            <span class="lang-ja">平均寿命</span>
-                                            <span class="lang-vi">Tuổi thọ trung bình</span>
-                                        </div>
-                                    </div>
-                                    <div class="main-life-bar">
-                                        <div class="healthy-part">
-                                            <span class="lang-ja">健康寿命 (制限なく自立して暮らせる期間)</span>
-                                            <span class="lang-vi">Tuổi thọ khỏe mạnh (Sống độc lập không giới hạn)</span>
-                                        </div>
-                                        <div class="gap-part">
-                                            <div class="extend-arrow"><i class="fa-solid fa-angles-right"></i></div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div style="display: flex; justify-content: space-between; font-size: 0.8rem; line-height: 1.4; margin-top: 5px;">
-                                    <div style="color: #34d399; font-weight: 600;">
-                                        <span class="lang-ja">健康寿命</span>
-                                        <span class="lang-vi">Tuổi thọ khỏe mạnh</span>
-                                    </div>
-                                    <div style="color: #f59e0b; font-weight: 600; text-align: right;">
-                                        <span class="lang-ja">ギャップ (不健康な期間 / 要介護など)</span>
-                                        <span class="lang-vi">Khoảng trống (Thời gian không khỏe mạnh / Cần Kaigo)</span>
-                                    </div>
-                                </div>
-                            </div>
+                             <!-- Redesigned Gap Comparison Chart -->
+                             <div class="life-expectancy-chart" style="margin-top: 25px; padding: 25px 20px; background: rgba(30, 41, 59, 0.45); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 16px;">
+                                 <h4 style="text-align: center; color: #fff; font-size: 1.15rem; margin-top: 0; margin-bottom: 25px; font-weight: bold; letter-spacing: 0.5px;">
+                                     <span class="lang-ja">平均寿命と健康寿命の比較</span>
+                                     <span class="lang-vi">So sánh Tuổi thọ trung bình và Tuổi thọ khỏe mạnh</span>
+                                 </h4>
+                                 
+                                 <div style="display: flex; flex-direction: column; gap: 20px; position: relative; width: 100%; max-width: 680px; margin: 0 auto;">
+                                     
+                                     <!-- Bar 1: 平均寿命 -->
+                                     <div style="display: flex; align-items: center; position: relative; width: 100%;">
+                                         <div style="width: 100px; flex-shrink: 0; color: #94a3b8; font-size: 0.9rem; font-weight: 600; text-align: left;">
+                                             <span class="lang-ja">平均寿命</span>
+                                             <span class="lang-vi">Tuổi thọ TB</span>
+                                         </div>
+                                         <div style="flex-grow: 1; height: 36px; background: #64748b; border-radius: 6px; display: flex; align-items: center; padding-left: 15px;">
+                                             <span style="color: #fff; font-weight: 700; font-size: 0.88rem;">
+                                                 <span class="lang-ja">平均寿命 (全体寿命)</span>
+                                                 <span class="lang-vi">Tuổi thọ trung bình toàn bộ</span>
+                                             </span>
+                                         </div>
+                                     </div>
+                                     
+                                     <!-- Bar 2: 健康寿命 + 不健康な期間 -->
+                                     <div style="display: flex; align-items: center; position: relative; width: 100%;">
+                                         <div style="width: 100px; flex-shrink: 0; color: #10b981; font-size: 0.9rem; font-weight: 600; text-align: left;">
+                                             <span class="lang-ja">健康寿命</span>
+                                             <span class="lang-vi">Tuổi thọ KM</span>
+                                         </div>
+                                         <div style="flex-grow: 1; height: 36px; display: flex; border-radius: 6px; overflow: hidden; position: relative;">
+                                             <!-- Healthy part -->
+                                             <div style="width: 73%; background: #10b981; display: flex; align-items: center; padding-left: 15px;">
+                                                 <span style="color: #0f172a; font-weight: 700; font-size: 0.88rem;">
+                                                     <span class="lang-ja">健康寿命</span>
+                                                     <span class="lang-vi">Tuổi thọ khỏe mạnh</span>
+                                                 </span>
+                                             </div>
+                                             <!-- Unhealthy part (Gap) -->
+                                             <div style="width: 27%; background: #ef4444; display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden;">
+                                                 <div style="position: absolute; inset: 0; background: radial-gradient(circle, rgba(239, 68, 68, 0.4) 0%, transparent 70%);"></div>
+                                                 <span style="color: #fff; font-weight: 700; font-size: 0.85rem; z-index: 2; text-shadow: 0 1px 3px rgba(0,0,0,0.5); text-align: center; white-space: nowrap;">
+                                                     <span class="lang-ja">「不健康な期間（健康格差）」</span>
+                                                     <span class="lang-vi">Thời gian mất KM</span>
+                                                 </span>
+                                             </div>
+                                         </div>
+                                     </div>
 
-                            <p style="margin: 15px 0 0 0; font-size: 0.92rem; line-height: 1.6; color: var(--text-secondary); text-align: center;">
-                                <span class="lang-ja">壮年期死亡の減少と、この<strong>「健康寿命」を延伸</strong>し、ギャップ（要介護期間）を縮小することが最大の目標です。</span>
-                                <span class="lang-vi">Mục tiêu tối thượng là giảm tử vong tuổi trung niên, <strong>kéo dài tuổi thọ khỏe mạnh</strong> và rút ngắn khoảng cách Kaigo.</span>
-                            </p>
+                                     <!-- Labels below bars -->
+                                     <div style="display: flex; align-items: center; width: 100%; margin-top: -12px;">
+                                         <div style="width: 100px; flex-shrink: 0;"></div>
+                                         <div style="flex-grow: 1; display: flex; justify-content: space-between; font-size: 0.78rem; color: #94a3b8; padding: 0 5px;">
+                                             <div>
+                                                 <span class="lang-ja">自立して生活できる期間</span>
+                                                 <span class="lang-vi">Thời kỳ tự chủ sinh hoạt</span>
+                                             </div>
+                                             <div>
+                                                 <span class="lang-ja">要介護・支援期間</span>
+                                                 <span class="lang-vi">Thời kỳ cần Kaigo/Hỗ trợ</span>
+                                             </div>
+                                         </div>
+                                     </div>
+
+                                     <!-- Arrows showing target directions -->
+                                     <div style="display: flex; align-items: center; width: 100%; margin-top: 5px;">
+                                         <div style="width: 100px; flex-shrink: 0;"></div>
+                                         <div style="flex-grow: 1; position: relative; height: 26px; display: flex;">
+                                             <!-- Green Arrow (Extension) -->
+                                             <div style="width: 73%; position: relative; height: 100%;">
+                                                 <div style="position: absolute; left: 0; top: 8px; right: 8px; height: 10px; background: #34d399; border-radius: 5px;"></div>
+                                                 <div style="position: absolute; right: 0; top: 1px; width: 0; height: 0; border-top: 12px solid transparent; border-bottom: 12px solid transparent; border-left: 15px solid #34d399;"></div>
+                                             </div>
+                                             <!-- Gray Arrow (Reduction) -->
+                                             <div style="width: 27%; position: relative; height: 100%;">
+                                                 <div style="position: absolute; left: 0; top: 8px; right: 8px; height: 10px; background: #94a3b8; border-radius: 5px;"></div>
+                                                 <div style="position: absolute; right: 0; top: 1px; width: 0; height: 0; border-top: 12px solid transparent; border-bottom: 12px solid transparent; border-left: 15px solid #94a3b8;"></div>
+                                             </div>
+                                         </div>
+                                     </div>
+                                 </div>
+
+                                 <!-- Text highlights -->
+                                 <div style="text-align: center; margin-top: 25px; border-top: 1px solid rgba(255,255,255,0.08); padding-top: 20px;">
+                                     <h3 style="color: var(--accent-gold); font-size: 1.15rem; font-weight: 800; margin-top: 0; margin-bottom: 8px; letter-spacing: 0.5px;">
+                                         <span class="lang-ja">最大の目標：「健康寿命の延伸」と「健康格差の縮小」</span>
+                                         <span class="lang-vi">Mục tiêu tối thượng: "Kéo dài tuổi thọ khỏe mạnh" &amp; "Thu hẹp khoảng cách sức khỏe"</span>
+                                     </h3>
+                                     <p style="margin: 0; font-size: 0.9rem; color: var(--text-secondary); line-height: 1.6; font-weight: 500;">
+                                         <span class="lang-ja">第一次予防を重視した国民健康づくり運動</span>
+                                         <span class="lang-vi">Phong trào nâng cao sức khỏe quốc dân chú trọng Dự phòng cấp 1</span>
+                                     </p>
+                                 </div>
+                             </div>
+
                         </div>
 
                         <!-- 5 Basic Directions Card -->

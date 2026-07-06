@@ -611,18 +611,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (typeof window.updateSbo123Step === 'function') {
                     window.updateSbo123Step();
                 }
-
-                // Venn Diagram Interactivity
-                const vennElements = sboContainer.querySelectorAll('[data-venn]');
-                vennElements.forEach(el => {
-                    el.addEventListener('click', () => {
-                        const wasActive = el.classList.contains('active');
-                        vennElements.forEach(item => item.classList.remove('active'));
-                        if (!wasActive) {
-                            el.classList.add('active');
-                        }
-                    });
-                });
             }
 
             // Re-bind SBO 2.1.1 details tabs

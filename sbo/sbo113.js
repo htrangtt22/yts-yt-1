@@ -18,6 +18,127 @@ window.SBO_TEMPLATES['sbo113'] = `<div id="sbo113" class="sbo-section-wrapper">
                             <span class="lang-vi">Ứng phó với sự thay đổi của nhu cầu y tế, hướng tới chuyển đổi từ dịch vụ phân mảnh sang hệ thống cung cấp tích hợp.</span>
                         </p>
 
+                        <!-- Comprehensive Healthcare System Transition Diagram -->
+                        <div class="card glass-card" style="padding: 25px; border-top: 4px solid var(--accent-teal); background: rgba(15, 23, 42, 0.4); margin-bottom: 25px;">
+                            <h3 style="margin-top: 0; margin-bottom: 20px; font-size: 1.05rem; color: #fff; font-weight: 600; display: flex; align-items: center; gap: 8px;">
+                                <i class="fa-solid fa-arrows-split-up-and-left" style="color: var(--accent-teal);"></i>
+                                <span class="lang-ja">包括ヘルスケアシステム：単一の病院完結型から、地域全体での支え合いへ</span>
+                                <span class="lang-vi">Hệ thống chăm sóc toàn diện: Từ khép kín tại bệnh viện sang hỗ trợ cộng đồng</span>
+                            </h3>
+                            
+                            <div style="display: flex; gap: 20px; align-items: center; justify-content: space-between; flex-wrap: wrap;">
+                                <!-- Left side: Self-Contained Model -->
+                                <div style="flex: 1 1 300px; background: rgba(37, 99, 235, 0.05); border: 1.5px solid rgba(37, 99, 235, 0.3); border-radius: 12px; padding: 20px; text-align: center; box-shadow: 0 4px 20px rgba(0,0,0,0.15);">
+                                    <div style="font-weight: 800; color: #60a5fa; font-size: 0.72rem; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 4px;">OLD PARADIGM</div>
+                                    <div style="font-weight: bold; color: #fff; font-size: 1.05rem; margin-bottom: 15px;">
+                                        <span class="lang-ja">完結型モデル</span>
+                                        <span class="lang-vi">Mô hình khép kín</span>
+                                    </div>
+                                    
+                                    <div style="width: 60px; height: 60px; border-radius: 50%; background: rgba(37, 99, 235, 0.15); border: 2px solid #2563eb; display: flex; align-items: center; justify-content: center; margin: 0 auto 15px auto; color: #60a5fa; font-size: 1.8rem;">
+                                        <i class="fa-solid fa-hospital"></i>
+                                    </div>
+                                    
+                                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; text-align: left; font-size: 0.8rem; color: #94a3b8; font-weight: 500;">
+                                        <div style="background: rgba(15,23,42,0.4); border: 1px solid rgba(255,255,255,0.04); border-radius: 6px; padding: 8px 10px; display: flex; align-items: center; gap: 6px;">
+                                            <i class="fa-solid fa-link-slash" style="color: #ef4444;"></i>
+                                            <div>
+                                                <span class="lang-ja">孤立した病院</span>
+                                                <span class="lang-vi">BV cô lập</span>
+                                            </div>
+                                        </div>
+                                        <div style="background: rgba(15,23,42,0.4); border: 1px solid rgba(255,255,255,0.04); border-radius: 6px; padding: 8px 10px; display: flex; align-items: center; gap: 6px;">
+                                            <i class="fa-solid fa-wifi" style="color: #ef4444; opacity: 0.5;"></i>
+                                            <div>
+                                                <span class="lang-ja">接続不良</span>
+                                                <span class="lang-vi">Kết nối kém</span>
+                                            </div>
+                                        </div>
+                                        <div style="background: rgba(15,23,42,0.4); border: 1px solid rgba(255,255,255,0.04); border-radius: 6px; padding: 8px 10px; display: flex; align-items: center; gap: 6px;">
+                                            <i class="fa-solid fa-user-clock" style="color: #ef4444;"></i>
+                                            <div>
+                                                <span class="lang-ja">患者受動的</span>
+                                                <span class="lang-vi">Bệnh nhân thụ động</span>
+                                            </div>
+                                        </div>
+                                        <div style="background: rgba(15,23,42,0.4); border: 1px solid rgba(255,255,255,0.04); border-radius: 6px; padding: 8px 10px; display: flex; align-items: center; gap: 6px;">
+                                            <i class="fa-solid fa-cubes" style="color: #ef4444;"></i>
+                                            <div>
+                                                <span class="lang-ja">リソース集中</span>
+                                                <span class="lang-vi">Tập trung tài nguyên</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <!-- Center: Transition Arrow -->
+                                <div style="flex: 0 1 120px; display: flex; flex-direction: column; align-items: center; text-align: center;">
+                                    <div style="font-weight: 800; color: var(--accent-gold); font-size: 0.65rem; letter-spacing: 0.5px; text-transform: uppercase; margin-bottom: 5px; animation: pulse 2s infinite;">
+                                        SHIFT IN PROGRESS
+                                    </div>
+                                    <div style="font-size: 1.8rem; color: var(--accent-gold); margin-bottom: 5px; animation: pulse 2s infinite;">
+                                        <i class="fa-solid fa-circle-arrow-right"></i>
+                                    </div>
+                                    <span style="font-size: 0.68rem; color: #94a3b8; font-weight: 600;">
+                                        <span class="lang-ja">地域全体での支え合いへ</span>
+                                        <span class="lang-vi">Hỗ trợ toàn cộng đồng</span>
+                                    </span>
+                                </div>
+                                
+                                <!-- Right side: Community Integrated Care Network -->
+                                <div style="flex: 1 1 300px; background: rgba(45, 212, 191, 0.05); border: 1.5px solid rgba(45, 212, 191, 0.3); border-radius: 12px; padding: 20px; text-align: center; box-shadow: 0 4px 20px rgba(0,0,0,0.15);">
+                                    <div style="font-weight: 800; color: var(--accent-teal); font-size: 0.72rem; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 4px;">NEW PARADIGM</div>
+                                    <div style="font-weight: bold; color: #fff; font-size: 1.05rem; margin-bottom: 15px;">
+                                        <span class="lang-ja">地域包括ケアネットワーク</span>
+                                        <span class="lang-vi">Mạng lưới chăm sóc tích hợp</span>
+                                    </div>
+                                    
+                                    <div style="width: 60px; height: 60px; border-radius: 50%; background: rgba(45, 212, 191, 0.15); border: 2px solid var(--accent-teal); display: flex; align-items: center; justify-content: center; margin: 0 auto 15px auto; color: var(--accent-teal); font-size: 1.8rem; animation: pulse 3s infinite;">
+                                        <i class="fa-solid fa-circle-nodes"></i>
+                                    </div>
+                                    
+                                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; text-align: left; font-size: 0.8rem; color: #94a3b8; font-weight: 500;">
+                                        <div style="background: rgba(15,23,42,0.4); border: 1px solid rgba(255,255,255,0.04); border-radius: 6px; padding: 8px 10px; display: flex; align-items: center; gap: 6px;">
+                                            <i class="fa-solid fa-link" style="color: var(--accent-teal);"></i>
+                                            <div>
+                                                <span class="lang-ja">相互接続システム</span>
+                                                <span class="lang-vi">Hệ thống liên kết</span>
+                                            </div>
+                                        </div>
+                                        <div style="background: rgba(15,23,42,0.4); border: 1px solid rgba(255,255,255,0.04); border-radius: 6px; padding: 8px 10px; display: flex; align-items: center; gap: 6px;">
+                                            <i class="fa-solid fa-network-wired" style="color: var(--accent-teal);"></i>
+                                            <div>
+                                                <span class="lang-ja">分散型リソース</span>
+                                                <span class="lang-vi">Tài nguyên phân tán</span>
+                                            </div>
+                                        </div>
+                                        <div style="background: rgba(15,23,42,0.4); border: 1px solid rgba(255,255,255,0.04); border-radius: 6px; padding: 8px 10px; display: flex; align-items: center; gap: 6px;">
+                                            <i class="fa-solid fa-house-chimney-medical" style="color: var(--accent-teal);"></i>
+                                            <div>
+                                                <span class="lang-ja">予防・在宅重視</span>
+                                                <span class="lang-vi">Trọng tâm tại nhà</span>
+                                            </div>
+                                        </div>
+                                        <div style="background: rgba(15,23,42,0.4); border: 1px solid rgba(255,255,255,0.04); border-radius: 6px; padding: 8px 10px; display: flex; align-items: center; gap: 6px;">
+                                            <i class="fa-solid fa-circle-user" style="color: var(--accent-teal);"></i>
+                                            <div>
+                                                <span class="lang-ja">患者主体</span>
+                                                <span class="lang-vi">Bệnh nhân làm chủ</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Bottom Banner -->
+                            <div style="background: rgba(30, 41, 59, 0.6); border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; padding: 12px 20px; margin-top: 15px;">
+                                <p style="margin: 0; font-size: 0.88rem; line-height: 1.6; color: #e2e8f0; font-weight: 500;">
+                                    <span class="lang-ja">単一の病院完結型から、地域全体での支え合いへ。医療情報を地域全体で共有し、患者を中心とする包括的なネットワークを構築します。</span>
+                                    <span class="lang-vi">Từ khép kín tại một bệnh viện sang hỗ trợ và tương hỗ toàn cộng đồng. Chia sẻ thông tin y tế trên toàn khu vực để xây dựng một mạng lưới toàn diện lấy người bệnh làm trung tâm.</span>
+                                </p>
+                            </div>
+                        </div>
+
                         <div style="display: flex; flex-direction: column; gap: 28px; margin-top: 20px;">
 
                             <!-- 1. Sự không tương thích -->
@@ -31,17 +152,194 @@ window.SBO_TEMPLATES['sbo113'] = `<div id="sbo113" class="sbo-section-wrapper">
                                     <div class="lang-ja">
                                         <p style="margin: 0 0 10px 0;">• <strong>一連の連続した経過：</strong>健康、医療と介護は、本来、ヒトの人生では一連の経過（連続したもの）です。</p>
                                         <p style="margin: 0 0 10px 0;">• <strong>需要の拡大・多様化：</strong>しかし、医療へのニーズが質的に多様化し、量的に拡大する中で、提供体制との間に不適合を生じています。</p>
-                                        <p style="margin: 0;">• <strong>統合システムへの転換：</strong>現在の大きな課題は、これらのサービスが施設ごとに分断されるのではなく、統合的なシステムとして構築されるべきだという点にあります。</p>
                                     </div>
                                     <div class="lang-vi">
                                         <p style="margin: 0 0 10px 0;">• <strong>Chuỗi diễn biến liên tục:</strong> Sức khỏe, y tế và chăm sóc điều dưỡng vốn dĩ là một chuỗi diễn biến liên tục trong suốt cuộc đời của con người.</p>
                                         <p style="margin: 0 0 10px 0;">• <strong>Nhu cầu mở rộng và đa dạng hóa:</strong> Tuy nhiên, nhu cầu y tế ngày càng mở rộng về số lượng và đa dạng hóa về chất lượng đã gây ra sự không tương thích với hệ thống cung cấp dịch vụ hiện tại.</p>
-                                        <p style="margin: 0;">• <strong>Cần xây dựng hệ thống tích hợp:</strong> Vấn đề cốt lõi là các dịch vụ này không nên bị chia cắt một cách độc lập theo từng cơ sở, mà cần phải được xây dựng thành một hệ thống tích hợp liên tục.</p>
+                                    </div>
+                                    
+                                    <!-- Needs change diagram -->
+                                    <div class="sbo113-needs-change-diagram" style="display: flex; gap: 20px; align-items: stretch; justify-content: space-between; margin: 20px 0; background: rgba(15, 23, 42, 0.4); border: 1px solid rgba(255,255,255,0.06); border-radius: 12px; padding: 20px; flex-wrap: wrap;">
+                                        <!-- Left: Quantitative Increase -->
+                                        <div style="flex: 1 1 230px; background: rgba(30, 41, 59, 0.6); border: 1.5px solid rgba(59, 130, 246, 0.3); border-radius: 10px; padding: 15px; display: flex; flex-direction: column; align-items: center; justify-content: space-between; text-align: center; box-shadow: 0 4px 15px rgba(0,0,0,0.15);">
+                                            <div style="width: 100%;">
+                                                <span style="font-weight: 800; color: #60a5fa; font-size: 0.95rem; display: block; margin-bottom: 5px;">
+                                                    <span class="lang-ja">量的増加</span>
+                                                    <span class="lang-vi">Tăng trưởng số lượng</span>
+                                                </span>
+                                                <span style="font-size: 0.78rem; color: #94a3b8; line-height: 1.4; display: block; min-height: 36px;">
+                                                    <span class="lang-ja">超高齢化に伴う患者数の絶対的増加</span>
+                                                    <span class="lang-vi">Sự gia tăng tuyệt đối số lượng bệnh nhân do siêu già hóa</span>
+                                                </span>
+                                            </div>
+                                            
+                                            <!-- Upward Arrow & Figures -->
+                                            <div style="position: relative; width: 100%; height: 90px; margin-top: 15px; display: flex; align-items: flex-end; justify-content: space-around; padding-bottom: 10px;">
+                                                <!-- Trend line arrow background -->
+                                                <svg style="position: absolute; left: 0; top: 0; width: 100%; height: 100%; z-index: 1; pointer-events: none;" viewBox="0 0 200 80" preserveAspectRatio="none">
+                                                    <path d="M 10 70 Q 100 60, 190 15" fill="none" stroke="var(--accent-teal)" stroke-width="3" stroke-linecap="round" />
+                                                    <polygon points="190,15 178,16 185,25" fill="var(--accent-teal)" />
+                                                </svg>
+                                                <!-- Aging figures -->
+                                                <div style="z-index: 2; display: flex; align-items: flex-end; justify-content: space-between; width: 100%; padding: 0 10px;">
+                                                    <div style="color: #cbd5e1; font-size: 1.1rem; opacity: 0.6;"><i class="fa-solid fa-user"></i></div>
+                                                    <div style="color: #cbd5e1; font-size: 1.3rem; opacity: 0.8; transform: translateY(-10px);"><i class="fa-solid fa-user-injured"></i></div>
+                                                    <div style="color: var(--accent-gold); font-size: 1.5rem; transform: translateY(-22px); filter: drop-shadow(0 0 5px rgba(245,158,11,0.4));"><i class="fa-solid fa-wheelchair"></i></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <!-- Right: Qualitative Diversification -->
+                                        <div style="flex: 1.2 1 260px; background: rgba(30, 41, 59, 0.6); border: 1.5px solid rgba(45, 212, 191, 0.3); border-radius: 10px; padding: 15px; display: flex; flex-direction: column; justify-content: space-between; box-shadow: 0 4px 15px rgba(0,0,0,0.15);">
+                                            <div style="text-align: center; margin-bottom: 12px;">
+                                                <span style="font-weight: 800; color: var(--accent-teal); font-size: 0.95rem; display: block; margin-bottom: 5px;">
+                                                    <span class="lang-ja">質的多様化</span>
+                                                    <span class="lang-vi">Đa dạng hóa chất lượng</span>
+                                                </span>
+                                            </div>
+                                            
+                                            <div style="display: flex; flex-direction: column; gap: 10px;">
+                                                <div style="display: flex; align-items: center; gap: 10px; background: rgba(15, 23, 42, 0.4); border: 1px solid rgba(255,255,255,0.04); border-radius: 6px; padding: 8px 12px;">
+                                                    <div style="flex: 0 0 65px; font-weight: bold; font-size: 0.76rem; color: #94a3b8; text-transform: uppercase;">
+                                                        <span class="lang-ja">従来</span>
+                                                        <span class="lang-vi">Trước đây</span>
+                                                    </div>
+                                                    <div style="color: #60a5fa; font-size: 1.1rem;"><i class="fa-solid fa-hospital"></i></div>
+                                                    <div style="font-weight: 600; font-size: 0.8rem; color: #fff;">
+                                                        <span class="lang-ja">「急性疾患を治療する」</span>
+                                                        <span class="lang-vi">"Điều trị bệnh cấp tính"</span>
+                                                    </div>
+                                                </div>
+                                                
+                                                <div style="display: flex; align-items: center; gap: 10px; background: rgba(45, 212, 191, 0.05); border: 1px solid rgba(45, 212, 191, 0.2); border-radius: 6px; padding: 8px 12px;">
+                                                    <div style="flex: 0 0 65px; font-weight: bold; font-size: 0.76rem; color: var(--accent-teal); text-transform: uppercase;">
+                                                        <span class="lang-ja">現在・未来</span>
+                                                        <span class="lang-vi">Hiện tại/Tương lai</span>
+                                                    </div>
+                                                    <div style="color: var(--accent-teal); font-size: 1.1rem; animation: pulse 2s infinite;"><i class="fa-solid fa-house-medical-circle-check"></i></div>
+                                                    <div style="font-weight: 600; font-size: 0.8rem; color: var(--accent-teal);">
+                                                        <span class="lang-ja">「慢性疾患と共存しながら生活する」</span>
+                                                        <span class="lang-vi">"Sống chung với bệnh mãn tính"</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="lang-ja">
+                                        <p style="margin: 10px 0 0 0;">• <strong>統合システムへの転換：</strong>現在の大きな課題は、これらのサービスが施設ごとに分断されるのではなく、統合的なシステムとして構築されるべきだという点にあります。</p>
+                                    </div>
+                                    <div class="lang-vi">
+                                        <p style="margin: 10px 0 0 0;">• <strong>Cần xây dựng hệ thống tích hợp:</strong> Vấn đề cốt lõi là các dịch vụ này không nên bị chia cắt một cách độc lập theo từng cơ sở, mà cần phải được xây dựng thành một hệ thống tích hợp liên tục.</p>
                                     </div>
                                 </div>
                             </div>
 
-                            <!-- 2. Khái niệm Garfield -->
+                            <!-- 2. Current Issues -->
+                            <div class="card glass-card" style="border-left: 5px solid var(--accent-gold); padding: 30px; margin-bottom: 8px;">
+                                <h3 style="color: var(--accent-gold); margin-top: 0; margin-bottom: 16px; font-size: 0.96rem; display: flex; align-items: center; gap: 10px; font-weight: 600;">
+                                    <i class="fa-solid fa-triangle-exclamation"></i>
+                                    <span class="lang-ja">現状の課題：疾病中心の構造と摩擦</span>
+                                    <span class="lang-vi">Thách thức hiện tại: Cấu trúc trọng tâm bệnh lý và ma sát</span>
+                                </h3>
+                                
+                                <div style="display: flex; gap: 25px; align-items: center; justify-content: space-between; flex-wrap: wrap;">
+                                    <!-- Left text description -->
+                                    <div style="flex: 1 1 300px; display: flex; flex-direction: column; gap: 15px;">
+                                        <div style="background: rgba(30, 41, 59, 0.4); border-left: 3px solid var(--accent-teal); padding: 12px 15px; border-radius: 0 8px 8px 0;">
+                                            <h4 style="margin: 0 0 6px 0; color: #fff; font-size: 0.88rem; font-weight: bold;">
+                                                <span class="lang-ja">顕在化した疾病中心の構造</span>
+                                                <span class="lang-vi">Cấu trúc trọng tâm bệnh cấp tính hiển lộ</span>
+                                            </h4>
+                                            <p style="margin: 0; font-size: 0.78rem; color: #94a3b8; line-height: 1.4;">
+                                                <span class="lang-ja">現在の医療は、基本的に「顕在化した疾病を有する病人」を対象とした構造・機能を有している。</span>
+                                                <span class="lang-vi">Y tế hiện tại có cấu trúc/chức năng tập trung chủ yếu vào đối tượng "bệnh nhân có bệnh cấp tính hiển lộ".</span>
+                                            </p>
+                                        </div>
+                                        
+                                        <div style="background: rgba(239, 68, 68, 0.05); border-left: 3px solid #ef4444; padding: 12px 15px; border-radius: 0 8px 8px 0;">
+                                            <h4 style="margin: 0 0 6px 0; color: #f87171; font-size: 0.88rem; font-weight: bold;">
+                                                <span class="lang-ja">システム上の摩擦</span>
+                                                <span class="lang-vi">Ma sát trong hệ thống</span>
+                                            </h4>
+                                            <p style="margin: 0; font-size: 0.78rem; color: #cbd5e1; line-height: 1.4;">
+                                                <span class="lang-ja">この構造が、予防、健康増進といった多様なニーズとの間に不適合（提供や連携方法の分断）を生じさせている。</span>
+                                                <span class="lang-vi">Cấu trúc này tạo ra sự không tương thích và phân mảnh dịch vụ với các nhu cầu khác như phòng bệnh hay nâng cao sức khỏe.</span>
+                                            </p>
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- Right interactive diagram -->
+                                    <div style="flex: 1.2 1 350px; background: rgba(15, 23, 42, 0.4); border: 1px solid rgba(255,255,255,0.06); border-radius: 12px; padding: 20px; position: relative; height: 280px; display: flex; align-items: center; justify-content: center; overflow: hidden;">
+                                        <!-- SVG connection lines -->
+                                        <svg style="position: absolute; left: 0; top: 0; width: 100%; height: 100%; pointer-events: none; z-index: 1;" viewBox="0 0 400 280">
+                                            <!-- Top-Left (Prevention) to Center (Hospital) -->
+                                            <line x1="80" y1="70" x2="200" y2="140" stroke="#ef4444" stroke-width="2" stroke-dasharray="4 4" />
+                                            <!-- Bottom-Left (Health Promotion) to Center (Hospital) -->
+                                            <line x1="80" y1="210" x2="200" y2="140" stroke="#ef4444" stroke-width="2" stroke-dasharray="4 4" />
+                                            <!-- Top-Right (Care) to Center (Hospital) -->
+                                            <line x1="320" y1="70" x2="200" y2="140" stroke="#ef4444" stroke-width="2" stroke-dasharray="4 4" />
+                                            <!-- Bottom-Left (Health Promotion) to Top-Left (Prevention) -->
+                                            <path d="M 80 210 Q 50 140, 80 70" fill="none" stroke="var(--accent-teal)" stroke-width="2" stroke-dasharray="2 2" />
+                                        </svg>
+                                        
+                                        <!-- Center Node: Hospital Fortress -->
+                                        <div style="position: absolute; left: calc(50% - 45px); top: calc(50% - 45px); width: 90px; height: 90px; border-radius: 16px; background: rgba(30, 41, 59, 0.9); border: 2.5px solid #3b82f6; display: flex; flex-direction: column; align-items: center; justify-content: center; z-index: 2; box-shadow: 0 0 25px rgba(59, 130, 246, 0.4); text-align: center;">
+                                            <div style="font-size: 1.6rem; color: #60a5fa; margin-bottom: 2px;"><i class="fa-solid fa-hotel"></i></div>
+                                            <span style="font-weight: 800; font-size: 0.65rem; color: #fff; text-transform: uppercase; letter-spacing: 0.5px;">
+                                                <span class="lang-ja">疾病中心病院</span>
+                                                <span class="lang-vi" style="font-size: 0.55rem; display: block; line-height: 1.2;">BV trọng tâm bệnh</span>
+                                            </span>
+                                        </div>
+                                        
+                                        <!-- Top Left Node: 予防 (Prevention) -->
+                                        <div style="position: absolute; left: 35px; top: 35px; width: 65px; height: 65px; border-radius: 50%; background: rgba(30, 41, 59, 0.8); border: 1.5px solid #10b981; display: flex; flex-direction: column; align-items: center; justify-content: center; z-index: 2; box-shadow: 0 0 15px rgba(16, 185, 129, 0.2); text-align: center;">
+                                            <div style="font-size: 1.1rem; color: #34d399; margin-bottom: 2px;"><i class="fa-solid fa-shield-halved"></i></div>
+                                            <span style="font-weight: bold; font-size: 0.68rem; color: #fff;">
+                                                <span class="lang-ja">予防</span><span class="lang-vi">Phòng ngừa</span>
+                                            </span>
+                                        </div>
+                                        
+                                        <!-- Bottom Left Node: 健康増進 (Health Promotion) -->
+                                        <div style="position: absolute; left: 35px; bottom: 35px; width: 65px; height: 65px; border-radius: 50%; background: rgba(30, 41, 59, 0.8); border: 1.5px solid var(--accent-teal); display: flex; flex-direction: column; align-items: center; justify-content: center; z-index: 2; box-shadow: 0 0 15px rgba(6, 182, 212, 0.2); text-align: center;">
+                                            <div style="font-size: 1.1rem; color: var(--accent-teal); margin-bottom: 2px;"><i class="fa-solid fa-heart-pulse"></i></div>
+                                            <span style="font-weight: bold; font-size: 0.65rem; color: #fff;">
+                                                <span class="lang-ja">健康増進</span><span class="lang-vi">Sức khỏe</span>
+                                            </span>
+                                        </div>
+                                        
+                                        <!-- Top Right Node: 介護 (Care) -->
+                                        <div style="position: absolute; right: 35px; top: 35px; width: 65px; height: 65px; border-radius: 50%; background: rgba(30, 41, 59, 0.8); border: 1.5px solid var(--accent-gold); display: flex; flex-direction: column; align-items: center; justify-content: center; z-index: 2; box-shadow: 0 0 15px rgba(245, 158, 11, 0.2); text-align: center;">
+                                            <div style="font-size: 1.1rem; color: var(--accent-gold); margin-bottom: 2px;"><i class="fa-solid fa-hands-holding-child"></i></div>
+                                            <span style="font-weight: bold; font-size: 0.68rem; color: #fff;">
+                                                <span class="lang-ja">介護</span><span class="lang-vi">Điều dưỡng</span>
+                                            </span>
+                                        </div>
+                                        
+                                        <!-- Friction Label 1 -->
+                                        <div style="position: absolute; left: 110px; top: 88px; z-index: 3; display: flex; align-items: center; gap: 4px; background: rgba(239, 68, 68, 0.95); border: 1px solid #ef4444; border-radius: 12px; padding: 2px 8px; font-size: 0.58rem; color: #fff; font-weight: bold; box-shadow: 0 2px 8px rgba(239,68,68,0.3);">
+                                            <i class="fa-solid fa-triangle-exclamation"></i> FRICTION
+                                        </div>
+                                        
+                                        <!-- Friction Label 2 -->
+                                        <div style="position: absolute; left: 110px; bottom: 88px; z-index: 3; display: flex; align-items: center; gap: 4px; background: rgba(239, 68, 68, 0.95); border: 1px solid #ef4444; border-radius: 12px; padding: 2px 8px; font-size: 0.58rem; color: #fff; font-weight: bold; box-shadow: 0 2px 8px rgba(239,68,68,0.3);">
+                                            <i class="fa-solid fa-triangle-exclamation"></i> FRICTION
+                                        </div>
+                                        
+                                        <!-- Friction Label 3 -->
+                                        <div style="position: absolute; right: 110px; top: 88px; z-index: 3; display: flex; align-items: center; gap: 4px; background: rgba(239, 68, 68, 0.95); border: 1px solid #ef4444; border-radius: 12px; padding: 2px 8px; font-size: 0.58rem; color: #fff; font-weight: bold; box-shadow: 0 2px 8px rgba(239,68,68,0.3);">
+                                            <i class="fa-solid fa-triangle-exclamation"></i> FRICTION
+                                        </div>
+                                        
+                                        <!-- Bypass Label -->
+                                        <div style="position: absolute; left: 10px; top: calc(50% - 10px); z-index: 3; display: flex; align-items: center; gap: 4px; background: rgba(6, 182, 212, 0.95); border: 1px solid var(--accent-teal); border-radius: 12px; padding: 2px 8px; font-size: 0.58rem; color: #fff; font-weight: bold; box-shadow: 0 2px 8px rgba(6,182,212,0.3);">
+                                            <i class="fa-solid fa-route"></i> BYPASS
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- 3. Khái niệm Garfield -->
                             <div class="card glass-card" style="border-left: 5px solid var(--accent-gold); padding: 30px; margin-bottom: 8px;">
                                 <h3 style="color: var(--accent-gold); margin-top: 0; margin-bottom: 16px; font-size: 0.96rem; display: flex; align-items: center; gap: 10px; font-weight: 600;">
                                     <i class="fa-solid fa-network-wired"></i>
@@ -77,63 +375,142 @@ window.SBO_TEMPLATES['sbo113'] = `<div id="sbo113" class="sbo-section-wrapper">
                                         <p style="margin: 0;">Từ góc độ của hệ thống cung cấp chăm sóc sức khỏe, Nhật Bản hiện đang gặp nhiều vấn đề trong phương thức liên kết. Để hệ thống vận hành hiệu quả, cần thúc đẩy mạnh mẽ hai trục liên kết sau:</p>
                                     </div>
 
-                                    <!-- Beautiful Visual Flow Diagram for Horizontal vs Vertical -->
-                                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin: 10px 0;">
-                                        
-                                        <!-- Horizontal link Panel (Sleek Glassmorphism in purple theme) -->
-                                        <div style="background: rgba(168, 85, 247, 0.03); border: 1px solid rgba(168, 85, 247, 0.15); padding: 22px; border-radius: 12px; display: flex; flex-direction: column; align-items: center; gap: 15px; box-shadow: 0 4px 20px rgba(168, 85, 247, 0.05);">
-                                            <span style="font-weight: 700; color: #c084fc; font-size: 1.15rem; display: flex; align-items: center; gap: 6px; letter-spacing: 0.5px; text-transform: uppercase;">
-                                                <i class="fa-solid fa-arrows-left-right"></i> Horizontal / 水平連携
+                                    <!-- Beautiful Cross-Axis Integration Model Diagram -->
+                                    <div class="sbo113-integration-model-container" style="display: flex; flex-direction: column; align-items: center; margin: 15px 0; padding: 20px; background: rgba(15, 23, 42, 0.4); border: 1px solid rgba(255,255,255,0.06); border-radius: 12px; overflow-x: auto; position: relative; width: 100%;">
+                                        <div style="width: 100%; text-align: center; margin-bottom: 20px;">
+                                            <span style="font-weight: 800; color: var(--accent-gold); font-size: 1.05rem; display: block; margin-bottom: 5px;">
+                                                <span class="lang-ja">積極的なシステム化</span>
+                                                <span class="lang-vi">Hệ thống hóa chủ động</span>
                                             </span>
-                                            
-                                            <!-- Horizontal Flow Layout -->
-                                            <div style="display: flex; align-items: center; justify-content: center; gap: 8px; width: 100%; flex-wrap: wrap; margin-top: 5px;">
-                                                <!-- Node 1: Public Health -->
-                                                <div style="padding: 6px 12px; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: 6px; font-size: 0.96rem; font-weight: 500; color: #fff;">
-                                                    <span class="lang-ja">保健所</span><span class="lang-vi">Y tế phòng dịch</span>
-                                                </div>
-                                                <i class="fa-solid fa-right-left" style="color: rgba(168, 85, 247, 0.5); font-size: 0.8rem;"></i>
-                                                <!-- Node 2: Clinic/Hospital -->
-                                                <div style="padding: 6px 12px; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: 6px; font-size: 0.96rem; font-weight: 500; color: #fff;">
-                                                    <span class="lang-ja">医療機関</span><span class="lang-vi">Cơ sở điều trị</span>
-                                                </div>
-                                                <i class="fa-solid fa-right-left" style="color: rgba(168, 85, 247, 0.5); font-size: 0.8rem;"></i>
-                                                <!-- Node 3: Care/Pharmacy -->
-                                                <div style="padding: 6px 12px; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: 6px; font-size: 0.96rem; font-weight: 500; color: #fff;">
-                                                    <span class="lang-ja">介護・薬局</span><span class="lang-vi">Điều dưỡng / Dược</span>
-                                                </div>
-                                            </div>
-                                            <span style="font-size: 0.96rem; color: var(--text-muted); text-align: center; line-height: 1.4;">
-                                                <span class="lang-ja">異なる機能・多職種間での横方向の有機的な連携</span>
-                                                <span class="lang-vi">Liên kết ngang hữu cơ giữa các cơ sở và chức năng khác nhau</span>
+                                            <span style="font-size: 0.85rem; color: #94a3b8; line-height: 1.4;">
+                                                <span class="lang-ja">より積極的なヘルスケアのシステム化が必要。</span>
+                                                <span class="lang-vi">Đòi hỏi sự hệ thống hóa chăm sóc sức khỏe chủ động và toàn diện hơn.</span>
                                             </span>
                                         </div>
 
-                                        <!-- Vertical link Panel (Sleek Glassmorphism in teal theme) -->
-                                        <div style="background: rgba(45, 212, 191, 0.03); border: 1px solid rgba(45, 212, 191, 0.15); padding: 22px; border-radius: 12px; display: flex; flex-direction: column; align-items: center; gap: 12px; box-shadow: 0 4px 20px rgba(45, 212, 191, 0.05);">
-                                            <span style="font-weight: 700; color: var(--accent-teal); font-size: 1.15rem; display: flex; align-items: center; gap: 6px; letter-spacing: 0.5px; text-transform: uppercase;">
-                                                <i class="fa-solid fa-arrows-up-down"></i> Vertical / 垂直連携
-                                            </span>
+                                        <!-- The Cross-Axis Diagram -->
+                                        <div style="position: relative; width: 580px; height: 380px; margin: 10px auto; flex-shrink: 0;">
                                             
-                                            <!-- Vertical Flow Layout -->
-                                            <div style="display: flex; flex-direction: column; align-items: center; gap: 6px; width: 100%; margin-top: 5px;">
-                                                <!-- Level 3 -->
-                                                <div style="padding: 4px 14px; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: 6px; font-size: 0.96rem; color: #fff; width: 85%; text-align: center;">
-                                                    <span class="lang-ja">三次医療：特定機能・高次医療</span><span class="lang-vi">Tuyến 3: Y tế chuyên sâu</span>
-                                                </div>
-                                                <i class="fa-solid fa-arrow-down-long" style="color: rgba(45, 212, 191, 0.5); font-size: 0.8rem;"></i>
-                                                <!-- Level 2 -->
-                                                <div style="padding: 4px 14px; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: 6px; font-size: 0.96rem; color: #fff; width: 85%; text-align: center;">
-                                                    <span class="lang-ja">二次医療：地域基幹病院</span><span class="lang-vi">Tuyến 2: Bệnh viện khu vực</span>
-                                                </div>
-                                                <i class="fa-solid fa-arrow-down-long" style="color: rgba(45, 212, 191, 0.5); font-size: 0.8rem;"></i>
-                                                <!-- Level 1 -->
-                                                <div style="padding: 4px 14px; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: 6px; font-size: 0.96rem; color: #fff; width: 85%; text-align: center;">
-                                                    <span class="lang-ja">一次医療：一般診療所 (Primary)</span><span class="lang-vi">Tuyến 1: Chăm sóc ban đầu</span>
-                                                </div>
-                                            </div>
-                                        </div>
+                                            <!-- SVG connection lines -->
+                                            <svg style="position: absolute; left: 0; top: 0; width: 100%; height: 100%; pointer-events: none; z-index: 1;" viewBox="0 0 580 380">
+                                                <!-- Vertical Line from Patient going straight up -->
+                                                <line x1="80" y1="285" x2="80" y2="35" stroke="var(--accent-teal)" stroke-width="2.5" />
+                                                <polygon points="80,30 75,42 85,42" fill="var(--accent-teal)" />
+                                                
+                                                <!-- Horizontal Line from Patient going straight right -->
+                                                <line x1="110" y1="300" x2="530" y2="300" stroke="#a855f7" stroke-width="2.5" />
+                                                <polygon points="535,300 523,295 523,305" fill="#a855f7" />
+                                            </svg>
 
+                                            <!-- Y-Axis (Vertical) Labels & Nodes -->
+                                            <!-- Primary Care Clinic (1次) -->
+                                            <div style="position: absolute; left: 20px; top: 195px; display: flex; flex-direction: column; align-items: center; width: 120px; text-align: center; z-index: 2;">
+                                                <div style="width: 28px; height: 28px; border-radius: 8px; background: rgba(6, 182, 212, 0.15); border: 1.5px solid var(--accent-teal); display: flex; align-items: center; justify-content: center; color: var(--accent-teal); font-size: 0.8rem; box-shadow: 0 0 10px rgba(6, 182, 212, 0.15);">
+                                                    <i class="fa-solid fa-house-chimney-medical"></i>
+                                                </div>
+                                                <span style="font-size: 0.85rem; color: #fff; font-weight: bold; margin-top: 5px; line-height: 1.2;">
+                                                    <span class="lang-ja">診療所 (1次)</span>
+                                                    <span class="lang-vi" style="display: block; font-size: 0.76rem; color: #cbd5e1; font-weight: 500;">Phòng khám (Cấp 1)</span>
+                                                </span>
+                                            </div>
+
+                                            <!-- Regional Core Hospital (2次) -->
+                                            <div style="position: absolute; left: 20px; top: 115px; display: flex; flex-direction: column; align-items: center; width: 120px; text-align: center; z-index: 2;">
+                                                <div style="width: 28px; height: 28px; border-radius: 8px; background: rgba(6, 182, 212, 0.15); border: 1.5px solid var(--accent-teal); display: flex; align-items: center; justify-content: center; color: var(--accent-teal); font-size: 0.8rem; box-shadow: 0 0 10px rgba(6, 182, 212, 0.15);">
+                                                    <i class="fa-solid fa-hospital"></i>
+                                                </div>
+                                                <span style="font-size: 0.85rem; color: #fff; font-weight: bold; margin-top: 5px; line-height: 1.2;">
+                                                    <span class="lang-ja">地域基幹病院 (2次)</span>
+                                                    <span class="lang-vi" style="display: block; font-size: 0.76rem; color: #cbd5e1; font-weight: 500;">BV khu vực (Cấp 2)</span>
+                                                </span>
+                                            </div>
+
+                                            <!-- Advanced Medical Institution (3次) -->
+                                            <div style="position: absolute; left: 20px; top: 35px; display: flex; flex-direction: column; align-items: center; width: 120px; text-align: center; z-index: 2;">
+                                                <div style="width: 28px; height: 28px; border-radius: 8px; background: rgba(6, 182, 212, 0.15); border: 1.5px solid var(--accent-teal); display: flex; align-items: center; justify-content: center; color: var(--accent-teal); font-size: 0.8rem; box-shadow: 0 0 10px rgba(6, 182, 212, 0.15);">
+                                                    <i class="fa-solid fa-building-shield"></i>
+                                                </div>
+                                                <span style="font-size: 0.85rem; color: #fff; font-weight: bold; margin-top: 5px; line-height: 1.2;">
+                                                    <span class="lang-ja">高次医療機関 (3次)</span>
+                                                    <span class="lang-vi" style="display: block; font-size: 0.76rem; color: #cbd5e1; font-weight: 500;">BV chuyên sâu (3)</span>
+                                                </span>
+                                            </div>
+
+                                            <!-- Vertical Axis Info Label -->
+                                            <div style="position: absolute; left: 175px; top: 55px; width: 220px; border-left: 2.5px solid var(--accent-teal); padding-left: 12px; display: flex; flex-direction: column; justify-content: center; z-index: 2; background: rgba(15, 23, 42, 0.5); border-radius: 0 8px 8px 0; padding-top: 4px; padding-bottom: 4px;">
+                                                <span style="font-size: 0.95rem; font-weight: 800; color: var(--accent-teal); text-transform: uppercase; letter-spacing: 0.5px;">
+                                                    <span class="lang-ja">垂直連携</span>
+                                                    <span class="lang-vi">Liên kết dọc</span>
+                                                </span>
+                                                <span style="font-size: 0.8rem; color: #e2e8f0; line-height: 1.4; margin-top: 4px;">
+                                                    <span class="lang-ja">診療所、地域基幹病院、高次医療機関の一次・二次・三次医療施設間の連携。</span>
+                                                    <span class="lang-vi">Liên kết giữa phòng khám ban đầu, bệnh viện vùng và bệnh viện chuyên khoa sâu.</span>
+                                                </span>
+                                            </div>
+
+                                            <!-- Center Patient Node -->
+                                            <div style="position: absolute; left: 50px; top: 270px; width: 60px; height: 60px; border-radius: 50%; background: #1e293b; border: 2px solid #f97316; display: flex; align-items: center; justify-content: center; color: #f97316; font-size: 1.4rem; z-index: 3; box-shadow: 0 0 15px rgba(249, 115, 22, 0.4); animation: pulse 2.5s infinite;">
+                                                <i class="fa-solid fa-user-injured"></i>
+                                            </div>
+
+                                            <!-- X-Axis (Horizontal) Nodes & Labels -->
+                                            <!-- Medical (医療) -->
+                                            <div style="position: absolute; left: 165px; top: 285px; display: flex; flex-direction: column; align-items: center; width: 75px; text-align: center; z-index: 2;">
+                                                <div style="width: 26px; height: 26px; border-radius: 50%; background: rgba(168, 85, 247, 0.15); border: 1px solid #a855f7; display: flex; align-items: center; justify-content: center; color: #c084fc; font-size: 0.75rem;">
+                                                    <i class="fa-solid fa-user-doctor"></i>
+                                                </div>
+                                                <span style="font-size: 0.8rem; color: #fff; font-weight: bold; margin-top: 5px; line-height: 1.2;">
+                                                    <span class="lang-ja">医療</span>
+                                                    <span class="lang-vi" style="display: block; font-size: 0.72rem; color: #cbd5e1; font-weight: 500;">Y tế</span>
+                                                </span>
+                                            </div>
+
+                                            <!-- Care (介護) -->
+                                            <div style="position: absolute; left: 255px; top: 285px; display: flex; flex-direction: column; align-items: center; width: 75px; text-align: center; z-index: 2;">
+                                                <div style="width: 26px; height: 26px; border-radius: 50%; background: rgba(168, 85, 247, 0.15); border: 1px solid #a855f7; display: flex; align-items: center; justify-content: center; color: #c084fc; font-size: 0.75rem;">
+                                                    <i class="fa-solid fa-person-cane"></i>
+                                                </div>
+                                                <span style="font-size: 0.8rem; color: #fff; font-weight: bold; margin-top: 5px; line-height: 1.2;">
+                                                    <span class="lang-ja">介護</span>
+                                                    <span class="lang-vi" style="display: block; font-size: 0.72rem; color: #cbd5e1; font-weight: 500;">Điều dưỡng</span>
+                                                </span>
+                                            </div>
+
+                                            <!-- Dispensing Pharmacy (調剤薬局等) -->
+                                            <div style="position: absolute; left: 345px; top: 285px; display: flex; flex-direction: column; align-items: center; width: 95px; text-align: center; z-index: 2;">
+                                                <div style="width: 26px; height: 26px; border-radius: 50%; background: rgba(168, 85, 247, 0.15); border: 1px solid #a855f7; display: flex; align-items: center; justify-content: center; color: #c084fc; font-size: 0.75rem;">
+                                                    <i class="fa-solid fa-prescription-bottle-medical"></i>
+                                                </div>
+                                                <span style="font-size: 0.8rem; color: #fff; font-weight: bold; margin-top: 5px; line-height: 1.2;">
+                                                    <span class="lang-ja" style="font-size: 0.75rem;">調剤薬局等</span>
+                                                    <span class="lang-vi" style="display: block; font-size: 0.72rem; color: #cbd5e1; font-weight: 500;">Nhà thuốc</span>
+                                                </span>
+                                            </div>
+
+                                            <!-- Public Health Center (保健所) -->
+                                            <div style="position: absolute; left: 455px; top: 285px; display: flex; flex-direction: column; align-items: center; width: 85px; text-align: center; z-index: 2;">
+                                                <div style="width: 26px; height: 26px; border-radius: 50%; background: rgba(168, 85, 247, 0.15); border: 1px solid #a855f7; display: flex; align-items: center; justify-content: center; color: #c084fc; font-size: 0.75rem;">
+                                                    <i class="fa-solid fa-shield-virus"></i>
+                                                </div>
+                                                <span style="font-size: 0.8rem; color: #fff; font-weight: bold; margin-top: 5px; line-height: 1.2;">
+                                                    <span class="lang-ja">保健所</span>
+                                                    <span class="lang-vi" style="display: block; font-size: 0.72rem; color: #cbd5e1; font-weight: 500;">Dịch tễ</span>
+                                                </span>
+                                            </div>
+
+                                            <!-- Horizontal Axis Info Label -->
+                                            <div style="position: absolute; left: 180px; top: 155px; width: 350px; border-bottom: 2.5px solid #a855f7; padding-bottom: 8px; display: flex; flex-direction: column; z-index: 2; background: rgba(15, 23, 42, 0.5); border-radius: 8px 8px 0 0; padding-top: 6px; padding-left: 10px; padding-right: 10px;">
+                                                <span style="font-size: 0.95rem; font-weight: 800; color: #c084fc; text-transform: uppercase; letter-spacing: 0.5px;">
+                                                    <span class="lang-ja">水平連携</span>
+                                                    <span class="lang-vi">Liên kết ngang</span>
+                                                </span>
+                                                <span style="font-size: 0.8rem; color: #e2e8f0; line-height: 1.4; margin-top: 4px;">
+                                                    <span class="lang-ja">保健所と医療施設、介護と医療、調剤薬局等との分野を超えた連携。</span>
+                                                    <span class="lang-vi">Hợp tác liên ngành giữa trạm dịch tễ, bệnh viện, điều dưỡng, và nhà thuốc tư nhân.</span>
+                                                </span>
+                                            </div>
+
+                                        </div>
                                     </div>
 
                                     <div class="lang-ja">

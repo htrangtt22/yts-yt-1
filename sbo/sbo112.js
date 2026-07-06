@@ -183,6 +183,119 @@ window.SBO_TEMPLATES['sbo112'] = `<div id="sbo112" class="sbo-section-wrapper">
                             style="padding: 24px 30px; border-left: 5px solid var(--accent-gold); background: rgba(255, 255, 255, 0.02); min-height: 140px; display: flex; flex-direction: column; justify-content: flex-start; transition: all 0.3s ease; margin-bottom: 40px;">
                             <!-- Dynamic content populated by JS -->
                         </div>
+
+                        <!-- Patient-Centered Medicine Relationship Cards -->
+                        <div class="card glass-card" style="margin-top: 30px; text-align: center; padding: 30px;">
+                            <h3 style="margin-top: 0; margin-bottom: 16px; font-size: 1.15rem; color: #fff; display: flex; align-items: center; gap: 8px; justify-content: flex-start; font-weight: 600;">
+                                <i class="fa-solid fa-heart-pulse" style="color: var(--accent-gold);"></i>
+                                <span class="lang-ja">患者中心の医療</span>
+                                <span class="lang-vi">Y tế lấy bệnh nhân làm trung tâm</span>
+                            </h3>
+
+                            <p class="section-desc" style="max-width: 650px; margin: 0 auto 25px auto;">
+                                <span class="lang-ja">医療者の説明と同意（インフォームド・コンセント）および選択（インフォームド・チョイス）の交差点に、真の「患者の意向」が存在します。</span>
+                                <span class="lang-vi">Ý nguyện thực sự của bệnh nhân nằm ở điểm giao thoa giữa sự đồng ý (Informed Consent) và sự lựa chọn (Informed Choice) sau khi được giải thích đầy đủ.</span>
+                            </p>
+                            
+                            <style>
+                                .sbo112-venn-cards-grid {
+                                    display: grid;
+                                    grid-template-columns: 1fr 1.1fr 1fr;
+                                    gap: 20px;
+                                    margin: 0 auto 25px auto;
+                                    max-width: 800px;
+                                    align-items: stretch;
+                                }
+                                .sbo112-venn-card-item {
+                                    background: rgba(30, 41, 59, 0.3);
+                                    border: 1px solid var(--border-card);
+                                    border-radius: 12px;
+                                    padding: 20px;
+                                    cursor: pointer;
+                                    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+                                    display: flex;
+                                    flex-direction: column;
+                                    align-items: center;
+                                    justify-content: center;
+                                    position: relative;
+                                }
+                                .sbo112-venn-card-item:hover, .sbo112-venn-card-item.active {
+                                    transform: translateY(-4px);
+                                }
+                                .sbo112-venn-card-item[data-venn="consent"].active {
+                                    border-color: var(--accent-teal);
+                                    background: rgba(6, 182, 212, 0.08);
+                                    box-shadow: 0 0 20px rgba(6, 182, 212, 0.15);
+                                }
+                                .sbo112-venn-card-item[data-venn="choice"].active {
+                                    border-color: var(--accent-teal);
+                                    background: rgba(6, 182, 212, 0.08);
+                                    box-shadow: 0 0 20px rgba(6, 182, 212, 0.15);
+                                }
+                                .sbo112-venn-card-item[data-venn="wishes"] {
+                                    border: 1.5px solid rgba(245, 158, 11, 0.4);
+                                    background: rgba(245, 158, 11, 0.03);
+                                }
+                                .sbo112-venn-card-item[data-venn="wishes"].active {
+                                    border-color: var(--accent-gold);
+                                    background: rgba(245, 158, 11, 0.08);
+                                    box-shadow: 0 0 20px rgba(245, 158, 11, 0.2);
+                                }
+                                @media (max-width: 768px) {
+                                    .sbo112-venn-cards-grid {
+                                        grid-template-columns: 1fr;
+                                        gap: 15px;
+                                    }
+                                }
+                            </style>
+                            
+                            <div class="sbo112-venn-cards-grid">
+                                <!-- Card 1: Consent -->
+                                <div class="sbo112-venn-card-item" data-venn="consent" style="border-top: 4px solid var(--accent-teal);">
+                                    <i class="fa-solid fa-file-signature" style="color: var(--accent-teal); font-size: 1.5rem; margin-bottom: 12px;"></i>
+                                    <h4 style="margin: 0; color: #fff; font-size: 1.05rem; font-weight: bold; text-align: center;">
+                                        <span class="lang-ja" style="display: block; text-align: center; width: 100%;">説明と同意</span>
+                                        <span class="lang-vi" style="display: block; text-align: center; width: 100%; line-height: 1.2;">Giải thích &amp; Đồng ý</span>
+                                    </h4>
+                                    <span style="font-size: 0.8rem; color: var(--text-secondary); margin-top: 4px; display: block; text-align: center; width: 100%;">Informed Consent</span>
+                                </div>
+                                
+                                <!-- Card 3: Wishes (Highlight) -->
+                                <div class="sbo112-venn-card-item" data-venn="wishes" style="border-top: 4px solid var(--accent-gold);">
+                                    <i class="fa-solid fa-heart-pulse" style="color: var(--accent-gold); font-size: 1.8rem; margin-bottom: 12px;"></i>
+                                    <h4 style="margin: 0; color: var(--accent-gold); font-size: 1.15rem; font-weight: 800; text-align: center;">
+                                        <span class="lang-ja" style="display: block; text-align: center; width: 100%;">患者の意向</span>
+                                        <span class="lang-vi" style="display: block; text-align: center; width: 100%; font-size: 1.0rem;">Ý nguyện của BN</span>
+                                    </h4>
+                                    <span style="font-size: 0.82rem; color: var(--text-secondary); margin-top: 4px; display: block; text-align: center; width: 100%;">Patient's Wishes</span>
+                                </div>
+                                
+                                <!-- Card 2: Choice -->
+                                <div class="sbo112-venn-card-item" data-venn="choice" style="border-top: 4px solid var(--accent-teal);">
+                                    <i class="fa-solid fa-code-branch" style="color: var(--accent-teal); font-size: 1.5rem; margin-bottom: 12px;"></i>
+                                    <h4 style="margin: 0; color: #fff; font-size: 1.05rem; font-weight: bold; text-align: center;">
+                                        <span class="lang-ja" style="display: block; text-align: center; width: 100%;">説明と選択</span>
+                                        <span class="lang-vi" style="display: block; text-align: center; width: 100%; line-height: 1.2;">Giải thích &amp; Lựa chọn</span>
+                                    </h4>
+                                    <span style="font-size: 0.8rem; color: var(--text-secondary); margin-top: 4px; display: block; text-align: center; width: 100%;">Informed Choice</span>
+                                </div>
+                            </div>
+                            
+                            <!-- Venn Interactive Details Panel -->
+                            <div id="sbo112-venn-details-panel" class="card glass-card" style="margin: 20px auto; padding: 22px 28px; max-width: 800px; text-align: left; border-left: 5px solid var(--accent-gold); background: rgba(255,255,255,0.02); min-height: 90px; display: flex; flex-direction: column; justify-content: center; transition: all 0.3s ease;">
+                                <p style="margin: 0; font-size: 0.96rem; color: var(--text-secondary); text-align: center; font-style: italic;">
+                                    <span class="lang-ja">カードをクリックすると、患者中心の医療における各概念の詳細が表示されます。</span>
+                                    <span class="lang-vi">Nhấp vào từng thẻ để xem chi tiết các khái niệm về Y tế lấy bệnh nhân làm trung tâm.</span>
+                                </p>
+                            </div>
+                            
+                            <div style="background: rgba(30, 41, 59, 0.8); border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; padding: 18px 24px; text-align: center; max-width: 800px; margin: 0 auto;">
+                                <p style="margin: 0; font-size: 0.95rem; line-height: 1.6; color: #e2e8f0; font-weight: 500;">
+                                    <span class="lang-ja">現代のあらゆる医療行為は、これらを前提とし、患者の意向を最優先する準委任契約関係へと拡がっている。</span>
+                                    <span class="lang-vi">Mọi hành vi y khoa hiện đại đều lấy các điều này làm tiền đề, hướng tới mối quan hệ hợp đồng ủy quyền ưu tiên tối đa nguyện vọng của bệnh nhân.</span>
+                                </p>
+                            </div>
+                        </div>
                     </div>
                 </section>
 
@@ -269,40 +382,162 @@ window.SBO_TEMPLATES['sbo112'] = `<div id="sbo112" class="sbo-section-wrapper">
                                 (Phenotype) để mang lại hiệu quả điều trị và chẩn đoán tối đa.</span>
                         </p>
 
-                        <div class="personalized-med-tabs-container" style="display: flex; gap: 30px; margin-bottom: 30px; flex-wrap: wrap;">
-                            <!-- Left Sidebar: Tab Buttons -->
-                            <div style="display: flex; flex-direction: column; gap: 12px; flex: 1 1 260px;" id="pm-tabs-btn-group">
-                                <button type="button" class="segment-btn active" data-pm-tab="1"
-                                    style="padding: 16px 20px; border-radius: 12px; border: 1px solid var(--accent-teal); background: rgba(45, 212, 191, 0.08); color: #fff; font-size: 0.96rem; cursor: pointer; transition: all 0.3s ease; text-align: left; display: flex; align-items: center; gap: 12px; outline: none; font-weight: 600;">
-                                    <span style="font-size: 1.25rem; font-weight: 800; opacity: 0.75;">01</span>
-                                    <div>
-                                        <span class="lang-ja">パラダイムシフト</span>
-                                        <span class="lang-vi">Sự chuyển dịch</span>
+                        <div class="sbo112-pm-cards-stack" style="display: flex; flex-direction: column; gap: 24px; margin-bottom: 35px;">
+                            
+                            <!-- Card 1: Paradigm Shift -->
+                            <div class="card glass-card" style="padding: 30px; border-top: 5px solid var(--accent-teal); background: rgba(255, 255, 255, 0.02); border-radius: 12px; box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1); border-left: 1px solid rgba(255,255,255,0.05); border-right: 1px solid rgba(255,255,255,0.05); border-bottom: 1px solid rgba(255,255,255,0.05);">
+                                <div style="display: flex; gap: 30px; flex-wrap: wrap; align-items: center;">
+                                    <!-- Left side: text -->
+                                    <div style="flex: 1.2 1 350px;">
+                                        <h3 style="color: var(--accent-teal); margin-top: 0; margin-bottom: 16px; font-size: 1.15rem; display: flex; align-items: center; gap: 10px; font-weight: 600;">
+                                            <i class="fa-solid fa-arrows-spin" style="font-size: 1.2rem;"></i>
+                                            <span class="lang-ja">パラダイムシフト</span>
+                                            <span class="lang-vi">Sự chuyển dịch</span>
+                                        </h3>
+                                        <div style="font-size: 0.96rem; line-height: 1.8; color: var(--text-secondary);">
+                                            <div class="lang-ja">
+                                                <p style="margin: 0 0 10px 0;">• <strong>一律判定の限界：</strong>従来の医療では、集団の検査値分布から導出される「正常値」に基づく判断が一般的でした。しかし、ホメオスタシス（恒常性維持）の機序により、個人ごとの本来の変動幅は集団全体の幅よりもはるかに小さいのが現実です。</p>
+                                                <p style="margin: 0;">• <strong>個体差の客観評価：</strong>同一 of 同一の病名であってもすべての人に同じ治療が有効とは限りません。「個体差」を客観的に測定し、最適な個別化医療への転換が進んでいます。</p>
+                                            </div>
+                                            <div class="lang-vi">
+                                                <p style="margin: 0 0 10px 0;">• <strong>Hạn chế của chỉ số chung:</strong> Y học truyền thống đánh giá bệnh dựa trên "giá trị bình thường" từ phân bố của quần thể. Tuy nhiên, biên độ biến động sinh lý thực tế của mỗi cá nhân nhỏ hơn rất nhiều.</p>
+                                                <p style="margin: 0;">• <strong>Đo lường khác biệt cá nhân:</strong> Không áp dụng một phác đồ chung cho tất cả bệnh nhân cùng chẩn đoán, chuyển dịch sang đo lường khách quan "khác biệt cá thể" để điều trị tối ưu.</p>
+                                            </div>
+                                        </div>
                                     </div>
-                                </button>
-                                <button type="button" class="segment-btn" data-pm-tab="2"
-                                    style="padding: 16px 20px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.08); background: rgba(0,0,0,0.25); color: var(--text-muted); font-size: 0.96rem; cursor: pointer; transition: all 0.3s ease; text-align: left; display: flex; align-items: center; gap: 12px; outline: none; font-weight: 600;">
-                                    <span style="font-size: 1.25rem; font-weight: 800; opacity: 0.5;">02</span>
-                                    <div>
-                                        <span class="lang-ja">データとIoTの統合</span>
-                                        <span class="lang-vi">Tích hợp dữ liệu &amp; IoT</span>
+                                    <!-- Right side: diagram -->
+                                    <div style="flex: 1 1 300px; display: flex; justify-content: center;">
+                                        <div class="sbo112-paradigm-shift-diagram" style="width: 100%; max-width: 450px; display: flex; gap: 15px; align-items: center; justify-content: space-between; background: rgba(15, 23, 42, 0.4); border: 1px solid rgba(255,255,255,0.06); border-radius: 12px; padding: 20px; flex-wrap: wrap;">
+                                            <div style="flex: 1 1 150px; display: flex; flex-direction: column; align-items: center; text-align: center;">
+                                                <span style="font-weight: bold; color: #fff; font-size: 0.8rem; margin-bottom: 8px;">集団判定 (画一的)</span>
+                                                <svg width="150" height="90" viewBox="0 0 150 90" style="overflow: visible;">
+                                                    <line x1="0" y1="85" x2="150" y2="85" stroke="rgba(255,255,255,0.15)" stroke-width="1.5" />
+                                                    <path d="M 5 85 C 45 85, 60 15, 75 15 C 90 15, 105 85, 145 85" fill="rgba(37, 99, 235, 0.2)" stroke="#2563eb" stroke-width="2.5" />
+                                                </svg>
+                                            </div>
+                                            <div style="flex: 0 1 30px; display: flex; align-items: center; justify-content: center; color: #64748b; font-size: 1.5rem;">
+                                                <i class="fa-solid fa-right-long"></i>
+                                            </div>
+                                            <div style="flex: 1 1 150px; display: flex; flex-direction: column; align-items: center; text-align: center;">
+                                                <span style="font-weight: bold; color: var(--accent-gold); font-size: 0.8rem; margin-bottom: 8px;">個体測定 (個別最適)</span>
+                                                <svg width="150" height="90" viewBox="0 0 150 90" style="overflow: visible;">
+                                                    <line x1="0" y1="85" x2="150" y2="85" stroke="rgba(255,255,255,0.15)" stroke-width="1.5" />
+                                                    <path d="M 35 85 C 65 85, 72 5, 75 5 C 78 5, 85 85, 115 85" fill="rgba(245, 158, 11, 0.2)" stroke="var(--accent-gold)" stroke-width="2.5" />
+                                                </svg>
+                                            </div>
+                                        </div>
                                     </div>
-                                </button>
-                                <button type="button" class="segment-btn" data-pm-tab="3"
-                                    style="padding: 16px 20px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.08); background: rgba(0,0,0,0.25); color: var(--text-muted); font-size: 0.96rem; cursor: pointer; transition: all 0.3s ease; text-align: left; display: flex; align-items: center; gap: 12px; outline: none; font-weight: 600;">
-                                    <span style="font-size: 1.25rem; font-weight: 800; opacity: 0.5;">03</span>
-                                    <div>
-                                        <span class="lang-ja">精密医療への発展</span>
-                                        <span class="lang-vi">Y học chính xác</span>
-                                    </div>
-                                </button>
+                                </div>
                             </div>
 
-                            <!-- Right Side: Content Panels -->
-                            <div class="card glass-card" id="pm-details-panel"
-                                style="padding: 30px; border-top: 5px solid var(--accent-teal); background: rgba(255, 255, 255, 0.02); flex: 2 1 450px; min-height: 250px; display: flex; flex-direction: column; justify-content: center; transition: all 0.3s ease;">
-                                <!-- Content will be updated dynamically via Javascript -->
+                            <!-- Card 2: Data & IoT Integration -->
+                            <div class="card glass-card" style="padding: 30px; border-top: 5px solid var(--accent-gold); background: rgba(255, 255, 255, 0.02); border-radius: 12px; box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1); border-left: 1px solid rgba(255,255,255,0.05); border-right: 1px solid rgba(255,255,255,0.05); border-bottom: 1px solid rgba(255,255,255,0.05);">
+                                <div style="display: flex; gap: 30px; flex-wrap: wrap; align-items: center;">
+                                    <!-- Left side: text -->
+                                    <div style="flex: 1.2 1 350px;">
+                                        <h3 style="color: var(--accent-gold); margin-top: 0; margin-bottom: 16px; font-size: 1.15rem; display: flex; align-items: center; gap: 10px; font-weight: 600;">
+                                            <i class="fa-solid fa-mobile-screen-button" style="font-size: 1.2rem;"></i>
+                                            <span class="lang-ja">データとIoTの統合</span>
+                                            <span class="lang-vi">Tích hợp dữ liệu &amp; IoT</span>
+                                        </h3>
+                                        <div style="font-size: 0.96rem; line-height: 1.8; color: var(--text-secondary);">
+                                            <div class="lang-ja">
+                                                <p style="margin: 0 0 10px 0;">• <strong>データ解析の進歩：</strong>ゲノム解読技術と生命情報学（バイオインフォマティクス）の進歩により、個人の遺伝的素因（Genotype）を瞬時に分析することが可能になりました。</p>
+                                                <p style="margin: 0;">• <strong>リアルタイム生体連携：</strong>IoT機器により、心拍、血圧、睡眠などの生体情報（Phenotype）がリアルタイムにPHRへと蓄積され、予防・治療の特定に役立てられます。</p>
+                                            </div>
+                                            <div class="lang-vi">
+                                                <p style="margin: 0 0 10px 0;">• <strong>Giải mã gen tiên tiến:</strong> Tin sinh học (Bioinformatics) cùng giải trình tự gen quy mô lớn giúp phân tích nhanh chóng kiểu gen (Genotype) của người bệnh.</p>
+                                                <p style="margin: 0;">• <strong>Thu nhập thực tế qua IoT:</strong> Thông qua thiết bị đeo (IoT), chỉ số sinh lý (Phenotype) được ghi nhận liên tục vào PHR giúp đưa ra khuyến nghị chính xác.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Right side: diagram -->
+                                    <div style="flex: 1 1 300px; display: flex; justify-content: center;">
+                                        <div class="sbo112-iot-diagram" style="width: 100%; max-width: 450px; display: flex; gap: 20px; align-items: center; justify-content: center; background: rgba(15, 23, 42, 0.4); border: 1px solid rgba(255,255,255,0.06); border-radius: 12px; padding: 20px; min-height: 130px;">
+                                            <div style="display: flex; flex-direction: column; align-items: center; gap: 6px; width: 70px;">
+                                                <div style="width: 44px; height: 44px; border-radius: 50%; background: rgba(6, 182, 212, 0.15); border: 1.5px solid var(--accent-teal); display: flex; align-items: center; justify-content: center; font-size: 1.2rem; color: var(--accent-teal);">
+                                                    <i class="fa-solid fa-dna"></i>
+                                                </div>
+                                                <span style="font-size: 0.75rem; color: #cbd5e1; font-weight: bold;">Genotype</span>
+                                            </div>
+                                            <div style="color: #64748b; font-size: 1.1rem;"><i class="fa-solid fa-plus"></i></div>
+                                            <div style="display: flex; flex-direction: column; align-items: center; gap: 6px; width: 70px;">
+                                                <div style="width: 44px; height: 44px; border-radius: 50%; background: rgba(245, 158, 11, 0.15); border: 1.5px solid var(--accent-gold); display: flex; align-items: center; justify-content: center; font-size: 1.2rem; color: var(--accent-gold);">
+                                                    <i class="fa-solid fa-mobile-screen-button"></i>
+                                                </div>
+                                                <span style="font-size: 0.75rem; color: #cbd5e1; font-weight: bold;">Phenotype</span>
+                                            </div>
+                                            <div style="color: #64748b; font-size: 1.1rem;"><i class="fa-solid fa-arrow-right-long"></i></div>
+                                            <div style="display: flex; flex-direction: column; align-items: center; gap: 6px; width: 75px;">
+                                                <div style="width: 44px; height: 44px; border-radius: 50%; background: rgba(37, 99, 235, 0.15); border: 1.5px solid #2563eb; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; color: #2563eb;">
+                                                    <i class="fa-solid fa-cloud"></i>
+                                                </div>
+                                                <span style="font-size: 0.75rem; color: #cbd5e1; font-weight: bold;">PHR (IoT)</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
+
+                            <!-- Card 3: Precision Medicine Development -->
+                            <div class="card glass-card" style="padding: 30px; border-top: 5px solid #a855f7; background: rgba(255, 255, 255, 0.02); border-radius: 12px; box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1); border-left: 1px solid rgba(255,255,255,0.05); border-right: 1px solid rgba(255,255,255,0.05); border-bottom: 1px solid rgba(255,255,255,0.05);">
+                                <div style="display: flex; gap: 30px; flex-wrap: wrap; align-items: center;">
+                                    <!-- Left side: text -->
+                                    <div style="flex: 1.2 1 350px;">
+                                        <h3 style="color: #a855f7; margin-top: 0; margin-bottom: 16px; font-size: 1.15rem; display: flex; align-items: center; gap: 10px; font-weight: 600;">
+                                            <i class="fa-solid fa-microchip" style="font-size: 1.2rem;"></i>
+                                            <span class="lang-ja">精密医療への発展</span>
+                                            <span class="lang-vi">Y học chính xác</span>
+                                        </h3>
+                                        <div style="font-size: 0.96rem; line-height: 1.8; color: var(--text-secondary);">
+                                            <div class="lang-ja">
+                                                <p style="margin: 0 0 10px 0;">• <strong>単なる「個別」から「層別化」へ：</strong>精密医療は、個人の遺伝的特徴や疾患の分子レベルのサブタイプに基づき、患者を細かく「層別化」して最適な治療を施すアプローチです。</p>
+                                                <p style="margin: 0;">• <strong>多重因子的解析：</strong>遺伝的素因と環境要因の複雑な相互作用に基づき、マルチオミクス（多様な分子データ）をビッグデータ技術で解析します。</p>
+                                            </div>
+                                            <div class="lang-vi">
+                                                <p style="margin: 0 0 10px 0;">• <strong>Phân tầng nhóm bệnh nhân chuyên sâu:</strong> Y học chính xác thực hiện việc phân tầng (層別化) bệnh nhân thành các nhóm nhỏ (subtype) để điều trị tối ưu nhất.</p>
+                                                <p style="margin: 0;">• <strong>Phân tích đa yếu tố:</strong> Phân tích dữ liệu sinh học phân tử quy mô lớn (Multi-omics) để làm rõ tương tác giữa gen bẩm sinh và môi trường.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Right side: diagram -->
+                                    <div style="flex: 1 1 300px; display: flex; justify-content: center;">
+                                        <div class="sbo112-precision-med-diagram" style="width: 100%; max-width: 450px; display: flex; gap: 15px; align-items: center; justify-content: space-between; background: rgba(15, 23, 42, 0.4); border: 1px solid rgba(255,255,255,0.06); border-radius: 12px; padding: 20px; flex-wrap: wrap;">
+                                            <div style="flex: 1.2 1 150px; display: flex; flex-direction: column; gap: 8px;">
+                                                <div style="background: rgba(30, 41, 59, 0.6); border: 1.5px solid #2563eb; border-radius: 6px; padding: 6px 10px; display: flex; align-items: center; gap: 8px; font-size: 0.78rem;">
+                                                    <i class="fa-solid fa-dna" style="color: #60a5fa; font-size: 0.95rem;"></i>
+                                                    <span style="color: #fff; font-weight: 600;">Genotype</span>
+                                                </div>
+                                                <div style="background: rgba(30, 41, 59, 0.6); border: 1.5px solid #2563eb; border-radius: 6px; padding: 6px 10px; display: flex; align-items: center; gap: 8px; font-size: 0.78rem;">
+                                                    <i class="fa-solid fa-apple-whole" style="color: #4ade80; font-size: 0.95rem;"></i>
+                                                    <span style="color: #fff; font-weight: 600;">Phenotype</span>
+                                                </div>
+                                                <div style="background: rgba(30, 41, 59, 0.6); border: 1.5px solid #2563eb; border-radius: 6px; padding: 6px 10px; display: flex; align-items: center; gap: 8px; font-size: 0.78rem;">
+                                                    <i class="fa-solid fa-clock" style="color: #f59e0b; font-size: 0.95rem;"></i>
+                                                    <span style="color: #fff; font-weight: 600;">IoT Data</span>
+                                                </div>
+                                            </div>
+                                            
+                                            <div style="flex: 0 1 45px; display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                                                <div style="width: 40px; height: 40px; border-radius: 50%; background: #1e293b; border: 2px dashed var(--accent-teal); display: flex; align-items: center; justify-content: center; color: var(--accent-teal); font-size: 1.1rem; animation: spin 10s linear infinite;">
+                                                    <i class="fa-solid fa-microchip"></i>
+                                                </div>
+                                                <div style="font-size: 1.1rem; color: var(--accent-gold); margin-top: 6px; animation: pulse 2s infinite;"><i class="fa-solid fa-arrow-right"></i></div>
+                                            </div>
+                                            
+                                            <div style="flex: 1 1 120px; display: flex; flex-direction: column; align-items: center; text-align: center;">
+                                                <div style="position: relative; width: 60px; height: 60px; display: flex; align-items: center; justify-content: center; margin-bottom: 6px;">
+                                                    <div style="position: absolute; width: 56px; height: 56px; border: 2px solid rgba(245, 158, 11, 0.3); border-radius: 50%;"></div>
+                                                    <div style="position: absolute; width: 36px; height: 36px; border: 2px solid rgba(245, 158, 11, 0.6); border-radius: 50%;"></div>
+                                                    <div style="position: absolute; width: 14px; height: 14px; background: var(--accent-gold); border-radius: 50%; box-shadow: 0 0 6px var(--accent-gold);"></div>
+                                                </div>
+                                                <span style="font-weight: bold; color: var(--accent-gold); font-size: 0.78rem;">個別最適</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
                         </div>
 
                         <!-- Tab Script -->

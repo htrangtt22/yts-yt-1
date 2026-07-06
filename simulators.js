@@ -3242,24 +3242,412 @@ window.initSbo112Simulator = function() {
             icon: 'fa-user-shield',
             titleJa: '情報のコントロールと「自己情報コントロール権」',
             titleVi: 'Quyền kiểm soát thông tin cá nhân (自己情報コントロール権)',
-            bodyJa: '<p style="margin: 0 0 10px 0;">• <strong>能動的な権利への転換：</strong>個人情報保護法の精神に基づき、従来の消極的なプライバシー保護だけでなく、自己に関する情報の流れを自ら管理する「自己情報コントロール権」が確立されています。</p><p style="margin: 0;">• <strong>開示請求の増加：</strong>この権利意識の高まりに伴い、患者自身による診療情報の提供や開示を求める件数が大幅に増加しています。</p>',
-            bodyVi: '<p style="margin: 0 0 10px 0;">• <strong>Quyền tự quyết tích cực:</strong> Trên tinh thần Luật Bảo vệ Thông tin Cá nhân, quyền riêng tư đã chuyển thành quyền chủ động kiểm soát dòng thông tin liên quan đến bản thân.</p><p style="margin: 0;">• <strong>Yêu cầu công khai gia tăng:</strong> Nhận thức về quyền cá nhân ngày càng cao dẫn đến việc số lượng yêu cầu cung cấp và công khai thông tin khám chữa bệnh tăng trưởng mạnh mẽ.</p>'
+            bodyJa: `<div class="sbo112-info-control-diagram" style="display: flex; gap: 20px; align-items: center; justify-content: space-between; margin: 20px 0; background: rgba(15, 23, 42, 0.4); border: 1px solid rgba(255,255,255,0.06); border-radius: 12px; padding: 20px; flex-wrap: wrap;">
+                <!-- Left: Self Control Sphere -->
+                <div style="flex: 1 1 240px; display: flex; flex-direction: column; align-items: center; text-align: center; position: relative;">
+                    <div style="position: relative; width: 160px; height: 160px; display: flex; align-items: center; justify-content: center;">
+                        <div style="position: absolute; width: 150px; height: 150px; border: 1.5px solid rgba(245, 158, 11, 0.15); border-radius: 50%;"></div>
+                        <div style="position: absolute; width: 125px; height: 125px; border: 1.5px dashed rgba(245, 158, 11, 0.25); border-radius: 50%;"></div>
+                        <div style="position: absolute; width: 100px; height: 100px; border: 1.5px solid rgba(245, 158, 11, 0.35); border-radius: 50%;"></div>
+                        
+                        <div style="position: absolute; top: 8px; left: 8px; width: 26px; height: 26px; background: #1e293b; border: 1px solid #475569; border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 0.75rem; color: var(--accent-teal);"><i class="fa-solid fa-vault"></i></div>
+                        <div style="position: absolute; top: 50%; left: -12px; transform: translateY(-50%); width: 26px; height: 26px; background: #1e293b; border: 1px solid #475569; border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 0.75rem; color: var(--accent-teal);"><i class="fa-solid fa-vault"></i></div>
+                        <div style="position: absolute; bottom: 8px; left: 8px; width: 26px; height: 26px; background: #1e293b; border: 1px solid #475569; border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 0.75rem; color: var(--accent-teal);"><i class="fa-solid fa-vault"></i></div>
+
+                        <div style="display: flex; flex-direction: column; align-items: center; z-index: 2;">
+                            <div style="width: 36px; height: 36px; border-radius: 50%; background: #f97316; margin-bottom: 4px; box-shadow: 0 0 10px rgba(249, 115, 22, 0.4);"></div>
+                            <div style="width: 64px; height: 48px; background: #f97316; border-radius: 12px 12px 0 0; display: flex; align-items: center; justify-content: center; color: #fff; font-size: 0.65rem; font-weight: 800; padding: 2px; line-height: 1.2; text-align: center;">
+                                <span>自己情報<br>コントロール権</span>
+                            </div>
+                        </div>
+                        
+                        <div style="position: absolute; right: -5px; top: calc(50% - 13px); width: 36px; height: 26px; background: rgba(249, 115, 22, 0.2); border: 2px solid #f97316; border-radius: 6px; display: flex; align-items: center; justify-content: center; color: #f97316; font-size: 0.95rem; z-index: 3; box-shadow: 0 0 10px rgba(249, 115, 22, 0.25);">
+                            <i class="fa-solid fa-key"></i>
+                        </div>
+                    </div>
+                    <p style="margin: 12px 0 0 0; font-size: 0.82rem; line-height: 1.5; color: var(--text-secondary);">
+                        個人情報保護法の精神に則り、個人が自身の情報をコントロールすることが求められる。
+                    </p>
+                </div>
+                
+                <!-- Center: Flow arrows with open locks -->
+                <div style="flex: 1 1 100px; display: flex; flex-direction: column; justify-content: space-around; height: 140px; min-width: 80px; position: relative;">
+                    <div style="display: flex; align-items: center; width: 100%; position: relative;">
+                        <div style="flex-grow: 1; height: 2px; background: linear-gradient(90deg, #f97316, var(--accent-teal)); opacity: 0.85;"></div>
+                        <div style="width: 24px; height: 24px; border-radius: 50%; background: #1e293b; border: 1.5px solid var(--accent-gold); display: flex; align-items: center; justify-content: center; color: var(--accent-gold); font-size: 0.72rem; position: absolute; left: calc(50% - 12px); box-shadow: 0 0 8px rgba(245, 158, 11, 0.3);">
+                            <i class="fa-solid fa-lock-open"></i>
+                        </div>
+                        <div style="width: 0; height: 0; border-top: 5px solid transparent; border-bottom: 5px solid transparent; border-left: 7px solid var(--accent-teal);"></div>
+                    </div>
+                    <div style="display: flex; align-items: center; width: 100%; position: relative;">
+                        <div style="flex-grow: 1; height: 2px; background: linear-gradient(90deg, #f97316, var(--accent-teal)); opacity: 0.85;"></div>
+                        <div style="width: 24px; height: 24px; border-radius: 50%; background: #1e293b; border: 1.5px solid var(--accent-gold); display: flex; align-items: center; justify-content: center; color: var(--accent-gold); font-size: 0.72rem; position: absolute; left: calc(50% - 12px); box-shadow: 0 0 8px rgba(245, 158, 11, 0.3);">
+                            <i class="fa-solid fa-lock-open"></i>
+                        </div>
+                        <div style="width: 0; height: 0; border-top: 5px solid transparent; border-bottom: 5px solid transparent; border-left: 7px solid var(--accent-teal);"></div>
+                    </div>
+                    <div style="display: flex; align-items: center; width: 100%; position: relative;">
+                        <div style="flex-grow: 1; height: 2px; background: linear-gradient(90deg, #f97316, var(--accent-teal)); opacity: 0.85;"></div>
+                        <div style="width: 24px; height: 24px; border-radius: 50%; background: #1e293b; border: 1.5px solid var(--accent-gold); display: flex; align-items: center; justify-content: center; color: var(--accent-gold); font-size: 0.72rem; position: absolute; left: calc(50% - 12px); box-shadow: 0 0 8px rgba(245, 158, 11, 0.3);">
+                            <i class="fa-solid fa-lock-open"></i>
+                        </div>
+                        <div style="width: 0; height: 0; border-top: 5px solid transparent; border-bottom: 5px solid transparent; border-left: 7px solid var(--accent-teal);"></div>
+                    </div>
+                </div>
+                
+                <!-- Right: Destinations -->
+                <div style="flex: 1 1 180px; display: flex; flex-direction: column; gap: 10px; justify-content: center;">
+                    <div style="background: rgba(30, 58, 138, 0.3); border: 1px solid #2563eb; border-radius: 6px; padding: 8px 12px; display: flex; align-items: center; gap: 10px;">
+                        <i class="fa-solid fa-hospital" style="color: #60a5fa; font-size: 1.0rem;"></i>
+                        <span style="font-weight: bold; color: #fff; font-size: 0.85rem;">病院</span>
+                    </div>
+                    <div style="background: rgba(30, 58, 138, 0.3); border: 1px solid #2563eb; border-radius: 6px; padding: 8px 12px; display: flex; align-items: center; gap: 10px;">
+                        <i class="fa-solid fa-graduation-cap" style="color: #60a5fa; font-size: 1.0rem;"></i>
+                        <span style="font-weight: bold; color: #fff; font-size: 0.85rem;">研究機関</span>
+                    </div>
+                    <div style="background: rgba(71, 85, 105, 0.2); border: 1px solid #64748b; border-radius: 6px; padding: 8px 12px; display: flex; align-items: center; gap: 10px;">
+                        <i class="fa-solid fa-landmark" style="color: #cbd5e1; font-size: 1.0rem;"></i>
+                        <span style="font-weight: bold; color: #fff; font-size: 0.85rem;">行政</span>
+                    </div>
+                </div>
+                
+                <!-- Bottom Banner -->
+                <div style="width: 100%; background: rgba(30, 58, 138, 0.5); border: 1px solid #2563eb; border-radius: 6px; padding: 10px; text-align: center; margin-top: 10px;">
+                    <p style="margin: 0; font-size: 0.88rem; line-height: 1.4; color: #fff; font-weight: 600;">
+                        情報の流通を自ら支配する権利の確立により、診療情報の提供・開示が増加している。
+                    </p>
+                </div>
+            </div>
+            <p style="margin: 15px 0 10px 0;">• <strong>能動的な権利への転換：</strong>個人情報保護法の精神に基づき、従来の消極的なプライバシー保護だけでなく、自己に関する情報の流れを自ら管理する「自己情報コントロール権」が確立されています。</p><p style="margin: 0;">• <strong>開示請求の増加：</strong>この権利意識の高まりに伴い、患者自身による診療情報の提供や開示を求める件数が大幅に増加しています。</p>`,
+            bodyVi: `<div class="sbo112-info-control-diagram" style="display: flex; gap: 20px; align-items: center; justify-content: space-between; margin: 20px 0; background: rgba(15, 23, 42, 0.4); border: 1px solid rgba(255,255,255,0.06); border-radius: 12px; padding: 20px; flex-wrap: wrap;">
+                <!-- Left: Self Control Sphere -->
+                <div style="flex: 1 1 240px; display: flex; flex-direction: column; align-items: center; text-align: center; position: relative;">
+                    <div style="position: relative; width: 160px; height: 160px; display: flex; align-items: center; justify-content: center;">
+                        <div style="position: absolute; width: 150px; height: 150px; border: 1.5px solid rgba(245, 158, 11, 0.15); border-radius: 50%;"></div>
+                        <div style="position: absolute; width: 125px; height: 125px; border: 1.5px dashed rgba(245, 158, 11, 0.25); border-radius: 50%;"></div>
+                        <div style="position: absolute; width: 100px; height: 100px; border: 1.5px solid rgba(245, 158, 11, 0.35); border-radius: 50%;"></div>
+                        
+                        <div style="position: absolute; top: 8px; left: 8px; width: 26px; height: 26px; background: #1e293b; border: 1px solid #475569; border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 0.75rem; color: var(--accent-teal);"><i class="fa-solid fa-vault"></i></div>
+                        <div style="position: absolute; top: 50%; left: -12px; transform: translateY(-50%); width: 26px; height: 26px; background: #1e293b; border: 1px solid #475569; border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 0.75rem; color: var(--accent-teal);"><i class="fa-solid fa-vault"></i></div>
+                        <div style="position: absolute; bottom: 8px; left: 8px; width: 26px; height: 26px; background: #1e293b; border: 1px solid #475569; border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 0.75rem; color: var(--accent-teal);"><i class="fa-solid fa-vault"></i></div>
+
+                        <div style="display: flex; flex-direction: column; align-items: center; z-index: 2;">
+                            <div style="width: 36px; height: 36px; border-radius: 50%; background: #f97316; margin-bottom: 4px; box-shadow: 0 0 10px rgba(249, 115, 22, 0.4);"></div>
+                            <div style="width: 64px; height: 48px; background: #f97316; border-radius: 12px 12px 0 0; display: flex; align-items: center; justify-content: center; color: #fff; font-size: 0.65rem; font-weight: 800; padding: 2px; line-height: 1.2; text-align: center;">
+                                <span>Quyền tự quyết<br>thông tin</span>
+                            </div>
+                        </div>
+                        
+                        <div style="position: absolute; right: -5px; top: calc(50% - 13px); width: 36px; height: 26px; background: rgba(249, 115, 22, 0.2); border: 2px solid #f97316; border-radius: 6px; display: flex; align-items: center; justify-content: center; color: #f97316; font-size: 0.95rem; z-index: 3; box-shadow: 0 0 10px rgba(249, 115, 22, 0.25);">
+                            <i class="fa-solid fa-key"></i>
+                        </div>
+                    </div>
+                    <p style="margin: 12px 0 0 0; font-size: 0.82rem; line-height: 1.5; color: var(--text-secondary);">
+                        Theo Luật Bảo vệ Thông tin cá nhân, cá nhân cần làm chủ và kiểm soát dữ liệu của chính mình.
+                    </p>
+                </div>
+                
+                <!-- Center: Flow arrows with open locks -->
+                <div style="flex: 1 1 100px; display: flex; flex-direction: column; justify-content: space-around; height: 140px; min-width: 80px; position: relative;">
+                    <div style="display: flex; align-items: center; width: 100%; position: relative;">
+                        <div style="flex-grow: 1; height: 2px; background: linear-gradient(90deg, #f97316, var(--accent-teal)); opacity: 0.85;"></div>
+                        <div style="width: 24px; height: 24px; border-radius: 50%; background: #1e293b; border: 1.5px solid var(--accent-gold); display: flex; align-items: center; justify-content: center; color: var(--accent-gold); font-size: 0.72rem; position: absolute; left: calc(50% - 12px); box-shadow: 0 0 8px rgba(245, 158, 11, 0.3);">
+                            <i class="fa-solid fa-lock-open"></i>
+                        </div>
+                        <div style="width: 0; height: 0; border-top: 5px solid transparent; border-bottom: 5px solid transparent; border-left: 7px solid var(--accent-teal);"></div>
+                    </div>
+                    <div style="display: flex; align-items: center; width: 100%; position: relative;">
+                        <div style="flex-grow: 1; height: 2px; background: linear-gradient(90deg, #f97316, var(--accent-teal)); opacity: 0.85;"></div>
+                        <div style="width: 24px; height: 24px; border-radius: 50%; background: #1e293b; border: 1.5px solid var(--accent-gold); display: flex; align-items: center; justify-content: center; color: var(--accent-gold); font-size: 0.72rem; position: absolute; left: calc(50% - 12px); box-shadow: 0 0 8px rgba(245, 158, 11, 0.3);">
+                            <i class="fa-solid fa-lock-open"></i>
+                        </div>
+                        <div style="width: 0; height: 0; border-top: 5px solid transparent; border-bottom: 5px solid transparent; border-left: 7px solid var(--accent-teal);"></div>
+                    </div>
+                    <div style="display: flex; align-items: center; width: 100%; position: relative;">
+                        <div style="flex-grow: 1; height: 2px; background: linear-gradient(90deg, #f97316, var(--accent-teal)); opacity: 0.85;"></div>
+                        <div style="width: 24px; height: 24px; border-radius: 50%; background: #1e293b; border: 1.5px solid var(--accent-gold); display: flex; align-items: center; justify-content: center; color: var(--accent-gold); font-size: 0.72rem; position: absolute; left: calc(50% - 12px); box-shadow: 0 0 8px rgba(245, 158, 11, 0.3);">
+                            <i class="fa-solid fa-lock-open"></i>
+                        </div>
+                        <div style="width: 0; height: 0; border-top: 5px solid transparent; border-bottom: 5px solid transparent; border-left: 7px solid var(--accent-teal);"></div>
+                    </div>
+                </div>
+                
+                <!-- Right: Destinations -->
+                <div style="flex: 1 1 180px; display: flex; flex-direction: column; gap: 10px; justify-content: center;">
+                    <div style="background: rgba(30, 58, 138, 0.3); border: 1px solid #2563eb; border-radius: 6px; padding: 8px 12px; display: flex; align-items: center; gap: 10px;">
+                        <i class="fa-solid fa-hospital" style="color: #60a5fa; font-size: 1.0rem;"></i>
+                        <span style="font-weight: bold; color: #fff; font-size: 0.85rem;">Bệnh viện</span>
+                    </div>
+                    <div style="background: rgba(30, 58, 138, 0.3); border: 1px solid #2563eb; border-radius: 6px; padding: 8px 12px; display: flex; align-items: center; gap: 10px;">
+                        <i class="fa-solid fa-graduation-cap" style="color: #60a5fa; font-size: 1.0rem;"></i>
+                        <span style="font-weight: bold; color: #fff; font-size: 0.85rem;">Viện nghiên cứu</span>
+                    </div>
+                    <div style="background: rgba(71, 85, 105, 0.2); border: 1px solid #64748b; border-radius: 6px; padding: 8px 12px; display: flex; align-items: center; gap: 10px;">
+                        <i class="fa-solid fa-landmark" style="color: #cbd5e1; font-size: 1.0rem;"></i>
+                        <span style="font-weight: bold; color: #fff; font-size: 0.85rem;">Cơ quan hành chính</span>
+                    </div>
+                </div>
+                
+                <!-- Bottom Banner -->
+                <div style="width: 100%; background: rgba(30, 58, 138, 0.5); border: 1px solid #2563eb; border-radius: 6px; padding: 10px; text-align: center; margin-top: 10px;">
+                    <p style="margin: 0; font-size: 0.88rem; line-height: 1.4; color: #fff; font-weight: 600;">
+                        Quyền kiểm soát dòng thông tin giúp thúc đẩy việc cung cấp và công khai hồ sơ bệnh án.
+                    </p>
+                </div>
+            </div>
+            <p style="margin: 15px 0 10px 0;">• <strong>Quyền tự quyết tích cực:</strong> Trên tinh thần Luật Bảo vệ Thông tin Cá nhân, quyền riêng tư đã chuyển thành quyền chủ động kiểm soát dòng thông tin liên quan đến bản thân.</p><p style="margin: 0;">• <strong>Yêu cầu công khai gia tăng:</strong> Nhận thức về quyền cá nhân ngày càng cao dẫn đến việc số lượng yêu cầu cung cấp và công khai thông tin khám chữa bệnh tăng trưởng mạnh mẽ.</p>`,
         },
         '2': {
             color: 'var(--accent-gold)',
             icon: 'fa-id-card-clip',
             titleJa: 'PHRの活用とプライバシー保護',
             titleVi: 'Kỳ vọng vào Hồ sơ sức khỏe cá nhân (PHR)',
-            bodyJa: '<p style="margin: 0 0 10px 0;">• <strong>一次利用によるケア向上：</strong>診療情報を個人のPHRとして蓄積し、マイナンバー制度等の地域包括連携で共有することで、効率的で質の高いケア（一次利用）が可能になります。</p><p style="margin: 0;">• <strong>プライバシーの死守：</strong>高い利便性と表裏一体で、データ漏洩の防止や厳格なアクセス制御などのプライバシー保護対策が絶対不可欠です。</p>',
-            bodyVi: '<p style="margin: 0 0 10px 0;">• <strong>Sử dụng sơ cấp nâng cao chất lượng:</strong> Tích lũy thông tin y tế dài hạn dưới dạng PHR và kết hợp hệ My Number giúp chia sẻ dữ liệu hiệu quả trong chăm sóc sức khỏe toàn diện.</p><p style="margin: 0;">• <strong>Ưu tiên bảo vệ tối đa:</strong> Dù chia sẻ mang lại lợi ích to lớn, việc ngăn ngừa rò rỉ dữ liệu và thiết lập quyền truy cập chặt chẽ luôn là ưu tiên tối thượng.</p>'
+            bodyJa: `<div class="sbo112-phr-diagram" style="margin: 20px 0; background: rgba(15, 23, 42, 0.4); border: 1px solid rgba(255,255,255,0.06); border-radius: 12px; padding: 20px;">
+                <!-- Top Row: Sources -->
+                <div style="display: flex; justify-content: space-between; gap: 15px; margin-bottom: 25px; flex-wrap: wrap;">
+                    <div style="flex: 1 1 180px; background: rgba(30, 41, 59, 0.5); border: 1.5px solid #2563eb; border-radius: 8px; padding: 12px; text-align: center; color: #fff; font-weight: bold; position: relative;">
+                        <i class="fa-solid fa-hospital-user" style="color: #60a5fa; margin-right: 6px;"></i>
+                        <span>医療機関データ</span>
+                        <div style="position: absolute; bottom: -22px; left: 50%; transform: translateX(-50%); color: #2563eb; font-size: 1.2rem; z-index: 2;">
+                            <i class="fa-solid fa-arrow-down-long"></i>
+                        </div>
+                    </div>
+                    <div style="flex: 1 1 180px; background: rgba(30, 41, 59, 0.5); border: 1.5px solid #2563eb; border-radius: 8px; padding: 12px; text-align: center; color: #fff; font-weight: bold; position: relative;">
+                        <i class="fa-solid fa-clock-rotate-left" style="color: #60a5fa; margin-right: 6px;"></i>
+                        <span>ウェアラブル端末</span>
+                        <div style="position: absolute; bottom: -22px; left: 50%; transform: translateX(-50%); color: #2563eb; font-size: 1.2rem; z-index: 2;">
+                            <i class="fa-solid fa-arrow-down-long"></i>
+                        </div>
+                    </div>
+                    <div style="flex: 1 1 180px; background: rgba(30, 41, 59, 0.5); border: 1.5px solid #2563eb; border-radius: 8px; padding: 12px; text-align: center; color: #fff; font-weight: bold; position: relative;">
+                        <i class="fa-solid fa-file-invoice" style="color: #60a5fa; margin-right: 6px;"></i>
+                        <span>日常生活記録</span>
+                        <div style="position: absolute; bottom: -22px; left: 50%; transform: translateX(-50%); color: #2563eb; font-size: 1.2rem; z-index: 2;">
+                            <i class="fa-solid fa-arrow-down-long"></i>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Middle Row: Accumulation Bar -->
+                <div style="margin: 25px 0; position: relative; background: rgba(255,255,255,0.03); border: 1.5px solid rgba(255,255,255,0.1); border-radius: 30px; padding: 10px 20px; display: flex; align-items: center; justify-content: center; box-shadow: inset 0 0 10px rgba(0,0,0,0.5);">
+                    <div style="position: absolute; left: 4px; right: 4px; top: 4px; bottom: 4px; background: linear-gradient(90deg, rgba(37,99,235,0) 0%, rgba(37,99,235,0.15) 30%, rgba(37,99,235,0.15) 70%, rgba(37,99,235,0) 100%); border-radius: 26px; pointer-events: none;"></div>
+                    <h4 style="margin: 0; color: #fff; font-size: 1.05rem; font-weight: 800; text-align: center; display: flex; align-items: center; gap: 8px; position: relative; z-index: 2;">
+                        <i class="fa-solid fa-database" style="color: var(--accent-teal);"></i>
+                        <span>経年的な情報の蓄積</span>
+                    </h4>
+                    <div style="position: absolute; bottom: -28px; left: 50%; transform: translateX(-50%); color: var(--accent-gold); font-size: 1.8rem; z-index: 2;">
+                        <i class="fa-solid fa-caret-down"></i>
+                    </div>
+                </div>
+                
+                <!-- Bottom Row -->
+                <div style="display: flex; gap: 20px; margin-top: 30px; align-items: center; justify-content: space-between; flex-wrap: wrap;">
+                    <div style="flex: 1 1 280px; display: flex; flex-direction: column; align-items: center; background: rgba(30, 41, 59, 0.3); border: 1px solid rgba(255,255,255,0.06); border-radius: 8px; padding: 15px; position: relative; min-height: 140px; justify-content: center;">
+                        <div style="width: 100%; display: flex; justify-content: space-around; align-items: center; flex-wrap: wrap; gap: 10px;">
+                            <div style="width: 44px; height: 44px; border-radius: 50%; background: rgba(6, 182, 212, 0.1); border: 1px solid var(--accent-teal); display: flex; align-items: center; justify-content: center; font-size: 0.9rem; color: var(--accent-teal);" title="病院"><i class="fa-solid fa-hospital"></i></div>
+                            <div style="width: 44px; height: 44px; border-radius: 50%; background: rgba(6, 182, 212, 0.1); border: 1px solid var(--accent-teal); display: flex; align-items: center; justify-content: center; font-size: 0.9rem; color: var(--accent-teal);" title="介護施設"><i class="fa-solid fa-wheelchair"></i></div>
+                            <div style="width: 44px; height: 44px; border-radius: 50%; background: rgba(6, 182, 212, 0.1); border: 1px solid var(--accent-teal); display: flex; align-items: center; justify-content: center; font-size: 0.9rem; color: var(--accent-teal);" title="在宅ケア"><i class="fa-solid fa-house-medical"></i></div>
+                        </div>
+                        <div style="margin-top: 12px; font-weight: 800; font-size: 0.9rem; color: var(--accent-teal); background: rgba(6, 182, 212, 0.15); border: 1px solid var(--accent-teal); padding: 4px 12px; border-radius: 20px;\">
+                            <span>地域包括ケア</span>
+                        </div>
+                    </div>
+                    <div style="flex: 1 2 320px; background: rgba(30, 41, 59, 0.5); border: 1.5px solid var(--accent-gold); border-radius: 8px; padding: 15px 20px;">
+                        <p style="margin: 0; font-size: 0.88rem; line-height: 1.6; color: #fff; font-weight: 500;">
+                            医療・介護を含む地域包括ケアなどにおいて、効率的かつ効果的に情報を共有。患者自身の健康管理とケアの質向上への期待が高まっている。
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <p style="margin: 15px 0 10px 0;">• <strong>一次利用によるケア向上：</strong>診療情報を個人のPHRとして蓄積し、マイナンバー制度等の地域包括連携で共有することで、効率的で質の高いケア（一次利用）が可能になります。</p><p style="margin: 0;">• <strong>プライバシーの死守：</strong>高い利便性と表裏一体で、データ漏洩の防止や厳格なアクセス制御などのプライバシー保護対策が絶対不可欠です。</p>`,
+            bodyVi: `<div class="sbo112-phr-diagram" style="margin: 20px 0; background: rgba(15, 23, 42, 0.4); border: 1px solid rgba(255,255,255,0.06); border-radius: 12px; padding: 20px;">
+                <!-- Top Row: Sources -->
+                <div style="display: flex; justify-content: space-between; gap: 15px; margin-bottom: 25px; flex-wrap: wrap;">
+                    <div style="flex: 1 1 180px; background: rgba(30, 41, 59, 0.5); border: 1.5px solid #2563eb; border-radius: 8px; padding: 12px; text-align: center; color: #fff; font-weight: bold; position: relative;">
+                        <i class="fa-solid fa-hospital-user" style="color: #60a5fa; margin-right: 6px;"></i>
+                        <span>Dữ liệu cơ sở y tế</span>
+                        <div style="position: absolute; bottom: -22px; left: 50%; transform: translateX(-50%); color: #2563eb; font-size: 1.2rem; z-index: 2;">
+                            <i class="fa-solid fa-arrow-down-long"></i>
+                        </div>
+                    </div>
+                    <div style="flex: 1 1 180px; background: rgba(30, 41, 59, 0.5); border: 1.5px solid #2563eb; border-radius: 8px; padding: 12px; text-align: center; color: #fff; font-weight: bold; position: relative;">
+                        <i class="fa-solid fa-clock-rotate-left" style="color: #60a5fa; margin-right: 6px;"></i>
+                        <span>Thiết bị đeo thông minh</span>
+                        <div style="position: absolute; bottom: -22px; left: 50%; transform: translateX(-50%); color: #2563eb; font-size: 1.2rem; z-index: 2;">
+                            <i class="fa-solid fa-arrow-down-long"></i>
+                        </div>
+                    </div>
+                    <div style="flex: 1 1 180px; background: rgba(30, 41, 59, 0.5); border: 1.5px solid #2563eb; border-radius: 8px; padding: 12px; text-align: center; color: #fff; font-weight: bold; position: relative;">
+                        <i class="fa-solid fa-file-invoice" style="color: #60a5fa; margin-right: 6px;"></i>
+                        <span>Nhật ký sinh hoạt</span>
+                        <div style="position: absolute; bottom: -22px; left: 50%; transform: translateX(-50%); color: #2563eb; font-size: 1.2rem; z-index: 2;">
+                            <i class="fa-solid fa-arrow-down-long"></i>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Middle Row: Accumulation Bar -->
+                <div style="margin: 25px 0; position: relative; background: rgba(255,255,255,0.03); border: 1.5px solid rgba(255,255,255,0.1); border-radius: 30px; padding: 10px 20px; display: flex; align-items: center; justify-content: center; box-shadow: inset 0 0 10px rgba(0,0,0,0.5);">
+                    <div style="position: absolute; left: 4px; right: 4px; top: 4px; bottom: 4px; background: linear-gradient(90deg, rgba(37,99,235,0) 0%, rgba(37,99,235,0.15) 30%, rgba(37,99,235,0.15) 70%, rgba(37,99,235,0) 100%); border-radius: 26px; pointer-events: none;\"></div>
+                    <h4 style="margin: 0; color: #fff; font-size: 1.05rem; font-weight: 800; text-align: center; display: flex; align-items: center; gap: 8px; position: relative; z-index: 2;">
+                        <i class="fa-solid fa-database" style="color: var(--accent-teal);"></i>
+                        <span>Tích lũy thông tin dài hạn</span>
+                    </h4>
+                    <div style="position: absolute; bottom: -28px; left: 50%; transform: translateX(-50%); color: var(--accent-gold); font-size: 1.8rem; z-index: 2;">
+                        <i class="fa-solid fa-caret-down"></i>
+                    </div>
+                </div>
+                
+                <!-- Bottom Row -->
+                <div style="display: flex; gap: 20px; margin-top: 30px; align-items: center; justify-content: space-between; flex-wrap: wrap;">
+                    <div style="flex: 1 1 280px; display: flex; flex-direction: column; align-items: center; background: rgba(30, 41, 59, 0.3); border: 1px solid rgba(255,255,255,0.06); border-radius: 8px; padding: 15px; position: relative; min-height: 140px; justify-content: center;">
+                        <div style="width: 100%; display: flex; justify-content: space-around; align-items: center; flex-wrap: wrap; gap: 10px;">
+                            <div style="width: 44px; height: 44px; border-radius: 50%; background: rgba(6, 182, 212, 0.1); border: 1px solid var(--accent-teal); display: flex; align-items: center; justify-content: center; font-size: 0.9rem; color: var(--accent-teal);" title="Bệnh viện"><i class="fa-solid fa-hospital"></i></div>
+                            <div style="width: 44px; height: 44px; border-radius: 50%; background: rgba(6, 182, 212, 0.1); border: 1px solid var(--accent-teal); display: flex; align-items: center; justify-content: center; font-size: 0.9rem; color: var(--accent-teal);" title="CS Chăm sóc"><i class="fa-solid fa-wheelchair"></i></div>
+                            <div style="width: 44px; height: 44px; border-radius: 50%; background: rgba(6, 182, 212, 0.1); border: 1px solid var(--accent-teal); display: flex; align-items: center; justify-content: center; font-size: 0.9rem; color: var(--accent-teal);" title="Chăm sóc tại nhà\"><i class="fa-solid fa-house-medical"></i></div>
+                        </div>
+                        <div style="margin-top: 12px; font-weight: 800; font-size: 0.9rem; color: var(--accent-teal); background: rgba(6, 182, 212, 0.15); border: 1px solid var(--accent-teal); padding: 4px 12px; border-radius: 20px;">
+                            <span>Chăm sóc toàn diện khu vực</span>
+                        </div>
+                    </div>
+                    <div style="flex: 1 2 320px; background: rgba(30, 41, 59, 0.5); border: 1.5px solid var(--accent-gold); border-radius: 8px; padding: 15px 20px;">
+                        <p style="margin: 0; font-size: 0.88rem; line-height: 1.6; color: #fff; font-weight: 500;">
+                            Chia sẻ thông tin hiệu quả trong hệ thống chăm sóc toàn diện khu vực (bao gồm cả y tế & điều dưỡng). Nâng cao năng lực tự quản lý sức khỏe và chất lượng chăm sóc của người bệnh.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <p style="margin: 15px 0 10px 0;">• <strong>Sử dụng sơ cấp nâng cao chất lượng:</strong> Tích lũy thông tin y tế dài hạn dưới dạng PHR và kết hợp hệ My Number giúp chia sẻ dữ liệu hiệu quả trong chăm sóc sức khỏe toàn diện.</p><p style="margin: 0;">• <strong>Ưu tiên bảo vệ tối đa:</strong> Dù chia sẻ mang lại lợi ích to lớn, việc ngăn ngừa rò rỉ dữ liệu và thiết lập quyền truy cập chặt chẽ luôn là ưu tiên tối thượng.</p>`
         },
         '3': {
             color: 'var(--accent-teal)',
             icon: 'fa-users',
             titleJa: '医療ビッグデータ利活用と「社会的コンセンサス」',
             titleVi: 'Thách thức hình thành sự đồng thuận xã hội',
-            bodyJa: '<p style="margin: 0 0 10px 0;">• <strong>二次利用による医学的知見：</strong>PHRの時系列多変量データを利活用（二次利用）することで、医学のさらなる進歩やビッグデータ分析に役立てられます。</p><p style="margin: 0;">• <strong>社会的合意と例外規則：</strong>データ利活用には本人の同意が必要であるため、社会的なコンセンサスの形成が急務です。また、緊急時や災害時に向けた医療特例法の検討も重要です。</p>',
-            bodyVi: '<p style="margin: 0 0 10px 0;">• <strong>Giá trị sử dụng thứ cấp:</strong> Khai thác dữ liệu lớn (Big Data) đa biến chuỗi thời gian của PHR mở ra nhiều tri thức y học mới giá trị cho dịch tễ học.</p><p style="margin: 0;">• <strong>Đồng thuận xã hội và ngoại lệ y tế:</strong> Việc sử dụng dữ liệu cần sự đồng ý của bệnh nhân, đòi hỏi sớm hình thành đồng thuận xã hội, đồng thời cần có cơ chế xử lý ngoại lệ trong trường hợp khẩn cấp/thảm họa.</p>'
+            bodyJa: `<div class="sbo112-balance-container" style="display: flex; flex-direction: column; align-items: center; margin: 20px 0; padding: 20px; background: rgba(15, 23, 42, 0.4); border: 1px solid rgba(255,255,255,0.06); border-radius: 12px; overflow: hidden; position: relative;">
+                <!-- Balance scale graphics -->
+                <div style="width: 100%; max-width: 500px; display: flex; justify-content: center; position: relative; height: 190px;">
+                    <svg width="450" height="180" viewBox="0 0 450 180" style="overflow: visible; width: 100%; height: auto;">
+                        <!-- Pivot Stand -->
+                        <path d="M 225 150 L 225 70" stroke="#475569" stroke-width="6" stroke-linecap="round" />
+                        <path d="M 205 150 L 245 150" stroke="#475569" stroke-width="8" stroke-linecap="round" />
+                        <!-- Pivot Center Triangle -->
+                        <polygon points="215,70 235,70 225,55" fill="var(--accent-gold)" />
+                        <circle cx="225" cy="62" r="5" fill="#fff" />
+                        
+                        <!-- Balance Beam -->
+                        <g id="balance-beam">
+                            <!-- Main Beam -->
+                            <line x1="80" y1="62" x2="370" y2="62" stroke="#64748b" stroke-width="4" stroke-linecap="round" />
+                            
+                            <!-- Left dangling strings -->
+                            <line x1="80" y1="62" x2="55" y2="105" stroke="#475569" stroke-width="1.5" />
+                            <line x1="80" y1="62" x2="105" y2="105" stroke="#475569" stroke-width="1.5" />
+                            <!-- Left Pan -->
+                            <path d="M 50 105 L 110 105 C 105 125, 55 125, 50 105" fill="rgba(6, 182, 212, 0.15)" stroke="var(--accent-teal)" stroke-width="2" />
+                            
+                            <!-- Right dangling strings -->
+                            <line x1="370" y1="62" x2="345" y2="105" stroke="#475569" stroke-width="1.5" />
+                            <line x1="370" y1="62" x2="395" y2="105" stroke="#475569" stroke-width="1.5" />
+                            <!-- Right Pan -->
+                            <path d="M 340 105 L 400 105 C 395 125, 345 125, 340 105" fill="rgba(245, 158, 11, 0.15)" stroke="var(--accent-gold)" stroke-width="2" />
+                        </g>
+                    </svg>
+                    
+                    <!-- HTML Overlay for Left Pan Content -->
+                    <div style="position: absolute; left: calc(18% - 70px); top: 92px; width: 140px; display: flex; flex-direction: column; align-items: center; text-align: center; pointer-events: none;">
+                        <div style="width: 32px; height: 32px; border-radius: 50%; background: rgba(6, 182, 212, 0.2); display: flex; align-items: center; justify-content: center; color: var(--accent-teal); font-size: 0.95rem; margin-bottom: 4px;">
+                            <i class="fa-solid fa-lock"></i>
+                        </div>
+                        <span style="font-weight: bold; color: #fff; font-size: 0.78rem;">プライバシー保護</span>
+                        <span style="font-size: 0.65rem; color: #94a3b8; line-height: 1.2; margin-top: 2px;">漏洩防止・アクセス制限</span>
+                    </div>
+
+                    <!-- HTML Overlay for Right Pan Content -->
+                    <div style="position: absolute; right: calc(18% - 70px); top: 92px; width: 140px; display: flex; flex-direction: column; align-items: center; text-align: center; pointer-events: none;">
+                        <div style="width: 32px; height: 32px; border-radius: 50%; background: rgba(245, 158, 11, 0.2); display: flex; align-items: center; justify-content: center; color: var(--accent-gold); font-size: 0.95rem; margin-bottom: 4px;">
+                            <i class="fa-solid fa-chart-line"></i>
+                        </div>
+                        <span style="font-weight: bold; color: #fff; font-size: 0.78rem;">ビッグデータ二次利用</span>
+                        <span style="font-size: 0.65rem; color: #94a3b8; line-height: 1.2; margin-top: 2px;">公衆衛生・医学研究の発展</span>
+                    </div>
+
+                    <!-- HTML Overlay for Center Pivot -->
+                    <div style="position: absolute; left: calc(50% - 60px); bottom: 2px; width: 120px; display: flex; flex-direction: column; align-items: center; text-align: center; pointer-events: none;">
+                        <span style="font-weight: bold; color: var(--accent-gold); font-size: 0.85rem;">社会的コンセンサス</span>
+                    </div>
+                </div>
+                
+                <!-- Bottom Orange Banner -->
+                <div style="width: 100%; background: rgba(249, 115, 22, 0.12); border: 1px solid #f97316; border-radius: 8px; padding: 12px 20px; text-align: center; margin-top: 15px;">
+                    <p style="margin: 0; font-size: 0.86rem; line-height: 1.6; color: #ffedd5; font-weight: 500;">
+                        この相反する多様な価値観を調和させる「社会的コンセンサスの形成」が、現代医療における緊急の課題である。
+                    </p>
+                </div>
+            </div>
+            <p style="margin: 15px 0 10px 0;">• <strong>二次利用による医学的知見：</strong>PHRの時系列多変量データを利活用（二次利用）することで、医学のさらなる進歩やビッグデータ分析に役立てられます。</p><p style="margin: 0;">• <strong>社会的合意と例外規則：</strong>データ利活用には本人の同意が必要であるため、社会的なコンセンサスの形成が急務です。また、緊急時や災害時に向けた医療特例法の検討も重要です。</p>`,
+            bodyVi: `<div class="sbo112-balance-container" style="display: flex; flex-direction: column; align-items: center; margin: 20px 0; padding: 20px; background: rgba(15, 23, 42, 0.4); border: 1px solid rgba(255,255,255,0.06); border-radius: 12px; overflow: hidden; position: relative;">
+                <!-- Balance scale graphics -->
+                <div style="width: 100%; max-width: 500px; display: flex; justify-content: center; position: relative; height: 190px;">
+                    <svg width="450" height="180" viewBox="0 0 450 180" style="overflow: visible; width: 100%; height: auto;">
+                        <!-- Pivot Stand -->
+                        <path d="M 225 150 L 225 70" stroke="#475569" stroke-width="6" stroke-linecap="round" />
+                        <path d="M 205 150 L 245 150" stroke="#475569" stroke-width="8" stroke-linecap="round" />
+                        <!-- Pivot Center Triangle -->
+                        <polygon points="215,70 235,70 225,55" fill="var(--accent-gold)" />
+                        <circle cx="225" cy="62" r="5" fill="#fff" />
+                        
+                        <!-- Balance Beam -->
+                        <g id="balance-beam">
+                            <!-- Main Beam -->
+                            <line x1="80" y1="62" x2="370" y2="62" stroke="#64748b" stroke-width="4" stroke-linecap="round" />
+                            
+                            <!-- Left dangling strings -->
+                            <line x1="80" y1="62" x2="55" y2="105" stroke="#475569" stroke-width="1.5" />
+                            <line x1="80" y1="62" x2="105" y2="105" stroke="#475569" stroke-width="1.5" />
+                            <!-- Left Pan -->
+                            <path d="M 50 105 L 110 105 C 105 125, 55 125, 50 105" fill="rgba(6, 182, 212, 0.15)" stroke="var(--accent-teal)" stroke-width="2" />
+                            
+                            <!-- Right dangling strings -->
+                            <line x1="370" y1="62" x2="345" y2="105" stroke="#475569" stroke-width="1.5" />
+                            <line x1="370" y1="62" x2="395" y2="105" stroke="#475569" stroke-width="1.5" />
+                            <!-- Right Pan -->
+                            <path d="M 340 105 L 400 105 C 395 125, 345 125, 340 105" fill="rgba(245, 158, 11, 0.15)" stroke="var(--accent-gold)" stroke-width="2" />
+                        </g>
+                    </svg>
+                    
+                    <!-- HTML Overlay for Left Pan Content -->
+                    <div style="position: absolute; left: calc(18% - 70px); top: 92px; width: 140px; display: flex; flex-direction: column; align-items: center; text-align: center; pointer-events: none;">
+                        <div style="width: 32px; height: 32px; border-radius: 50%; background: rgba(6, 182, 212, 0.2); display: flex; align-items: center; justify-content: center; color: var(--accent-teal); font-size: 0.95rem; margin-bottom: 4px;">
+                            <i class="fa-solid fa-lock"></i>
+                        </div>
+                        <span style="font-weight: bold; color: #fff; font-size: 0.78rem;">Bảo vệ quyền riêng tư</span>
+                        <span style="font-size: 0.65rem; color: #94a3b8; line-height: 1.2; margin-top: 2px;">Ngăn chặn rò rỉ dữ liệu</span>
+                    </div>
+
+                    <!-- HTML Overlay for Right Pan Content -->
+                    <div style="position: absolute; right: calc(18% - 70px); top: 92px; width: 140px; display: flex; flex-direction: column; align-items: center; text-align: center; pointer-events: none;">
+                        <div style="width: 32px; height: 32px; border-radius: 50%; background: rgba(245, 158, 11, 0.2); display: flex; align-items: center; justify-content: center; color: var(--accent-gold); font-size: 0.95rem; margin-bottom: 4px;">
+                            <i class="fa-solid fa-chart-line"></i>
+                        </div>
+                        <span style="font-weight: bold; color: #fff; font-size: 0.78rem;">Sử dụng thứ cấp Big Data</span>
+                        <span style="font-size: 0.65rem; color: #94a3b8; line-height: 1.2; margin-top: 2px;">Đóng góp y tế &amp; nghiên cứu</span>
+                    </div>
+
+                    <!-- HTML Overlay for Center Pivot -->
+                    <div style="position: absolute; left: calc(50% - 60px); bottom: 2px; width: 120px; display: flex; flex-direction: column; align-items: center; text-align: center; pointer-events: none;">
+                        <span style="font-weight: bold; color: var(--accent-gold); font-size: 0.85rem;">Đồng thuận xã hội</span>
+                    </div>
+                </div>
+                
+                <!-- Bottom Orange Banner -->
+                <div style="width: 100%; background: rgba(249, 115, 22, 0.12); border: 1px solid #f97316; border-radius: 8px; padding: 12px 20px; text-align: center; margin-top: 15px;">
+                    <p style="margin: 0; font-size: 0.86rem; line-height: 1.6; color: #ffedd5; font-weight: 500;">
+                        Việc hình thành sự đồng thuận xã hội nhằm hài hòa hai nhóm giá trị đối lập này là thách thức khẩn cấp của nền y tế hiện đại.
+                    </p>
+                </div>
+            </div>
+            <p style="margin: 15px 0 10px 0;">• <strong>Giá trị sử dụng thứ cấp:</strong> Khai thác dữ liệu lớn (Big Data) đa biến chuỗi thời gian của PHR mở ra nhiều tri thức y học mới giá trị cho dịch tễ học.</p><p style="margin: 0;">• <strong>Đồng thuận xã hội và ngoại lệ y tế:</strong> Việc sử dụng dữ liệu cần sự đồng ý của bệnh nhân, đòi hỏi sớm hình thành đồng thuận xã hội, đồng thời cần có cơ chế xử lý ngoại lệ trong trường hợp khẩn cấp/thảm họa.</p>`,
         }
     };
 
