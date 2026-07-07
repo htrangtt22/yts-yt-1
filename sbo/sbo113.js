@@ -541,57 +541,399 @@ window.SBO_TEMPLATES['sbo113'] = `<div id="sbo113" class="sbo-section-wrapper">
                         </p>
 
                         <!-- Spacious vertical sidebar tab style -->
-                        <div class="regional-care-interactive-container" style="display: flex; gap: 30px; margin-top: 30px; flex-wrap: wrap;">
+                        <div style="display: flex; flex-direction: column; gap: 28px; margin-top: 30px;">
                             
-                            <!-- Left Sidebar tabs: list of the 5 detailed areas -->
-                            <div style="display: flex; flex-direction: column; gap: 12px; flex: 1 1 280px;" id="sbo113-ii-tabs-group">
-                                <button type="button" class="segment-btn active" data-sbo113-ii-tab="1"
-                                    style="padding: 18px 24px; border-radius: 12px; border: 1px solid var(--accent-teal); background: rgba(45, 212, 191, 0.12); color: #fff; font-size: 0.96rem; cursor: pointer; transition: all 0.3s ease; text-align: left; display: flex; align-items: center; gap: 12px; outline: none; font-weight: 600;">
-                                    <span style="font-size: 1.3rem; font-weight: 800; opacity: 0.8; color: var(--accent-teal);">01</span>
-                                    <div>
-                                        <span class="lang-ja">背景と目標</span>
-                                        <span class="lang-vi">Bối cảnh và Mục tiêu</span>
+                            <!-- Card 1: 背景と目標 (2025年問題) -->
+                            <div class="card glass-card" style="border-left: 5px solid var(--accent-teal); padding: 30px;">
+                                <h3 style="color: var(--accent-teal); margin-top: 0; margin-bottom: 16px; font-size: 1.15rem; display: flex; align-items: center; gap: 10px; font-weight: 600;">
+                                    <i class="fa-solid fa-flag"></i>
+                                    <span class="lang-ja">背景と目標：2025年問題への対応と地域完結型への転換</span>
+                                    <span class="lang-vi">Bối cảnh &amp; Mục tiêu: Ứng phó vấn đề năm 2025 và chuyển đổi mô hình khu vực</span>
+                                </h3>
+                                <div style="font-size: 0.96rem; line-height: 1.8; color: var(--text-secondary); margin-bottom: 25px;">
+                                    <div class="lang-ja">
+                                        <p style="margin: 0 0 10px 0;">• <strong>2025年問題への対応：</strong>団塊の世代が75歳以上となる2025年（2025年問題）を目途に、国民の医療や介護の需要が急増することが見込まれています。</p>
+                                        <p style="margin: 0 0 10px 0;">• <strong>地域完結型への転換：</strong>これに対応するため、必要とされる医療は従来の病院の中で完結する<strong>「病院完結型」</strong>から、地域全体で治し支える<strong>「地域完結型」</strong>へと転換することが求められています。</p>
+                                        <p style="margin: 0;">• <strong>最大の目標：</strong>高齢者の尊厳の保持と自立生活の支援のもと、重度な要介護状態となっても<strong>「住み慣れた地域で自分らしい暮らしを人生の最後まで続けることができるようにする」</strong>ことです。</p>
                                     </div>
-                                </button>
-                                <button type="button" class="segment-btn" data-sbo113-ii-tab="2"
-                                    style="padding: 18px 24px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.08); background: rgba(0,0,0,0.25); color: var(--text-muted); font-size: 0.96rem; cursor: pointer; transition: all 0.3s ease; text-align: left; display: flex; align-items: center; gap: 12px; outline: none; font-weight: 600;">
-                                    <span style="font-size: 1.3rem; font-weight: 800; opacity: 0.5;">02</span>
-                                    <div>
-                                        <span class="lang-ja">一体的提供の5要素</span>
-                                        <span class="lang-vi">5 Yếu tố tích hợp</span>
+                                    <div class="lang-vi">
+                                        <p style="margin: 0 0 10px 0;">• <strong>Ứng phó với "vấn đề năm 2025":</strong> Nhật Bản đang đối mặt với "vấn đề năm 2025" khi toàn bộ thế hệ bùng nổ dân số (baby boomers) sẽ bước sang tuổi 75 trở lên, kéo theo sự gia tăng đột biến về nhu cầu y tế và chăm sóc điều dưỡng.</p>
+                                        <p style="margin: 0 0 10px 0;">• <strong>Chuyển sang y tế hoàn thiện tại khu vực:</strong> Để đáp ứng điều này, hệ thống y tế bắt buộc phải chuyển đổi từ mô hình <strong>"Y tế khép kín tại bệnh viện" (病院完結型)</strong> sang mô hình <strong>"Y tế hoàn thiện tại khu vực" (地域完結型)</strong>.</p>
+                                        <p style="margin: 0;">• <strong>Mục tiêu cốt lõi:</strong> Ngay cả khi người cao tuổi rơi vào tình trạng cần chăm sóc điều dưỡng nặng, họ vẫn có thể duy trì nhân phẩm, tự lập và <strong>tiếp tục sống cuộc đời theo cách của riêng mình tại chính khu vực mà họ đã quen thuộc cho đến cuối đời</strong>.</p>
                                     </div>
-                                </button>
-                                <button type="button" class="segment-btn" data-sbo113-ii-tab="3"
-                                    style="padding: 18px 24px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.08); background: rgba(0,0,0,0.25); color: var(--text-muted); font-size: 0.96rem; cursor: pointer; transition: all 0.3s ease; text-align: left; display: flex; align-items: center; gap: 12px; outline: none; font-weight: 600;">
-                                    <span style="font-size: 1.3rem; font-weight: 800; opacity: 0.5;">03</span>
-                                    <div>
-                                        <span class="lang-ja">圏域の想定</span>
-                                        <span class="lang-vi">Phạm vi khu vực lý tưởng</span>
+                                </div>
+
+                                <!-- Large Full-Width 2025 Timeline Blueprint Diagram -->
+                                <div style="background: #0b1329; border: 1.5px dashed rgba(249, 115, 22, 0.4); border-radius: 12px; padding: 25px; position: relative; overflow-x: auto; font-family: 'Outfit', 'Inter', sans-serif; box-shadow: 0 8px 32px rgba(0,0,0,0.3); width: 100%;">
+                                    <div style="min-width: 580px; position: relative;">
+                                        <!-- Grid pattern background -->
+                                        <div style="position: absolute; inset: 0; background-image: radial-gradient(rgba(249, 115, 22, 0.15) 1px, transparent 0), radial-gradient(rgba(6, 182, 212, 0.1) 1.5px, transparent 0); background-size: 24px 24px; background-position: 0 0, 12px 12px; pointer-events: none; opacity: 0.7;"></div>
+                                        
+                                        <!-- Top Header of Blueprint -->
+                                        <div style="display: flex; justify-content: space-between; align-items: flex-start; z-index: 2; position: relative; margin-bottom: 25px;">
+                                            <span style="color: #ff9f1c; font-size: 1rem; font-weight: 800; text-transform: uppercase; letter-spacing: 1px; border: 1px solid rgba(255, 159, 28, 0.3); padding: 4px 12px; border-radius: 4px; background: rgba(255, 159, 28, 0.05); text-shadow: 0 0 10px rgba(255, 159, 28, 0.2);">
+                                                <span class="lang-ja">2025年問題への対応</span>
+                                                <span class="lang-vi">Ứng phó vấn đề năm 2025</span>
+                                            </span>
+                                            <span style="font-size: 0.6rem; color: rgba(255,255,255,0.4); font-weight: 600; text-align: right; text-transform: uppercase; letter-spacing: 0.5px; line-height: 1.3;">
+                                                ARCHITECTURE OF CARE BLUEPRINT<br>
+                                                <span style="color: #06b6d4;">SHIFT IN PROGRESS: ACTIVATING INTEGRATED COMMUNITY CARE</span>
+                                            </span>
+                                        </div>
+
+                                        <!-- Timeline Flow -->
+                                        <div style="position: relative; height: 160px; margin: 15px 0; z-index: 2; display: flex; align-items: center; justify-content: space-between;">
+                                            <!-- SVG Lines & Archways -->
+                                            <svg style="position: absolute; left: 0; top: 0; width: 100%; height: 100%; pointer-events: none; z-index: 1;" viewBox="0 0 580 160" preserveAspectRatio="none">
+                                                <line x1="20" y1="90" x2="550" y2="90" stroke="#f97316" stroke-width="3" stroke-linecap="round" filter="drop-shadow(0 0 4px rgba(249, 115, 22, 0.6))" />
+                                                <polygon points="560,90 548,84 548,96" fill="#f97316" filter="drop-shadow(0 0 4px rgba(249, 115, 22, 0.6))" />
+                                                <path d="M 270 110 L 270 65 A 25 25 0 0 1 320 65 L 320 110" fill="none" stroke="#f43f5e" stroke-width="2.5" stroke-dasharray="2 2" filter="drop-shadow(0 0 5px rgba(244, 63, 94, 0.4))" />
+                                            </svg>
+
+                                            <!-- Left Node (Baby Boomers) -->
+                                            <div style="z-index: 2; display: flex; flex-direction: column; align-items: center; position: absolute; left: 30px; top: 15px;">
+                                                <span style="font-size: 0.9rem; font-weight: bold; color: #fff; background: rgba(30,41,59,0.85); padding: 4px 10px; border-radius: 4px; border: 1px solid rgba(255,255,255,0.15); margin-bottom: 8px;">
+                                                    <span class="lang-ja">団塊の世代</span>
+                                                    <span class="lang-vi">Thế hệ Baby Boomers</span>
+                                                </span>
+                                                <div style="display: flex; align-items: flex-end; gap: 6px; height: 50px;">
+                                                    <i class="fa-solid fa-person-walking-with-cane" style="font-size: 2rem; color: #94a3b8; transform: scaleX(-1);"></i>
+                                                    <i class="fa-solid fa-person-cane" style="font-size: 1.9rem; color: #cbd5e1; margin-left: -5px;"></i>
+                                                    <i class="fa-solid fa-person" style="font-size: 1.8rem; color: #94a3b8; margin-left: -5px;"></i>
+                                                </div>
+                                            </div>
+
+                                            <!-- Middle Arch Node (75+ Years) -->
+                                            <div style="z-index: 2; position: absolute; left: 263px; top: 15px; text-align: center; width: 68px;">
+                                                <span style="font-size: 0.95rem; font-weight: 800; color: #f43f5e; display: block; text-shadow: 0 0 8px rgba(244, 63, 94, 0.4); margin-bottom: 2px;">75歳以上</span>
+                                                <span style="font-size: 0.7rem; color: #fda4af; display: block; font-weight: bold; text-transform: uppercase; letter-spacing: 0.5px;">75+ Years</span>
+                                            </div>
+
+                                            <!-- Right Gate Node (2025 Year) -->
+                                            <div style="z-index: 2; position: absolute; right: 25px; top: 10px; display: flex; flex-direction: column; align-items: center;">
+                                                <div style="width: 90px; height: 90px; border-radius: 12px; background: rgba(15, 23, 42, 0.9); border: 2.5px solid #f97316; display: flex; flex-direction: column; align-items: center; justify-content: center; box-shadow: 0 0 20px rgba(249, 115, 22, 0.4); position: relative; overflow: hidden;">
+                                                    <i class="fa-solid fa-gears" style="position: absolute; right: 6px; top: 6px; font-size: 0.75rem; color: rgba(249, 115, 22, 0.25);"></i>
+                                                    <span style="font-family: 'Outfit', sans-serif; font-weight: 900; font-size: 1.8rem; color: #f97316; text-shadow: 0 0 10px rgba(249, 115, 22, 0.4); letter-spacing: 0.5px;">2025</span>
+                                                    <span style="font-size: 0.6rem; color: #fff; font-weight: bold; text-transform: uppercase; letter-spacing: 0.5px; opacity: 0.8;">
+                                                        <span class="lang-ja">年</span>
+                                                        <span class="lang-vi">Mốc Năm</span>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <!-- Two Explanatory Cards below -->
+                                        <div style="display: flex; gap: 15px; z-index: 2; position: relative; margin-top: 15px; flex-wrap: wrap;">
+                                            <!-- Left: 2025 Problem -->
+                                            <div style="flex: 1 1 240px; background: rgba(30, 41, 59, 0.7); border: 1px solid rgba(249, 115, 22, 0.35); border-radius: 8px; padding: 15px; box-shadow: 0 4px 15px rgba(0,0,0,0.25);">
+                                                <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 8px;">
+                                                    <i class="fa-regular fa-clock" style="color: #ff9f1c; font-size: 1.1rem;"></i>
+                                                    <span style="font-weight: 800; color: #ff9f1c; font-size: 0.9rem;">
+                                                        <span class="lang-ja">2025年問題</span>
+                                                        <span class="lang-vi">Vấn đề năm 2025</span>
+                                                    </span>
+                                                </div>
+                                                <p style="margin: 0; font-size: 0.8rem; color: #cbd5e1; line-height: 1.5;">
+                                                    <span class="lang-ja">団塊の世代がすべて75歳以上となる2025年を目途とする。</span>
+                                                    <span class="lang-vi">Hướng tới mốc năm 2025, khi toàn bộ thế hệ bùng nổ dân số (baby boomers) bước sang tuổi 75 trở lên.</span>
+                                                </p>
+                                            </div>
+                                            
+                                            <!-- Right: Ultimate Goal -->
+                                            <div style="flex: 1.2 1 270px; background: rgba(30, 41, 59, 0.7); border: 1px solid rgba(6, 182, 212, 0.35); border-radius: 8px; padding: 15px; box-shadow: 0 4px 15px rgba(0,0,0,0.25);">
+                                                <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 8px;">
+                                                    <i class="fa-solid fa-house-chimney-user" style="color: #06b6d4; font-size: 1.1rem;"></i>
+                                                    <span style="font-weight: 800; color: #06b6d4; font-size: 0.9rem;">
+                                                        <span class="lang-ja">究極の目標</span>
+                                                        <span class="lang-vi">Mục tiêu tối thượng</span>
+                                                    </span>
+                                                </div>
+                                                <p style="margin: 0; font-size: 0.8rem; color: #cbd5e1; line-height: 1.5;">
+                                                    <span class="lang-ja">重度な要介護状態となっても、住み慣れた地域で自分らしい暮らしを人生の最後まで続けることを目標とする。</span>
+                                                    <span class="lang-vi">Dù ở trong tình trạng cần chăm sóc nặng, người cao tuổi vẫn có thể tự lập tại nơi ở quen thuộc cho đến cuối đời.</span>
+                                                </p>
+                                            </div>
+                                        </div>
                                     </div>
-                                </button>
-                                <button type="button" class="segment-btn" data-sbo113-ii-tab="4"
-                                    style="padding: 18px 24px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.08); background: rgba(0,0,0,0.25); color: var(--text-muted); font-size: 0.96rem; cursor: pointer; transition: all 0.3s ease; text-align: left; display: flex; align-items: center; gap: 12px; outline: none; font-weight: 600;">
-                                    <span style="font-size: 1.3rem; font-weight: 800; opacity: 0.5;">04</span>
-                                    <div>
-                                        <span class="lang-ja">運営主体と支援センター</span>
-                                        <span class="lang-vi">Chủ thể &amp; Trung tâm hỗ trợ</span>
-                                    </div>
-                                </button>
-                                <button type="button" class="segment-btn" data-sbo113-ii-tab="5"
-                                    style="padding: 18px 24px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.08); background: rgba(0,0,0,0.25); color: var(--text-muted); font-size: 0.96rem; cursor: pointer; transition: all 0.3s ease; text-align: left; display: flex; align-items: center; gap: 12px; outline: none; font-weight: 600;">
-                                    <span style="font-size: 1.3rem; font-weight: 800; opacity: 0.5;">05</span>
-                                    <div>
-                                        <span class="lang-ja">基盤情報ネットワーク</span>
-                                        <span class="lang-vi">Nền tảng thông tin</span>
-                                    </div>
-                                </button>
+                                </div>
                             </div>
 
-                            <!-- Right Display Box: Content Panels -->
-                            <div class="card glass-card" id="sbo113-ii-details-panel"
-                                style="padding: 35px; border-left: 5px solid var(--accent-teal); background: rgba(255, 255, 255, 0.02); flex: 2 1 450px; min-height: 350px; display: flex; flex-direction: column; justify-content: flex-start; transition: all 0.3s ease;">
-                                <!-- Dynamic content injected on click -->
+                            <!-- Card 2: 一体的提供の5要素 -->
+                            <div class="card glass-card" style="border-left: 5px solid var(--accent-gold); padding: 30px;">
+                                <h3 style="color: var(--accent-gold); margin-top: 0; margin-bottom: 16px; font-size: 1.15rem; display: flex; align-items: center; gap: 10px; font-weight: 600;">
+                                    <i class="fa-solid fa-cubes"></i>
+                                    <span class="lang-ja">一体的提供の5要素</span>
+                                    <span class="lang-vi">5 Yếu tố cốt lõi tích hợp</span>
+                                </h3>
+                                <div style="font-size: 0.96rem; line-height: 1.8; color: var(--text-secondary); margin-bottom: 25px;">
+                                    <div class="lang-ja">
+                                        <p style="margin: 0 0 10px 0;">• <strong>5つの構成要素：</strong>高齢者の自立生活支援のため、ニーズに応じた住宅（住まい）が提供されることを基本とし、「住まい」「医療」「介護」「予防」「生活支援」の5つの要素が一体的に提供されるシステムを構築します。</p>
+                                    </div>
+                                    <div class="lang-vi">
+                                        <p style="margin: 0 0 10px 0;">• <strong>5 Yếu tố cấu thành:</strong> Hướng tới việc hỗ trợ người cao tuổi sống tự lập, hệ thống được xây dựng trên cơ sở bảo đảm chỗ ở (nhà ở) phù hợp với nhu cầu, đồng thời cung cấp tích hợp 5 yếu tố: "Chỗ ở", "Y tế", "Chăm sóc điều dưỡng", "Dự phòng", và "Hỗ trợ đời sống".</p>
+                                    </div>
+                                </div>
+
+                                <!-- Large Full-Width Integrated Care Blueprint Diagram -->
+                                <div style="background: #0b1329; border: 1.5px dashed rgba(249, 115, 22, 0.4); border-radius: 12px; padding: 25px; position: relative; overflow-x: auto; font-family: 'Outfit', 'Inter', sans-serif; box-shadow: 0 8px 32px rgba(0,0,0,0.3); width: 100%;">
+                                    <div style="min-width: 580px; position: relative; display: flex; flex-direction: column; align-items: center;">
+                                        
+                                        <!-- Grid pattern background -->
+                                        <div style="position: absolute; inset: 0; background-image: radial-gradient(rgba(249, 115, 22, 0.15) 1px, transparent 0), radial-gradient(rgba(6, 182, 212, 0.1) 1.5px, transparent 0); background-size: 24px 24px; background-position: 0 0, 12px 12px; pointer-events: none; opacity: 0.7;"></div>
+                                        
+                                        <!-- Top Header of Blueprint -->
+                                        <div style="display: flex; justify-content: space-between; align-items: flex-start; z-index: 2; position: relative; margin-bottom: 25px; width: 100%;">
+                                            <span style="color: #ff9f1c; font-size: 1rem; font-weight: 800; text-transform: uppercase; letter-spacing: 1px; border: 1px solid rgba(255, 159, 28, 0.3); padding: 4px 12px; border-radius: 4px; background: rgba(255, 159, 28, 0.05); text-shadow: 0 0 10px rgba(255, 159, 28, 0.2);">
+                                                <span class="lang-ja">一体的な提供</span>
+                                                <span class="lang-vi">Cung cấp tích hợp</span>
+                                            </span>
+                                            <span style="font-size: 0.6rem; color: rgba(255,255,255,0.4); font-weight: 600; text-align: right; text-transform: uppercase; letter-spacing: 0.5px; line-height: 1.3;">
+                                                ARCHITECTURE OF CARE BLUEPRINT<br>
+                                                <span style="color: #06b6d4;">SHIFT IN PROGRESS: ACTIVATING INTEGRATED COMMUNITY CARE</span>
+                                            </span>
+                                        </div>
+
+                                        <!-- SVG Drawing the Flat Integration Diagram -->
+                                        <svg style="width: 100%; height: auto; min-height: 220px; z-index: 2;" viewBox="0 0 580 220" preserveAspectRatio="xMidYMid meet">
+                                            <defs>
+                                                <!-- Glowing gradients -->
+                                                <radialGradient id="centerGrad" cx="50%" cy="50%" r="50%">
+                                                    <stop offset="0%" stop-color="#ffe082" />
+                                                    <stop offset="100%" stop-color="#ffb300" />
+                                                </radialGradient>
+                                            </defs>
+
+                                            <!-- Connecting lines from base to center, and columns to center -->
+                                            <!-- Orange connector lines -->
+                                            <path d="M 115,110 L 290,55" fill="none" stroke="#ff9f1c" stroke-width="2.5" stroke-dasharray="3 3" opacity="0.8" />
+                                            <path d="M 225,110 L 290,55" fill="none" stroke="#ff9f1c" stroke-width="2.5" stroke-dasharray="3 3" opacity="0.8" />
+                                            <path d="M 355,110 L 290,55" fill="none" stroke="#ff9f1c" stroke-width="2.5" stroke-dasharray="3 3" opacity="0.8" />
+                                            <path d="M 465,110 L 290,55" fill="none" stroke="#ff9f1c" stroke-width="2.5" stroke-dasharray="3 3" opacity="0.8" />
+
+                                            <!-- Vertical connectors from columns to Housing base -->
+                                            <line x1="115" y1="140" x2="115" y2="165" stroke="rgba(255,255,255,0.2)" stroke-width="2" stroke-dasharray="2 2" />
+                                            <line x1="225" y1="140" x2="225" y2="165" stroke="rgba(255,255,255,0.2)" stroke-width="2" stroke-dasharray="2 2" />
+                                            <line x1="355" y1="140" x2="355" y2="165" stroke="rgba(255,255,255,0.2)" stroke-width="2" stroke-dasharray="2 2" />
+                                            <line x1="465" y1="140" x2="465" y2="165" stroke="rgba(255,255,255,0.2)" stroke-width="2" stroke-dasharray="2 2" />
+
+                                            <!-- Base: 住まい (Housing) -->
+                                            <g transform="translate(50, 165)">
+                                                <rect x="0" y="0" width="480" height="36" rx="8" fill="rgba(6, 182, 212, 0.12)" stroke="#06b6d4" stroke-width="2" stroke-dasharray="4 4" />
+                                                <g class="lang-ja">
+                                                    <text x="240" y="22" fill="#06b6d4" font-size="12.5px" font-weight="900" text-anchor="middle" font-family="sans-serif" letter-spacing="0.5px">住まい (住宅・住まい方の確保)</text>
+                                                </g>
+                                                <g class="lang-vi">
+                                                    <text x="240" y="22" fill="#06b6d4" font-size="12.5px" font-weight="900" text-anchor="middle" font-family="sans-serif" letter-spacing="0.5px">Chỗ ở (Bảo đảm nhà ở &amp; phương thức cư trú phù hợp)</text>
+                                                </g>
+                                            </g>
+
+                                            <!-- Pillar 1: 医療 (Medical) -->
+                                            <g transform="translate(65, 95)">
+                                                <rect x="0" y="0" width="100" height="45" rx="6" fill="rgba(30, 41, 59, 0.9)" stroke="#60a5fa" stroke-width="1.5" />
+                                                <g class="lang-ja">
+                                                    <text x="50" y="26" fill="#fff" font-size="11.5px" font-weight="bold" text-anchor="middle" font-family="sans-serif">医療</text>
+                                                </g>
+                                                <g class="lang-vi">
+                                                    <text x="50" y="26" fill="#fff" font-size="11.5px" font-weight="bold" text-anchor="middle" font-family="sans-serif">Y tế</text>
+                                                </g>
+                                            </g>
+
+                                            <!-- Pillar 2: 介護 (Care) -->
+                                            <g transform="translate(175, 95)">
+                                                <rect x="0" y="0" width="100" height="45" rx="6" fill="rgba(30, 41, 59, 0.9)" stroke="#f59e0b" stroke-width="1.5" />
+                                                <g class="lang-ja">
+                                                    <text x="50" y="26" fill="#fff" font-size="11.5px" font-weight="bold" text-anchor="middle" font-family="sans-serif">介護</text>
+                                                </g>
+                                                <g class="lang-vi">
+                                                    <text x="50" y="26" fill="#fff" font-size="11.5px" font-weight="bold" text-anchor="middle" font-family="sans-serif">Chăm sóc</text>
+                                                </g>
+                                            </g>
+
+                                            <!-- Pillar 3: 予防 (Prevention) -->
+                                            <g transform="translate(305, 95)">
+                                                <rect x="0" y="0" width="100" height="45" rx="6" fill="rgba(30, 41, 59, 0.9)" stroke="#10b981" stroke-width="1.5" />
+                                                <g class="lang-ja">
+                                                    <text x="50" y="26" fill="#fff" font-size="11.5px" font-weight="bold" text-anchor="middle" font-family="sans-serif">予防</text>
+                                                </g>
+                                                <g class="lang-vi">
+                                                    <text x="50" y="26" fill="#fff" font-size="11.5px" font-weight="bold" text-anchor="middle" font-family="sans-serif">Dự phòng</text>
+                                                </g>
+                                            </g>
+
+                                            <!-- Pillar 4: 生活支援 (Life Support) -->
+                                            <g transform="translate(415, 95)">
+                                                <rect x="0" y="0" width="100" height="45" rx="6" fill="rgba(30, 41, 59, 0.9)" stroke="#a855f7" stroke-width="1.5" />
+                                                <g class="lang-ja">
+                                                    <text x="50" y="26" fill="#fff" font-size="11.5px" font-weight="bold" text-anchor="middle" font-family="sans-serif">生活支援</text>
+                                                </g>
+                                                <g class="lang-vi">
+                                                    <text x="50" y="26" fill="#fff" font-size="11.5px" font-weight="bold" text-anchor="middle" font-family="sans-serif">Hỗ trợ đời sống</text>
+                                                </g>
+                                            </g>
+
+                                            <!-- Top Center Node: 高齢者 (Elderly) -->
+                                            <g transform="translate(290, 55)">
+                                                <circle cx="0" cy="0" r="32" fill="url(#centerGrad)" filter="drop-shadow(0 0 10px rgba(255, 179, 0, 0.5))" />
+                                                <circle cx="0" cy="0" r="27" fill="none" stroke="rgba(255,255,255,0.4)" stroke-width="1" />
+                                                <g class="lang-ja">
+                                                    <text x="0" y="5" fill="#0f172a" font-size="12px" font-weight="900" text-anchor="middle" font-family="sans-serif">高齢者</text>
+                                                </g>
+                                                <g class="lang-vi">
+                                                    <text x="0" y="4" fill="#0f172a" font-size="9px" font-weight="900" text-anchor="middle" font-family="sans-serif">Người cao tuổi</text>
+                                                </g>
+                                            </g>
+                                        </svg>
+                                    </div>
+                                </div>
                             </div>
+
+                            <!-- Card 3: 圏域の想定 -->
+                            <div class="card glass-card" style="border-left: 5px solid var(--accent-teal); padding: 30px;">
+                                <h3 style="color: var(--accent-teal); margin-top: 0; margin-bottom: 16px; font-size: 1.15rem; display: flex; align-items: center; gap: 10px; font-weight: 600;">
+                                    <i class="fa-solid fa-map-location-dot"></i>
+                                    <span class="lang-ja">圏域の想定：日常生活圏域（中学校区）</span>
+                                    <span class="lang-vi">Phạm vi khu vực lý tưởng (Khu vực trường trung học)</span>
+                                </h3>
+                                <div style="font-size: 0.96rem; line-height: 1.8; color: var(--text-secondary);">
+                                    <div class="lang-ja">
+                                        <p style="margin: 0 0 10px 0;">• <strong>30分圏内（日常生活圏域）：</strong>高齢者の生活範囲を考慮し、<strong>「おおむね30分以内に駆けつけられる圏域」</strong>を理想的なサイズとして想定しています。</p>
+                                        <p style="margin: 0;">• <strong>設定基本：</strong>具体的には、市町村の行政単位よりも身近な<strong>中学校区</strong>を基本単位として設定されます。</p>
+                                    </div>
+                                    <div class="lang-vi">
+                                        <p style="margin: 0 0 10px 0;">• <strong>Khoảng cách 30 phút:</strong> Phạm vi được thiết kế dựa trên sinh hoạt hàng ngày: <strong>"một khu vực mà các dịch vụ có thể tiếp cận được trong vòng khoảng 30 phút" (おおむね30分以内に駆けつけられる圏域)</strong>.</p>
+                                        <p style="margin: 0;">• <strong>Quy mô thực tế:</strong> Trong thực tế, quy mô này thường tương đương với phạm vi của một <strong>trường trung học cơ sở (中学校区)</strong>.</p>
+                                    </div>
+                                </div>
+
+                                <!-- Large Full-Width Area Assumption Blueprint Diagram -->
+                                <div style="background: #0b1329; border: 1.5px dashed rgba(249, 115, 22, 0.4); border-radius: 12px; padding: 25px; position: relative; overflow-x: auto; font-family: 'Outfit', 'Inter', sans-serif; box-shadow: 0 8px 32px rgba(0,0,0,0.3); width: 100%; margin-top: 25px;">
+                                    <div style="min-width: 580px; position: relative; display: flex; flex-direction: column; align-items: center;">
+                                        
+                                        <!-- Grid pattern background -->
+                                        <div style="position: absolute; inset: 0; background-image: radial-gradient(rgba(249, 115, 22, 0.15) 1px, transparent 0), radial-gradient(rgba(6, 182, 212, 0.1) 1.5px, transparent 0); background-size: 24px 24px; background-position: 0 0, 12px 12px; pointer-events: none; opacity: 0.7;"></div>
+                                        
+                                        <!-- Top Header of Blueprint -->
+                                        <div style="display: flex; justify-content: space-between; align-items: flex-start; z-index: 2; position: relative; margin-bottom: 25px; width: 100%;">
+                                            <span style="color: #ff9f1c; font-size: 1rem; font-weight: 800; text-transform: uppercase; letter-spacing: 1px; border: 1px solid rgba(255, 159, 28, 0.3); padding: 4px 12px; border-radius: 4px; background: rgba(255, 159, 28, 0.05); text-shadow: 0 0 10px rgba(255, 159, 28, 0.2);">
+                                                <span class="lang-ja">日常生活圏域の想定</span>
+                                                <span class="lang-vi">Phạm vi khu vực sinh hoạt</span>
+                                            </span>
+                                            <span style="font-size: 0.6rem; color: rgba(255,255,255,0.4); font-weight: 600; text-align: right; text-transform: uppercase; letter-spacing: 0.5px; line-height: 1.3;">
+                                                ARCHITECTURE OF CARE BLUEPRINT<br>
+                                                <span style="color: #06b6d4;">GEOGRAPHICAL RANGE: 30-MINUTE ACCESSIBILITY</span>
+                                            </span>
+                                        </div>
+
+                                        <!-- SVG Drawing the Area Map -->
+                                        <svg style="width: 100%; height: auto; min-height: 200px; z-index: 2;" viewBox="0 0 580 200" preserveAspectRatio="xMidYMid meet">
+                                            <defs>
+                                                <!-- Marker for Arrowhead -->
+                                                <marker id="mapArrow" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                                                    <path d="M 0 1.5 L 8 5 L 0 8.5 z" fill="#ff9f1c" />
+                                                </marker>
+                                            </defs>
+
+                                            <!-- Blueprint street network paths (subtle background grid map) -->
+                                            <path d="M 40,0 C 80,60 90,140 70,200" fill="none" stroke="rgba(6, 182, 212, 0.12)" stroke-width="2" />
+                                            <path d="M 160,0 C 140,80 180,150 200,200" fill="none" stroke="rgba(6, 182, 212, 0.12)" stroke-width="2" />
+                                            <path d="M 420,0 C 400,60 380,120 410,200" fill="none" stroke="rgba(6, 182, 212, 0.12)" stroke-width="2" />
+                                            <path d="M 520,0 C 500,70 540,150 510,200" fill="none" stroke="rgba(6, 182, 212, 0.12)" stroke-width="2" />
+                                            
+                                            <path d="M 0,40 C 150,50 350,30 580,45" fill="none" stroke="rgba(6, 182, 212, 0.12)" stroke-width="2" />
+                                            <path d="M 0,140 C 180,130 400,150 580,135" fill="none" stroke="rgba(6, 182, 212, 0.12)" stroke-width="2" />
+                                            
+                                            <!-- Diagonal main highway crossing through target area -->
+                                            <path d="M 0,180 L 580,20" fill="none" stroke="rgba(6, 182, 212, 0.07)" stroke-width="5" />
+
+                                            <!-- Target concentric boundary rings -->
+                                            <!-- Inner ring -->
+                                            <circle cx="290" cy="100" r="50" fill="none" stroke="rgba(249, 115, 22, 0.2)" stroke-width="1.5" stroke-dasharray="3 3" />
+                                            <!-- Outer 30-min boundary ring -->
+                                            <circle cx="290" cy="100" r="80" fill="none" stroke="#ff9f1c" stroke-width="2.5" stroke-dasharray="6 3" filter="drop-shadow(0 0 6px rgba(255, 159, 28, 0.4))" />
+
+                                            <!-- School Node in the Center (中学校区) -->
+                                            <g transform="translate(290, 100)">
+                                                <!-- Glow ring -->
+                                                <circle cx="0" cy="0" r="24" fill="rgba(15, 23, 42, 0.95)" stroke="var(--accent-teal)" stroke-width="2" filter="drop-shadow(0 0 8px rgba(6, 182, 212, 0.4))" />
+                                                <!-- School Icon (SVG paths) -->
+                                                <path d="M -8,-2 L 0,-10 L 8,-2 L 8,10 L -8,10 Z" fill="none" stroke="var(--accent-teal)" stroke-width="1.5" />
+                                                <line x1="-8" y1="3" x2="8" y2="3" stroke="var(--accent-teal)" stroke-width="1.5" />
+                                                <path d="M -2,10 L -2,6 L 2,6 L 2,10" fill="none" stroke="var(--accent-teal)" stroke-width="1.5" />
+                                                <!-- Flag on roof -->
+                                                <line x1="0" y1="-10" x2="0" y2="-15" stroke="var(--accent-teal)" stroke-width="1" />
+                                                <polygon points="0,-15 4,-13 0,-11" fill="var(--accent-teal)" />
+                                            </g>
+                                            
+                                            <!-- School District Text Badge below the circle -->
+                                            <g transform="translate(290, 138)">
+                                                <rect x="-35" y="-10" width="70" height="18" rx="3" fill="rgba(15, 23, 42, 0.85)" stroke="rgba(6, 182, 212, 0.3)" stroke-width="1" />
+                                                <g class="lang-ja">
+                                                    <text x="0" y="2" fill="#fff" font-size="9px" font-weight="bold" text-anchor="middle" font-family="sans-serif">中学校区</text>
+                                                </g>
+                                                <g class="lang-vi">
+                                                    <text x="0" y="2" fill="#fff" font-size="9px" font-weight="bold" text-anchor="middle" font-family="sans-serif">Khu THCS</text>
+                                                </g>
+                                            </g>
+
+                                            <!-- Label & Arrow pointing to outer ring -->
+                                            <!-- Japanese Label -->
+                                            <g class="lang-ja">
+                                                <rect x="50" y="85" width="135" height="30" rx="4" fill="rgba(30, 41, 59, 0.85)" stroke="rgba(255, 159, 28, 0.3)" stroke-width="1" />
+                                                <text x="117" y="104" fill="#ff9f1c" font-size="11.5px" font-weight="900" text-anchor="middle" font-family="sans-serif">おおむね 30分以内</text>
+                                                <!-- Arrow from rect to circle edge (290-80 = 210) -->
+                                                <path d="M 185,100 L 205,100" fill="none" stroke="#ff9f1c" stroke-width="2" marker-end="url(#mapArrow)" />
+                                            </g>
+                                            
+                                            <!-- Vietnamese Label -->
+                                            <g class="lang-vi">
+                                                <rect x="40" y="85" width="145" height="30" rx="4" fill="rgba(30, 41, 59, 0.85)" stroke="rgba(255, 159, 28, 0.3)" stroke-width="1" />
+                                                <text x="112" y="104" fill="#ff9f1c" font-size="11px" font-weight="900" text-anchor="middle" font-family="sans-serif">Trong vòng khoảng 30 phút</text>
+                                                <!-- Arrow from rect to circle edge -->
+                                                <path d="M 185,100 L 205,100" fill="none" stroke="#ff9f1c" stroke-width="2" marker-end="url(#mapArrow)" />
+                                            </g>
+                                        </svg>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Card 4: 運営主体と地域包括支援センター -->
+                            <div class="card glass-card" style="border-left: 5px solid var(--accent-gold); padding: 30px;">
+                                <h3 style="color: var(--accent-gold); margin-top: 0; margin-bottom: 16px; font-size: 1.15rem; display: flex; align-items: center; gap: 10px; font-weight: 600;">
+                                    <i class="fa-solid fa-users-gear"></i>
+                                    <span class="lang-ja">運営主体と地域包括支援センター</span>
+                                    <span class="lang-vi">Chủ thể vận hành &amp; Trung tâm hỗ trợ toàn diện</span>
+                                </h3>
+                                <div style="font-size: 0.96rem; line-height: 1.8; color: var(--text-secondary);">
+                                    <div class="lang-ja">
+                                        <p style="margin: 0 0 10px 0;">• <strong>市町村が主体：</strong>地域包括ケアシステムは、地域の実情や特性に応じて、保険者でもある<strong>市町村</strong>が主体的に作り上げるものとされています。</p>
+                                        <p style="margin: 0;">• <strong>多職種チームの配置：</strong>その中核となるのが<strong>「地域包括支援センター」</strong>です。保健師・社会福祉士・主任介護支援専門員等の多職種チームが配置され、総合相談やケアマネジメントを行います。</p>
+                                    </div>
+                                    <div class="lang-vi">
+                                        <p style="margin: 0 0 10px 0;">• <strong>Chủ thể 市町村:</strong> Các <strong>Thành phố/Thị trấn/Làng (市町村)</strong> đóng vai trò chủ thể xây dựng hệ thống này dựa trên đặc thù địa phương.</p>
+                                        <p style="margin: 0;">• <strong>Trung tâm Hỗ trạng Toàn diện Khu vực:</strong> Thiết lập các <strong>"Trung tâm Hỗ trợ Toàn diện Khu vực" (地域包括支援センター)</strong> với nhóm đa ngành (y tá công cộng, nhân viên xã hội, chuyên viên quản lý chăm sóc) để điều phối.</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Card 5: 基盤情報ネットワーク -->
+                            <div class="card glass-card" style="border-left: 5px solid #a855f7; padding: 30px;">
+                                <h3 style="color: #a855f7; margin-top: 0; margin-bottom: 16px; font-size: 1.15rem; display: flex; align-items: center; gap: 10px; font-weight: 600;">
+                                    <i class="fa-solid fa-network-wired"></i>
+                                    <span class="lang-ja">基盤となる情報ネットワーク</span>
+                                    <span class="lang-vi">Nền tảng liên kết thông tin</span>
+                                </h3>
+                                <div style="font-size: 0.96rem; line-height: 1.8; color: var(--text-secondary);">
+                                    <div class="lang-ja">
+                                        <p style="margin: 0 0 10px 0;">• <strong>シームレスな情報共有：</strong>保健・医療・福祉・介護などの関連機関や多職種間でのシームレスな情報共有が必要です。</p>
+                                        <p style="margin: 0;">• <strong>ICTネットワークの活用：</strong>在宅復帰の際にもQOLを維持できるよう、ICTを活用した地域医療連携ネットワーク（EHRやPHRなど）の構築が必要不可欠となります。</p>
+                                    </div>
+                                    <div class="lang-vi">
+                                        <p style="margin: 0 0 10px 0;">• <strong>Chia sẻ thông tin sâu rộng:</strong> Đòi hỏi sự chia sẻ thông tin thông qua mạng lưới CNTT (EHR, PHR) giữa các cơ sở y tế, điều dưỡng, nhà thuốc và cơ quan hành chính.</p>
+                                        <p style="margin: 0;">• <strong>ICT &amp; QOL:</strong> Đảm bảo chuyển đổi thông tin bệnh nhân trơn tru khi chuyển từ bệnh viện về chăm sóc tại nhà để bảo đảm giữ vững chất lượng cuộc sống (QOL).</p>
+                                    </div>
+                                </div>
+                            </div>
+
                         </div>
                     </div>
                 </section>
@@ -612,25 +954,106 @@ window.SBO_TEMPLATES['sbo113'] = `<div id="sbo113" class="sbo-section-wrapper">
                             <span class="lang-vi">Dựa trên ước tính nhu cầu y tế tương lai để tối ưu hóa số lượng giường bệnh khu vực, thúc đẩy phân chia chức năng và hồi phục tại nhà.</span>
                         </p>
 
-                        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(480px, 1fr)); gap: 28px; margin-bottom: 30px;">
-                            
-                            <!-- 1. 機能分化の推進 -->
-                            <div class="card glass-card" style="border-left: 5px solid var(--accent-teal); padding: 30px; margin-bottom: 0; display: flex; flex-direction: column; justify-content: flex-start; height: 100%;">
-                                <h3 style="color: var(--accent-teal); margin-top: 0; margin-bottom: 16px; font-size: 0.96rem; display: flex; align-items: center; gap: 10px; font-weight: 600;">
-                                    <i class="fa-solid fa-code-branch"></i>
-                                    <span class="lang-ja">機能分化の推進</span>
-                                    <span class="lang-vi">Thúc đẩy phân tuyến chức năng</span>
-                                </h3>
-                                <div style="font-size: 0.96rem; line-height: 1.8; color: var(--text-secondary);">
-                                    <div class="lang-ja">
-                                        <p style="margin: 0;">わが国の医療保険制度を維持し、高齢化に伴う医療費の伸びを抑制する観点から、各医療機関が担う役割を明確にする「機能分化」を推進するための方策が進行中である。</p>
-                                    </div>
-                                    <div class="lang-vi">
-                                        <p style="margin: 0;">Để duy trì hệ thống bảo hiểm y tế quốc gia và kiểm soát sự gia tăng của chi phí y tế do sự già hóa dân số, Nhật Bản đang tiến hành các chính sách nhằm thúc đẩy mạnh mẽ việc phân tuyến chức năng của các cơ sở y tế.</p>
-                                    </div>
+                        <!-- 1. 機能分化の推進 (Full Width Card) -->
+                        <div class="card glass-card" style="border-left: 5px solid var(--accent-teal); padding: 30px; margin-bottom: 28px;">
+                            <h3 style="color: var(--accent-teal); margin-top: 0; margin-bottom: 16px; font-size: 1.15rem; display: flex; align-items: center; gap: 10px; font-weight: 600;">
+                                <i class="fa-solid fa-code-branch"></i>
+                                <span class="lang-ja">機能分化の推進</span>
+                                <span class="lang-vi">Thúc đẩy phân tuyến chức năng</span>
+                            </h3>
+                            <div style="font-size: 0.96rem; line-height: 1.8; color: var(--text-secondary); margin-bottom: 25px;">
+                                <div class="lang-ja">
+                                    <p style="margin: 0;">わが国の医療保険制度を維持し、高齢化に伴う医療費の伸びを抑制する観点から、各医療機関が担う役割を明確にする「機能分化」を推進するための方策が進行中である。</p>
+                                </div>
+                                <div class="lang-vi">
+                                    <p style="margin: 0;">Để duy trì hệ thống bảo hiểm y tế quốc gia và kiểm soát sự gia tăng của chi phí y tế do sự già hóa dân số, Nhật Bản đang tiến hành các chính sách nhằm thúc đẩy mạnh mẽ việc phân tuyến chức năng của các cơ sở y tế.</p>
                                 </div>
                             </div>
 
+                            <!-- Bed Function Pyramid Blueprint Diagram (Full Width) -->
+                            <div style="background: #0b1329; border: 1.5px dashed rgba(249, 115, 22, 0.4); border-radius: 12px; padding: 25px; position: relative; overflow-x: auto; font-family: 'Outfit', 'Inter', sans-serif; box-shadow: 0 8px 32px rgba(0,0,0,0.3); width: 100%;">
+                                <div style="min-width: 500px; position: relative; display: flex; flex-direction: column; align-items: center;">
+                                    <!-- Grid pattern background -->
+                                    <div style="position: absolute; inset: 0; background-image: radial-gradient(rgba(249, 115, 22, 0.15) 1px, transparent 0), radial-gradient(rgba(6, 182, 212, 0.1) 1.5px, transparent 0); background-size: 24px 24px; background-position: 0 0, 12px 12px; pointer-events: none; opacity: 0.7;"></div>
+
+                                    <!-- Top Header of Blueprint -->
+                                    <div style="display: flex; justify-content: space-between; align-items: flex-start; z-index: 2; position: relative; margin-bottom: 25px; width: 100%;">
+                                        <span style="color: #ff9f1c; font-size: 1rem; font-weight: 800; text-transform: uppercase; letter-spacing: 1px; border: 1px solid rgba(255, 159, 28, 0.3); padding: 4px 12px; border-radius: 4px; background: rgba(255, 159, 28, 0.05); text-shadow: 0 0 10px rgba(255, 159, 28, 0.2);">
+                                            <span class="lang-ja">病床機能分化</span>
+                                            <span class="lang-vi">Phân loại giường bệnh</span>
+                                        </span>
+                                        <span style="font-size: 0.6rem; color: rgba(255,255,255,0.4); font-weight: 600; text-align: right; text-transform: uppercase; letter-spacing: 0.5px; line-height: 1.3;">
+                                            SYSTEMIC REGULATION MODEL<br>
+                                            <span style="color: #06b6d4;">FUNCTIONAL DIFFERENTIATION</span>
+                                        </span>
+                                    </div>
+
+                                    <!-- SVG Bed Pyramid -->
+                                    <svg style="width: 100%; height: auto; min-height: 220px; z-index: 2; max-width: 600px;" viewBox="0 0 540 200" preserveAspectRatio="xMidYMid meet">
+                                        <defs>
+                                            <!-- Marker for Arrowhead -->
+                                            <marker id="pyrArrow" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                                                <path d="M 0 1.5 L 8 5 L 0 8.5 z" fill="#06b6d4" />
+                                            </marker>
+                                        </defs>
+
+                                        <!-- Flow/Divergence Arrows (Curved out from Acute to Recovery/Chronic) -->
+                                        <path d="M 170,80 C 110,95 100,125 105,150" fill="none" stroke="var(--accent-teal)" stroke-width="2" stroke-dasharray="3 3" marker-end="url(#pyrArrow)" />
+                                        <path d="M 370,80 C 430,95 440,125 435,150" fill="none" stroke="var(--accent-teal)" stroke-width="2" stroke-dasharray="3 3" marker-end="url(#pyrArrow)" />
+
+                                        <!-- Flow Arrow Labels -->
+                                        <g class="lang-ja">
+                                            <text x="100" y="105" fill="var(--accent-teal)" font-size="8.5px" font-weight="bold" text-anchor="end">在宅・回復期へ</text>
+                                            <text x="440" y="105" fill="var(--accent-teal)" font-size="8.5px" font-weight="bold" text-anchor="start">在宅・回復期へ</text>
+                                        </g>
+                                        <g class="lang-vi">
+                                            <text x="100" y="105" fill="var(--accent-teal)" font-size="8px" font-weight="bold" text-anchor="end">Về nhà/phục hồi</text>
+                                            <text x="440" y="105" fill="var(--accent-teal)" font-size="8px" font-weight="bold" text-anchor="start">Về nhà/phục hồi</text>
+                                        </g>
+
+                                        <!-- Pyramid Layer 1: 高度急性期 (Peak) -->
+                                        <polygon points="270,15 220,55 320,55" fill="rgba(239, 68, 68, 0.12)" stroke="#ef4444" stroke-width="2" />
+                                        <g class="lang-ja">
+                                            <text x="270" y="42" fill="#fff" font-size="10.5px" font-weight="bold" text-anchor="middle" font-family="sans-serif">高度急性期</text>
+                                        </g>
+                                        <g class="lang-vi">
+                                            <text x="270" y="41" fill="#fff" font-size="8.5px" font-weight="bold" text-anchor="middle" font-family="sans-serif">Cao cấp tính</text>
+                                        </g>
+
+                                        <!-- Pyramid Layer 2: 急性期 -->
+                                        <polygon points="215,60 165,100 375,100 325,60" fill="rgba(249, 115, 22, 0.12)" stroke="#f97316" stroke-width="2" />
+                                        <g class="lang-ja">
+                                            <text x="270" y="86" fill="#fff" font-size="10.5px" font-weight="bold" text-anchor="middle" font-family="sans-serif">急性期</text>
+                                        </g>
+                                        <g class="lang-vi">
+                                            <text x="270" y="85" fill="#fff" font-size="9px" font-weight="bold" text-anchor="middle" font-family="sans-serif">Cấp tính</text>
+                                        </g>
+
+                                        <!-- Pyramid Layer 3: 回復期 -->
+                                        <polygon points="160,105 110,145 430,145 380,105" fill="rgba(6, 182, 212, 0.12)" stroke="#06b6d4" stroke-width="2" />
+                                        <g class="lang-ja">
+                                            <text x="270" y="131" fill="#fff" font-size="10.5px" font-weight="bold" text-anchor="middle" font-family="sans-serif">回復期</text>
+                                        </g>
+                                        <g class="lang-vi">
+                                            <text x="270" y="130" fill="#fff" font-size="9px" font-weight="bold" text-anchor="middle" font-family="sans-serif">Phục hồi</text>
+                                        </g>
+
+                                        <!-- Pyramid Layer 4: 慢性期 (Base) -->
+                                        <polygon points="105,150 55,190 485,190 435,150" fill="rgba(99, 102, 241, 0.12)" stroke="#6366f1" stroke-width="2" />
+                                        <g class="lang-ja">
+                                            <text x="270" y="176" fill="#fff" font-size="10.5px" font-weight="bold" text-anchor="middle" font-family="sans-serif">慢性期</text>
+                                        </g>
+                                        <g class="lang-vi">
+                                            <text x="270" y="175" fill="#fff" font-size="9px" font-weight="bold" text-anchor="middle" font-family="sans-serif">Mạn tính</text>
+                                        </g>
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Grid wrapper for the remaining cards -->
+                        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(480px, 1fr)); gap: 28px; margin-bottom: 30px;">
+                            
                             <!-- 2. 地域医療構想と地域医療計画 -->
                             <div class="card glass-card" style="border-left: 5px solid var(--accent-gold); padding: 30px; margin-bottom: 0; display: flex; flex-direction: column; justify-content: flex-start; height: 100%;">
                                 <h3 style="color: var(--accent-gold); margin-top: 0; margin-bottom: 16px; font-size: 0.96rem; display: flex; align-items: center; gap: 10px; font-weight: 600;">
