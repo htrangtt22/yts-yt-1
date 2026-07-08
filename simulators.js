@@ -4141,39 +4141,682 @@ window.initSbo121Simulator = function() {
             color: 'var(--accent-teal)',
             titleJa: 'ヒポクラテスの誓い',
             titleVi: 'Lời thề Hippocrates',
-            bodyJa: '<p style="margin: 0 0 10px 0;">• <strong>歴史的起源：</strong>紀元前5世紀のギリシャにおける西洋医学の始祖とされるヒポクラテスによる7項目の規範です。</p>'
-                  + '<p style="margin: 0;">• <strong>現代への意義：</strong>内容の一部が現代には不適切との指摘もありますが、2000年を経た言葉であることを考えると、医療の本質は今も変わっていないことを示しています。「患者に害を与えない」「秘密を守る」など、現代の医療の本質を示す基礎となっています。</p>',
-            bodyVi: '<p style="margin: 0 0 10px 0;">• <strong>Nguồn gốc lịch sử:</strong> Xuất phát từ thế kỷ thứ 5 TCN tại Hy Lạp, đây là 7 quy tắc chuẩn mực được đưa ra bởi Hippocrates - người được coi là ông tổ của y học phương Tây.</p>'
-                  + '<p style="margin: 0;">• <strong>Giá trị thời đại:</strong> Mặc dù một số nội dung bị chỉ trích là không còn phù hợp với hiện tại, nhưng sau hơn 2000 năm, bản chất của nó vẫn không thay đổi. Các quy tắc như "Không gây hại cho bệnh nhân" và "Giữ bí mật thông tin" vẫn là nền tảng cơ bản nhất thể hiện bản chất của y tế hiện đại.</p>'
+            bodyJa: `<div style="display: flex; gap: 24px; align-items: stretch; flex-direction: row; width: 100%;">
+                        <div class="column-decor-wrapper" style="width: 80px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; background: rgba(255,255,255,0.02); border-radius: 8px; padding: 10px; border: 1px solid rgba(255,255,255,0.04);">
+                            <svg width="50" height="130" viewBox="0 0 60 150">
+                                <rect x="5" y="10" width="50" height="8" fill="#e2e8f0" rx="1" />
+                                <path d="M 10 18 Q 30 14 50 18 L 50 25 Q 30 20 10 25 Z" fill="#cbd5e1" />
+                                <rect x="15" y="25" width="30" height="100" fill="none" stroke="#94a3b8" stroke-width="2" />
+                                <line x1="20" y1="25" x2="20" y2="125" stroke="#475569" stroke-width="1.5" />
+                                <line x1="25" y1="25" x2="25" y2="125" stroke="#475569" stroke-width="1.5" />
+                                <line x1="30" y1="25" x2="30" y2="125" stroke="#475569" stroke-width="1.5" />
+                                <line x1="35" y1="25" x2="35" y2="125" stroke="#475569" stroke-width="1.5" />
+                                <line x1="40" y1="25" x2="40" y2="125" stroke="#475569" stroke-width="1.5" />
+                                <path d="M 10 125 Q 30 130 50 125 L 50 132 Q 30 135 10 132 Z" fill="#cbd5e1" />
+                                <rect x="5" y="132" width="50" height="8" fill="#e2e8f0" rx="1" />
+                            </svg>
+                        </div>
+                        <div style="flex: 1; display: flex; flex-direction: column; justify-content: space-between;">
+                            <div style="margin-bottom: 8px;">
+                                <span style="background: rgba(245, 158, 11, 0.1); color: var(--accent-gold); padding: 4px 8px; border-radius: 4px; font-size: 0.8rem; font-weight: bold; border: 1px solid rgba(245, 158, 11, 0.2);">
+                                    時代: 紀元前5世紀 - ギリシャ
+                                </span>
+                            </div>
+                            <p style="margin: 0 0 15px 0; font-size: 0.96rem; line-height: 1.6; color: var(--text-secondary);">
+                                西洋医学の始祖による7項目の規範。現代医療の本質を示す基礎。
+                            </p>
+                            <div style="display: flex; flex-direction: column; gap: 12px;">
+                                <div style="background: rgba(255,255,255,0.02); border-left: 3px solid var(--accent-teal); padding: 12px; border-radius: 0 8px 8px 0; position: relative;">
+                                    <span style="position: absolute; right: 10px; top: 5px; font-size: 1.8rem; color: rgba(255,255,255,0.05); font-family: Georgia, serif; line-height: 1;">“</span>
+                                    <div style="font-size: 0.95rem; font-weight: bold; color: #fff; margin-bottom: 4px; font-family: var(--font-heading);">
+                                        「悪くて有害と知る方法を決してとらない」
+                                    </div>
+                                    <div style="font-size: 0.82rem; color: var(--accent-teal); font-weight: 700;">
+                                        → 患者に害を与えない
+                                    </div>
+                                </div>
+                                <div style="background: rgba(255,255,255,0.02); border-left: 3px solid var(--accent-gold); padding: 12px; border-radius: 0 8px 8px 0; position: relative;">
+                                    <span style="position: absolute; right: 10px; top: 5px; font-size: 1.8rem; color: rgba(255,255,255,0.05); font-family: Georgia, serif; line-height: 1;">“</span>
+                                    <div style="font-size: 0.95rem; font-weight: bold; color: #fff; margin-bottom: 4px; font-family: var(--font-heading);">
+                                        「他人の生活について秘密を守る」
+                                    </div>
+                                    <div style="font-size: 0.82rem; color: var(--accent-gold); font-weight: 700;">
+                                        → 秘密保持
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>`,
+            bodyVi: `<div style="display: flex; gap: 24px; align-items: stretch; flex-direction: row; width: 100%;">
+                        <div class="column-decor-wrapper" style="width: 80px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; background: rgba(255,255,255,0.02); border-radius: 8px; padding: 10px; border: 1px solid rgba(255,255,255,0.04);">
+                            <svg width="50" height="130" viewBox="0 0 60 150">
+                                <rect x="5" y="10" width="50" height="8" fill="#e2e8f0" rx="1" />
+                                <path d="M 10 18 Q 30 14 50 18 L 50 25 Q 30 20 10 25 Z" fill="#cbd5e1" />
+                                <rect x="15" y="25" width="30" height="100" fill="none" stroke="#94a3b8" stroke-width="2" />
+                                <line x1="20" y1="25" x2="20" y2="125" stroke="#475569" stroke-width="1.5" />
+                                <line x1="25" y1="25" x2="25" y2="125" stroke="#475569" stroke-width="1.5" />
+                                <line x1="30" y1="25" x2="30" y2="125" stroke="#475569" stroke-width="1.5" />
+                                <line x1="35" y1="25" x2="35" y2="125" stroke="#475569" stroke-width="1.5" />
+                                <line x1="40" y1="25" x2="40" y2="125" stroke="#475569" stroke-width="1.5" />
+                                <path d="M 10 125 Q 30 130 50 125 L 50 132 Q 30 135 10 132 Z" fill="#cbd5e1" />
+                                <rect x="5" y="132" width="50" height="8" fill="#e2e8f0" rx="1" />
+                            </svg>
+                        </div>
+                        <div style="flex: 1; display: flex; flex-direction: column; justify-content: space-between;">
+                            <div style="margin-bottom: 8px;">
+                                <span style="background: rgba(245, 158, 11, 0.1); color: var(--accent-gold); padding: 4px 8px; border-radius: 4px; font-size: 0.8rem; font-weight: bold; border: 1px solid rgba(245, 158, 11, 0.2);">
+                                    Thời đại: Thế kỷ 5 TCN - Hy Lạp
+                                </span>
+                            </div>
+                            <p style="margin: 0 0 15px 0; font-size: 0.96rem; line-height: 1.6; color: var(--text-secondary);">
+                                Bộ quy tắc gồm 7 chuẩn mực do Hippocrates - ông tổ y học phương Tây - đưa ra, là nền tảng cốt lõi của y đức hiện đại.
+                            </p>
+                            <div style="display: flex; flex-direction: column; gap: 12px;">
+                                <div style="background: rgba(255,255,255,0.02); border-left: 3px solid var(--accent-teal); padding: 12px; border-radius: 0 8px 8px 0; position: relative;">
+                                    <span style="position: absolute; right: 10px; top: 5px; font-size: 1.8rem; color: rgba(255,255,255,0.05); font-family: Georgia, serif; line-height: 1;">“</span>
+                                    <div style="font-size: 0.95rem; font-weight: bold; color: #fff; margin-bottom: 4px; font-family: var(--font-heading);">
+                                        "Quyết không đưa ra phương pháp gây hại hoặc xấu xa"
+                                    </div>
+                                    <div style="font-size: 0.82rem; color: var(--accent-teal); font-weight: 700;">
+                                        → Không gây hại cho bệnh nhân
+                                    </div>
+                                </div>
+                                <div style="background: rgba(255,255,255,0.02); border-left: 3px solid var(--accent-gold); padding: 12px; border-radius: 0 8px 8px 0; position: relative;">
+                                    <span style="position: absolute; right: 10px; top: 5px; font-size: 1.8rem; color: rgba(255,255,255,0.05); font-family: Georgia, serif; line-height: 1;">“</span>
+                                    <div style="font-size: 0.95rem; font-weight: bold; color: #fff; margin-bottom: 4px; font-family: var(--font-heading);">
+                                        "Giữ bí mật về đời tư và cuộc sống của người khác"
+                                    </div>
+                                    <div style="font-size: 0.82rem; color: var(--accent-gold); font-weight: 700;">
+                                        → Bảo mật thông tin
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>`
         },
         '2': {
             color: 'var(--accent-gold)',
             titleJa: 'ジュネーブ宣言',
             titleVi: 'Tuyên ngôn Geneva',
-            bodyJa: '<p style="margin: 0 0 10px 0;">• <strong>精神の継承：</strong>ヒポクラテスの誓いの精神を引継ぎ、世界医師会によって現代向けに制定・改定された宣言です。</p>',
-            bodyVi: '<p style="margin: 0 0 10px 0;">• <strong>Kế thừa tinh thần:</strong> Đây là bản tuyên ngôn được Hiệp hội Y khoa Thế giới (WMA) ban hành và sửa đổi dành cho thời đại ngày nay, với mục đích kế thừa và tiếp nối tinh thần của Lời thề Hippocrates.</p>'
+            bodyJa: `<div style="display: flex; flex-direction: column; gap: 20px; width: 100%;">
+                        <div style="display: flex; align-items: center; justify-content: center; gap: 30px; background: rgba(255,255,255,0.02); border-radius: 12px; padding: 20px; border: 1px solid rgba(255,255,255,0.04);">
+                            <div style="display: flex; flex-direction: column; align-items: center;">
+                                <svg width="35" height="80" viewBox="0 0 60 150">
+                                    <rect x="5" y="10" width="50" height="8" fill="#94a3b8" rx="1" />
+                                    <path d="M 10 18 Q 30 14 50 18 L 50 25 Q 30 20 10 25 Z" fill="#cbd5e1" />
+                                    <rect x="15" y="25" width="30" height="100" fill="none" stroke="#64748b" stroke-width="2" />
+                                    <line x1="20" y1="25" x2="20" y2="125" stroke="#475569" stroke-width="1.5" />
+                                    <line x1="30" y1="25" x2="30" y2="125" stroke="#475569" stroke-width="1.5" />
+                                    <line x1="40" y1="25" x2="40" y2="125" stroke="#475569" stroke-width="1.5" />
+                                    <path d="M 10 125 Q 30 130 50 125 L 50 132 Q 30 135 10 132 Z" fill="#cbd5e1" />
+                                    <rect x="5" y="132" width="50" height="8" fill="#94a3b8" rx="1" />
+                                </svg>
+                                <span style="font-size: 0.72rem; color: var(--text-muted); font-weight: bold; margin-top: 4px;">ヒポクラテス</span>
+                            </div>
+                            <div style="flex: 1; display: flex; align-items: center; justify-content: center; position: relative;">
+                                <svg width="120" height="40" viewBox="0 0 120 50">
+                                    <defs>
+                                        <linearGradient id="gold-grad-2" x1="0%" y1="0%" x2="100%" y2="0%">
+                                            <stop offset="0%" stop-color="var(--accent-teal)" />
+                                            <stop offset="100%" stop-color="var(--accent-gold)" />
+                                        </linearGradient>
+                                    </defs>
+                                    <path d="M 10,25 Q 60,5 110,25" fill="none" stroke="url(#gold-grad-2)" stroke-width="6" stroke-linecap="round" />
+                                    <polygon points="105,18 118,27 103,32" fill="var(--accent-gold)" />
+                                </svg>
+                                <span style="position: absolute; top: -14px; font-size: 0.65rem; font-weight: bold; color: var(--accent-gold); text-transform: uppercase; letter-spacing: 0.5px; text-align: center; width: 100%;">精神の継承</span>
+                            </div>
+                            <div style="display: flex; flex-direction: column; align-items: center;">
+                                <div style="width: 45px; height: 45px; border-radius: 50%; background: rgba(245, 158, 11, 0.1); border: 2px solid var(--accent-gold); display: flex; align-items: center; justify-content: center; font-size: 1.4rem; color: var(--accent-gold); box-shadow: 0 0 12px rgba(245, 158, 11, 0.25);">
+                                    <i class="fa-solid fa-user-doctor"></i>
+                                </div>
+                                <span style="font-size: 0.72rem; color: var(--accent-gold); font-weight: bold; margin-top: 8px;">世界医師会 (WMA)</span>
+                            </div>
+                        </div>
+                        <div>
+                            <span style="background: rgba(245, 158, 11, 0.1); color: var(--accent-gold); padding: 4px 8px; border-radius: 4px; font-size: 0.8rem; font-weight: bold; border: 1px solid rgba(245, 158, 11, 0.2);">
+                                時代: 1948年 - 世界医師会（WMA）
+                            </span>
+                        </div>
+                        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px;">
+                            <div style="background: rgba(255,255,255,0.02); border-left: 3px solid var(--accent-teal); padding: 16px; border-radius: 0 8px 8px 0; position: relative;">
+                                <span style="position: absolute; right: 10px; top: 5px; font-size: 1.8rem; color: rgba(255,255,255,0.05); font-family: Georgia, serif; line-height: 1;">“</span>
+                                <p style="margin: 0; font-size: 0.95rem; line-height: 1.6; color: #fff; font-weight: 500;">
+                                    世界医師会（WMA）によって現代向けに制定・改定された宣言。
+                                </p>
+                            </div>
+                            <div style="background: rgba(255,255,255,0.02); border-left: 3px solid var(--accent-gold); padding: 16px; border-radius: 0 8px 8px 0; position: relative;">
+                                <span style="position: absolute; right: 10px; top: 5px; font-size: 1.8rem; color: rgba(255,255,255,0.05); font-family: Georgia, serif; line-height: 1;">“</span>
+                                <p style="margin: 0; font-size: 0.95rem; line-height: 1.6; color: #fff; font-weight: 500;">
+                                    ヒポクラテスの誓いの精神を引き継ぎ、戦後の新しい価値観のもとで医師の倫理的義務を再定義した「現代版ヒポクラテスの誓い」。
+                                </p>
+                            </div>
+                        </div>
+                    </div>`,
+            bodyVi: `<div style="display: flex; flex-direction: column; gap: 20px; width: 100%;">
+                        <div style="display: flex; align-items: center; justify-content: center; gap: 30px; background: rgba(255,255,255,0.02); border-radius: 12px; padding: 20px; border: 1px solid rgba(255,255,255,0.04);">
+                            <div style="display: flex; flex-direction: column; align-items: center;">
+                                <svg width="35" height="80" viewBox="0 0 60 150">
+                                    <rect x="5" y="10" width="50" height="8" fill="#94a3b8" rx="1" />
+                                    <path d="M 10 18 Q 30 14 50 18 L 50 25 Q 30 20 10 25 Z" fill="#cbd5e1" />
+                                    <rect x="15" y="25" width="30" height="100" fill="none" stroke="#64748b" stroke-width="2" />
+                                    <line x1="20" y1="25" x2="20" y2="125" stroke="#475569" stroke-width="1.5" />
+                                    <line x1="30" y1="25" x2="30" y2="125" stroke="#475569" stroke-width="1.5" />
+                                    <line x1="40" y1="25" x2="40" y2="125" stroke="#475569" stroke-width="1.5" />
+                                    <path d="M 10 125 Q 30 130 50 125 L 50 132 Q 30 135 10 132 Z" fill="#cbd5e1" />
+                                    <rect x="5" y="132" width="50" height="8" fill="#94a3b8" rx="1" />
+                                </svg>
+                                <span style="font-size: 0.72rem; color: var(--text-muted); font-weight: bold; margin-top: 4px;">Hippocrates</span>
+                            </div>
+                            <div style="flex: 1; display: flex; align-items: center; justify-content: center; position: relative;">
+                                <svg width="120" height="40" viewBox="0 0 120 50">
+                                    <defs>
+                                        <linearGradient id="gold-grad-2" x1="0%" y1="0%" x2="100%" y2="0%">
+                                            <stop offset="0%" stop-color="var(--accent-teal)" />
+                                            <stop offset="100%" stop-color="var(--accent-gold)" />
+                                        </linearGradient>
+                                    </defs>
+                                    <path d="M 10,25 Q 60,5 110,25" fill="none" stroke="url(#gold-grad-2)" stroke-width="6" stroke-linecap="round" />
+                                    <polygon points="105,18 118,27 103,32" fill="var(--accent-gold)" />
+                                </svg>
+                                <span style="position: absolute; top: -14px; font-size: 0.65rem; font-weight: bold; color: var(--accent-gold); text-transform: uppercase; letter-spacing: 0.5px; text-align: center; width: 100%;">Kế thừa tinh thần</span>
+                            </div>
+                            <div style="display: flex; flex-direction: column; align-items: center;">
+                                <div style="width: 45px; height: 45px; border-radius: 50%; background: rgba(245, 158, 11, 0.1); border: 2px solid var(--accent-gold); display: flex; align-items: center; justify-content: center; font-size: 1.4rem; color: var(--accent-gold); box-shadow: 0 0 12px rgba(245, 158, 11, 0.25);">
+                                    <i class="fa-solid fa-user-doctor"></i>
+                                </div>
+                                <span style="font-size: 0.72rem; color: var(--accent-gold); font-weight: bold; margin-top: 8px;">Hiệp hội Y khoa (WMA)</span>
+                            </div>
+                        </div>
+                        <div>
+                            <span style="background: rgba(245, 158, 11, 0.1); color: var(--accent-gold); padding: 4px 8px; border-radius: 4px; font-size: 0.8rem; font-weight: bold; border: 1px solid rgba(245, 158, 11, 0.2);">
+                                Thời đại: Năm 1948 - Hiệp hội Y khoa Thế giới (WMA)
+                            </span>
+                        </div>
+                        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px;">
+                            <div style="background: rgba(255,255,255,0.02); border-left: 3px solid var(--accent-teal); padding: 16px; border-radius: 0 8px 8px 0; position: relative;">
+                                <span style="position: absolute; right: 10px; top: 5px; font-size: 1.8rem; color: rgba(255,255,255,0.05); font-family: Georgia, serif; line-height: 1;">“</span>
+                                <p style="margin: 0; font-size: 0.95rem; line-height: 1.6; color: #fff; font-weight: 500;">
+                                    Tuyên ngôn được Hiệp hội Y khoa Thế giới (WMA) ban hành và sửa đổi dành cho thời đại ngày nay.
+                                </p>
+                            </div>
+                            <div style="background: rgba(255,255,255,0.02); border-left: 3px solid var(--accent-gold); padding: 16px; border-radius: 0 8px 8px 0; position: relative;">
+                                <span style="position: absolute; right: 10px; top: 5px; font-size: 1.8rem; color: rgba(255,255,255,0.05); font-family: Georgia, serif; line-height: 1;">“</span>
+                                <p style="margin: 0; font-size: 0.95rem; line-height: 1.6; color: #fff; font-weight: 500;">
+                                    Kế thừa tinh thần của Lời thề Hippocrates, tái định nghĩa nghĩa vụ đạo đức y khoa dưới hệ giá trị mới sau thế chiến.
+                                </p>
+                            </div>
+                        </div>
+                    </div>`
         },
         '3': {
             color: '#ef4444',
             titleJa: 'ヘルシンキ宣言',
             titleVi: 'Tuyên ngôn Helsinki',
-            bodyJa: '<p style="margin: 0 0 10px 0;">• <strong>背景と歴史：</strong>戦争中に起こった強制的な人体実験への反省から作られたニュルンベルグ綱領（1947年）を経て、1964年に制定されました。</p>'
-                  + '<p style="margin: 0 0 10px 0;">• <strong>核心原則：</strong><strong>「ヒトを対象とする医学研究の倫理的原則」</strong>を定めたものです。被験者の<strong>自発的同意（インフォームドコンセント）</strong>と<strong>倫理審査</strong>などの原則を倫理指針として定めています。</p>'
-                  + '<p style="margin: 0;">• <strong>臨床開発への影響：</strong>この宣言の原則は、医薬品の臨床試験の実施基準である<strong>GCP（Good Clinical Practice）</strong>の開発につながりました。</p>',
-            bodyVi: '<p style="margin: 0 0 10px 0;">• <strong>Bối cảnh:</strong> Xuất phát từ sự phản tỉnh sâu sắc đối với các thí nghiệm cưỡng bức tàn bạo trên cơ thể người trong Chiến tranh thế giới thứ 2 (dẫn đến Bộ luật Nuremberg năm 1947), Tuyên ngôn Helsinki được ban hành vào năm 1964.</p>'
-                  + '<p style="margin: 0 0 10px 0;">• <strong>Nội dung cốt lõi:</strong> Văn bản này quy định "Các nguyên tắc đạo đức đối với nghiên cứu y học trên người". Nó thiết lập nguyên tắc bắt buộc phải có <strong>sự đồng ý tự nguyện (Informed Consent)</strong> của người tham gia nghiên cứu và phải trải qua <strong>kiểm duyệt đạo đức</strong>.</p>'
-                  + '<p style="margin: 0;">• <strong>Tầm ảnh hưởng:</strong> Tuyên ngôn này chính là tiền đề dẫn đến việc hình thành tiêu chuẩn <strong>GCP (Good Clinical Practice - Thực hành Lâm sàng Tốt)</strong> - tiêu chuẩn thực hiện các thử nghiệm lâm sàng dược phẩm hiện nay.</p>'
+            bodyJa: `<div style="display: flex; flex-direction: column; gap: 15px; width: 100%;">
+                        <div>
+                            <span style="background: rgba(239, 68, 68, 0.1); color: #f87171; padding: 4px 8px; border-radius: 4px; font-size: 0.8rem; font-weight: bold; border: 1px solid rgba(239, 68, 68, 0.2);">
+                                時代: 1964年 - 研究倫理
+                            </span>
+                        </div>
+                        <div style="display: flex; gap: 15px; align-items: center; justify-content: space-between; flex-wrap: wrap; margin-top: 10px;">
+                            <div style="flex: 1 1 200px; background: rgba(255,255,255,0.02); border: 1.5px solid rgba(255,255,255,0.1); border-radius: 12px; padding: 18px; min-height: 150px; display: flex; flex-direction: column; justify-content: center; box-sizing: border-box;">
+                                <div style="font-size: 0.75rem; font-weight: bold; color: var(--text-muted); text-transform: uppercase; margin-bottom: 8px;">
+                                    背景と反省
+                                </div>
+                                <p style="margin: 0; font-size: 0.92rem; line-height: 1.6; color: #e2e8f0; font-weight: 500;">
+                                    戦争中の強制的な人体実験への反省（ニュルンベルク綱領を経て）
+                                </p>
+                            </div>
+                            <div style="display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin: 0 auto;">
+                                <i class="fa-solid fa-circle-chevron-right" style="font-size: 1.5rem; color: #ef4444; opacity: 0.8;"></i>
+                            </div>
+                            <div style="flex: 1.2 1 250px; background: rgba(239, 68, 68, 0.04); border: 2px solid #ef4444; border-radius: 12px; padding: 20px; min-height: 160px; display: flex; flex-direction: column; justify-content: center; box-sizing: border-box; position: relative;">
+                                <div style="position: absolute; top: -10px; right: 15px; background: #ef4444; color: #fff; font-size: 0.65rem; font-weight: 900; padding: 2px 8px; border-radius: 10px; text-transform: uppercase;">核心</div>
+                                <div style="font-size: 0.78rem; font-weight: bold; color: #f87171; text-transform: uppercase; margin-bottom: 8px; letter-spacing: 0.5px;">
+                                    ヘルシンキ宣言の核心
+                                </div>
+                                <h5 style="margin: 0 0 8px 0; font-size: 0.95rem; font-weight: bold; color: #fff; line-height: 1.4;">
+                                    ヒトを対象とする医学研究の倫理的原則
+                                </h5>
+                                <p style="margin: 0; font-size: 0.86rem; line-height: 1.5; color: #e2e8f0;">
+                                    被験者の<strong>「自発的同意（インフォームドコンセント）」</strong>と<strong>「倫理審査（IRB）」</strong>の必須化。
+                                </p>
+                            </div>
+                            <div style="display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin: 0 auto;">
+                                <i class="fa-solid fa-circle-chevron-right" style="font-size: 1.5rem; color: #ef4444; opacity: 0.8;"></i>
+                            </div>
+                            <div style="flex: 1 1 200px; background: rgba(255,255,255,0.02); border: 1.5px solid rgba(255,255,255,0.1); border-radius: 12px; padding: 18px; min-height: 150px; display: flex; flex-direction: column; justify-content: center; box-sizing: border-box;">
+                                <div style="font-size: 0.75rem; font-weight: bold; color: var(--text-muted); text-transform: uppercase; margin-bottom: 8px;">
+                                    具現化と影響
+                                </div>
+                                <h5 style="margin: 0 0 6px 0; font-size: 0.95rem; font-weight: bold; color: #fff;">
+                                    GCP (Good Clinical Practice)
+                                </h5>
+                                <p style="margin: 0; font-size: 0.86rem; line-height: 1.5; color: #e2e8f0;">
+                                    医薬品の臨床試験実施基準の具現化へ直結。
+                                </p>
+                            </div>
+                        </div>
+                    </div>`,
+            bodyVi: `<div style="display: flex; flex-direction: column; gap: 15px; width: 100%;">
+                        <div>
+                            <span style="background: rgba(239, 68, 68, 0.1); color: #f87171; padding: 4px 8px; border-radius: 4px; font-size: 0.8rem; font-weight: bold; border: 1px solid rgba(239, 68, 68, 0.2);">
+                                Thời đại: Năm 1964 - Đạo đức Nghiên cứu
+                            </span>
+                        </div>
+                        <div style="display: flex; gap: 15px; align-items: center; justify-content: space-between; flex-wrap: wrap; margin-top: 10px;">
+                            <div style="flex: 1 1 200px; background: rgba(255,255,255,0.02); border: 1.5px solid rgba(255,255,255,0.1); border-radius: 12px; padding: 18px; min-height: 150px; display: flex; flex-direction: column; justify-content: center; box-sizing: border-box;">
+                                <div style="font-size: 0.75rem; font-weight: bold; color: var(--text-muted); text-transform: uppercase; margin-bottom: 8px;">
+                                    Bối cảnh &amp; Phản tỉnh
+                                </div>
+                                <p style="margin: 0; font-size: 0.92rem; line-height: 1.6; color: #e2e8f0; font-weight: 500;">
+                                    Sự tự phản tỉnh đối với các thí nghiệm cưỡng bức tàn bạo trên cơ thể người trong chiến tranh (qua Bộ luật Nuremberg 1947).
+                                </p>
+                            </div>
+                            <div style="display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin: 0 auto;">
+                                <i class="fa-solid fa-circle-chevron-right" style="font-size: 1.5rem; color: #ef4444; opacity: 0.8;"></i>
+                            </div>
+                            <div style="flex: 1.2 1 250px; background: rgba(239, 68, 68, 0.04); border: 2px solid #ef4444; border-radius: 12px; padding: 20px; min-height: 160px; display: flex; flex-direction: column; justify-content: center; box-sizing: border-box; position: relative;">
+                                <div style="position: absolute; top: -10px; right: 15px; background: #ef4444; color: #fff; font-size: 0.65rem; font-weight: 900; padding: 2px 8px; border-radius: 10px; text-transform: uppercase;">Cốt lõi</div>
+                                <div style="font-size: 0.78rem; font-weight: bold; color: #f87171; text-transform: uppercase; margin-bottom: 8px; letter-spacing: 0.5px;">
+                                    Nguyên tắc cốt lõi
+                                </div>
+                                <h5 style="margin: 0 0 8px 0; font-size: 0.95rem; font-weight: bold; color: #fff; line-height: 1.4;">
+                                    Nguyên tắc đạo đức đối với nghiên cứu trên người
+                                </h5>
+                                <p style="margin: 0; font-size: 0.86rem; line-height: 1.5; color: #e2e8f0;">
+                                    Bắt buộc có <strong>sự đồng ý tự nguyện (Informed Consent)</strong> của người tham gia nghiên cứu và phải qua <strong>kiểm duyệt đạo đức (IRB)</strong>.
+                                </p>
+                            </div>
+                            <div style="display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin: 0 auto;">
+                                <i class="fa-solid fa-circle-chevron-right" style="font-size: 1.5rem; color: #ef4444; opacity: 0.8;"></i>
+                            </div>
+                            <div style="flex: 1 1 200px; background: rgba(255,255,255,0.02); border: 1.5px solid rgba(255,255,255,0.1); border-radius: 12px; padding: 18px; min-height: 150px; display: flex; flex-direction: column; justify-content: center; box-sizing: border-box;">
+                                <div style="font-size: 0.75rem; font-weight: bold; color: var(--text-muted); text-transform: uppercase; margin-bottom: 8px;">
+                                    Ảnh hưởng &amp; Hiện thực
+                                </div>
+                                <h5 style="margin: 0 0 6px 0; font-size: 0.95rem; font-weight: bold; color: #fff;">
+                                    GCP (Good Clinical Practice)
+                                </h5>
+                                <p style="margin: 0; font-size: 0.86rem; line-height: 1.5; color: #e2e8f0;">
+                                    Trực tiếp hình thành và hiện thực hóa tiêu chuẩn Thực hành lâm sàng tốt đối với các thử nghiệm lâm sàng dược phẩm.
+                                </p>
+                            </div>
+                        </div>
+                    </div>`
         },
         '4': {
             color: 'var(--accent-teal)',
             titleJa: 'リスボン宣言',
             titleVi: 'Tuyên ngôn Lisbon',
-            bodyJa: '<p style="margin: 0 0 10px 0;">• <strong>患者の権利宣言：</strong>1981年に世界医師会で採択され、<strong>「患者の権利宣言」</strong>ともいわれるものです。</p>'
-                  + '<p style="margin: 0 0 10px 0;">• <strong>権利の認定：</strong>患者の<strong>自己決定権</strong>、代理人の役割、秘密保持、尊厳性の尊重など、現代では当然となっている患者の権利を最初に認めたものです。</p>'
-                  + '<p style="margin: 0;">• <strong>歴史的潮流：</strong>この流れを汲むものとしては、米国病院協会の「患者の権利章典」（1973年）もあります。</p>',
-            bodyVi: '<p style="margin: 0 0 10px 0;">• <strong>Tuyên ngôn về Quyền bệnh nhân:</strong> Được Hiệp hội Y khoa Thế giới thông qua vào năm 1981, bản tuyên ngôn này còn được gọi là <strong>"Tuyên ngôn về Quyền của Bệnh nhân"</strong>.</p>'
-                  + '<p style="margin: 0 0 10px 0;">• <strong>Quyền cơ bản:</strong> Đây là văn bản đầu tiên chính thức công nhận các quyền cơ bản của bệnh nhân mà ngày nay được coi là hiển nhiên, bao gồm: <strong>Quyền tự quyết</strong>, vai trò của người đại diện, bảo mật thông tin và tôn trọng nhân phẩm.</p>'
-                  + '<p style="margin: 0;">• <strong>Dòng chảy tương tự:</strong> Cùng chung dòng chảy lịch sử này còn có "Tuyên ngôn Quyền Bệnh nhân" do Hiệp hội Bệnh viện Hoa Kỳ ban hành năm 1973.</p>'
+            bodyJa: `<div style="display: flex; flex-direction: column; gap: 15px; width: 100%;">
+                        <div>
+                            <span style="background: rgba(45, 212, 191, 0.1); color: var(--accent-teal); padding: 4px 8px; border-radius: 4px; font-size: 0.8rem; font-weight: bold; border: 1px solid rgba(45, 212, 191, 0.2);">
+                                時代: 1981年 - 患者の権利
+                            </span>
+                        </div>
+                        <p style="margin: 0 0 10px 0; font-size: 0.96rem; line-height: 1.6; color: var(--text-secondary);">
+                            別名「患者の権利宣言」。現代では当然の権利を世界で初めて公式に認めた宣言。
+                        </p>
+                        <div class="lisbon-mindmap-container" style="width: 100%;">
+                            <style>
+                                .lisbon-mindmap-grid {
+                                    display: grid;
+                                    grid-template-columns: 1fr 130px 1fr;
+                                    align-items: center;
+                                    gap: 20px;
+                                    position: relative;
+                                    margin: 15px 0;
+                                    width: 100%;
+                                }
+                                .lisbon-side-column {
+                                    display: flex;
+                                    flex-direction: column;
+                                    gap: 24px;
+                                }
+                                .lisbon-center-hub {
+                                    display: flex;
+                                    flex-direction: column;
+                                    align-items: center;
+                                    justify-content: center;
+                                    position: relative;
+                                    z-index: 2;
+                                }
+                                .lisbon-hub-circle {
+                                    width: 64px;
+                                    height: 64px;
+                                    border-radius: 50%;
+                                    background: rgba(15, 23, 42, 0.9);
+                                    border: 2.5px solid var(--accent-teal);
+                                    display: flex;
+                                    align-items: center;
+                                    justify-content: center;
+                                    font-size: 1.5rem;
+                                    color: var(--accent-teal);
+                                    box-shadow: 0 0 20px rgba(45, 212, 191, 0.35);
+                                    transition: all 0.3s ease;
+                                }
+                                .lisbon-map-lines {
+                                    position: absolute;
+                                    top: 0;
+                                    left: 0;
+                                    width: 100%;
+                                    height: 100%;
+                                    pointer-events: none;
+                                    z-index: 1;
+                                }
+                                @media (max-width: 768px) {
+                                    .lisbon-mindmap-grid {
+                                        grid-template-columns: 1fr;
+                                        gap: 20px;
+                                    }
+                                    .lisbon-side-column {
+                                        gap: 16px;
+                                    }
+                                    .lisbon-map-lines {
+                                        display: none;
+                                    }
+                                    .lisbon-center-hub {
+                                        order: -1;
+                                    }
+                                }
+                            </style>
+                            <div class="lisbon-mindmap-grid">
+                                <svg class="lisbon-map-lines" viewBox="0 0 600 300" preserveAspectRatio="none">
+                                    <line x1="300" y1="150" x2="180" y2="70" stroke="rgba(45, 212, 191, 0.3)" stroke-width="2" stroke-dasharray="4 4" />
+                                    <line x1="300" y1="150" x2="180" y2="230" stroke="rgba(45, 212, 191, 0.3)" stroke-width="2" stroke-dasharray="4 4" />
+                                    <line x1="300" y1="150" x2="420" y2="70" stroke="rgba(45, 212, 191, 0.3)" stroke-width="2" stroke-dasharray="4 4" />
+                                    <line x1="300" y1="150" x2="420" y2="230" stroke="rgba(45, 212, 191, 0.3)" stroke-width="2" stroke-dasharray="4 4" />
+                                </svg>
+                                <div class="lisbon-side-column">
+                                    <div style="background: rgba(15, 23, 42, 0.4); border: 1px solid rgba(255,255,255,0.06); border-left: 4px solid var(--accent-teal); border-radius: 12px; padding: 18px; box-shadow: 0 4px 15px rgba(0,0,0,0.2); position: relative; z-index: 2;">
+                                        <h5 style="margin: 0 0 6px 0; font-size: 0.98rem; font-weight: bold; color: var(--accent-teal); display: flex; align-items: center; gap: 8px;">
+                                            <i class="fa-solid fa-hand-holding-heart"></i>
+                                            自己決定権
+                                        </h5>
+                                        <p style="margin: 0; font-size: 0.88rem; line-height: 1.5; color: var(--text-secondary);">
+                                            治療法を自ら選択する権利
+                                        </p>
+                                    </div>
+                                    <div style="background: rgba(15, 23, 42, 0.4); border: 1px solid rgba(255,255,255,0.06); border-left: 4px solid #f43f5e; border-radius: 12px; padding: 18px; box-shadow: 0 4px 15px rgba(0,0,0,0.2); position: relative; z-index: 2;">
+                                        <h5 style="margin: 0 0 6px 0; font-size: 0.98rem; font-weight: bold; color: #f43f5e; display: flex; align-items: center; gap: 8px;">
+                                            <i class="fa-solid fa-key"></i>
+                                            秘密保持
+                                        </h5>
+                                        <p style="margin: 0; font-size: 0.88rem; line-height: 1.5; color: var(--text-secondary);">
+                                            プライバシーの保護
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="lisbon-center-hub">
+                                    <div class="lisbon-hub-circle">
+                                        <i class="fa-solid fa-user-injured"></i>
+                                    </div>
+                                    <span style="font-size: 0.72rem; font-weight: bold; color: var(--accent-teal); text-transform: uppercase; margin-top: 10px; letter-spacing: 0.5px; text-align: center; line-height: 1.3;">
+                                        患者の権利
+                                    </span>
+                                </div>
+                                <div class="lisbon-side-column">
+                                    <div style="background: rgba(15, 23, 42, 0.4); border: 1px solid rgba(255,255,255,0.06); border-left: 4px solid var(--accent-gold); border-radius: 12px; padding: 18px; box-shadow: 0 4px 15px rgba(0,0,0,0.2); position: relative; z-index: 2;">
+                                        <h5 style="margin: 0 0 6px 0; font-size: 0.98rem; font-weight: bold; color: var(--accent-gold); display: flex; align-items: center; gap: 8px;">
+                                            <i class="fa-solid fa-users-rectangle"></i>
+                                            代理人の役割
+                                        </h5>
+                                        <p style="margin: 0; font-size: 0.88rem; line-height: 1.5; color: var(--text-secondary);">
+                                            本人の意思決定が困難な場合の規定
+                                        </p>
+                                    </div>
+                                    <div style="background: rgba(15, 23, 42, 0.4); border: 1px solid rgba(255,255,255,0.06); border-left: 4px solid #10b981; border-radius: 12px; padding: 18px; box-shadow: 0 4px 15px rgba(0,0,0,0.2); position: relative; z-index: 2;">
+                                        <h5 style="margin: 0 0 6px 0; font-size: 0.98rem; font-weight: bold; color: #10b981; display: flex; align-items: center; gap: 8px;">
+                                            <i class="fa-solid fa-heart-pulse"></i>
+                                            尊厳性の尊重
+                                        </h5>
+                                        <p style="margin: 0; font-size: 0.88rem; line-height: 1.5; color: var(--text-secondary);">
+                                            一人の人間としての尊厳
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>`,
+            bodyVi: `<div style="display: flex; flex-direction: column; gap: 15px; width: 100%;">
+                        <div>
+                            <span style="background: rgba(45, 212, 191, 0.1); color: var(--accent-teal); padding: 4px 8px; border-radius: 4px; font-size: 0.8rem; font-weight: bold; border: 1px solid rgba(45, 212, 191, 0.2);">
+                                Thời đại: Năm 1981 - Quyền của bệnh nhân
+                            </span>
+                        </div>
+                        <p style="margin: 0 0 10px 0; font-size: 0.96rem; line-height: 1.6; color: var(--text-secondary);">
+                            Biệt danh "Tuyên ngôn về Quyền của Bệnh nhân". Bản tuyên ngôn đầu tiên trên thế giới chính thức công nhận những quyền lợi vốn dĩ hiển nhiên ngày nay.
+                        </p>
+                        <div class="lisbon-mindmap-container" style="width: 100%;">
+                            <style>
+                                .lisbon-mindmap-grid {
+                                    display: grid;
+                                    grid-template-columns: 1fr 130px 1fr;
+                                    align-items: center;
+                                    gap: 20px;
+                                    position: relative;
+                                    margin: 15px 0;
+                                    width: 100%;
+                                }
+                                .lisbon-side-column {
+                                    display: flex;
+                                    flex-direction: column;
+                                    gap: 24px;
+                                }
+                                .lisbon-center-hub {
+                                    display: flex;
+                                    flex-direction: column;
+                                    align-items: center;
+                                    justify-content: center;
+                                    position: relative;
+                                    z-index: 2;
+                                }
+                                .lisbon-hub-circle {
+                                    width: 64px;
+                                    height: 64px;
+                                    border-radius: 50%;
+                                    background: rgba(15, 23, 42, 0.9);
+                                    border: 2.5px solid var(--accent-teal);
+                                    display: flex;
+                                    align-items: center;
+                                    justify-content: center;
+                                    font-size: 1.5rem;
+                                    color: var(--accent-teal);
+                                    box-shadow: 0 0 20px rgba(45, 212, 191, 0.35);
+                                    transition: all 0.3s ease;
+                                }
+                                .lisbon-map-lines {
+                                    position: absolute;
+                                    top: 0;
+                                    left: 0;
+                                    width: 100%;
+                                    height: 100%;
+                                    pointer-events: none;
+                                    z-index: 1;
+                                }
+                                @media (max-width: 768px) {
+                                    .lisbon-mindmap-grid {
+                                        grid-template-columns: 1fr;
+                                        gap: 20px;
+                                    }
+                                    .lisbon-side-column {
+                                        gap: 16px;
+                                    }
+                                    .lisbon-map-lines {
+                                        display: none;
+                                    }
+                                    .lisbon-center-hub {
+                                        order: -1;
+                                    }
+                                }
+                            </style>
+                            <div class="lisbon-mindmap-grid">
+                                <svg class="lisbon-map-lines" viewBox="0 0 600 300" preserveAspectRatio="none">
+                                    <line x1="300" y1="150" x2="180" y2="70" stroke="rgba(45, 212, 191, 0.3)" stroke-width="2" stroke-dasharray="4 4" />
+                                    <line x1="300" y1="150" x2="180" y2="230" stroke="rgba(45, 212, 191, 0.3)" stroke-width="2" stroke-dasharray="4 4" />
+                                    <line x1="300" y1="150" x2="420" y2="70" stroke="rgba(45, 212, 191, 0.3)" stroke-width="2" stroke-dasharray="4 4" />
+                                    <line x1="300" y1="150" x2="420" y2="230" stroke="rgba(45, 212, 191, 0.3)" stroke-width="2" stroke-dasharray="4 4" />
+                                </svg>
+                                <div class="lisbon-side-column">
+                                    <div style="background: rgba(15, 23, 42, 0.4); border: 1px solid rgba(255,255,255,0.06); border-left: 4px solid var(--accent-teal); border-radius: 12px; padding: 18px; box-shadow: 0 4px 15px rgba(0,0,0,0.2); position: relative; z-index: 2;">
+                                        <h5 style="margin: 0 0 6px 0; font-size: 0.98rem; font-weight: bold; color: var(--accent-teal); display: flex; align-items: center; gap: 8px;">
+                                            <i class="fa-solid fa-hand-holding-heart"></i>
+                                            Quyền tự quyết
+                                        </h5>
+                                        <p style="margin: 0; font-size: 0.88rem; line-height: 1.5; color: var(--text-secondary);">
+                                            Quyền tự lựa chọn phương pháp điều trị của bản thân
+                                        </p>
+                                    </div>
+                                    <div style="background: rgba(15, 23, 42, 0.4); border: 1px solid rgba(255,255,255,0.06); border-left: 4px solid #f43f5e; border-radius: 12px; padding: 18px; box-shadow: 0 4px 15px rgba(0,0,0,0.2); position: relative; z-index: 2;">
+                                        <h5 style="margin: 0 0 6px 0; font-size: 0.98rem; font-weight: bold; color: #f43f5e; display: flex; align-items: center; gap: 8px;">
+                                            <i class="fa-solid fa-key"></i>
+                                            Bảo mật thông tin
+                                        </h5>
+                                        <p style="margin: 0; font-size: 0.88rem; line-height: 1.5; color: var(--text-secondary);">
+                                            Bảo vệ quyền riêng tư cá nhân
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="lisbon-center-hub">
+                                    <div class="lisbon-hub-circle">
+                                        <i class="fa-solid fa-user-injured"></i>
+                                    </div>
+                                    <span style="font-size: 0.72rem; font-weight: bold; color: var(--accent-teal); text-transform: uppercase; margin-top: 10px; letter-spacing: 0.5px; text-align: center; line-height: 1.3;">
+                                        Quyền bệnh nhân
+                                    </span>
+                                </div>
+                                <div class="lisbon-side-column">
+                                    <div style="background: rgba(15, 23, 42, 0.4); border: 1px solid rgba(255,255,255,0.06); border-left: 4px solid var(--accent-gold); border-radius: 12px; padding: 18px; box-shadow: 0 4px 15px rgba(0,0,0,0.2); position: relative; z-index: 2;">
+                                        <h5 style="margin: 0 0 6px 0; font-size: 0.98rem; font-weight: bold; color: var(--accent-gold); display: flex; align-items: center; gap: 8px;">
+                                            <i class="fa-solid fa-users-rectangle"></i>
+                                            Vai trò người đại diện
+                                        </h5>
+                                        <p style="margin: 0; font-size: 0.88rem; line-height: 1.5; color: var(--text-secondary);">
+                                            Quy định khi bệnh nhân mất khả năng hoặc gặp khó khăn khi ra quyết định
+                                        </p>
+                                    </div>
+                                    <div style="background: rgba(15, 23, 42, 0.4); border: 1px solid rgba(255,255,255,0.06); border-left: 4px solid #10b981; border-radius: 12px; padding: 18px; box-shadow: 0 4px 15px rgba(0,0,0,0.2); position: relative; z-index: 2;">
+                                        <h5 style="margin: 0 0 6px 0; font-size: 0.98rem; font-weight: bold; color: #10b981; display: flex; align-items: center; gap: 8px;">
+                                            <i class="fa-solid fa-heart-pulse"></i>
+                                            Tôn trọng nhân phẩm
+                                        </h5>
+                                        <p style="margin: 0; font-size: 0.88rem; line-height: 1.5; color: var(--text-secondary);">
+                                            Tôn trọng phẩm giá của một con người trọn vẹn
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>`,
+        '5': {
+            color: 'var(--accent-gold)',
+            titleJa: '比較まとめ：医の倫理の変遷',
+            titleVi: 'So sánh & Tổng kết: Sự tiến triển của Đạo đức Y học',
+            bodyJa: `<div style="display: flex; flex-direction: column; gap: 20px; width: 100%;">
+                        <div style="width: 100%; overflow-x: auto; border: 1.5px solid rgba(255,255,255,0.06); border-radius: 12px; background: rgba(15,23,42,0.4); box-shadow: 0 4px 15px rgba(0,0,0,0.2);">
+                            <table style="width: 100%; border-collapse: collapse; text-align: left; font-size: 0.9rem; min-width: 650px;">
+                                <thead>
+                                    <tr style="border-bottom: 2px solid rgba(255,255,255,0.15); background: rgba(255,255,255,0.03);">
+                                        <th style="padding: 12px 16px; font-weight: bold; color: var(--accent-teal);">宣言名</th>
+                                        <th style="padding: 12px 16px; font-weight: bold; color: #cbd5e1;">年代</th>
+                                        <th style="padding: 12px 16px; font-weight: bold; color: var(--accent-gold);">主な対象</th>
+                                        <th style="padding: 12px 16px; font-weight: bold; color: #fff;">核心となる理念</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr style="border-bottom: 1px solid rgba(255,255,255,0.06); background: rgba(255,255,255,0.01);">
+                                        <td style="padding: 14px 16px; font-weight: bold; color: #fff;">ヒポクラテスの誓い</td>
+                                        <td style="padding: 14px 16px; color: #cbd5e1;">紀元前5世紀</td>
+                                        <td style="padding: 14px 16px; font-weight: bold; color: var(--accent-gold);">医師</td>
+                                        <td style="padding: 14px 16px; color: #e2e8f0;">危害を加えない・守秘義務（基礎）</td>
+                                    </tr>
+                                    <tr style="border-bottom: 1px solid rgba(255,255,255,0.06);">
+                                        <td style="padding: 14px 16px; font-weight: bold; color: #fff;">ジュネーブ宣言</td>
+                                        <td style="padding: 14px 16px; color: #cbd5e1;">1948年</td>
+                                        <td style="padding: 14px 16px; font-weight: bold; color: var(--accent-gold);">医師</td>
+                                        <td style="padding: 14px 16px; color: #e2e8f0;">ヒポクラテスの誓いの現代的継承</td>
+                                    </tr>
+                                    <tr style="border-bottom: 1px solid rgba(255,255,255,0.06); background: rgba(255,255,255,0.01);">
+                                        <td style="padding: 14px 16px; font-weight: bold; color: #fff;">ヘルシンキ宣言</td>
+                                        <td style="padding: 14px 16px; color: #cbd5e1;">1964年</td>
+                                        <td style="padding: 14px 16px; font-weight: bold; color: var(--accent-gold);">研究者</td>
+                                        <td style="padding: 14px 16px; color: #e2e8f0;">ヒトを対象とする医学研究・インフォームドコンセント</td>
+                                    </tr>
+                                    <tr style="border-bottom: 1px solid rgba(255,255,255,0.06);">
+                                        <td style="padding: 14px 16px; font-weight: bold; color: #fff;">リスボン宣言</td>
+                                        <td style="padding: 14px 16px; color: #cbd5e1;">1981年</td>
+                                        <td style="padding: 14px 16px; font-weight: bold; color: var(--accent-gold);">患者</td>
+                                        <td style="padding: 14px 16px; color: #e2e8f0;">患者の権利・自己決定権の確立</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div style="background: rgba(245, 158, 11, 0.05); border: 1.5px solid var(--accent-gold); border-radius: 12px; padding: 18px; box-shadow: 0 4px 15px rgba(245,158,11,0.15); display: flex; align-items: flex-start; gap: 14px;">
+                            <div style="font-size: 1.4rem; color: var(--accent-gold); margin-top: 2px;">
+                                <i class="fa-solid fa-circle-info"></i>
+                            </div>
+                            <div>
+                                <h5 style="margin: 0 0 6px 0; font-size: 0.95rem; font-weight: bold; color: #fff;">倫理の軸足の完全な移行</h5>
+                                <p style="margin: 0; font-size: 0.88rem; line-height: 1.6; color: #cbd5e1;">
+                                    医師中心の「<strong>パターナリズム</strong>」から、患者中心の「<strong>自律（Autonomy）</strong>」へと倫理の軸足が完全に移行しました。
+                                </p>
+                            </div>
+                        </div>
+                    </div>`,
+            bodyVi: `<div style="display: flex; flex-direction: column; gap: 20px; width: 100%;">
+                        <div style="width: 100%; overflow-x: auto; border: 1.5px solid rgba(255,255,255,0.06); border-radius: 12px; background: rgba(15,23,42,0.4); box-shadow: 0 4px 15px rgba(0,0,0,0.2);">
+                            <table style="width: 100%; border-collapse: collapse; text-align: left; font-size: 0.9rem; min-width: 650px;">
+                                <thead>
+                                    <tr style="border-bottom: 2px solid rgba(255,255,255,0.15); background: rgba(255,255,255,0.03);">
+                                        <th style="padding: 12px 16px; font-weight: bold; color: var(--accent-teal);">Tuyên ngôn</th>
+                                        <th style="padding: 12px 16px; font-weight: bold; color: #cbd5e1;">Thời điểm</th>
+                                        <th style="padding: 12px 16px; font-weight: bold; color: var(--accent-gold);">Đối tượng chính</th>
+                                        <th style="padding: 12px 16px; font-weight: bold; color: #fff;">Triết lý cốt lõi</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr style="border-bottom: 1px solid rgba(255,255,255,0.06); background: rgba(255,255,255,0.01);">
+                                        <td style="padding: 14px 16px; font-weight: bold; color: #fff;">Lời thề Hippocrates</td>
+                                        <td style="padding: 14px 16px; color: #cbd5e1;">Thế kỷ 5 TCN</td>
+                                        <td style="padding: 14px 16px; font-weight: bold; color: var(--accent-gold);">Bác sĩ</td>
+                                        <td style="padding: 14px 16px; color: #e2e8f0;">Không gây hại - Giữ bí mật y khoa (Cơ sở)</td>
+                                    </tr>
+                                    <tr style="border-bottom: 1px solid rgba(255,255,255,0.06);">
+                                        <td style="padding: 14px 16px; font-weight: bold; color: #fff;">Tuyên ngôn Geneva</td>
+                                        <td style="padding: 14px 16px; color: #cbd5e1;">Năm 1948</td>
+                                        <td style="padding: 14px 16px; font-weight: bold; color: var(--accent-gold);">Bác sĩ</td>
+                                        <td style="padding: 14px 16px; color: #e2e8f0;">Kế thừa tinh thần Lời thề Hippocrates trong thời đại mới</td>
+                                    </tr>
+                                    <tr style="border-bottom: 1px solid rgba(255,255,255,0.06); background: rgba(255,255,255,0.01);">
+                                        <td style="padding: 14px 16px; font-weight: bold; color: #fff;">Tuyên ngôn Helsinki</td>
+                                        <td style="padding: 14px 16px; color: #cbd5e1;">Năm 1964</td>
+                                        <td style="padding: 14px 16px; font-weight: bold; color: var(--accent-gold);">Nhà nghiên cứu</td>
+                                        <td style="padding: 14px 16px; color: #e2e8f0;">Nghiên cứu trên cơ thể người - Đồng ý tự nguyện (Informed Consent)</td>
+                                    </tr>
+                                    <tr style="border-bottom: 1px solid rgba(255,255,255,0.06);">
+                                        <td style="padding: 14px 16px; font-weight: bold; color: #fff;">Tuyên ngôn Lisbon</td>
+                                        <td style="padding: 14px 16px; color: #cbd5e1;">Năm 1981</td>
+                                        <td style="padding: 14px 16px; font-weight: bold; color: var(--accent-gold);">Bệnh nhân</td>
+                                        <td style="padding: 14px 16px; color: #e2e8f0;">Thiết lập Quyền bệnh nhân &amp; Quyền tự quyết</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div style="background: rgba(245, 158, 11, 0.05); border: 1.5px solid var(--accent-gold); border-radius: 12px; padding: 18px; box-shadow: 0 4px 15px rgba(245,158,11,0.15); display: flex; align-items: flex-start; gap: 14px;">
+                            <div style="font-size: 1.4rem; color: var(--accent-gold); margin-top: 2px;">
+                                <i class="fa-solid fa-circle-info"></i>
+                            </div>
+                            <div>
+                                <h5 style="margin: 0 0 6px 0; font-size: 0.95rem; font-weight: bold; color: #fff;">Sự dịch chuyển hoàn toàn của đạo đức</h5>
+                                <p style="margin: 0; font-size: 0.88rem; line-height: 1.6; color: #cbd5e1;">
+                                    Trọng tâm đạo đức y tế đã chuyển dịch hoàn toàn từ mô hình "<strong>bác quyền</strong>" (lấy người thầy thuốc làm trung tâm) sang mô hình "<strong>tự quyết</strong>" (lấy bệnh nhân làm trung tâm).
+                                </p>
+                            </div>
+                        </div>
+                    </div>`
+        }
         }
     };
 
@@ -4183,7 +4826,7 @@ window.initSbo121Simulator = function() {
         
         // Update progress bar width
         if (progressBar) {
-            const percentages = { '1': '0%', '2': '33.3%', '3': '66.6%', '4': '100%' };
+            const percentages = { '1': '0%', '2': '25%', '3': '50%', '4': '75%', '5': '100%' };
             progressBar.style.width = percentages[tabId] || '0%';
         }
 
