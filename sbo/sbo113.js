@@ -553,7 +553,7 @@ window.SBO_TEMPLATES['sbo113'] = `<div id="sbo113" class="sbo-section-wrapper">
                                     <span class="lang-ja">背景と目標：2025年問題への対応と地域完結型への転換</span>
                                     <span class="lang-vi">Bối cảnh &amp; Mục tiêu: Ứng phó vấn đề năm 2025 và chuyển đổi mô hình khu vực</span>
                                 </h3>
-                                <div style="font-size: 0.96rem; line-height: 1.8; color: var(--text-secondary); margin-bottom: 25px;">
+                                <div style="font-size: 0.96rem; line-height: 1.8; color: var(--text-secondary); margin-bottom: 20px;">
                                     <div class="lang-ja">
                                         <p style="margin: 0 0 10px 0;">• <strong>2025年問題への対応：</strong>団塊の世代が75歳以上となる2025年（2025年問題）を目途に、国民の医療や介護の需要が急増することが見込まれています。</p>
                                         <p style="margin: 0 0 10px 0;">• <strong>地域完結型への転換：</strong>これに対応するため、必要とされる医療は従来の病院の中で完結する<strong>「病院完結型」</strong>から、地域全体で治し支える<strong>「地域完結型」</strong>へと転換することが求められています。</p>
@@ -566,96 +566,100 @@ window.SBO_TEMPLATES['sbo113'] = `<div id="sbo113" class="sbo-section-wrapper">
                                     </div>
                                 </div>
 
-                                <!-- Large Full-Width 2025 Timeline Blueprint Diagram -->
-                                <div style="background: #0b1329; border: 1.5px dashed rgba(249, 115, 22, 0.4); border-radius: 12px; padding: 25px; position: relative; overflow-x: auto; font-family: 'Outfit', 'Inter', sans-serif; box-shadow: 0 8px 32px rgba(0,0,0,0.3); width: 100%;">
-                                    <div style="min-width: 580px; position: relative;">
-                                        <!-- Grid pattern background -->
-                                        <div style="position: absolute; inset: 0; background-image: radial-gradient(rgba(249, 115, 22, 0.15) 1px, transparent 0), radial-gradient(rgba(6, 182, 212, 0.1) 1.5px, transparent 0); background-size: 24px 24px; background-position: 0 0, 12px 12px; pointer-events: none; opacity: 0.7;"></div>
+                                <!-- 2025年問題 Diagram (same layout as 医療需要と提供体制の不適合) -->
+                                <div style="display: flex; gap: 25px; align-items: center; justify-content: space-between; flex-wrap: wrap; margin-top: 10px;">
+                                    <!-- Left: 3 context boxes -->
+                                    <div style="flex: 1 1 280px; display: flex; flex-direction: column; gap: 14px;">
+                                        <div style="background: rgba(249, 115, 22, 0.05); border-left: 3px solid #f97316; padding: 12px 15px; border-radius: 0 8px 8px 0;">
+                                            <h4 style="margin: 0 0 5px 0; color: #fb923c; font-size: 0.88rem; font-weight: bold; display: flex; align-items: center; gap: 8px;">
+                                                <i class="fa-regular fa-clock" style="font-size: 0.8rem;"></i>
+                                                <span class="lang-ja">2025年問題</span>
+                                                <span class="lang-vi">Vấn đề năm 2025</span>
+                                            </h4>
+                                            <p style="margin: 0; font-size: 0.78rem; color: #94a3b8; line-height: 1.4;">
+                                                <span class="lang-ja">団塊の世代がすべて75歳以上となり、医療・介護の需要が急増する転換点。</span>
+                                                <span class="lang-vi">Mốc khi toàn bộ baby boomers đều trên 75 tuổi — nhu cầu y tế và điều dưỡng tăng vọt đột biến.</span>
+                                            </p>
+                                        </div>
+                                        <div style="background: rgba(239, 68, 68, 0.05); border-left: 3px solid #ef4444; padding: 12px 15px; border-radius: 0 8px 8px 0;">
+                                            <h4 style="margin: 0 0 5px 0; color: #f87171; font-size: 0.88rem; font-weight: bold; display: flex; align-items: center; gap: 8px;">
+                                                <i class="fa-solid fa-arrow-right-arrow-left" style="font-size: 0.8rem;"></i>
+                                                <span class="lang-ja">病院完結型 → 地域完結型</span>
+                                                <span class="lang-vi">Bệnh viện khép kín → Hoàn thiện khu vực</span>
+                                            </h4>
+                                            <p style="margin: 0; font-size: 0.78rem; color: #94a3b8; line-height: 1.4;">
+                                                <span class="lang-ja">病院の中だけで完結する医療から、地域全体で治し支える「地域完結型」への大転換が必須。</span>
+                                                <span class="lang-vi">Chuyển đổi bắt buộc từ y tế "hoàn tất trong bệnh viện" sang "hoàn thiện trong cộng đồng".</span>
+                                            </p>
+                                        </div>
+                                        <div style="background: rgba(6, 182, 212, 0.05); border-left: 3px solid #06b6d4; padding: 12px 15px; border-radius: 0 8px 8px 0;">
+                                            <h4 style="margin: 0 0 5px 0; color: #22d3ee; font-size: 0.88rem; font-weight: bold; display: flex; align-items: center; gap: 8px;">
+                                                <i class="fa-solid fa-house-chimney-user" style="font-size: 0.8rem;"></i>
+                                                <span class="lang-ja">究極の目標</span>
+                                                <span class="lang-vi">Mục tiêu tối thượng</span>
+                                            </h4>
+                                            <p style="margin: 0; font-size: 0.78rem; color: #94a3b8; line-height: 1.4;">
+                                                <span class="lang-ja">重度な要介護状態となっても、住み慣れた地域で自分らしい暮らしを人生の最後まで続けられるようにする。</span>
+                                                <span class="lang-vi">Dù cần chăm sóc nặng, người cao tuổi vẫn có thể sống theo cách của mình tại khu vực quen thuộc cho đến cuối đời.</span>
+                                            </p>
+                                        </div>
+                                    </div>
 
-                                        <!-- Top Header of Blueprint -->
-                                        <div style="display: flex; justify-content: space-between; align-items: flex-start; z-index: 2; position: relative; margin-bottom: 25px;">
-                                            <span style="color: #ff9f1c; font-size: 1rem; font-weight: 800; text-transform: uppercase; letter-spacing: 1px; border: 1px solid rgba(255, 159, 28, 0.3); padding: 4px 12px; border-radius: 4px; background: rgba(255, 159, 28, 0.05); text-shadow: 0 0 10px rgba(255, 159, 28, 0.2);">
-                                                <span class="lang-ja">2025年問題への対応</span>
-                                                <span class="lang-vi">Ứng phó vấn đề năm 2025</span>
-                                            </span>
-                                            <span style="font-size: 0.6rem; color: rgba(255,255,255,0.4); font-weight: 600; text-align: right; text-transform: uppercase; letter-spacing: 0.5px; line-height: 1.3;">
-                                                ARCHITECTURE OF CARE BLUEPRINT<br>
-                                                <span style="color: #06b6d4;">SHIFT IN PROGRESS: ACTIVATING INTEGRATED COMMUNITY CARE</span>
+                                    <!-- Right: Timeline node diagram -->
+                                    <div style="flex: 1.2 1 350px; background: rgba(15, 23, 42, 0.4); border: 1px solid rgba(255,255,255,0.06); border-radius: 12px; padding: 20px; position: relative; height: 280px; display: flex; align-items: center; justify-content: center; overflow: hidden;">
+                                        <svg style="position: absolute; left: 0; top: 0; width: 100%; height: 100%; pointer-events: none; z-index: 1;" viewBox="0 0 400 280">
+                                            <defs>
+                                                <marker id="timeArrow2025" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
+                                                    <path d="M 0 1.5 L 8 5 L 0 8.5 z" fill="#f97316" />
+                                                </marker>
+                                            </defs>
+                                            <line x1="45" y1="140" x2="355" y2="140" stroke="#f97316" stroke-width="2.5" stroke-linecap="round" marker-end="url(#timeArrow2025)" filter="drop-shadow(0 0 3px rgba(249,115,22,0.5))" />
+                                            <path d="M 195,155 L 195,115 A 20 20 0 0 1 235,115 L 235,155" fill="none" stroke="#f43f5e" stroke-width="2" stroke-dasharray="3 2" />
+                                            <path d="M 240,80 L 310,80" fill="none" stroke="#ef4444" stroke-width="1.8" stroke-dasharray="3 2" marker-end="url(#timeArrow2025)" />
+                                            <path d="M 120,180 L 120,232" fill="none" stroke="#06b6d4" stroke-width="1.8" stroke-dasharray="3 2" />
+                                            <circle cx="120" cy="235" r="3" fill="#06b6d4" />
+                                        </svg>
+
+                                        <!-- 団塊の世代 -->
+                                        <div style="position: absolute; left: 18px; top: 82px; display: flex; flex-direction: column; align-items: center; gap: 6px; z-index: 2;">
+                                            <div style="background: rgba(30, 41, 59, 0.9); border: 1.5px solid rgba(255,255,255,0.15); border-radius: 6px; padding: 4px 10px; font-size: 0.6rem; font-weight: bold; color: #fff; white-space: nowrap;">
+                                                <span class="lang-ja">団塊の世代</span>
+                                                <span class="lang-vi">Baby Boomers</span>
+                                            </div>
+                                            <div style="display: flex; align-items: flex-end; gap: 3px;">
+                                                <i class="fa-solid fa-person-walking-with-cane" style="font-size: 1.8rem; color: #94a3b8; transform: scaleX(-1);"></i>
+                                                <i class="fa-solid fa-person-cane" style="font-size: 1.7rem; color: #cbd5e1; margin-left: -3px;"></i>
+                                                <i class="fa-solid fa-person" style="font-size: 1.6rem; color: #94a3b8; margin-left: -3px;"></i>
+                                            </div>
+                                        </div>
+
+                                        <!-- 75歳↑ -->
+                                        <div style="position: absolute; left: calc(50% - 30px); top: 72px; text-align: center; width: 60px; z-index: 2;">
+                                            <span style="font-size: 0.85rem; font-weight: 900; color: #f43f5e; display: block; text-shadow: 0 0 8px rgba(244,63,94,0.4);">75歳↑</span>
+                                            <span style="font-size: 0.58rem; color: #fda4af; font-weight: bold; text-transform: uppercase;">75+ Years</span>
+                                        </div>
+
+                                        <!-- 2025 Gate -->
+                                        <div style="position: absolute; right: 22px; top: 95px; width: 78px; height: 78px; border-radius: 12px; background: rgba(15, 23, 42, 0.95); border: 2.5px solid #f97316; display: flex; flex-direction: column; align-items: center; justify-content: center; z-index: 2; box-shadow: 0 0 18px rgba(249,115,22,0.4);">
+                                            <span style="font-weight: 900; font-size: 1.6rem; color: #f97316; line-height: 1; text-shadow: 0 0 10px rgba(249,115,22,0.4);">2025</span>
+                                            <span style="font-size: 0.58rem; color: #fff; font-weight: bold; text-transform: uppercase; opacity: 0.8;">
+                                                <span class="lang-ja">年</span>
+                                                <span class="lang-vi">Mốc</span>
                                             </span>
                                         </div>
 
-                                        <!-- Timeline Flow -->
-                                        <div style="position: relative; height: 160px; margin: 15px 0; z-index: 2; display: flex; align-items: center; justify-content: space-between;">
-                                            <!-- SVG Lines & Archways -->
-                                            <svg style="position: absolute; left: 0; top: 0; width: 100%; height: 100%; pointer-events: none; z-index: 1;" viewBox="0 0 580 160" preserveAspectRatio="none">
-                                                <line x1="20" y1="90" x2="550" y2="90" stroke="#f97316" stroke-width="3" stroke-linecap="round" filter="drop-shadow(0 0 4px rgba(249, 115, 22, 0.6))" />
-                                                <polygon points="560,90 548,84 548,96" fill="#f97316" filter="drop-shadow(0 0 4px rgba(249, 115, 22, 0.6))" />
-                                                <path d="M 270 110 L 270 65 A 25 25 0 0 1 320 65 L 320 110" fill="none" stroke="#f43f5e" stroke-width="2.5" stroke-dasharray="2 2" filter="drop-shadow(0 0 5px rgba(244, 63, 94, 0.4))" />
-                                            </svg>
-
-                                            <!-- Left Node (Baby Boomers) -->
-                                            <div style="z-index: 2; display: flex; flex-direction: column; align-items: center; position: absolute; left: 30px; top: 15px;">
-                                                <span style="font-size: 0.9rem; font-weight: bold; color: #fff; background: rgba(30,41,59,0.85); padding: 4px 10px; border-radius: 4px; border: 1px solid rgba(255,255,255,0.15); margin-bottom: 8px;">
-                                                    <span class="lang-ja">団塊の世代</span>
-                                                    <span class="lang-vi">Thế hệ Baby Boomers</span>
-                                                </span>
-                                                <div style="display: flex; align-items: flex-end; gap: 6px; height: 50px;">
-                                                    <i class="fa-solid fa-person-walking-with-cane" style="font-size: 2rem; color: #94a3b8; transform: scaleX(-1);"></i>
-                                                    <i class="fa-solid fa-person-cane" style="font-size: 1.9rem; color: #cbd5e1; margin-left: -5px;"></i>
-                                                    <i class="fa-solid fa-person" style="font-size: 1.8rem; color: #94a3b8; margin-left: -5px;"></i>
-                                                </div>
-                                            </div>
-
-                                            <!-- Middle Arch Node (75+ Years) -->
-                                            <div style="z-index: 2; position: absolute; left: 263px; top: 15px; text-align: center; width: 68px;">
-                                                <span style="font-size: 0.95rem; font-weight: 800; color: #f43f5e; display: block; text-shadow: 0 0 8px rgba(244, 63, 94, 0.4); margin-bottom: 2px;">75歳以上</span>
-                                                <span style="font-size: 0.7rem; color: #fda4af; display: block; font-weight: bold; text-transform: uppercase; letter-spacing: 0.5px;">75+ Years</span>
-                                            </div>
-
-                                            <!-- Right Gate Node (2025 Year) -->
-                                            <div style="z-index: 2; position: absolute; right: 25px; top: 10px; display: flex; flex-direction: column; align-items: center;">
-                                                <div style="width: 90px; height: 90px; border-radius: 12px; background: rgba(15, 23, 42, 0.9); border: 2.5px solid #f97316; display: flex; flex-direction: column; align-items: center; justify-content: center; box-shadow: 0 0 20px rgba(249, 115, 22, 0.4); position: relative; overflow: hidden;">
-                                                    <i class="fa-solid fa-gears" style="position: absolute; right: 6px; top: 6px; font-size: 0.75rem; color: rgba(249, 115, 22, 0.25);"></i>
-                                                    <span style="font-family: 'Outfit', sans-serif; font-weight: 900; font-size: 1.8rem; color: #f97316; text-shadow: 0 0 10px rgba(249, 115, 22, 0.4); letter-spacing: 0.5px;">2025</span>
-                                                    <span style="font-size: 0.6rem; color: #fff; font-weight: bold; text-transform: uppercase; letter-spacing: 0.5px; opacity: 0.8;">
-                                                        <span class="lang-ja">年</span>
-                                                        <span class="lang-vi">Mốc Năm</span>
-                                                    </span>
-                                                </div>
-                                            </div>
+                                        <!-- Conversion badge -->
+                                        <div style="position: absolute; right: 24px; top: 55px; z-index: 3; display: flex; align-items: center; gap: 4px; background: rgba(239, 68, 68, 0.9); border: 1px solid #ef4444; border-radius: 10px; padding: 3px 8px; font-size: 0.56rem; color: #fff; font-weight: bold; white-space: nowrap;">
+                                            <i class="fa-solid fa-arrow-right-arrow-left"></i>
+                                            <span class="lang-ja">地域完結型へ</span>
+                                            <span class="lang-vi">→ 地域完結型</span>
                                         </div>
 
-                                        <!-- Two Explanatory Cards below -->
-                                        <div style="display: flex; gap: 15px; z-index: 2; position: relative; margin-top: 15px; flex-wrap: wrap;">
-                                            <!-- Left: 2025 Problem -->
-                                            <div style="flex: 1 1 240px; background: rgba(30, 41, 59, 0.7); border: 1px solid rgba(249, 115, 22, 0.35); border-radius: 8px; padding: 15px; box-shadow: 0 4px 15px rgba(0,0,0,0.25);">
-                                                <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 8px;">
-                                                    <i class="fa-regular fa-clock" style="color: #ff9f1c; font-size: 1.1rem;"></i>
-                                                    <span style="font-weight: 800; color: #ff9f1c; font-size: 0.9rem;">
-                                                        <span class="lang-ja">2025年問題</span>
-                                                        <span class="lang-vi">Vấn đề năm 2025</span>
-                                                    </span>
-                                                </div>
-                                                <p style="margin: 0; font-size: 0.8rem; color: #cbd5e1; line-height: 1.5;">
-                                                    <span class="lang-ja">団塊の世代がすべて75歳以上となる2025年を目途とする。</span>
-                                                    <span class="lang-vi">Hướng tới mốc năm 2025, khi toàn bộ thế hệ bùng nổ dân số (baby boomers) bước sang tuổi 75 trở lên.</span>
-                                                </p>
-                                            </div>
-
-                                            <!-- Right: Ultimate Goal -->
-                                            <div style="flex: 1.2 1 270px; background: rgba(30, 41, 59, 0.7); border: 1px solid rgba(6, 182, 212, 0.35); border-radius: 8px; padding: 15px; box-shadow: 0 4px 15px rgba(0,0,0,0.25);">
-                                                <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 8px;">
-                                                    <i class="fa-solid fa-house-chimney-user" style="color: #06b6d4; font-size: 1.1rem;"></i>
-                                                    <span style="font-weight: 800; color: #06b6d4; font-size: 0.9rem;">
-                                                        <span class="lang-ja">究極の目標</span>
-                                                        <span class="lang-vi">Mục tiêu tối thượng</span>
-                                                    </span>
-                                                </div>
-                                                <p style="margin: 0; font-size: 0.8rem; color: #cbd5e1; line-height: 1.5;">
-                                                    <span class="lang-ja">重度な要介護状態となっても、住み慣れた地域で自分らしい暮らしを人生の最後まで続けることを目標とする。</span>
-                                                    <span class="lang-vi">Dù ở trong tình trạng cần chăm sóc nặng, người cao tuổi vẫn có thể tự lập tại nơi ở quen thuộc cho đến cuối đời.</span>
-                                                </p>
-                                            </div>
+                                        <!-- Goal badge -->
+                                        <div style="position: absolute; left: 22px; bottom: 20px; right: 22px; z-index: 3; display: flex; align-items: center; gap: 6px; background: rgba(6, 182, 212, 0.12); border: 1px solid rgba(6, 182, 212, 0.4); border-radius: 8px; padding: 6px 10px; font-size: 0.62rem; color: #22d3ee; font-weight: bold;">
+                                            <i class="fa-solid fa-house-chimney-user" style="flex-shrink: 0;"></i>
+                                            <span class="lang-ja">住み慣れた地域で、自分らしい暮らしを最後まで</span>
+                                            <span class="lang-vi">Sống tự lập tại khu vực quen thuộc đến cuối đời</span>
                                         </div>
                                     </div>
                                 </div>

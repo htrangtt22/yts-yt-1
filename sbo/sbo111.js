@@ -105,7 +105,7 @@ window.SBO_TEMPLATES['sbo111'] = `<div id="sbo111" class="sbo-section-wrapper">
                     }
 
                     .switch-label {
-                        font-size: 0.72rem;
+                        font-size: 0.82rem;
                         color: #cbd5e1;
                         font-weight: 700;
                         text-align: center;
@@ -170,7 +170,7 @@ window.SBO_TEMPLATES['sbo111'] = `<div id="sbo111" class="sbo-section-wrapper">
                     }
 
                     .old-concept-desc {
-                        font-size: 0.82rem;
+                        font-size: 0.92rem;
                         color: var(--text-muted);
                         text-align: center;
                         line-height: 1.5;
@@ -293,7 +293,7 @@ window.SBO_TEMPLATES['sbo111'] = `<div id="sbo111" class="sbo-section-wrapper">
                     }
 
                     .bubble-desc-footer {
-                        font-size: 0.8rem;
+                        font-size: 0.88rem;
                         color: var(--text-muted);
                         line-height: 1.5;
                         margin-top: 8px;
@@ -305,7 +305,7 @@ window.SBO_TEMPLATES['sbo111'] = `<div id="sbo111" class="sbo-section-wrapper">
                         border-radius: 6px;
                         background: rgba(255,255,255,0.02);
                         border: 1px dashed rgba(255,255,255,0.08);
-                        font-size: 0.82rem;
+                        font-size: 0.88rem;
                         color: var(--accent-teal);
                         display: flex;
                         align-items: center;
@@ -478,7 +478,7 @@ window.SBO_TEMPLATES['sbo111'] = `<div id="sbo111" class="sbo-section-wrapper">
                     }
 
                     .ottawa-menu-item-desc {
-                        font-size: 0.78rem;
+                        font-size: 0.9rem;
                         color: var(--text-muted);
                         margin-top: 4px;
                         line-height: 1.4;
@@ -580,7 +580,7 @@ window.SBO_TEMPLATES['sbo111'] = `<div id="sbo111" class="sbo-section-wrapper">
                     }
 
                     .prereq-block-label {
-                        font-size: 0.72rem;
+                        font-size: 0.82rem;
                         font-weight: bold;
                         color: var(--text-secondary);
                     }
@@ -655,7 +655,7 @@ window.SBO_TEMPLATES['sbo111'] = `<div id="sbo111" class="sbo-section-wrapper">
                     }
 
                     .strategy-pillar-desc {
-                        font-size: 0.76rem;
+                        font-size: 0.9rem;
                         line-height: 1.45;
                         color: var(--text-secondary);
                     }
@@ -707,14 +707,14 @@ window.SBO_TEMPLATES['sbo111'] = `<div id="sbo111" class="sbo-section-wrapper">
                     }
 
                     .action-gear-title {
-                        font-size: 0.85rem;
+                        font-size: 0.95rem;
                         font-weight: bold;
                         color: #fff;
                         margin-bottom: 2px;
                     }
 
                     .action-gear-desc {
-                        font-size: 0.76rem;
+                        font-size: 0.9rem;
                         color: var(--text-secondary);
                         line-height: 1.35;
                     }
@@ -750,7 +750,7 @@ window.SBO_TEMPLATES['sbo111'] = `<div id="sbo111" class="sbo-section-wrapper">
                         left: 50%;
                         transform: translateX(-50%);
                         white-space: nowrap;
-                        font-size: 0.74rem;
+                        font-size: 0.82rem;
                         color: #ef4444;
                         font-weight: 700;
                         background: rgba(15, 23, 42, 0.9);
@@ -776,7 +776,7 @@ window.SBO_TEMPLATES['sbo111'] = `<div id="sbo111" class="sbo-section-wrapper">
                         display: flex;
                         align-items: center;
                         justify-content: center; /* Centered horizontally */
-                        font-size: 0.8rem;
+                        font-size: 0.88rem;
                         font-weight: 700;
                         color: #fff;
                         white-space: nowrap;
@@ -927,7 +927,7 @@ window.SBO_TEMPLATES['sbo111'] = `<div id="sbo111" class="sbo-section-wrapper">
                                     <h4 id="prev-lvl-title" style="margin-top: 0; color: #10b981; font-size: 0.96rem; line-height: 1.4; display: flex; align-items: center; gap: 8px; font-weight: 700;">
                                         一次予防：健康増進・疾病予防・事故予防
                                     </h4>
-                                    <p id="prev-lvl-body" style="font-size: 0.9rem; line-height: 1.7; color: var(--text-secondary); margin-top: 8px; margin-bottom: 0; white-space: pre-line;">
+                                    <p id="prev-lvl-body" style="font-size: 0.96rem; line-height: 1.8; color: var(--text-secondary); margin-top: 8px; margin-bottom: 0; white-space: pre-line;">
                                         健康な人を対象に、生活習慣や環境の改善、予防接種等を通じて、病気やケガを未然に防ぎます。
                                     </p>
                                 </div>
@@ -1317,7 +1317,7 @@ window.SBO_TEMPLATES['sbo111'] = `<div id="sbo111" class="sbo-section-wrapper">
                                 <span class="lang-vi">Hiệu ứng Domino: Từ phát bệnh đến trạng thái cần Kaigo (Chăm sóc điều dưỡng)</span>
                             </h3>
 
-                            <p style="color: var(--text-secondary); font-size: 0.94rem; margin-bottom: 25px; position: relative; z-index: 2;">
+                            <p style="color: var(--text-secondary); font-size: 0.96rem; margin-bottom: 25px; position: relative; z-index: 2;">
                                 <span class="lang-ja">不健康な生活習慣のドミノが倒れると、連鎖的に生活習慣病が発症し、最終的に要介護状態へと転落します。各タイルをクリックして詳細を確認してください。</span>
                                 <span class="lang-vi">Khi quân cờ domino lối sống không lành mạnh ngã xuống, nó sẽ kéo theo chuỗi phát sinh bệnh mạn tính và cuối cùng rơi vào trạng thái cần điều dưỡng. Hãy click từng quân cờ để xem chi tiết.</span>
                             </p>
@@ -1460,7 +1460,7 @@ window.SBO_TEMPLATES['sbo111'] = `<div id="sbo111" class="sbo-section-wrapper">
                                         <span class="lang-ja">一次予防への注力</span>
                                         <span class="lang-vi">Tập trung Dự phòng cấp 1</span>
                                     </h4>
-                                    <p style="margin: 0; font-size: 0.88rem; line-height: 1.6; color: var(--text-secondary);">
+                                    <p style="margin: 0; font-size: 0.96rem; line-height: 1.8; color: var(--text-secondary);">
                                         <span class="lang-ja">病気になった後の治療（Cure）だけではなく、食事や運動習慣の改善により発病そのものを防ぐ対策を強力に推進します。</span>
                                         <span class="lang-vi">Thay vì chỉ tập trung điều trị (Cure) khi đã có bệnh, cần cải thiện chế độ ăn uống, thói quen vận động để ngăn ngừa nguy cơ khởi phát bệnh ngay từ đầu.</span>
                                     </p>
@@ -1470,7 +1470,7 @@ window.SBO_TEMPLATES['sbo111'] = `<div id="sbo111" class="sbo-section-wrapper">
                                         <span class="lang-ja">健康寿命のさらなる延伸</span>
                                         <span class="lang-vi">Kéo dài tuổi thọ khỏe mạnh</span>
                                     </h4>
-                                    <p style="margin: 0; font-size: 0.88rem; line-height: 1.6; color: var(--text-secondary);">
+                                    <p style="margin: 0; font-size: 0.96rem; line-height: 1.8; color: var(--text-secondary);">
                                         <span class="lang-ja">現代医療の最大の目標は、単に平均寿命（生命の長さ）を延ばすことではなく、日常生活が制限されることなく自立して生活できる「健康寿命」を平均寿命以上のスピードで延伸させることです。</span>
                                         <span class="lang-vi">Mục tiêu lớn nhất của y tế hiện đại không chỉ đơn thuần là kéo dài tuổi thọ trung bình, mà là kéo dài tốc độ tăng trưởng của "Tuổi thọ khỏe mạnh" nhanh hơn tốc độ tăng tuổi thọ trung bình.</span>
                                     </p>
@@ -1480,7 +1480,7 @@ window.SBO_TEMPLATES['sbo111'] = `<div id="sbo111" class="sbo-section-wrapper">
                                         <span class="lang-ja">要介護期間 (レッドゾーン) の圧縮</span>
                                         <span class="lang-vi">Nén chặt thời gian cần điều dưỡng</span>
                                     </h4>
-                                    <p style="margin: 0; font-size: 0.88rem; line-height: 1.6; color: var(--text-secondary);">
+                                    <p style="margin: 0; font-size: 0.96rem; line-height: 1.8; color: var(--text-secondary);">
                                         <span class="lang-ja">平均寿命と健康寿命の間にある「赤い領域（要介護期間）」を可能な限り圧縮（縮小）することこそが、個人のQOL向上と社会保障制度の持続可能性を両立させる唯一の解です。</span>
                                         <span class="lang-vi">Việc thu hẹp và nén chặt "vùng đỏ" (khoảng cách cần chăm sóc Kaigo) là giải pháp duy nhất giúp vừa nâng cao chất lượng cuộc sống (QOL) cá nhân, vừa đảm bảo tính bền vững của quỹ an sinh xã hội.</span>
                                     </p>
@@ -1674,7 +1674,7 @@ window.SBO_TEMPLATES['sbo111'] = `<div id="sbo111" class="sbo-section-wrapper">
                                          <span class="lang-ja">最大の目標：「健康寿命の延伸」と「健康格差の縮小」</span>
                                          <span class="lang-vi">Mục tiêu tối thượng: "Kéo dài tuổi thọ khỏe mạnh" &amp; "Thu hẹp khoảng cách sức khỏe"</span>
                                      </h3>
-                                     <p style="margin: 0; font-size: 0.9rem; color: var(--text-secondary); line-height: 1.6; font-weight: 500;">
+                                     <p style="margin: 0; font-size: 0.96rem; color: var(--text-secondary); line-height: 1.8; font-weight: 500;">
                                          <span class="lang-ja">第一次予防を重視した国民健康づくり運動</span>
                                          <span class="lang-vi">Phong trào nâng cao sức khỏe quốc dân chú trọng Dự phòng cấp 1</span>
                                      </p>
