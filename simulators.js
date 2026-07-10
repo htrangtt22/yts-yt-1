@@ -4709,114 +4709,7 @@ window.initSbo121Simulator = function() {
                                 </div>
                             </div>
                         </div>
-                    </div>`,
-        '5': {
-            color: 'var(--accent-gold)',
-            titleJa: '比較まとめ：医の倫理の変遷',
-            titleVi: 'So sánh & Tổng kết: Sự tiến triển của Đạo đức Y học',
-            bodyJa: `<div style="display: flex; flex-direction: column; gap: 20px; width: 100%;">
-                        <div style="width: 100%; overflow-x: auto; border: 1.5px solid rgba(255,255,255,0.06); border-radius: 12px; background: rgba(15,23,42,0.4); box-shadow: 0 4px 15px rgba(0,0,0,0.2);">
-                            <table style="width: 100%; border-collapse: collapse; text-align: left; font-size: 0.9rem; min-width: 650px;">
-                                <thead>
-                                    <tr style="border-bottom: 2px solid rgba(255,255,255,0.15); background: rgba(255,255,255,0.03);">
-                                        <th style="padding: 12px 16px; font-weight: bold; color: var(--accent-teal);">宣言名</th>
-                                        <th style="padding: 12px 16px; font-weight: bold; color: #cbd5e1;">年代</th>
-                                        <th style="padding: 12px 16px; font-weight: bold; color: var(--accent-gold);">主な対象</th>
-                                        <th style="padding: 12px 16px; font-weight: bold; color: #fff;">核心となる理念</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr style="border-bottom: 1px solid rgba(255,255,255,0.06); background: rgba(255,255,255,0.01);">
-                                        <td style="padding: 14px 16px; font-weight: bold; color: #fff;">ヒポクラテスの誓い</td>
-                                        <td style="padding: 14px 16px; color: #cbd5e1;">紀元前5世紀</td>
-                                        <td style="padding: 14px 16px; font-weight: bold; color: var(--accent-gold);">医師</td>
-                                        <td style="padding: 14px 16px; color: #e2e8f0;">危害を加えない・守秘義務（基礎）</td>
-                                    </tr>
-                                    <tr style="border-bottom: 1px solid rgba(255,255,255,0.06);">
-                                        <td style="padding: 14px 16px; font-weight: bold; color: #fff;">ジュネーブ宣言</td>
-                                        <td style="padding: 14px 16px; color: #cbd5e1;">1948年</td>
-                                        <td style="padding: 14px 16px; font-weight: bold; color: var(--accent-gold);">医師</td>
-                                        <td style="padding: 14px 16px; color: #e2e8f0;">ヒポクラテスの誓いの現代的継承</td>
-                                    </tr>
-                                    <tr style="border-bottom: 1px solid rgba(255,255,255,0.06); background: rgba(255,255,255,0.01);">
-                                        <td style="padding: 14px 16px; font-weight: bold; color: #fff;">ヘルシンキ宣言</td>
-                                        <td style="padding: 14px 16px; color: #cbd5e1;">1964年</td>
-                                        <td style="padding: 14px 16px; font-weight: bold; color: var(--accent-gold);">研究者</td>
-                                        <td style="padding: 14px 16px; color: #e2e8f0;">ヒトを対象とする医学研究・インフォームドコンセント</td>
-                                    </tr>
-                                    <tr style="border-bottom: 1px solid rgba(255,255,255,0.06);">
-                                        <td style="padding: 14px 16px; font-weight: bold; color: #fff;">リスボン宣言</td>
-                                        <td style="padding: 14px 16px; color: #cbd5e1;">1981年</td>
-                                        <td style="padding: 14px 16px; font-weight: bold; color: var(--accent-gold);">患者</td>
-                                        <td style="padding: 14px 16px; color: #e2e8f0;">患者の権利・自己決定権の確立</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                        <div style="background: rgba(245, 158, 11, 0.05); border: 1.5px solid var(--accent-gold); border-radius: 12px; padding: 18px; box-shadow: 0 4px 15px rgba(245,158,11,0.15); display: flex; align-items: flex-start; gap: 14px;">
-                            <div style="font-size: 1.4rem; color: var(--accent-gold); margin-top: 2px;">
-                                <i class="fa-solid fa-circle-info"></i>
-                            </div>
-                            <div>
-                                <h5 style="margin: 0 0 6px 0; font-size: 0.95rem; font-weight: bold; color: #fff;">倫理の軸足の完全な移行</h5>
-                                <p style="margin: 0; font-size: 0.88rem; line-height: 1.6; color: #cbd5e1;">
-                                    医師中心の「<strong>パターナリズム</strong>」から、患者中心の「<strong>自律（Autonomy）</strong>」へと倫理の軸足が完全に移行しました。
-                                </p>
-                            </div>
-                        </div>
-                    </div>`,
-            bodyVi: `<div style="display: flex; flex-direction: column; gap: 20px; width: 100%;">
-                        <div style="width: 100%; overflow-x: auto; border: 1.5px solid rgba(255,255,255,0.06); border-radius: 12px; background: rgba(15,23,42,0.4); box-shadow: 0 4px 15px rgba(0,0,0,0.2);">
-                            <table style="width: 100%; border-collapse: collapse; text-align: left; font-size: 0.9rem; min-width: 650px;">
-                                <thead>
-                                    <tr style="border-bottom: 2px solid rgba(255,255,255,0.15); background: rgba(255,255,255,0.03);">
-                                        <th style="padding: 12px 16px; font-weight: bold; color: var(--accent-teal);">Tuyên ngôn</th>
-                                        <th style="padding: 12px 16px; font-weight: bold; color: #cbd5e1;">Thời điểm</th>
-                                        <th style="padding: 12px 16px; font-weight: bold; color: var(--accent-gold);">Đối tượng chính</th>
-                                        <th style="padding: 12px 16px; font-weight: bold; color: #fff;">Triết lý cốt lõi</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr style="border-bottom: 1px solid rgba(255,255,255,0.06); background: rgba(255,255,255,0.01);">
-                                        <td style="padding: 14px 16px; font-weight: bold; color: #fff;">Lời thề Hippocrates</td>
-                                        <td style="padding: 14px 16px; color: #cbd5e1;">Thế kỷ 5 TCN</td>
-                                        <td style="padding: 14px 16px; font-weight: bold; color: var(--accent-gold);">Bác sĩ</td>
-                                        <td style="padding: 14px 16px; color: #e2e8f0;">Không gây hại - Giữ bí mật y khoa (Cơ sở)</td>
-                                    </tr>
-                                    <tr style="border-bottom: 1px solid rgba(255,255,255,0.06);">
-                                        <td style="padding: 14px 16px; font-weight: bold; color: #fff;">Tuyên ngôn Geneva</td>
-                                        <td style="padding: 14px 16px; color: #cbd5e1;">Năm 1948</td>
-                                        <td style="padding: 14px 16px; font-weight: bold; color: var(--accent-gold);">Bác sĩ</td>
-                                        <td style="padding: 14px 16px; color: #e2e8f0;">Kế thừa tinh thần Lời thề Hippocrates trong thời đại mới</td>
-                                    </tr>
-                                    <tr style="border-bottom: 1px solid rgba(255,255,255,0.06); background: rgba(255,255,255,0.01);">
-                                        <td style="padding: 14px 16px; font-weight: bold; color: #fff;">Tuyên ngôn Helsinki</td>
-                                        <td style="padding: 14px 16px; color: #cbd5e1;">Năm 1964</td>
-                                        <td style="padding: 14px 16px; font-weight: bold; color: var(--accent-gold);">Nhà nghiên cứu</td>
-                                        <td style="padding: 14px 16px; color: #e2e8f0;">Nghiên cứu trên cơ thể người - Đồng ý tự nguyện (Informed Consent)</td>
-                                    </tr>
-                                    <tr style="border-bottom: 1px solid rgba(255,255,255,0.06);">
-                                        <td style="padding: 14px 16px; font-weight: bold; color: #fff;">Tuyên ngôn Lisbon</td>
-                                        <td style="padding: 14px 16px; color: #cbd5e1;">Năm 1981</td>
-                                        <td style="padding: 14px 16px; font-weight: bold; color: var(--accent-gold);">Bệnh nhân</td>
-                                        <td style="padding: 14px 16px; color: #e2e8f0;">Thiết lập Quyền bệnh nhân &amp; Quyền tự quyết</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                        <div style="background: rgba(245, 158, 11, 0.05); border: 1.5px solid var(--accent-gold); border-radius: 12px; padding: 18px; box-shadow: 0 4px 15px rgba(245,158,11,0.15); display: flex; align-items: flex-start; gap: 14px;">
-                            <div style="font-size: 1.4rem; color: var(--accent-gold); margin-top: 2px;">
-                                <i class="fa-solid fa-circle-info"></i>
-                            </div>
-                            <div>
-                                <h5 style="margin: 0 0 6px 0; font-size: 0.95rem; font-weight: bold; color: #fff;">Sự dịch chuyển hoàn toàn của đạo đức</h5>
-                                <p style="margin: 0; font-size: 0.88rem; line-height: 1.6; color: #cbd5e1;">
-                                    Trọng tâm đạo đức y tế đã chuyển dịch hoàn toàn từ mô hình "<strong>bác quyền</strong>" (lấy người thầy thuốc làm trung tâm) sang mô hình "<strong>tự quyết</strong>" (lấy bệnh nhân làm trung tâm).
-                                </p>
-                            </div>
-                        </div>
                     </div>`
-        }
         }
     };
 
@@ -4826,7 +4719,7 @@ window.initSbo121Simulator = function() {
         
         // Update progress bar width
         if (progressBar) {
-            const percentages = { '1': '0%', '2': '25%', '3': '50%', '4': '75%', '5': '100%' };
+            const percentages = { '1': '0%', '2': '33.3%', '3': '66.6%', '4': '100%' };
             progressBar.style.width = percentages[tabId] || '0%';
         }
 

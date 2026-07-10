@@ -214,8 +214,6 @@ window.SBO_TEMPLATES['sbo121'] = `<div id="sbo121" class="sbo-section-wrapper">
                             </div>
                         </div>
 
-                        </div>
-
                         <!-- 2. Recent Changes in Medical Ethics (Visual Grid of 5 items) -->
                         <h3 style="color: #fff; font-size: 1.15rem; margin-top: 30px; margin-bottom: 18px; font-weight: 600; display: flex; align-items: center; gap: 8px;">
                             <i class="fa-solid fa-rotate" style="color: var(--accent-gold);"></i>
@@ -223,7 +221,27 @@ window.SBO_TEMPLATES['sbo121'] = `<div id="sbo121" class="sbo-section-wrapper">
                             <span class="lang-vi">Những thay đổi của đạo đức y học trong những năm gần đây</span>
                         </h3>
 
-                                                <div class="sbo121-grid-container" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 20px; width: 100%; margin-bottom: 30px; box-sizing: border-box;">
+                                                <style>
+                            .sbo121-grid-container {
+                                display: grid;
+                                grid-template-columns: repeat(3, 1fr);
+                                gap: 20px;
+                                width: 100%;
+                                margin-bottom: 30px;
+                                box-sizing: border-box;
+                            }
+                            @media (max-width: 991px) {
+                                .sbo121-grid-container {
+                                    grid-template-columns: repeat(2, 1fr) !important;
+                                }
+                            }
+                            @media (max-width: 600px) {
+                                .sbo121-grid-container {
+                                    grid-template-columns: 1fr !important;
+                                }
+                            }
+                        </style>
+                        <div class="sbo121-grid-container">
                             
                             <!-- Item 1: Shift from Paternalism to Autonomy -->
                             <div class="card glass-card" style="border-left: 4px solid var(--accent-gold); padding: 25px; display: flex; align-items: flex-start; gap: 16px; margin-bottom: 0; box-sizing: border-box; width: 100%;">
@@ -299,6 +317,8 @@ window.SBO_TEMPLATES['sbo121'] = `<div id="sbo121" class="sbo-section-wrapper">
                                     </div>
                                 </div>
                             </div>
+                        </div> <!-- Close grid container -->
+                    </div> <!-- Close section container -->
                 </section>
 
                 <!-- Part II: Các Tuyên ngôn cốt lõi định hình Đạo đức Y học (Interactive Timeline) -->
@@ -324,7 +344,7 @@ window.SBO_TEMPLATES['sbo121'] = `<div id="sbo121" class="sbo-section-wrapper">
                             <div style="display: flex; justify-content: space-between; position: relative; z-index: 2; width: 100%;" id="sbo121-dec-tabs-group">
                                 
                                 <!-- Milestone 1 -->
-                                <button type="button" class="sbo121-timeline-node" data-sbo121-dec-tab="1" style="background: none; border: none; outline: none; cursor: pointer; display: flex; flex-direction: column; align-items: center; gap: 8px; width: 18%;">
+                                <button type="button" class="sbo121-timeline-node" data-sbo121-dec-tab="1" style="background: none; border: none; outline: none; cursor: pointer; display: flex; flex-direction: column; align-items: center; gap: 8px; width: 22%;">
                                     <div class="node-circle" style="width: 50px; height: 50px; border-radius: 50%; background: rgba(15,23,42,0.8); border: 2px solid rgba(255,255,255,0.15); display: flex; align-items: center; justify-content: center; font-size: 0.95rem; font-weight: bold; color: var(--text-muted); transition: all 0.3s ease; box-shadow: 0 0 15px rgba(0,0,0,0.5);">BC 5</div>
                                     <span style="font-size: 0.95rem; font-weight: 600; color: var(--text-secondary); text-align: center; transition: all 0.3s ease;">
                                         <span class="lang-ja">ヒポクラテス</span>
@@ -333,7 +353,7 @@ window.SBO_TEMPLATES['sbo121'] = `<div id="sbo121" class="sbo-section-wrapper">
                                 </button>
 
                                 <!-- Milestone 2 -->
-                                <button type="button" class="sbo121-timeline-node" data-sbo121-dec-tab="2" style="background: none; border: none; outline: none; cursor: pointer; display: flex; flex-direction: column; align-items: center; gap: 8px; width: 18%;">
+                                <button type="button" class="sbo121-timeline-node" data-sbo121-dec-tab="2" style="background: none; border: none; outline: none; cursor: pointer; display: flex; flex-direction: column; align-items: center; gap: 8px; width: 22%;">
                                     <div class="node-circle" style="width: 50px; height: 50px; border-radius: 50%; background: rgba(15,23,42,0.8); border: 2px solid rgba(255,255,255,0.15); display: flex; align-items: center; justify-content: center; font-size: 0.95rem; font-weight: bold; color: var(--text-muted); transition: all 0.3s ease; box-shadow: 0 0 15px rgba(0,0,0,0.5);">1948</div>
                                     <span style="font-size: 0.95rem; font-weight: 600; color: var(--text-secondary); text-align: center; transition: all 0.3s ease;">
                                         <span class="lang-ja">ジュネーブ</span>
@@ -342,7 +362,7 @@ window.SBO_TEMPLATES['sbo121'] = `<div id="sbo121" class="sbo-section-wrapper">
                                 </button>
 
                                 <!-- Milestone 3 -->
-                                <button type="button" class="sbo121-timeline-node" data-sbo121-dec-tab="3" style="background: none; border: none; outline: none; cursor: pointer; display: flex; flex-direction: column; align-items: center; gap: 8px; width: 18%;">
+                                <button type="button" class="sbo121-timeline-node" data-sbo121-dec-tab="3" style="background: none; border: none; outline: none; cursor: pointer; display: flex; flex-direction: column; align-items: center; gap: 8px; width: 22%;">
                                     <div class="node-circle" style="width: 50px; height: 50px; border-radius: 50%; background: rgba(15,23,42,0.8); border: 2px solid rgba(255,255,255,0.15); display: flex; align-items: center; justify-content: center; font-size: 0.95rem; font-weight: bold; color: var(--text-muted); transition: all 0.3s ease; box-shadow: 0 0 15px rgba(0,0,0,0.5);">1964</div>
                                     <span style="font-size: 0.95rem; font-weight: 600; color: var(--text-secondary); text-align: center; transition: all 0.3s ease;">
                                         <span class="lang-ja">ヘルシンキ</span>
@@ -351,20 +371,11 @@ window.SBO_TEMPLATES['sbo121'] = `<div id="sbo121" class="sbo-section-wrapper">
                                 </button>
 
                                 <!-- Milestone 4 -->
-                                <button type="button" class="sbo121-timeline-node" data-sbo121-dec-tab="4" style="background: none; border: none; outline: none; cursor: pointer; display: flex; flex-direction: column; align-items: center; gap: 8px; width: 18%;">
+                                <button type="button" class="sbo121-timeline-node" data-sbo121-dec-tab="4" style="background: none; border: none; outline: none; cursor: pointer; display: flex; flex-direction: column; align-items: center; gap: 8px; width: 22%;">
                                     <div class="node-circle" style="width: 50px; height: 50px; border-radius: 50%; background: rgba(15,23,42,0.8); border: 2px solid rgba(255,255,255,0.15); display: flex; align-items: center; justify-content: center; font-size: 0.95rem; font-weight: bold; color: var(--text-muted); transition: all 0.3s ease; box-shadow: 0 0 15px rgba(0,0,0,0.5);">1981</div>
                                     <span style="font-size: 0.95rem; font-weight: 600; color: var(--text-secondary); text-align: center; transition: all 0.3s ease;">
                                         <span class="lang-ja">リスボン</span>
                                         <span class="lang-vi">Lisbon</span>
-                                    </span>
-                                </button>
-
-                                <!-- Milestone 5 -->
-                                <button type="button" class="sbo121-timeline-node" data-sbo121-dec-tab="5" style="background: none; border: none; outline: none; cursor: pointer; display: flex; flex-direction: column; align-items: center; gap: 8px; width: 18%;">
-                                    <div class="node-circle" style="width: 50px; height: 50px; border-radius: 50%; background: rgba(15,23,42,0.8); border: 2px solid rgba(255,255,255,0.15); display: flex; align-items: center; justify-content: center; font-size: 0.95rem; font-weight: bold; color: var(--text-muted); transition: all 0.3s ease; box-shadow: 0 0 15px rgba(0,0,0,0.5);">比較</div>
-                                    <span style="font-size: 0.95rem; font-weight: 600; color: var(--text-secondary); text-align: center; transition: all 0.3s ease;">
-                                        <span class="lang-ja">比較まとめ</span>
-                                        <span class="lang-vi">So sánh</span>
                                     </span>
                                 </button>
 
@@ -375,6 +386,140 @@ window.SBO_TEMPLATES['sbo121'] = `<div id="sbo121" class="sbo-section-wrapper">
                         <div class="card glass-card" id="sbo121-dec-details-panel"
                             style="padding: 30px; border-top: 5px solid var(--accent-teal); background: rgba(255, 255, 255, 0.02); min-height: 220px; display: flex; flex-direction: column; justify-content: flex-start; transition: all 0.3s ease; border-radius: 12px; box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);">
                             <!-- Dynamic content loaded dynamically -->
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Part III: Comparison Summary Section (Separate box) -->
+                <section id="sbo121-comparison-summary" class="section">
+                    <div class="container">
+                        <div class="section-badge">
+                            <span class="lang-ja">比較まとめ</span>
+                            <span class="lang-vi">Bảng tổng kết so sánh</span>
+                        </div>
+                        <h2 class="section-title">
+                            <span class="lang-ja">主要な宣言の比較と倫理の変遷</span>
+                            <span class="lang-vi">So sánh các Tuyên ngôn &amp; Sự chuyển dịch Đạo đức</span>
+                        </h2>
+
+                        <div class="card glass-card" style="width: 100%; padding: 30px; border-top: 5px solid var(--accent-gold); background: rgba(255, 255, 255, 0.02); border-radius: 12px; box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1); box-sizing: border-box;">
+                            
+                            <div style="width: 100%; overflow-x: auto; border: 1.5px solid rgba(255,255,255,0.06); border-radius: 12px; background: rgba(15,23,42,0.4); box-shadow: 0 4px 15px rgba(0,0,0,0.2); margin-bottom: 25px;">
+                                <table style="width: 100%; border-collapse: collapse; text-align: left; font-size: 0.92rem; min-width: 650px;">
+                                    <thead>
+                                        <tr style="border-bottom: 2px solid rgba(255,255,255,0.15); background: rgba(255,255,255,0.03);">
+                                            <th style="padding: 14px 18px; font-weight: bold; color: var(--accent-teal);">
+                                                <span class="lang-ja">宣言名</span>
+                                                <span class="lang-vi">Tuyên ngôn</span>
+                                            </th>
+                                            <th style="padding: 14px 18px; font-weight: bold; color: #cbd5e1;">
+                                                <span class="lang-ja">年代</span>
+                                                <span class="lang-vi">Thời điểm</span>
+                                            </th>
+                                            <th style="padding: 14px 18px; font-weight: bold; color: var(--accent-gold);">
+                                                <span class="lang-ja">主な対象</span>
+                                                <span class="lang-vi">Đối tượng chính</span>
+                                            </th>
+                                            <th style="padding: 14px 18px; font-weight: bold; color: #fff;">
+                                                <span class="lang-ja">核心となる理念</span>
+                                                <span class="lang-vi">Triết lý cốt lõi</span>
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr style="border-bottom: 1px solid rgba(255,255,255,0.06); background: rgba(255,255,255,0.01);">
+                                            <td style="padding: 16px 18px; font-weight: bold; color: #fff;">
+                                                <span class="lang-ja">ヒポクラテスの誓い</span>
+                                                <span class="lang-vi">Lời thề Hippocrates</span>
+                                            </td>
+                                            <td style="padding: 16px 18px; color: #cbd5e1;">
+                                                <span class="lang-ja">紀元前5世紀</span>
+                                                <span class="lang-vi">Thế kỷ 5 TCN</span>
+                                            </td>
+                                            <td style="padding: 16px 18px; font-weight: bold; color: var(--accent-gold);">
+                                                <span class="lang-ja">医師</span>
+                                                <span class="lang-vi">Bác sĩ</span>
+                                            </td>
+                                            <td style="padding: 16px 18px; color: #e2e8f0;">
+                                                <span class="lang-ja">危害を加えない・守秘義務（基礎）</span>
+                                                <span class="lang-vi">Không gây hại - Giữ bí mật y khoa (Cơ sở)</span>
+                                            </td>
+                                        </tr>
+                                        <tr style="border-bottom: 1px solid rgba(255,255,255,0.06);">
+                                            <td style="padding: 16px 18px; font-weight: bold; color: #fff;">
+                                                <span class="lang-ja">ジュネーブ宣言</span>
+                                                <span class="lang-vi">Tuyên ngôn Geneva</span>
+                                            </td>
+                                            <td style="padding: 16px 18px; color: #cbd5e1;">
+                                                <span class="lang-ja">1948年</span>
+                                                <span class="lang-vi">Năm 1948</span>
+                                            </td>
+                                            <td style="padding: 16px 18px; font-weight: bold; color: var(--accent-gold);">
+                                                <span class="lang-ja">医師</span>
+                                                <span class="lang-vi">Bác sĩ</span>
+                                            </td>
+                                            <td style="padding: 16px 18px; color: #e2e8f0;">
+                                                <span class="lang-ja">ヒポクラテスの誓いの現代的継承</span>
+                                                <span class="lang-vi">Kế thừa tinh thần Lời thề Hippocrates trong thời đại mới</span>
+                                            </td>
+                                        </tr>
+                                        <tr style="border-bottom: 1px solid rgba(255,255,255,0.06); background: rgba(255,255,255,0.01);">
+                                            <td style="padding: 16px 18px; font-weight: bold; color: #fff;">
+                                                <span class="lang-ja">ヘルシンキ宣言</span>
+                                                <span class="lang-vi">Tuyên ngôn Helsinki</span>
+                                            </td>
+                                            <td style="padding: 16px 18px; color: #cbd5e1;">
+                                                <span class="lang-ja">1964年</span>
+                                                <span class="lang-vi">Năm 1964</span>
+                                            </td>
+                                            <td style="padding: 16px 18px; font-weight: bold; color: var(--accent-gold);">
+                                                <span class="lang-ja">研究者</span>
+                                                <span class="lang-vi">Nhà nghiên cứu</span>
+                                            </td>
+                                            <td style="padding: 16px 18px; color: #e2e8f0;">
+                                                <span class="lang-ja">ヒトを対象とする医学研究・インフォームドコンセント</span>
+                                                <span class="lang-vi">Nghiên cứu trên cơ thể người - Đồng ý tự nguyện (Informed Consent)</span>
+                                            </td>
+                                        </tr>
+                                        <tr style="border-bottom: 1px solid rgba(255,255,255,0.06);">
+                                            <td style="padding: 16px 18px; font-weight: bold; color: #fff;">
+                                                <span class="lang-ja">リスボン宣言</span>
+                                                <span class="lang-vi">Tuyên ngôn Lisbon</span>
+                                            </td>
+                                            <td style="padding: 16px 18px; color: #cbd5e1;">
+                                                <span class="lang-ja">1981年</span>
+                                                <span class="lang-vi">Năm 1981</span>
+                                            </td>
+                                            <td style="padding: 16px 18px; font-weight: bold; color: var(--accent-gold);">
+                                                <span class="lang-ja">患者</span>
+                                                <span class="lang-vi">Bệnh nhân</span>
+                                            </td>
+                                            <td style="padding: 16px 18px; color: #e2e8f0;">
+                                                <span class="lang-ja">患者の権利・自己決定権の確立</span>
+                                                <span class="lang-vi">Thiết lập Quyền bệnh nhân &amp; Quyền tự quyết</span>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+
+                            <!-- Conclusion Box -->
+                            <div style="background: rgba(245, 158, 11, 0.05); border: 1.5px solid var(--accent-gold); border-radius: 12px; padding: 20px; box-shadow: 0 4px 15px rgba(245,158,11,0.15); display: flex; align-items: flex-start; gap: 14px;">
+                                <div style="font-size: 1.5rem; color: var(--accent-gold); margin-top: 2px;">
+                                    <i class="fa-solid fa-circle-info"></i>
+                                </div>
+                                <div>
+                                    <h5 style="margin: 0 0 8px 0; font-size: 1rem; font-weight: bold; color: #fff;">
+                                        <span class="lang-ja">倫理の軸足の完全な移行</span>
+                                        <span class="lang-vi">Sự dịch chuyển hoàn toàn của Đạo đức Y học</span>
+                                    </h5>
+                                    <p style="margin: 0; font-size: 0.92rem; line-height: 1.6; color: #cbd5e1;">
+                                        <span class="lang-ja">医師中心の「<strong>パターナリズム</strong>」から、患者中心の「<strong>自律（Autonomy）</strong>」へと倫理の軸足が完全に移行しました。</span>
+                                        <span class="lang-vi">Trọng tâm đạo đức y tế đã chuyển dịch hoàn toàn từ mô hình "<strong>bác quyền</strong>" (lấy người thầy thuốc làm trung tâm) sang mô hình "<strong>tự quyết</strong>" (lấy bệnh nhân làm trung tâm).</span>
+                                    </p>
+                                </div>
+                            </div>
+
                         </div>
                     </div>
                 </section>
