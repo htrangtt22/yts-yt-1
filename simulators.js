@@ -464,6 +464,66 @@ document.addEventListener('DOMContentLoaded', () => {
                 }, 150);
             });
         });
+
+        // 9d. Two Wheels (Vault vs Transparent) Interactive Logic
+        const wheelLeft = container.querySelector('#sbo122-wheel-left');
+        const wheelRight = container.querySelector('#sbo122-wheel-right');
+        const wheelDetailsCard = container.querySelector('#sbo122-wheel-details-card');
+
+        const sbo122WheelsData = {
+            left: {
+                title: { ja: '守秘・保護 (Vault)', vi: 'Bảo vệ / Phòng thủ (Vault)' },
+                desc: {
+                    ja: '外部からの脅威や不正利用に対する厳重な情報セキュリティ管理。厳格な法規範に基づく個人情報保護法等の遵守。',
+                    vi: 'Quản lý bảo mật thông tin nghiêm ngặt chống lại các mối đe dọa bên ngoài và lạm dụng dữ liệu. Tuân thủ pháp luật về bảo vệ thông tin cá nhân.'
+                },
+                color: 'var(--accent-gold)',
+                border: '5px solid var(--accent-gold)'
+            },
+            right: {
+                title: { ja: '開示・共有 (Transparent)', vi: 'Công khai / Chia sẻ (Transparent)' },
+                desc: {
+                    ja: '本来の持ち主（患者）に対する自由なアクセス権の行使と開示。信頼関係とインフォームド・コンセントを前提とした主体的な情報共有。',
+                    vi: 'Thực thi quyền truy cập tự do và công khai đối với chủ sở hữu thực sự là bệnh nhân. Chủ động chia sẻ thông tin dựa trên niềm tin và đồng ý sau giải thích.'
+                },
+                color: 'var(--accent-teal)',
+                border: '5px solid var(--accent-teal)'
+            }
+        };
+
+        function updateWheelDetails(side) {
+            const data = sbo122WheelsData[side];
+            if (data && wheelDetailsCard) {
+                wheelDetailsCard.style.borderLeft = data.border;
+                wheelDetailsCard.innerHTML = `
+                    <h4 style="color: ${data.color}; margin-top: 0; margin-bottom: 10px;">
+                        <i class="fa-solid ${side === 'left' ? 'fa-vault' : 'fa-eye'}" style="margin-right: 8px;"></i>
+                        <span class="lang-ja">${data.title.ja}</span>
+                        <span class="lang-vi">${data.title.vi}</span>
+                    </h4>
+                    <p class="small-desc" style="color: var(--text-secondary); line-height: 1.8; margin: 0;">
+                        <span class="lang-ja">${data.desc.ja}</span>
+                        <span class="lang-vi">${data.desc.vi}</span>
+                    </p>
+                `;
+            }
+        }
+
+        // Initialize with Left wheel details by default
+        updateWheelDetails('left');
+
+        if (wheelLeft && wheelRight) {
+            wheelLeft.addEventListener('click', () => {
+                wheelLeft.classList.add('active');
+                wheelRight.classList.remove('active');
+                updateWheelDetails('left');
+            });
+            wheelRight.addEventListener('click', () => {
+                wheelRight.classList.add('active');
+                wheelLeft.classList.remove('active');
+                updateWheelDetails('right');
+            });
+        }
     };
     // --- SBO 1.2.3: Interactive Matrix and Stepper Logic ---
     const sbo123MatrixData = {

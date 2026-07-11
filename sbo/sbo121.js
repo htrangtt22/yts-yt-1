@@ -224,27 +224,45 @@ window.SBO_TEMPLATES['sbo121'] = `<div id="sbo121" class="sbo-section-wrapper">
                                                 <style>
                             .sbo121-grid-container {
                                 display: grid;
-                                grid-template-columns: repeat(3, 1fr);
+                                grid-template-columns: repeat(6, 1fr);
                                 gap: 20px;
                                 width: 100%;
                                 margin-bottom: 30px;
                                 box-sizing: border-box;
                             }
+                            .sbo121-grid-card-3col {
+                                grid-column: span 2;
+                            }
+                            .sbo121-grid-card-2col {
+                                grid-column: span 3;
+                            }
                             @media (max-width: 991px) {
                                 .sbo121-grid-container {
-                                    grid-template-columns: repeat(2, 1fr) !important;
+                                    grid-template-columns: repeat(4, 1fr) !important;
+                                }
+                                .sbo121-grid-card-3col {
+                                    grid-column: span 2 !important;
+                                }
+                                .sbo121-grid-card-2col {
+                                    grid-column: span 2 !important;
                                 }
                             }
                             @media (max-width: 600px) {
                                 .sbo121-grid-container {
                                     grid-template-columns: 1fr !important;
                                 }
+                                .sbo121-grid-card-3col {
+                                    grid-column: span 1 !important;
+                                }
+                                .sbo121-grid-card-2col {
+                                    grid-column: span 1 !important;
+                                }
                             }
                         </style>
                         <div class="sbo121-grid-container">
                             
                             <!-- Item 1: Shift from Paternalism to Autonomy -->
-                            <div class="card glass-card" style="border-left: 4px solid var(--accent-gold); padding: 25px; display: flex; align-items: flex-start; gap: 16px; margin-bottom: 0; box-sizing: border-box; width: 100%;">
+                            <div class="card glass-card sbo121-grid-card-3col" style="border-left: 4px solid var(--accent-gold); padding: 25px; display: flex; align-items: flex-start; gap: 16px; margin-bottom: 0; box-sizing: border-box; width: 100%;">
                                 <div style="font-size: 1.5rem; color: var(--accent-gold); margin-top: 2px;"><i class="fa-solid fa-circle-user"></i></div>
                                 <div style="display: flex; flex-direction: column; justify-content: flex-start;">
                                     <h4 style="color: var(--accent-gold); margin-top: 0; margin-bottom: 10px; font-size: 1.05rem; font-weight: 600;">
@@ -259,7 +277,7 @@ window.SBO_TEMPLATES['sbo121'] = `<div id="sbo121" class="sbo-section-wrapper">
                             </div>
 
                             <!-- Item 2: Patient rights -->
-                            <div class="card glass-card" style="border-left: 4px solid var(--accent-teal); padding: 25px; display: flex; align-items: flex-start; gap: 16px; margin-bottom: 0; box-sizing: border-box; width: 100%;">
+                            <div class="card glass-card sbo121-grid-card-3col" style="border-left: 4px solid var(--accent-teal); padding: 25px; display: flex; align-items: flex-start; gap: 16px; margin-bottom: 0; box-sizing: border-box; width: 100%;">
                                 <div style="font-size: 1.5rem; color: var(--accent-teal); margin-top: 2px;"><i class="fa-solid fa-shield-halved"></i></div>
                                 <div style="display: flex; flex-direction: column; justify-content: flex-start;">
                                     <h4 style="color: var(--accent-teal); margin-top: 0; margin-bottom: 10px; font-size: 1.05rem; font-weight: 600;">
@@ -274,7 +292,7 @@ window.SBO_TEMPLATES['sbo121'] = `<div id="sbo121" class="sbo-section-wrapper">
                             </div>
 
                             <!-- Item 3: Advanced medical tech -->
-                            <div class="card glass-card" style="border-left: 4px solid var(--accent-gold); padding: 25px; display: flex; align-items: flex-start; gap: 16px; margin-bottom: 0; box-sizing: border-box; width: 100%;">
+                            <div class="card glass-card sbo121-grid-card-3col" style="border-left: 4px solid var(--accent-gold); padding: 25px; display: flex; align-items: flex-start; gap: 16px; margin-bottom: 0; box-sizing: border-box; width: 100%;">
                                 <div style="font-size: 1.5rem; color: var(--accent-gold); margin-top: 2px;"><i class="fa-solid fa-vial-virus"></i></div>
                                 <div style="display: flex; flex-direction: column; justify-content: flex-start;">
                                     <h4 style="color: var(--accent-gold); margin-top: 0; margin-bottom: 10px; font-size: 1.05rem; font-weight: 600;">
@@ -289,7 +307,7 @@ window.SBO_TEMPLATES['sbo121'] = `<div id="sbo121" class="sbo-section-wrapper">
                             </div>
 
                             <!-- Item 4: IRB -->
-                            <div class="card glass-card" style="border-left: 4px solid var(--accent-teal); padding: 25px; display: flex; align-items: flex-start; gap: 16px; margin-bottom: 0; box-sizing: border-box; width: 100%;">
+                            <div class="card glass-card sbo121-grid-card-2col" style="border-left: 4px solid var(--accent-teal); padding: 25px; display: flex; align-items: flex-start; gap: 16px; margin-bottom: 0; box-sizing: border-box; width: 100%;">
                                 <div style="font-size: 1.5rem; color: var(--accent-teal); margin-top: 2px;"><i class="fa-solid fa-users-viewfinder"></i></div>
                                 <div style="display: flex; flex-direction: column; justify-content: flex-start;">
                                     <h4 style="color: var(--accent-teal); margin-top: 0; margin-bottom: 10px; font-size: 1.05rem; font-weight: 600;">
@@ -304,7 +322,7 @@ window.SBO_TEMPLATES['sbo121'] = `<div id="sbo121" class="sbo-section-wrapper">
                             </div>
 
                             <!-- Item 5: Ethics Education -->
-                            <div class="card glass-card" style="border-left: 4px solid #a855f7; padding: 25px; display: flex; align-items: flex-start; gap: 16px; margin-bottom: 0; box-sizing: border-box; width: 100%;">
+                            <div class="card glass-card sbo121-grid-card-2col" style="border-left: 4px solid #a855f7; padding: 25px; display: flex; align-items: flex-start; gap: 16px; margin-bottom: 0; box-sizing: border-box; width: 100%;">
                                 <div style="font-size: 1.5rem; color: #c084fc; margin-top: 2px;"><i class="fa-solid fa-graduation-cap"></i></div>
                                 <div style="display: flex; flex-direction: column; justify-content: flex-start;">
                                     <h4 style="color: #c084fc; margin-top: 0; margin-bottom: 10px; font-size: 1.05rem; font-weight: 600;">
@@ -384,23 +402,17 @@ window.SBO_TEMPLATES['sbo121'] = `<div id="sbo121" class="sbo-section-wrapper">
 
                         <!-- Details Display Card Below -->
                         <div class="card glass-card" id="sbo121-dec-details-panel"
-                            style="padding: 30px; border-top: 5px solid var(--accent-teal); background: rgba(255, 255, 255, 0.02); min-height: 220px; display: flex; flex-direction: column; justify-content: flex-start; transition: all 0.3s ease; border-radius: 12px; box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);">
+                            style="padding: 30px; border-top: 5px solid var(--accent-teal); background: rgba(255, 255, 255, 0.02); min-height: 220px; display: flex; flex-direction: column; justify-content: flex-start; transition: all 0.3s ease; border-radius: 12px; box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1); margin-bottom: 40px;">
                             <!-- Dynamic content loaded dynamically -->
                         </div>
-                    </div>
-                </section>
 
-                <!-- Part III: Comparison Summary Section (Separate box) -->
-                <section id="sbo121-comparison-summary" class="section">
-                    <div class="container">
-                        <div class="section-badge">
-                            <span class="lang-ja">比較まとめ</span>
-                            <span class="lang-vi">Bảng tổng kết so sánh</span>
-                        </div>
-                        <h2 class="section-title">
-                            <span class="lang-ja">主要な宣言の比較と倫理の変遷</span>
-                            <span class="lang-vi">So sánh các Tuyên ngôn &amp; Sự chuyển dịch Đạo đức</span>
-                        </h2>
+                        <!-- Comparison Summary (Still inside declarations section!) -->
+                        <div style="margin-top: 40px;">
+                            <h3 style="color: #fff; font-size: 1.15rem; margin-top: 0; margin-bottom: 18px; font-weight: 600; display: flex; align-items: center; gap: 8px;">
+                                <i class="fa-solid fa-code-compare" style="color: var(--accent-gold);"></i>
+                                <span class="lang-ja">主要な宣言の比較と倫理の変遷</span>
+                                <span class="lang-vi">So sánh các Tuyên ngôn &amp; Sự chuyển dịch Đạo đức</span>
+                            </h3>
 
                         <div class="card glass-card" style="width: 100%; padding: 30px; border-top: 5px solid var(--accent-gold); background: rgba(255, 255, 255, 0.02); border-radius: 12px; box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1); box-sizing: border-box;">
                             
@@ -522,5 +534,6 @@ window.SBO_TEMPLATES['sbo121'] = `<div id="sbo121" class="sbo-section-wrapper">
 
                         </div>
                     </div>
-                </section>
-                </div>`;
+                    </div> <!-- Close container -->
+                </section> <!-- Close section declarations -->
+                </div> <!-- Close wrapper -->`;

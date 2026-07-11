@@ -15,118 +15,313 @@ window.SBO_TEMPLATES['sbo122'] = `<div id="sbo122" class="sbo-section-wrapper">
                 <span class="lang-vi">Quyền riêng tư và Nghĩa vụ bảo mật</span>
             </h2>
             
-            <!-- Triết lý song hành -->
-            <div class="card glass-card sub-module-card" style="margin-top: 15px; margin-bottom: 25px;">
-                <div class="sub-module-badge">
+            <!-- SECTION: Two Wheels of Confidentiality & Disclosure (Interactive Visualizer) -->
+            <div class="card glass-card sub-module-card" style="margin-top: 15px; margin-bottom: 25px; padding: 25px; box-sizing: border-box; width: 100%;">
+                <div style="font-size: 0.82rem; font-weight: 700; text-transform: uppercase; color: var(--accent-gold); letter-spacing: 0.5px; margin-bottom: 8px;">
                     <span class="lang-ja">核心理念：表裏一体の両輪</span>
                     <span class="lang-vi">Triết lý cốt lõi: Hai mặt song hành</span>
                 </div>
-                <h3>
+                
+                <h3 style="margin-top: 0; margin-bottom: 12px; font-size: 1.15rem; color: #fff;">
                     <span class="lang-ja">「隠す」ことと「見せる」ことは、相反する概念ではない</span>
                     <span class="lang-vi">"Che giấu" và "Công khai" không phải là các khái niệm đối lập</span>
                 </h3>
-                <p class="small-desc" style="margin-bottom: 20px;">
-                    <span class="lang-ja">「個人情報の厳重な保護」と「積極的な情報開示」は、現代の「患者中心の医療」を実現するための表裏一体の両輪です。</span>
-                    <span class="lang-vi">Bảo vệ nghiêm ngặt thông tin cá nhân và chủ động công khai thông tin tuy có vẻ mâu thuẫn nhưng thực chất là hai bánh xe cùng lăn để hiện thực hóa Y tế lấy bệnh nhân làm trung tâm.</span>
+                <p class="small-desc" style="margin-bottom: 20px; color: var(--text-secondary); line-height: 1.6;">
+                    <span class="lang-ja">「個人情報の厳重な保護」と「積極的な情報開示」は、現代の「患者中心の医療」を実現するために同じ速度で回転するべき「表裏一体の両輪」です。どちらか一方が欠けても、医療の質（カート）は前に進みません。</span>
+                    <span class="lang-vi">"Bảo vệ nghiêm ngặt thông tin cá nhân" và "Chủ động công khai thông tin" là hai bánh xe của một cỗ xe. Cả hai phải quay cùng tốc độ để thúc đẩy nền y tế lấy bệnh nhân làm trung tâm tiến về phía trước.</span>
                 </p>
-                <div class="grid-2col">
-                    <div class="card glass-card shadow-card" style="border-left: 4px solid var(--accent-gold); background: rgba(234, 179, 8, 0.01); text-align: left; padding: 20px;">
-                        <h4 style="color: var(--accent-gold); margin-bottom: 10px;">
-                            <i class="fa-solid fa-vault" style="margin-right: 8px;"></i>
-                            <span class="lang-ja">守秘・保護 (Vault)</span>
-                            <span class="lang-vi">Bảo vệ / Phòng thủ (Vault)</span>
-                        </h4>
-                        <p class="small-desc" style="color: var(--text-secondary); line-height: 1.8; margin: 0;">
-                            <span class="lang-ja">外部からの脅威や不正利用に対する厳重な情報セキュリティ管理。厳格な法規範に基づく個人情報保護法等の遵守。</span>
-                            <span class="lang-vi">Quản lý bảo mật thông tin nghiêm ngặt chống lại các mối đe dọa bên ngoài và lạm dụng dữ liệu. Tuân thủ pháp luật về bảo vệ thông tin cá nhân.</span>
-                        </p>
+
+                <!-- Interactive Chassis & Wheels Graphic -->
+                <div style="background: rgba(15, 23, 42, 0.4); border-radius: 16px; padding: 30px 20px; border: 1px solid rgba(255,255,255,0.04); margin-bottom: 25px; display: flex; flex-direction: column; align-items: center; justify-content: center; box-sizing: border-box; width: 100%;">
+                    
+                    <!-- SVG Visualizer -->
+                    <div style="position: relative; width: 100%; max-width: 500px; height: 160px; margin: 10px 0;">
+                        <!-- Connection Shaft (Chassis) -->
+                        <rect x="100" y="72" width="300" height="16" rx="4" fill="rgba(255,255,255,0.1)" stroke="rgba(255,255,255,0.2)" stroke-width="1.5" />
+                        <line x1="100" y1="80" x2="400" y2="80" stroke="#38bdf8" stroke-width="2" stroke-dasharray="8 6" style="animation: shaft-pulse 2s linear infinite;" />
+
+                        <!-- Center Carriage (Patient Centricity) -->
+                        <g transform="translate(180, 45)">
+                            <rect x="0" y="0" width="140" height="54" rx="8" fill="#0f172a" stroke="#0ea5e9" stroke-width="2" filter="drop-shadow(0 0 8px rgba(14,165,233,0.3))" />
+                            <text x="70" y="24" fill="#38bdf8" font-size="10.5" font-weight="900" text-anchor="middle" letter-spacing="0.5">患者中心の医療</text>
+                            <text x="70" y="40" fill="#94a3b8" font-size="8" font-weight="700" text-anchor="middle">Patient-Centric Care</text>
+                        </g>
+
+                        <!-- Left Wheel (Vault) - Interactive Group -->
+                        <div id="sbo122-wheel-left" class="sbo122-interactive-wheel active" style="position: absolute; left: 50px; top: 30px; width: 100px; height: 100px; cursor: pointer; transition: all 0.3s ease;">
+                            <svg width="100" height="100" viewBox="0 0 100 100" style="overflow: visible;">
+                                <!-- Glowing Outer Ring -->
+                                <circle cx="50" cy="50" r="44" fill="rgba(15,23,42,0.9)" stroke="var(--accent-gold)" stroke-width="2.5" class="wheel-ring" style="transition: all 0.3s ease;" />
+                                <!-- Spoke indicators -->
+                                <line x1="50" y1="6" x2="50" y2="94" stroke="rgba(234, 179, 8, 0.4)" stroke-width="1.5" class="wheel-spokes" />
+                                <line x1="6" y1="50" x2="94" y2="50" stroke="rgba(234, 179, 8, 0.4)" stroke-width="1.5" class="wheel-spokes" />
+                                <circle cx="50" cy="50" r="32" fill="#1e293b" stroke="var(--accent-gold)" stroke-width="1.5" />
+                                <!-- Icon in center -->
+                                <g transform="translate(38, 38)">
+                                    <path d="M6 2a4 4 0 0 0-4 4v12a4 4 0 0 0 4 4h12a4 4 0 0 0 4-4V6a4 4 0 0 0-4-4H6zm0 2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2z" fill="var(--accent-gold)"/>
+                                    <circle cx="12" cy="12" r="3" fill="var(--accent-gold)" />
+                                </g>
+                            </svg>
+                            <!-- Tooltip/Label -->
+                            <div style="position: absolute; bottom: -24px; left: 50%; transform: translateX(-50%); white-space: nowrap; font-size: 0.8rem; font-weight: bold; color: var(--accent-gold);">守秘・保護 (Vault)</div>
+                        </div>
+
+                        <!-- Right Wheel (Transparent) - Interactive Group -->
+                        <div id="sbo122-wheel-right" class="sbo122-interactive-wheel" style="position: absolute; right: 50px; top: 30px; width: 100px; height: 100px; cursor: pointer; transition: all 0.3s ease;">
+                            <svg width="100" height="100" viewBox="0 0 100 100" style="overflow: visible;">
+                                <!-- Glowing Outer Ring -->
+                                <circle cx="50" cy="50" r="44" fill="rgba(15,23,42,0.9)" stroke="var(--accent-teal)" stroke-width="2.5" class="wheel-ring" style="transition: all 0.3s ease;" />
+                                <!-- Spoke indicators -->
+                                <line x1="50" y1="6" x2="50" y2="94" stroke="rgba(45, 212, 191, 0.4)" stroke-width="1.5" class="wheel-spokes" />
+                                <line x1="6" y1="50" x2="94" y2="50" stroke="rgba(45, 212, 191, 0.4)" stroke-width="1.5" class="wheel-spokes" />
+                                <circle cx="50" cy="50" r="32" fill="#1e293b" stroke="var(--accent-teal)" stroke-width="1.5" />
+                                <!-- Icon in center -->
+                                <g transform="translate(38, 38)">
+                                    <path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z" fill="var(--accent-teal)" />
+                                </g>
+                            </svg>
+                            <!-- Tooltip/Label -->
+                            <div style="position: absolute; bottom: -24px; left: 50%; transform: translateX(-50%); white-space: nowrap; font-size: 0.8rem; font-weight: bold; color: var(--accent-teal);">開示・共有 (Transparent)</div>
+                        </div>
+
                     </div>
-                    <div class="card glass-card shadow-card" style="border-left: 4px solid var(--accent-teal); background: rgba(6, 182, 212, 0.01); text-align: left; padding: 20px;">
-                        <h4 style="color: var(--accent-teal); margin-bottom: 10px;">
-                            <i class="fa-solid fa-eye" style="margin-right: 8px;"></i>
-                            <span class="lang-ja">開示・共有 (Transparent)</span>
-                            <span class="lang-vi">Công khai / Chia sẻ (Transparent)</span>
-                        </h4>
-                        <p class="small-desc" style="color: var(--text-secondary); line-height: 1.8; margin: 0;">
-                            <span class="lang-ja">本来の持ち主（患者）に対する自由なアクセス権の行使と開示。信頼関係とインフォームド・コンセントを前提とした主体的な情報共有。</span>
-                            <span class="lang-vi">Thực thi quyền truy cập tự do và công khai đối với chủ sở hữu thực sự là bệnh nhân. Chủ động chia sẻ thông tin dựa trên niềm tin và đồng ý sau giải thích.</span>
-                        </p>
-                    </div>
+
+                    <style>
+                        @keyframes shaft-pulse {
+                            0% { stroke-dashoffset: 0; }
+                            100% { stroke-dashoffset: 28; }
+                        }
+                        @keyframes wheel-spin-clockwise {
+                            0% { transform: rotate(0deg); }
+                            100% { transform: rotate(360deg); }
+                        }
+                        .sbo122-interactive-wheel.active .wheel-spokes {
+                            transform-origin: 50px 50px;
+                            animation: wheel-spin-clockwise 10s linear infinite;
+                        }
+                        .sbo122-interactive-wheel.active .wheel-ring {
+                            stroke-width: 4px;
+                            filter: drop-shadow(0 0 6px var(--accent-gold));
+                        }
+                        #sbo122-wheel-right.active .wheel-ring {
+                            filter: drop-shadow(0 0 6px var(--accent-teal));
+                        }
+                    </style>
+
                 </div>
+
+                <!-- Display Box for Active Wheel details -->
+                <div id="sbo122-wheel-details-card" class="card glass-card text-left" style="padding: 24px; border-left: 5px solid var(--accent-gold); background: rgba(255,255,255,0.02); transition: all 0.3s ease; box-sizing: border-box; width: 100%;">
+                    <!-- Details content injected dynamically by JS -->
+                </div>
+
             </div>
-
-            <!-- Sự khác biệt giữa "Thông tin cá nhân" và "Quyền riêng tư" -->
-            <div class="grid-2col" style="gap: 20px; margin-bottom: 25px;">
-                <div class="card glass-card text-left" style="padding: 20px;">
-                    <h3 style="color: var(--accent-teal); margin-top: 0; font-size: 1.1rem; display: flex; align-items: center; gap: 8px;">
-                        <i class="fa-solid fa-id-card"></i>
-                        <span class="lang-ja">「個人情報」と「プライバシー」の概念の違い</span>
-                        <span class="lang-vi">Sự khác biệt giữa "Thông tin cá nhân" và "Quyền riêng tư"</span>
-                    </h3>
-                    <p class="small-desc" style="line-height: 1.7; color: var(--text-secondary); min-height: 70px;">
-                        <span class="lang-ja">「個人情報保護」と同様に「プライバシー保護」という表現がみられるが、これらは異なる概念である。<strong>「個人情報」</strong>とは「特定の個人を識別できる情報」であり、本人がその情報を開示しないでほしいか否かは問わない。</span>
-                        <span class="lang-vi">Khái niệm "Thông tin cá nhân" và "Quyền riêng tư" thường được sử dụng song song nhưng mang ý nghĩa khác nhau. **"Thông tin cá nhân" (個人情報)** là những thông tin có thể nhận diện được một cá nhân cụ thể, bất kể bản thân người đó có muốn công khai thông tin đó hay không.</span>
-                    </p>
-                    <div style="background: rgba(255,255,255,0.02); border-radius: 6px; padding: 12px; font-size: 0.85rem; border: 1px solid rgba(255,255,255,0.05); margin-top: 10px;">
-                        <span class="lang-ja"><strong>個人情報（特定の個人を識別できる情報）：</strong> 氏名、住所、生年月日、基礎年金番号、カルテ番号など</span>
-                        <span class="lang-vi"><strong>Thông tin cá nhân (Nhận diện cá nhân cụ thể):</strong> Họ tên, địa chỉ, ngày sinh, số định danh lương hưu, mã bệnh án...</span>
-                    </div>
-                </div>
-
-                <div class="card glass-card text-left" style="padding: 20px;">
-                    <h3 style="color: var(--accent-gold); margin-top: 0; font-size: 1.1rem; display: flex; align-items: center; gap: 8px;">
-                        <i class="fa-solid fa-user-lock"></i>
-                        <span class="lang-ja">プライバシーにかかわる情報</span>
-                        <span class="lang-vi">Quyền riêng tư (Thông tin riêng tư)</span>
-                    </h3>
-                    <p class="small-desc" style="line-height: 1.7; color: var(--text-secondary); min-height: 70px;">
-                        <span class="lang-ja">これに対し、<strong>「プライバシーにかかわる情報」</strong>とは、「本人がその情報を開示しないで欲しいであろうと考えられる情報」を指す。本人の主観的な「開示への非同意（知られたくない）」に重点があります。</span>
-                        <span class="lang-vi">Trong khi đó, **"Quyền riêng tư" (プライバシー)** đề cập đến những thông tin mà bản thân người đó không mong muốn người khác biết hoặc bị công khai. Trọng tâm nằm ở mong muốn chủ quan của cá nhân đối với việc không đồng ý công khai.</span>
-                    </p>
-                    <div style="background: rgba(255,255,255,0.02); border-radius: 6px; padding: 12px; font-size: 0.85rem; border: 1px solid rgba(255,255,255,0.05); margin-top: 10px;">
-                        <span class="lang-ja"><strong>プライバシー情報（本人が開示しないで欲しい情報）：</strong> 病歴、遺伝情報、身体的特徴、他人に知られたくない私生活 of 事実</span>
-                        <span class="lang-vi"><strong>Thông tin riêng tư (Không mong muốn bị công khai):</strong> Lịch sử bệnh án, thông tin di truyền, đặc điểm cơ thể, đời tư cá nhân...</span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Nghĩa vụ bảo mật của nhân viên y tế -->
-            <div class="card glass-card text-left" style="padding: 25px; border-left: 4px solid #ef4444; background: rgba(239, 68, 68, 0.01); margin-bottom: 25px;">
-                <h3 style="color: #ef4444; margin-top: 0; font-size: 1.15rem; display: flex; align-items: center; gap: 8px;">
-                    <i class="fa-solid fa-gavel"></i>
-                    <span class="lang-ja">医療従事者の守秘義務と患者の権利</span>
-                    <span class="lang-vi">Nghĩa vụ bảo mật của nhân viên y tế và Quyền của bệnh nhân</span>
+            
+            <!-- SECTION I-1: Comparison of "Personal Information" vs "Privacy" -->
+            <div style="text-align: center; margin-bottom: 12px; margin-top: 10px;">
+                <h3 style="color: #fff; font-size: 1.15rem; font-weight: 600; display: inline-flex; align-items: center; gap: 8px;">
+                    <i class="fa-solid fa-scale-unbalanced" style="color: var(--accent-gold);"></i>
+                    <span class="lang-ja">概念の違い：「個人情報」対「プライバシー」</span>
+                    <span class="lang-vi">Khác biệt khái niệm: "Thông tin cá nhân" vs "Quyền riêng tư"</span>
                 </h3>
-                <p class="small-desc" style="line-height: 1.8; color: var(--text-secondary); margin-bottom: 15px;">
-                    <span class="lang-ja">診療情報を扱う上で、<strong>守秘義務は医療者に課せられる義務であり、プライバシーは患者の権利である</strong>。医療従事者にはモラルと各専門職に定められた法規範（刑法や医師法など）により厳格な守秘義務があり、患者の秘密は堅く守られている。</span>
-                    <span class="lang-vi">Trong quá trình xử lý thông tin khám chữa bệnh, **bảo mật là một nghĩa vụ bắt buộc đối với người cung cấp dịch vụ y tế, còn quyền riêng tư là quyền lợi của bệnh nhân**. Các nhân viên y tế luôn bị ràng buộc bởi nghĩa vụ bảo mật nghiêm ngặt dựa trên đạo đức nghề nghiệp cũng như các quy phạm pháp luật được quy định riêng cho từng lĩnh vực chuyên môn (chẳng hạn như Luật Hình sự hay Luật Bác sĩ). Nhờ đó, những bí mật của bệnh nhân luôn được bảo vệ một cách chặt chẽ.</span>
-                </p>
-                <div class="grid-2col" style="gap: 15px;">
-                    <div style="background: rgba(0,0,0,0.15); padding: 15px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.05);">
-                        <div style="font-weight: bold; color: #fca5a5; margin-bottom: 8px; font-size: 0.9rem;">
-                            <i class="fa-solid fa-scale-balanced" style="margin-right: 6px;"></i>
-                            <span class="lang-ja">刑法第134条（秘密漏示罪）</span>
-                            <span class="lang-vi">Luật Hình sự Điều 134 (Tội tiết lộ bí mật)</span>
-                        </div>
-                        <p class="small-desc" style="margin: 0; line-height: 1.6; font-size: 0.88rem; color: var(--text-muted);">
-                            <span class="lang-ja">正当な理由なく、業務上で知り得た患者の秘密を漏らした医療者に対して刑事罰が科されます。</span>
-                            <span class="lang-vi">Xử phạt hình sự đối với nhân viên y tế tự ý tiết lộ bí mật của người bệnh biết được trong lúc hành nghề mà không có lý do chính đáng.</span>
-                        </p>
-                    </div>
-                    <div style="background: rgba(0,0,0,0.15); padding: 15px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.05);">
-                        <div style="font-weight: bold; color: #fca5a5; margin-bottom: 8px; font-size: 0.9rem;">
-                            <i class="fa-solid fa-book-medical" style="margin-right: 6px;"></i>
-                            <span class="lang-ja">医師法第23条 などの資格法</span>
-                            <span class="lang-vi">Luật Bác sĩ Điều 23 và các luật chuyên ngành</span>
-                        </div>
-                        <p class="small-desc" style="margin: 0; line-height: 1.6; font-size: 0.88rem; color: var(--text-muted);">
-                            <span class="lang-ja">医師、看護師、薬剤師などの各プロフェッショナル資格法にて、秘密保持が法律上の義務として義務づけられています。</span>
-                            <span class="lang-vi">Luật chuyên ngành quy định việc giữ bí mật thông tin của bệnh nhân là nghĩa vụ nghề nghiệp bắt buộc của mọi bác sĩ, điều dưỡng, dược sĩ...</span>
-                        </p>
-                    </div>
-                </div>
             </div>
 
+            <div class="grid-2col" style="gap: 24px; margin-bottom: 30px;">
+                
+                <!-- Left: Personal Information (Objective Data) -->
+                <div class="card glass-card" style="padding: 0; overflow: hidden; display: flex; flex-direction: column; border: 1.5px solid rgba(255,255,255,0.06); background: rgba(15, 23, 42, 0.35); border-radius: 16px; box-shadow: 0 8px 32px rgba(0,0,0,0.25); margin-bottom: 0;">
+                    <!-- Illustration Header -->
+                    <div style="background: rgba(15,23,42,0.4); display: flex; align-items: center; justify-content: center; padding: 20px 10px; border-bottom: 1px solid rgba(255,255,255,0.04); min-height: 160px;">
+                        <svg width="220" height="150" viewBox="0 0 220 150">
+                            <defs>
+                                <linearGradient id="info-shield-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" stop-color="#1e293b" />
+                                    <stop offset="100%" stop-color="#0f172a" />
+                                </linearGradient>
+                            </defs>
+                            <path d="M 110 10 L 170 30 C 170 90 140 125 110 140 C 80 125 50 90 50 30 Z" fill="url(#info-shield-grad)" stroke="#475569" stroke-width="2" />
+                            <rect x="75" y="45" width="60" height="70" rx="4" fill="#1e293b" stroke="#3b82f6" stroke-width="1.5" transform="rotate(-8 105 80)" />
+                            <line x1="85" y1="65" x2="125" y2="59" stroke="#93c5fd" stroke-width="1.5" transform="rotate(-8 105 80)" />
+                            <line x1="85" y1="78" x2="115" y2="74" stroke="#93c5fd" stroke-width="1.5" transform="rotate(-8 105 80)" />
+                            <rect x="85" y="55" width="70" height="50" rx="6" fill="#fff" stroke="#94a3b8" stroke-width="1.5" filter="drop-shadow(0 4px 6px rgba(0,0,0,0.3))" />
+                            <rect x="93" y="63" width="18" height="22" rx="2" fill="#e2e8f0" />
+                            <circle cx="102" cy="70" r="4" fill="#64748b" />
+                            <path d="M 95 83 Q 102 78 109 83 Z" fill="#64748b" />
+                            <line x1="118" y1="68" x2="145" y2="68" stroke="#94a3b8" stroke-width="2" />
+                            <line x1="118" y1="76" x2="140" y2="76" stroke="#94a3b8" stroke-width="2" />
+                            <line x1="118" y1="84" x2="135" y2="84" stroke="#94a3b8" stroke-width="2" />
+                            <rect x="98" y="98" width="24" height="20" rx="3" fill="#fbbf24" filter="drop-shadow(0 2px 4px rgba(0,0,0,0.4))" />
+                            <path d="M 103 98 L 103 91 A 7 7 0 0 1 117 91 L 117 98" fill="none" stroke="#fbbf24" stroke-width="2.5" />
+                            <circle cx="110" cy="107" r="2" fill="#1e293b" />
+                            <line x1="110" y1="109" x2="110" y2="114" stroke="#1e293b" stroke-width="2" />
+                        </svg>
+                    </div>
+                    <div style="background: linear-gradient(90deg, #1e3a8a, #1d4ed8); padding: 12px 20px; text-align: center;">
+                        <h4 style="margin: 0; color: #fff; font-size: 1.05rem; font-weight: bold; letter-spacing: 0.5px;">
+                            <span class="lang-ja">個人情報（客観的データ）</span>
+                            <span class="lang-vi">Thông tin cá nhân (Dữ liệu khách quan)</span>
+                        </h4>
+                    </div>
+                    <div style="padding: 24px; flex-grow: 1; display: flex; flex-direction: column; gap: 15px;">
+                        <div style="display: flex; flex-direction: column; gap: 6px;">
+                            <span style="font-size: 0.78rem; font-weight: bold; text-transform: uppercase; color: var(--accent-gold); letter-spacing: 0.5px;">
+                                <span class="lang-ja">定義</span>
+                                <span class="lang-vi">Định nghĩa</span>
+                            </span>
+                            <p style="margin: 0; font-size: 0.95rem; line-height: 1.6; color: #fff; font-weight: 500;">
+                                <span class="lang-ja">特定の個人を識別できる情報。</span>
+                                <span class="lang-vi">Các thông tin bằng cách trực tiếp hoặc gián tiếp nhận diện được một cá nhân cụ thể.</span>
+                            </p>
+                        </div>
+                        <div style="height: 1px; background: rgba(255,255,255,0.06); width: 100%;"></div>
+                        <div style="display: flex; flex-direction: column; gap: 6px;">
+                            <span style="font-size: 0.78rem; font-weight: bold; text-transform: uppercase; color: var(--accent-gold); letter-spacing: 0.5px;">
+                                <span class="lang-ja">性質</span>
+                                <span class="lang-vi">Tính chất</span>
+                            </span>
+                            <p style="margin: 0; font-size: 0.92rem; line-height: 1.6; color: var(--text-secondary);">
+                                <span class="lang-ja">事実としての記録（氏名、住所、生年月日、基礎年金番号、カルテ番号、検査データなど）。</span>
+                                <span class="lang-vi">Bản ghi mang tính sự thật khách quan (Họ tên, ngày sinh, số bệnh án, kết quả xét nghiệm...).</span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right: Privacy (Subjective Right) -->
+                <div class="card glass-card" style="padding: 0; overflow: hidden; display: flex; flex-direction: column; border: 1.5px solid rgba(255,255,255,0.06); background: rgba(15, 23, 42, 0.35); border-radius: 16px; box-shadow: 0 8px 32px rgba(0,0,0,0.25); margin-bottom: 0;">
+                    <div style="background: rgba(15,23,42,0.4); display: flex; align-items: center; justify-content: center; padding: 20px 10px; border-bottom: 1px solid rgba(255,255,255,0.04); min-height: 160px;">
+                        <svg width="220" height="150" viewBox="0 0 220 150">
+                            <defs>
+                                <linearGradient id="shield-teal-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" stop-color="#2dd4bf" stop-opacity="0.1" />
+                                    <stop offset="100%" stop-color="#14b8a6" stop-opacity="0.25" />
+                                </linearGradient>
+                                <linearGradient id="shield-glow" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" stop-color="#2dd4bf" />
+                                    <stop offset="100%" stop-color="#0d9488" />
+                                </linearGradient>
+                            </defs>
+                            <circle cx="110" cy="62" r="20" fill="none" stroke="#2dd4bf" stroke-width="2" />
+                            <path d="M 75 125 C 75 100 90 90 110 90 C 130 90 145 100 145 125 Z" fill="none" stroke="#2dd4bf" stroke-width="2" />
+                            <path d="M 110 50 L 150 62 C 150 102 130 122 110 132 C 90 122 70 102 70 62 Z" fill="url(#shield-teal-grad)" stroke="url(#shield-glow)" stroke-width="2.5" filter="drop-shadow(0 0 10px rgba(45,212,191,0.5))" />
+                            <path d="M 103 91 L 108 96 L 117 87" fill="none" stroke="#2dd4bf" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+                            <circle cx="110" cy="91" r="16" fill="none" stroke="#2dd4bf" stroke-width="1.5" stroke-dasharray="3 3" />
+                        </svg>
+                    </div>
+                    <div style="background: linear-gradient(90deg, #0d9488, #14b8a6); padding: 12px 20px; text-align: center;">
+                        <h4 style="margin: 0; color: #fff; font-size: 1.05rem; font-weight: bold; letter-spacing: 0.5px;">
+                            <span class="lang-ja">プライバシー（主観的権利）</span>
+                            <span class="lang-vi">Quyền riêng tư (Quyền chủ quan)</span>
+                        </h4>
+                    </div>
+                    <div style="padding: 24px; flex-grow: 1; display: flex; flex-direction: column; gap: 15px;">
+                        <div style="display: flex; flex-direction: column; gap: 6px;">
+                            <span style="font-size: 0.78rem; font-weight: bold; text-transform: uppercase; color: var(--accent-teal); letter-spacing: 0.5px;">
+                                <span class="lang-ja">定義</span>
+                                <span class="lang-vi">Định nghĩa</span>
+                            </span>
+                            <p style="margin: 0; font-size: 0.95rem; line-height: 1.6; color: #fff; font-weight: 500;">
+                                <span class="lang-ja">本人がその情報を開示しないで欲しいと望む情報。</span>
+                                <span class="lang-vi">Thông tin mà bản thân cá nhân có nguyện vọng chính đáng không muốn bị tiết lộ hay công khai.</span>
+                            </p>
+                        </div>
+                        <div style="height: 1px; background: rgba(255,255,255,0.06); width: 100%;"></div>
+                        <div style="display: flex; flex-direction: column; gap: 6px;">
+                            <span style="font-size: 0.78rem; font-weight: bold; text-transform: uppercase; color: var(--accent-teal); letter-spacing: 0.5px;">
+                                <span class="lang-ja">性質</span>
+                                <span class="lang-vi">Tính chất</span>
+                            </span>
+                            <p style="margin: 0; font-size: 0.92rem; line-height: 1.6; color: var(--text-secondary);">
+                                <span class="lang-ja">保護されるべき個人の領域と感情（病歴、遺伝情報、身体的特徴、私生活の事実など）。</span>
+                                <span class="lang-vi">Lĩnh vực cá nhân và đời tư nhạy cảm cần được bảo vệ (Bệnh sử, dữ liệu di truyền, đặc điểm cơ thể, đời tư...).</span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            
+            <!-- SECTION I-2: Pillars of Confidentiality (Visual Temple) -->
+            <div class="card glass-card text-left" style="padding: 25px; margin-bottom: 25px; border-top: 4px solid var(--accent-teal); box-sizing: border-box; width: 100%;">
+                
+                <!-- Section Title -->
+                <h3 style="color: var(--accent-teal); margin-top: 0; margin-bottom: 12px; font-size: 1.15rem; display: flex; align-items: center; gap: 8px;">
+                    <i class="fa-solid fa-hotel"></i>
+                    <span class="lang-ja">医療従事者の厳格な守秘義務（Pillars of Confidentiality）</span>
+                    <span class="lang-vi">Nghĩa vụ bảo mật nghiêm ngặt của nhân viên y tế (Pillars of Confidentiality)</span>
+                </h3>
+                <p class="small-desc" style="line-height: 1.7; color: var(--text-secondary); margin-bottom: 25px;">
+                    <span class="lang-ja">診療情報を扱う上で、<strong>守秘義務は医療者に課せられる義務であり、プライバシーは患者の権利です</strong>。医療従事者にはモラルと各専門職に定められた法規範（刑法や医師法など）により厳格な守秘義務が定められています。</span>
+                    <span class="lang-vi">Trong y tế, **bảo mật là nghĩa vụ của nhân viên y tế, còn riêng tư là quyền của bệnh nhân**. Sự bảo mật này được củng cố bởi hai trụ cột cốt lõi: Quy phạm đạo đức nghề nghiệp và Quy phạm pháp luật hiện hành.</span>
+                </p>
+
+                <!-- Pillars of Confidentiality Visual Temple -->
+                <div style="display: flex; flex-direction: column; align-items: center; background: rgba(15, 23, 42, 0.4); border-radius: 12px; padding: 25px 20px; border: 1px solid rgba(255,255,255,0.04); box-sizing: border-box; width: 100%; overflow-x: auto;">
+                    <h4 style="margin: 0 0 20px 0; color: #fff; font-size: 0.95rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; display: flex; align-items: center; gap: 8px;">
+                        <i class="fa-solid fa-columns"></i>
+                        <span>Pillars of Confidentiality</span>
+                    </h4>
+
+                    <div style="position: relative; width: 100%; max-width: 650px; min-width: 580px; height: 260px; margin: 10px auto; display: flex; flex-direction: column; justify-content: space-between; box-sizing: border-box;">
+                        
+                        <!-- Temple Roof: Basic Principle of Medicine (Trust) -->
+                        <div style="width: 100%; height: 42px; background: linear-gradient(180deg, #0f766e, #115e59); border: 2px solid #2dd4bf; clip-path: polygon(10% 0%, 90% 0%, 100% 100%, 0% 100%); display: flex; align-items: center; justify-content: center; position: relative; box-shadow: 0 4px 10px rgba(13,148,136,0.3);">
+                            <span style="font-size: 0.88rem; font-weight: 900; color: #fff; text-shadow: 0 2px 4px rgba(0,0,0,0.5); letter-spacing: 1px; text-align: center;">
+                                <span class="lang-ja">医療の基本原則（患者からの信頼）</span>
+                                <span class="lang-vi">NGUYÊN TẮC CƠ BẢN CỦA Y KHOA (NIỀM TIN TỪ NGƯỜI BỆNH)</span>
+                            </span>
+                        </div>
+                        <!-- Architrave -->
+                        <div style="width: 96%; height: 10px; background: #115e59; border: 2px solid #2dd4bf; border-top: none; margin: 0 auto; border-radius: 2px; box-shadow: 0 3px 6px rgba(0,0,0,0.3);"></div>
+
+                        <!-- Two Pillars of Confidentiality -->
+                        <div style="display: flex; justify-content: space-between; width: 90%; margin: 0 auto; height: 160px; position: relative;">
+                            
+                            <!-- Left Pillar: Ethical Code (Morality) -->
+                            <div style="width: 44%; background: linear-gradient(90deg, #111827, #1f2937, #111827); border: 2.5px solid var(--accent-gold); border-top: none; border-bottom: none; border-radius: 6px; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 12px 15px; box-shadow: 0 4px 20px rgba(245, 158, 11, 0.1); position: relative; box-sizing: border-box;">
+                                <div style="position: absolute; top: 0; left: -4px; right: -4px; height: 6px; background: #475569; border-radius: 2px;"></div>
+                                
+                                <span style="font-size: 0.9rem; font-weight: 900; color: var(--accent-gold); text-align: center; line-height: 1.2; margin-bottom: 8px; text-transform: uppercase; letter-spacing: 0.5px;">
+                                    <span class="lang-ja">倫理的規範（モラル）</span>
+                                    <span class="lang-vi">QUY PHẠM ĐẠO ĐỨC (MORALS)</span>
+                                </span>
+                                <span style="font-size: 0.72rem; color: #cbd5e1; text-align: center; line-height: 1.45; font-weight: 500;">
+                                    <span class="lang-ja">ヒポクラテスの誓いから連綿と続く、医療専門職としての根本的かつ本質的な職業倫理。</span>
+                                    <span class="lang-vi">Y đức nghề nghiệp cốt lõi kế thừa từ Lời thề Hippocrates, danh dự và lương tâm của người thầy thuốc.</span>
+                                </span>
+                                
+                                <div style="position: absolute; bottom: 0; left: -4px; right: -4px; height: 6px; background: #475569; border-radius: 2px;"></div>
+                            </div>
+
+                            <!-- Right Pillar: Legal Code (Rules) -->
+                            <div style="width: 44%; background: linear-gradient(90deg, #111827, #1f2937, #111827); border: 2.5px solid #ef4444; border-top: none; border-bottom: none; border-radius: 6px; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 12px 15px; box-shadow: 0 4px 20px rgba(239, 68, 68, 0.1); position: relative; box-sizing: border-box;">
+                                <div style="position: absolute; top: 0; left: -4px; right: -4px; height: 6px; background: #475569; border-radius: 2px;"></div>
+                                
+                                <span style="font-size: 0.9rem; font-weight: 900; color: #fca5a5; text-align: center; line-height: 1.2; margin-bottom: 8px; text-transform: uppercase; letter-spacing: 0.5px;">
+                                    <span class="lang-ja">法的規範（ルール）</span>
+                                    <span class="lang-vi">QUY PHẠM PHÁP LÝ (RULES)</span>
+                                </span>
+                                <span style="font-size: 0.72rem; color: #cbd5e1; text-align: center; line-height: 1.45; font-weight: 500;">
+                                    <span class="lang-ja">刑法第134条（秘密漏示罪）や医師法第23条などの各医療職資格法による厳格な罰則規定。</span>
+                                    <span class="lang-vi">Chế tài pháp luật nghiêm khắc: Điều 134 Bộ luật Hình sự (Tội tiết lộ bí mật) và Điều 23 Luật Bác sĩ.</span>
+                                </span>
+                                
+                                <div style="position: absolute; bottom: 0; left: -4px; right: -4px; height: 6px; background: #475569; border-radius: 2px;"></div>
+                            </div>
+                        </div>
+                        
+                        <!-- Base Pedestal: Media neutrality -->
+                        <div style="width: 100%; height: 35px; background: linear-gradient(180deg, #115e59, #0f766e); border: 2px solid #2dd4bf; border-radius: 4px; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 12px rgba(0,0,0,0.4);">
+                            <span style="font-size: 0.8rem; font-weight: bold; color: #fff; text-align: center;">
+                                <span class="lang-ja">患者の秘密は、紙媒体でも電子媒体でも変わらず堅く守られる。</span>
+                                <span class="lang-vi">Bí mật của bệnh nhân luôn được giữ kín tuyệt đối, dù là hồ sơ giấy hay bệnh án điện tử.</span>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            
             <!-- Sự tiến hóa của Quyền riêng tư thành "Quyền kiểm soát thông tin cá nhân" -->
             <div class="card glass-card text-left" style="padding: 25px; border-top: 4px solid var(--accent-teal);">
                 <h3 style="color: var(--accent-teal); margin-top: 0; font-size: 1.15rem; display: flex; align-items: center; gap: 8px;">
@@ -179,106 +374,181 @@ window.SBO_TEMPLATES['sbo122'] = `<div id="sbo122" class="sbo-section-wrapper">
                 <span class="lang-vi">Luật Bảo vệ Thông tin Cá nhân</span>
             </h2>
 
-            <!-- Bối cảnh và định hướng sửa đổi -->
-            <div class="card glass-card text-left" style="padding: 20px; margin-top: 15px; margin-bottom: 25px;">
-                <h3 style="color: var(--accent-teal); margin-top: 0; font-size: 1.15rem; display: flex; align-items: center; gap: 8px;">
+            <!-- SECTION II-1: Background of Personal Information Protection Act (Evolution Steps) -->
+            <div class="card glass-card text-left" style="padding: 25px; margin-top: 15px; margin-bottom: 25px; box-sizing: border-box; width: 100%;">
+                
+                <h3 style="color: var(--accent-teal); margin-top: 0; margin-bottom: 12px; font-size: 1.15rem; display: flex; align-items: center; gap: 8px;">
                     <i class="fa-solid fa-clock-rotate-left"></i>
-                    <span class="lang-ja">背景と改正の理念</span>
-                    <span class="lang-vi">Bối cảnh và định hướng sửa đổi</span>
+                    <span class="lang-ja">個人情報保護法の背景と法改正の進化</span>
+                    <span class="lang-vi">Bối cảnh và Sự tiến hóa của Luật Bảo vệ Thông tin Cá nhân</span>
                 </h3>
-                <p class="small-desc" style="line-height: 1.8; color: var(--text-secondary); margin-bottom: 20px;">
-                    <span class="lang-ja">わが国の「個人情報保護法」は、個人情報を取り扱う事業者が保護に万全を期すために2003年に制定され、2005年4月に全面施行されました。その後、大量漏洩事件への対策やグローバル化への対応、また医療ビッグデータなどの有効活用を促進するため、2015年（2017年施行）および2020年に大きな法改正が行われました。技術進展に対応するため、3年ごとに内容の見直しを強制する規程が盛り込まれています。</span>
-                    <span class="lang-vi">Luật Bảo vệ Thông tin Cá nhân của Nhật Bản được ban hành vào năm 2003 và có hiệu lực toàn diện vào tháng 4 năm 2005 nhằm bảo vệ thông tin trong bối cảnh xã hội thông tin hóa. Tuy nhiên, để đối phó với các vụ rò rỉ dữ liệu lớn, xu hướng toàn cầu hóa, cũng như để tận dụng hiệu quả Big Data trong y tế, luật đã trải qua các đợt sửa đổi lớn vào năm 2015 (có hiệu lực 2017) và năm 2020. Đặc biệt, luật có quy định bắt buộc phải xem xét và sửa đổi mỗi 3 năm một lần để bắt kịp với sự phát triển của công nghệ.</span>
+                <p class="small-desc" style="line-height: 1.7; color: var(--text-secondary); margin-bottom: 25px;">
+                    <span class="lang-ja">わが国の個人情報保護法は、IT社会の進展や医療データの有効活用、グローバル基準への適合など、時代の変化に対応するため大規模な法改正を重ねて進化してきました。技術進展に対応するため、3年ごとに内容の見直しを強制する規定が盛り込まれています。</span>
+                    <span class="lang-vi">Luật Bảo vệ Thông tin Cá nhân của Nhật Bản liên tục được sửa đổi qua các dấu mốc lớn để phù hợp với sự phát triển của công nghệ thông tin, khai thác Big Data y tế và tiệm cận tiêu chuẩn quốc tế. Nhằm bắt kịp tốc độ công nghệ, luật quy định bắt buộc đánh giá và sửa đổi định kỳ mỗi 3 năm một lần.</span>
                 </p>
-                <div class="law-timeline" style="display: flex; gap: 15px; overflow-x: auto; padding-bottom: 10px;">
-                    <div style="flex: 1; min-width: 150px; background: rgba(255,255,255,0.02); padding: 12px; border-radius: 6px; border-top: 3px solid var(--accent-teal);">
-                        <div style="font-weight: bold; color: var(--accent-teal); font-size: 0.95rem; margin-bottom: 5px;">2003年 (制定)</div>
-                        <span class="lang-ja" style="font-size: 0.8rem; color: var(--text-muted);">IT社会の進展に伴い法律制定。</span>
-                        <span class="lang-vi" style="font-size: 0.8rem; color: var(--text-muted);">Luật được ban hành dưới bối cảnh tin học hóa.</span>
+
+                <!-- Vertical Timeline Container aligned with general UI -->
+                <div style="position: relative; padding-left: 24px; border-left: 2px dashed rgba(255, 255, 255, 0.1); margin-left: 12px; display: flex; flex-direction: column; gap: 24px; box-sizing: border-box; width: 100%;">
+                    
+                    <!-- Step 1 -->
+                    <div style="position: relative; width: 100%; box-sizing: border-box;">
+                        <!-- Timeline Node Dot -->
+                        <div style="position: absolute; left: -35px; top: 6px; width: 20px; height: 20px; border-radius: 50%; background: #0f172a; border: 2px solid var(--accent-gold); box-shadow: 0 0 8px rgba(245, 158, 11, 0.4); display: flex; align-items: center; justify-content: center; z-index: 2;">
+                            <div style="width: 6px; height: 6px; border-radius: 50%; background: var(--accent-gold);"></div>
+                        </div>
+                        
+                        <div class="card glass-card" style="padding: 20px; border-top: 3px solid var(--accent-gold); margin: 0; box-sizing: border-box; width: 100%; text-align: left; background: rgba(255, 255, 255, 0.015);">
+                            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 8px; flex-wrap: wrap; gap: 10px;">
+                                <h4 style="margin: 0; color: #fff; font-size: 1rem; font-weight: bold; display: flex; align-items: center; gap: 8px;">
+                                    <i class="fa-solid fa-file-shield" style="color: var(--accent-gold);"></i>
+                                    <span class="lang-ja">2003年制定・2005年全面施行</span>
+                                    <span class="lang-vi">Ban hành 2003 / Hiệu lực 2005</span>
+                                </h4>
+                                <span class="node-tag tag-gold" style="font-size: 0.75rem; font-weight: 700; padding: 2px 8px; border-radius: 4px;">
+                                    <span class="lang-ja">初期枠組み</span>
+                                    <span class="lang-vi">Khung cơ bản</span>
+                                </span>
+                            </div>
+                            <p style="margin: 0; font-size: 0.88rem; line-height: 1.6; color: var(--text-secondary);">
+                                <span class="lang-ja">インターネットやPCの急速な普及に伴う、情報化社会への移行期における初期の個人情報保護制度の確立。医療機関を含むすべての取扱事業者に適用。</span>
+                                <span class="lang-vi">Thiết lập nền móng pháp lý bảo vệ dữ liệu ban đầu trước làn sóng phổ cập mạng Internet và máy tính cá nhân. Áp dụng nghĩa vụ chính thức cho các cơ sở y tế.</span>
+                            </p>
+                        </div>
                     </div>
-                    <div style="flex: 1; min-width: 150px; background: rgba(255,255,255,0.02); padding: 12px; border-radius: 6px; border-top: 3px solid var(--accent-teal);">
-                        <div style="font-weight: bold; color: var(--accent-teal); font-size: 0.95rem; margin-bottom: 5px;">2005年 (全面施行)</div>
-                        <span class="lang-ja" style="font-size: 0.8rem; color: var(--text-muted);">医療機関を含む事業者に義務が適用。</span>
-                        <span class="lang-vi" style="font-size: 0.8rem; color: var(--text-muted);">Áp dụng nghĩa vụ chính thức cho các cơ sở y tế.</span>
+
+                    <!-- Step 2 -->
+                    <div style="position: relative; width: 100%; box-sizing: border-box;">
+                        <!-- Timeline Node Dot -->
+                        <div style="position: absolute; left: -35px; top: 6px; width: 20px; height: 20px; border-radius: 50%; background: #0f172a; border: 2px solid var(--accent-teal); box-shadow: 0 0 8px rgba(45, 212, 191, 0.4); display: flex; align-items: center; justify-content: center; z-index: 2;">
+                            <div style="width: 6px; height: 6px; border-radius: 50%; background: var(--accent-teal);"></div>
+                        </div>
+                        
+                        <div class="card glass-card" style="padding: 20px; border-top: 3px solid var(--accent-teal); margin: 0; box-sizing: border-box; width: 100%; text-align: left; background: rgba(255, 255, 255, 0.015);">
+                            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 8px; flex-wrap: wrap; gap: 10px;">
+                                <h4 style="margin: 0; color: #fff; font-size: 1rem; font-weight: bold; display: flex; align-items: center; gap: 8px;">
+                                    <i class="fa-solid fa-arrows-spin" style="color: var(--accent-teal);"></i>
+                                    <span class="lang-ja">2015年 大規模改正（2017年施行）</span>
+                                    <span class="lang-vi">2015 Sửa đổi lớn (Hiệu lực 2017)</span>
+                                </h4>
+                                <span class="node-tag tag-teal" style="font-size: 0.75rem; font-weight: 700; padding: 2px 8px; border-radius: 4px;">
+                                    <span class="lang-ja">利活用と保護</span>
+                                    <span class="lang-vi">Khai thác & Bảo vệ</span>
+                                </span>
+                            </div>
+                            <p style="margin: 0; font-size: 0.88rem; line-height: 1.6; color: var(--text-secondary);">
+                                <span class="lang-ja">「要配慮個人情報」や「匿名加工情報」などの新しい概念が定義され、データの保護と学術研究・産業への有効活用のバランスを再構築。</span>
+                                <span class="lang-vi">Định nghĩa các khái niệm mới như "Thông tin cần quan tâm đặc biệt" và "Ẩn danh gia công", giải quyết bài toán khai thác Big Data nghiên cứu song song với bảo mật.</span>
+                            </p>
+                        </div>
                     </div>
-                    <div style="flex: 1; min-width: 150px; background: rgba(255,255,255,0.02); padding: 12px; border-radius: 6px; border-top: 3px solid var(--accent-gold);">
-                        <div style="font-weight: bold; color: var(--accent-gold); font-size: 0.95rem; margin-bottom: 5px;">2015年 (大改正)</div>
-                        <span class="lang-ja" style="font-size: 0.8rem; color: var(--text-muted);">「要配慮個人情報」や「匿名加工情報」を新設。</span>
-                        <span class="lang-vi" style="font-size: 0.8rem; color: var(--text-muted);">Thiết lập "Thông tin cần quan tâm đặc biệt" & "Ẩn danh gia công".</span>
+
+                    <!-- Step 3 -->
+                    <div style="position: relative; width: 100%; box-sizing: border-box;">
+                        <!-- Timeline Node Dot -->
+                        <div style="position: absolute; left: -35px; top: 6px; width: 20px; height: 20px; border-radius: 50%; background: #0f172a; border: 2px solid #ef4444; box-shadow: 0 0 8px rgba(239, 68, 68, 0.4); display: flex; align-items: center; justify-content: center; z-index: 2;">
+                            <div style="width: 6px; height: 6px; border-radius: 50%; background: #ef4444;"></div>
+                        </div>
+                        
+                        <div class="card glass-card" style="padding: 20px; border-top: 3px solid #ef4444; margin: 0; box-sizing: border-box; width: 100%; text-align: left; background: rgba(255, 255, 255, 0.015);">
+                            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 8px; flex-wrap: wrap; gap: 10px;">
+                                <h4 style="margin: 0; color: #fff; font-size: 1rem; font-weight: bold; display: flex; align-items: center; gap: 8px;">
+                                    <i class="fa-solid fa-globe" style="color: #ef4444;"></i>
+                                    <span class="lang-ja">2020年 大規模改正（2022年施行）</span>
+                                    <span class="lang-vi">2020 Sửa đổi lớn (Hiệu lực 2022)</span>
+                                </h4>
+                                <span class="node-tag tag-red" style="font-size: 0.75rem; font-weight: 700; padding: 2px 8px; border-radius: 4px;">
+                                    <span class="lang-ja">国際基準・罰則</span>
+                                    <span class="lang-vi">Chuẩn quốc tế & Chế tài</span>
+                                </span>
+                            </div>
+                            <p style="margin: 0; font-size: 0.88rem; line-height: 1.6; color: var(--text-secondary);">
+                                <span class="lang-ja">GDPR等の欧州基準に適合。「仮名加工情報」の新設や、個人情報漏洩時の報告義務化、ペナルティ（法人重罰化など）を厳格化。</span>
+                                <span class="lang-vi">Đáp ứng các tiêu chuẩn khắt khe quốc tế (như GDPR). Bổ sung khái niệm "Thông tin giả danh", bắt buộc khai báo khi rò rỉ dữ liệu và siết chặt hình phạt pháp nhân.</span>
+                            </p>
+                        </div>
                     </div>
-                    <div style="flex: 1; min-width: 150px; background: rgba(255,255,255,0.02); padding: 12px; border-radius: 6px; border-top: 3px solid var(--accent-gold);">
-                        <div style="font-weight: bold; color: var(--accent-gold); font-size: 0.95rem; margin-bottom: 5px;">2020年 (大改正)</div>
-                        <span class="lang-ja" style="font-size: 0.8rem; color: var(--text-muted);">「仮名加工情報」新設、権利保護強化、3年ごと見直し。</span>
-                        <span class="lang-vi" style="font-size: 0.8rem; color: var(--text-muted);">Thiết lập "Giả danh gia công", tăng cường bảo vệ, sửa đổi mỗi 3 năm.</span>
-                    </div>
+
                 </div>
             </div>
-
-            <!-- Các khái niệm cốt lõi được bổ sung từ các đợt sửa đổi -->
-            <div class="card glass-card text-left" style="padding: 20px; margin-bottom: 25px;">
-                <h3 style="color: var(--accent-gold); margin-top: 0; font-size: 1.15rem; display: flex; align-items: center; gap: 8px;">
+            
+            <!-- SECTION II-2: Key Concepts Added by Legal Revisions (Visual Funnel) -->
+            <div class="card glass-card text-left" style="padding: 25px; margin-bottom: 25px; border-top: 4px solid var(--accent-gold); box-sizing: border-box; width: 100%;">
+                
+                <h3 style="color: var(--accent-gold); margin-top: 0; margin-bottom: 12px; font-size: 1.15rem; display: flex; align-items: center; gap: 8px;">
                     <i class="fa-solid fa-brain"></i>
                     <span class="lang-ja">法改正による重要な追加概念</span>
-                    <span class="lang-vi">Các khái niệm cốt lõi được bổ sung từ các đợt sửa đổi</span>
+                    <span class="lang-vi">Các khái niệm quan trọng bổ sung từ các đợt sửa đổi Luật</span>
                 </h3>
-                <p class="small-desc" style="line-height: 1.7; color: var(--text-secondary); margin-bottom: 20px;">
-                    <span class="lang-ja">医療情報の保護と利活用を明確にするため、改正により以下の重要な概念が定義されました。</span>
-                    <span class="lang-vi">Để làm rõ định nghĩa và thúc đẩy việc sử dụng dữ liệu y tế, các đợt sửa đổi đã bổ sung các khái niệm nền tảng sau:</span>
+                <p class="small-desc" style="line-height: 1.7; color: var(--text-secondary); margin-bottom: 25px;">
+                    <span class="lang-ja">医療情報の「確実な保護」と「研究・利活用の促進」の両立を目指し、法改正によって特に重要となる3つの主要概念が体系化されました。</span>
+                    <span class="lang-vi">Nhằm cân bằng giữa "Bảo vệ nghiêm ngặt" và "Thúc đẩy nghiên cứu/Khai thác", luật sửa đổi đã quy định 3 khái niệm cốt lõi cấu thành mô hình quản lý dữ liệu.</span>
                 </p>
 
-                <div class="grid-2col" style="gap: 20px;">
-                    <!-- Concept 1: 要配慮個人情報 -->
-                    <div style="background: rgba(255,255,255,0.02); padding: 15px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.05); border-top: 3px solid var(--accent-gold);">
-                        <div style="font-weight: bold; color: var(--accent-gold); margin-bottom: 8px; font-size: 0.95rem;">
-                            <i class="fa-solid fa-hospital-user" style="margin-right: 6px;"></i>
-                            <span class="lang-ja">要配慮個人情報</span>
-                            <span class="lang-vi">Thông tin cá nhân cần sự quan tâm đặc biệt</span>
+                <!-- Funnel Layer Stack -->
+                <div style="display: flex; flex-direction: column; align-items: center; gap: 15px; width: 100%; box-sizing: border-box;">
+                    
+                    <!-- Tier 1: 要配慮個人情報 (Width: 100%) -->
+                    <div style="width: 100%; display: flex; background: rgba(255, 255, 255, 0.015); border: 1px solid rgba(255, 255, 255, 0.08); border-top: 3px solid var(--accent-gold); border-radius: 12px; overflow: hidden; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15); box-sizing: border-box;">
+                        <div style="width: 25%; background: rgba(255, 255, 255, 0.02); display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 15px; box-sizing: border-box; min-width: 130px; text-align: center; border-right: 1px solid rgba(255, 255, 255, 0.08);">
+                            <div style="font-size: 1.8rem; color: var(--accent-gold); margin-bottom: 5px; filter: drop-shadow(0 0 4px rgba(245, 158, 11, 0.3));"><i class="fa-solid fa-folder-plus"></i></div>
+                            <span style="font-size: 0.72rem; font-weight: bold; color: var(--accent-gold); text-transform: uppercase; letter-spacing: 0.5px;">Strict Protection</span>
                         </div>
-                        <p class="small-desc" style="margin: 0; line-height: 1.6; font-size: 0.88rem; color: var(--text-secondary);">
-                            <span class="lang-ja">人種、信条、社会的身分、犯罪の経歴に加え、<strong>病歴や診療・治療に関する情報</strong>が含まれます。医療情報がこれに該当するため、取得する際には**原則として本人同意を得ることが義務化**されています。また、第三者提供における**「オプトアウト方式」は認められていません**。</span>
-                            <span class="lang-vi">Bao gồm thông tin nhạy cảm như chủng tộc, tín ngưỡng, địa vị xã hội, tiền sử tội phạm và đặc biệt là **bệnh sử (tiền sử bệnh tật, tình trạng điều trị)**. Do thông tin y tế thuộc nhóm này, luật yêu cầu xử lý vô cùng nghiêm ngặt: **về nguyên tắc bắt buộc phải có sự đồng ý của bản thân người bệnh** khi thu thập. Cung cấp cho bên thứ ba tuyệt đối **không được áp dụng hình thức "Opt-out"** (từ chối tham gia).</span>
-                        </p>
+                        <div style="width: 75%; padding: 18px; box-sizing: border-box;">
+                            <h4 style="margin: 0 0 6px 0; color: var(--accent-gold); font-size: 0.95rem; font-weight: bold; display: flex; align-items: center; gap: 6px;">
+                                <span>要配慮個人情報</span>
+                                <span style="font-size: 0.78rem; font-weight: normal; color: var(--text-muted);">(Strict Protection)</span>
+                            </h4>
+                            <p style="margin: 0; font-size: 0.88rem; line-height: 1.6; color: var(--text-secondary);">
+                                <span class="lang-ja">病歴や診療・治療に関する記録など、不当な差別や偏見を生じさせないために**原則として本人同意を得ることが義務付けられる**極めて厳格な取り扱い情報。</span>
+                                <span class="lang-vi">Tiền sử bệnh án, hồ sơ chẩn đoán/điều trị... Để tránh sự phân biệt đối xử không công bằng, luật **bắt buộc phải có sự đồng ý của bệnh nhân** khi thu thập.</span>
+                            </p>
+                        </div>
                     </div>
 
-                    <!-- Concept 2: 個人識別符号 -->
-                    <div style="background: rgba(255,255,255,0.02); padding: 15px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.05); border-top: 3px solid var(--accent-teal);">
-                        <div style="font-weight: bold; color: var(--accent-teal); margin-bottom: 8px; font-size: 0.95rem;">
-                            <i class="fa-solid fa-fingerprint" style="margin-right: 6px;"></i>
-                            <span class="lang-ja">個人識別符号</span>
-                            <span class="lang-vi">Mã số nhận dạng cá nhân</span>
+                    <!-- Tier 2: 個人識別符号 (Width: 93%) -->
+                    <div style="width: 93%; display: flex; background: rgba(255, 255, 255, 0.015); border: 1px solid rgba(255, 255, 255, 0.08); border-top: 3px solid var(--accent-teal); border-radius: 12px; overflow: hidden; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15); box-sizing: border-box;">
+                        <div style="width: 25%; background: rgba(255, 255, 255, 0.02); display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 15px; box-sizing: border-box; min-width: 130px; text-align: center; border-right: 1px solid rgba(255, 255, 255, 0.08);">
+                            <div style="font-size: 1.8rem; color: var(--accent-teal); margin-bottom: 5px; filter: drop-shadow(0 0 4px rgba(45, 212, 191, 0.3));"><i class="fa-solid fa-fingerprint"></i></div>
+                            <span style="font-size: 0.72rem; font-weight: bold; color: var(--accent-teal); text-transform: uppercase; letter-spacing: 0.5px;">Biometrics & IDs</span>
                         </div>
-                        <p class="small-desc" style="margin: 0; line-height: 1.6; font-size: 0.88rem; color: var(--text-secondary);">
-                            <span class="lang-ja">それだけで特定の個人を識別できるデータや番号を指します。具体的には、DNA、顔認識データ、指紋、虹彩などの「生体情報データ」と、パスポート番号、各種被保険者証の記号・番号、マイナンバー、免許証番号などの「公的に発行された番号」があります。</span>
-                            <span class="lang-vi">Là các dữ liệu cho phép nhận diện một cá nhân cụ thể. Bao gồm hai loại: dữ liệu sinh trắc học (như trình tự ADN, dấu vân tay, mống mắt, nhận dạng khuôn mặt) và các số định danh do cơ quan nhà nước cấp (như số hộ chiếu, số thẻ bảo hiểm y tế, số My Number, số bằng lái xe).</span>
-                        </p>
+                        <div style="width: 75%; padding: 18px; box-sizing: border-box;">
+                            <h4 style="margin: 0 0 6px 0; color: var(--accent-teal); font-size: 0.95rem; font-weight: bold; display: flex; align-items: center; gap: 6px;">
+                                <span>2. 個人識別符号</span>
+                                <span style="font-size: 0.78rem; font-weight: normal; color: var(--text-muted);">(Biometrics & IDs)</span>
+                            </h4>
+                            <p style="margin: 0; font-size: 0.88rem; line-height: 1.6; color: #cbd5e1;">
+                                <span class="lang-ja">DNA、指紋、顔認識データなどの「生体情報」や、マイナンバー、パスポート番号、保険者番号などの「公的に発行されたコード」。これ単体で個人識別が可能。</span>
+                                <span class="lang-vi">Dữ liệu sinh trắc học (ADN, dấu vân tay, khuôn mặt) và các mã định danh công (My Number, hộ chiếu, số bảo hiểm...). Cho phép nhận dạng cá nhân trực tiếp.</span>
+                            </p>
+                        </div>
                     </div>
 
-                    <!-- Concept 3: 匿名加工情報 -->
-                    <div style="background: rgba(255,255,255,0.02); padding: 15px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.05); border-top: 3px solid #ef4444;">
-                        <div style="font-weight: bold; color: #ef4444; margin-bottom: 8px; font-size: 0.95rem;">
-                            <i class="fa-solid fa-user-slash" style="margin-right: 6px;"></i>
-                            <span class="lang-ja">匿名加工情報</span>
-                            <span class="lang-vi">Thông tin gia công ẩn danh</span>
+                    <!-- Tier 3: 匿名加工情報 (Width: 86%) -->
+                    <div style="width: 86%; display: flex; background: rgba(255, 255, 255, 0.015); border: 1px solid rgba(255, 255, 255, 0.08); border-top: 3px solid #3b82f6; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15); box-sizing: border-box;">
+                        <div style="width: 25%; background: rgba(255, 255, 255, 0.02); display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 15px; box-sizing: border-box; min-width: 130px; text-align: center; border-right: 1px solid rgba(255, 255, 255, 0.08);">
+                            <div style="font-size: 1.8rem; color: #93c5fd; margin-bottom: 5px; filter: drop-shadow(0 0 4px rgba(147, 197, 253, 0.3));"><i class="fa-solid fa-cloud-arrow-up"></i></div>
+                            <span style="font-size: 0.72rem; font-weight: bold; color: #93c5fd; text-transform: uppercase; letter-spacing: 0.5px;">Data Utilization</span>
                         </div>
-                        <p class="small-desc" style="margin: 0; line-height: 1.6; font-size: 0.88rem; color: var(--text-secondary);">
-                            <span class="lang-ja">特定の個人を識別できないように（氏名、住所、個人識別符号などを削除・置換して）加工し、かつ**復元できないようにした情報**です。本人の同意を得ずに自由に利活用できるため、新たな産業や研究の創出を促進する目的で導入されました。</span>
-                            <span class="lang-vi">Là thông tin cá nhân đã được xử lý (bằng cách xóa bỏ tên, địa chỉ, mã số nhận dạng, v.v.) sao cho **không thể nhận diện được cá nhân cụ thể và không thể khôi phục lại trạng thái ban đầu**. Loại thông tin này được định nghĩa nhằm cho phép sử dụng dữ liệu (không cần sự đồng ý của bệnh nhân) để thúc đẩy tạo ra các ngành công nghiệp và nghiên cứu mới.</span>
-                        </p>
+                        <div style="width: 75%; padding: 18px; box-sizing: border-box;">
+                            <h4 style="margin: 0 0 6px 0; color: #93c5fd; font-size: 0.95rem; font-weight: bold; display: flex; align-items: center; gap: 6px;">
+                                <span>匿名加工情報</span>
+                                <span style="font-size: 0.78rem; font-weight: normal; color: var(--text-muted);">(Data Utilization)</span>
+                            </h4>
+                            <p style="margin: 0; font-size: 0.88rem; line-height: 1.6; color: var(--text-secondary);">
+                                <span class="lang-ja">特定の個人を完全に復元できないよう加工した情報。本人の同意なく第三者提供・共同利用が可能で、医療データ（次世代医療基盤法など）の研究促進に貢献。</span>
+                                <span class="lang-vi">Thông tin được xử lý triệt để sao cho không thể nhận diện hay khôi phục lại cá nhân cụ thể. Cho phép chia sẻ/sử dụng tự do phục vụ nghiên cứu và phát triển y tế.</span>
+                            </p>
+                        </div>
                     </div>
 
-                    <!-- Concept 4: 仮名加工情報 -->
-                    <div style="background: rgba(255,255,255,0.02); padding: 15px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.05); border-top: 3px solid #10b981;">
-                        <div style="font-weight: bold; color: #10b981; margin-bottom: 8px; font-size: 0.95rem;">
-                            <i class="fa-solid fa-user-tag" style="margin-right: 6px;"></i>
-                            <span class="lang-ja">仮名加工情報</span>
-                            <span class="lang-vi">Thông tin gia công giả danh</span>
-                        </div>
-                        <p class="small-desc" style="margin: 0; line-height: 1.6; font-size: 0.88rem; color: var(--text-secondary);">
-                            <span class="lang-ja">2020年の改正で新設・明確化されました。対照表を利用した研究利用に特化しており、利用目的の変更や研究終了後の保管等の条件が緩和されることで、医療データのさらなる利活用に繋がることが期待されています。</span>
-                            <span class="lang-vi">Được bổ sung trong đợt sửa đổi năm 2020. Khác với ẩn danh hoàn toàn, thông tin giả danh cho phép giữ lại bảng đối chiếu nội bộ để phục vụ cho các nghiên cứu. Việc này giúp nới lỏng các điều kiện về bảo quản và công khai sau nghiên cứu, từ đó thúc đẩy mạnh mẽ hơn nữa việc tận dụng dữ liệu y tế.</span>
-                        </p>
-                    </div>
                 </div>
+
+                <!-- Footnote for Pseudonymized Information (仮名加工情報) added in 2020 -->
+                <div style="margin-top: 20px; padding: 15px; background: rgba(255,255,255,0.02); border: 1px dashed rgba(255,255,255,0.1); border-radius: 8px; font-size: 0.85rem; line-height: 1.6; color: var(--text-muted); box-sizing: border-box; width: 100%;">
+                    <span class="lang-ja">💡 <strong>2020年改正の補足：「仮名加工情報」について</strong><br>匿名加工情報とは異なり、他の情報と照合しなければ個人を識別できない状態に加工した情報です。学術研究目的での内部利用に特化し、手続き要件がさらに緩和されています。</span>
+                    <span class="lang-vi">💡 <strong>Bổ sung từ đợt sửa đổi năm 2020: "Thông tin gia công giả danh" (仮名加工情報)</strong><br>Khác với ẩn danh hoàn toàn, thông tin giả danh chỉ có thể nhận diện khi đối chiếu với dữ liệu khác. Chuyên dùng cho mục đích nghiên cứu nội bộ với thủ tục nới lỏng hơn.</span>
+                </div>
+
             </div>
 
             <!-- 8 Legal Duties Timeline Step Interactive -->
