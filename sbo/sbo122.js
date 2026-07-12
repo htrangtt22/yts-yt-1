@@ -703,34 +703,282 @@ window.SBO_TEMPLATES['sbo122'] = `<div id="sbo122" class="sbo-section-wrapper">
             </h2>
 
             <!-- Detailed Subsections -->
-            <div class="grid-2col" style="gap: 20px; margin-bottom: 25px;">
-                <!-- 1. Quyền riêng tư khái niệm tiến hóa -->
-                <div class="card glass-card text-left" style="padding: 20px;">
-                    <h3 style="color: var(--accent-teal); margin-top: 0; font-size: 1.1rem; display: flex; align-items: center; gap: 8px;">
-                        <i class="fa-solid fa-arrows-turn-to-dots"></i>
-                        <span class="lang-ja">プライバシー概念の進化</span>
-                        <span class="lang-vi">Sự tiến hóa của khái niệm Quyền riêng tư</span>
-                    </h3>
-                    <p class="small-desc" style="line-height: 1.7; color: var(--text-secondary); margin-bottom: 0;">
-                        <span class="lang-ja">「プライバシーの権利」は、かつては「ひとりでほっておいてもらう権利」という消極的・受動的な権利として説明されてきました。しかし、近年の情報化社会では、その枠にとどまらず、<strong>「自己に関する情報の流れをコントロールする」</strong>という積極的・能動的な権利、すなわち<strong>自己情報コントロール権</strong>を含むという考え方が主流になっています。これは、自分の情報が不適切に流通することを忌避する権利amp;でもあります。</span>
-                        <span class="lang-vi">Trước đây, "Quyền riêng tư" (Privacy) thường được giải thích theo nghĩa tiêu cực và thụ động là "quyền được để cho yên tĩnh một mình". Tuy nhiên, trong xã hội thông tin hóa ngày nay, khái niệm này đã vượt ra khỏi giới hạn thụ động đó để bao gồm cả một quyền mang tính tích cực và năng động hơn: **"Quyền được kiểm soát luồng thông tin liên quan đến bản thân"**, hay còn gọi là **Quyền kiểm soát thông tin cá nhân (自己情報コントロール権)**. Điều này đồng nghĩa với việc bệnh nhân có quyền từ chối để thông tin của mình bị lưu thông hoặc chia sẻ một cách không thích hợp.</span>
-                    </p>
-                </div>
+            <!-- SECTION IV-1: Evolution of Privacy Concept: Passive to Active (Slide 9) -->
+            <div class="card glass-card text-left" style="padding: 25px; margin-bottom: 25px; border-top: 4px solid var(--accent-teal); box-sizing: border-box; width: 100%;">
+                <h3 style="color: var(--accent-teal); margin-top: 0; margin-bottom: 12px; font-size: 1.15rem; display: flex; align-items: center; gap: 8px;">
+                    <i class="fa-solid fa-arrows-turn-to-dots"></i>
+                    <span class="lang-ja">プライバシー概念の進化：消極的から積極的へ</span>
+                    <span class="lang-vi">Sự tiến hóa của khái niệm Quyền riêng tư: Từ thụ động đến chủ động</span>
+                </h3>
+                <p class="small-desc" style="line-height: 1.7; color: var(--text-secondary); margin-bottom: 25px;">
+                    <span class="lang-ja">「プライバシーの権利」は、かつては「ひとりでほっておいてもらう権利」という消極的・受動的な権利として説明されてきました。しかし、近年の情報化社会では、その枠にとどまらず、<strong>「自己に関する情報の流れをコントロールする」</strong>という積極的・能動的な権利、すなわち<strong>自己情報コントロール権</strong>を含むという考え方が主流になっています。</span>
+                    <span class="lang-vi">Trước đây, "Quyền riêng tư" (Privacy) thường được giải thích theo nghĩa tiêu cực và thụ động là "quyền được để cho yên tĩnh một mình". Tuy nhiên, trong xã hội thông tin hóa ngày nay, khái niệm này đã tiến hóa thành một quyền mang tính tích cực và năng động hơn: **"Quyền được kiểm soát luồng thông tin liên quan đến bản thân"** (Quyền kiểm soát thông tin cá nhân - 自己情報コントロール権).</span>
+                </p>
 
-                <!-- 2. Nguyên tắc khi cung cấp thông tin cho bên thứ ba -->
-                <div class="card glass-card text-left" style="padding: 20px;">
-                    <h3 style="color: var(--accent-gold); margin-top: 0; font-size: 1.1rem; display: flex; align-items: center; gap: 8px;">
-                        <i class="fa-solid fa-handshake-angle"></i>
-                        <span class="lang-ja">第三者への情報提供における原則</span>
-                        <span class="lang-vi">Nguyên tắc khi cung cấp thông tin cho bên thứ ba</span>
-                    </h3>
-                    <p class="small-desc" style="line-height: 1.7; color: var(--text-secondary); margin-bottom: 0;">
-                        <span class="lang-ja">患者を他の医療者に紹介する場合や、他の医師から照会があった場合などは情報の提供が義務付けられていますが、その際の原則として、<strong>情報提供先、情報提供の目的、内容、伝達方法、保存、利活用形態の情報を説明し、患者本人の意思（同意）に従うことが必須</strong>です。</span>
-                        <span class="lang-vi">Khi giới thiệu bệnh nhân cho các nhân viên y tế khác hoặc khi có yêu cầu cung cấp thông tin từ các bác sĩ khác, việc chia sẻ thông tin được xem là một nghĩa vụ. Tuy nhiên, nguyên tắc bắt buộc trong quá trình này là phải giải thích rõ ràng cho bệnh nhân về **nơi nhận thông tin, mục đích cung cấp, nội dung, phương thức truyền đạt, cách thức bảo quản và hình thức sử dụng**, đồng thời **bắt buộc phải tuân theo ý muốn (sự đồng ý) của chính bệnh nhân**.</span>
-                    </p>
+                <!-- Comparison Layout matching Slide 9 -->
+                <div class="grid-2col" style="gap: 24px; align-items: stretch;">
+                    
+                    <!-- Left Column: Passive Right (消極的権利) -->
+                    <div class="card glass-card" style="padding: 0; background: rgba(15, 23, 42, 0.35); border: 1px solid rgba(255,255,255,0.06); border-radius: 12px; display: flex; flex-direction: column; overflow: hidden; margin-bottom: 0;">
+                        <!-- SVG Wall Illustration -->
+                        <div style="background: rgba(15,23,42,0.4); padding: 20px; display: flex; justify-content: center; align-items: center; border-bottom: 1px solid rgba(255,255,255,0.04); min-height: 140px;">
+                            <svg width="220" height="110" viewBox="0 0 220 110">
+                                <!-- Hiding person -->
+                                <circle cx="110" cy="65" r="12" fill="#64748b" />
+                                <path d="M 95 100 Q 110 82 125 100 Z" fill="#64748b" />
+                                
+                                <!-- Wall 1 (Left) -->
+                                <rect x="55" y="20" width="20" height="80" rx="3" fill="#334155" stroke="#475569" stroke-width="1.5" />
+                                <!-- Wall 2 (Front Shielding) -->
+                                <rect x="135" y="20" width="20" height="80" rx="3" fill="#1e293b" stroke="#3b82f6" stroke-width="1.5" />
+                                <!-- Wall lines representing separation -->
+                                <line x1="40" y1="20" x2="40" y2="100" stroke="rgba(255,255,255,0.05)" stroke-width="2" />
+                                <line x1="170" y1="20" x2="170" y2="100" stroke="rgba(255,255,255,0.05)" stroke-width="2" />
+                                
+                                <!-- Watchful Eyes representing intrusion (Outer world) -->
+                                <g transform="translate(180, 45)">
+                                    <path d="M 0 10 Q 12 -3 24 10 Q 12 23 0 10 Z" fill="none" stroke="#ef4444" stroke-width="1.5" />
+                                    <circle cx="12" cy="10" r="3.5" fill="#ef4444" />
+                                </g>
+                            </svg>
+                        </div>
+                        <!-- Content -->
+                        <div style="padding: 16px; flex-grow: 1; display: flex; flex-direction: column; justify-content: space-between;">
+                            <div>
+                                <h4 style="margin: 0 0 8px 0; color: #fff; font-size: 0.95rem; font-weight: bold; text-align: center;">
+                                    <span class="lang-ja">過去：消極的権利 (Passive Right)</span>
+                                    <span class="lang-vi">Quá khứ: Quyền thụ động (Passive Right)</span>
+                                </h4>
+                                <p style="margin: 0; font-size: 0.82rem; line-height: 1.5; color: var(--text-secondary); text-align: center;">
+                                    <span class="lang-ja">「ひとりにしておいてもらう権利」<br>外部からの干渉を防ぐ防御的な概念。</span>
+                                    <span class="lang-vi">"Quyền được để cho yên tĩnh một mình"<br>Khái niệm phòng vệ nhằm ngăn chặn sự can thiệp từ bên ngoài.</span>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right Column: Active Right (積極的権利) -->
+                    <div class="card glass-card" style="padding: 0; background: rgba(15, 23, 42, 0.35); border: 1px solid rgba(255,255,255,0.06); border-radius: 12px; display: flex; flex-direction: column; overflow: hidden; margin-bottom: 0;">
+                        <!-- SVG Dashboard Illustration -->
+                        <div style="background: rgba(15,23,42,0.4); padding: 20px; display: flex; justify-content: center; align-items: center; border-bottom: 1px solid rgba(255,255,255,0.04); min-height: 140px;">
+                            <svg width="220" height="110" viewBox="0 0 220 110">
+                                <defs>
+                                    <radialGradient id="dashboard-glow" cx="50%" cy="50%" r="50%">
+                                        <stop offset="0%" stop-color="#2dd4bf" stop-opacity="0.2" />
+                                        <stop offset="100%" stop-color="#2dd4bf" stop-opacity="0" />
+                                    </radialGradient>
+                                </defs>
+                                <circle cx="110" cy="55" r="45" fill="url(#dashboard-glow)" />
+                                <!-- Control board base -->
+                                <rect x="35" y="20" width="150" height="70" rx="6" fill="#1e293b" stroke="#2dd4bf" stroke-width="1.5" />
+                                
+                                <!-- Dials (Rotary Knobs) -->
+                                <circle cx="70" cy="45" r="14" fill="#0f172a" stroke="#cbd5e1" stroke-width="1.5" />
+                                <line x1="70" y1="45" x2="70" y2="35" stroke="#2dd4bf" stroke-width="2" stroke-linecap="round" />
+                                
+                                <circle cx="110" cy="45" r="14" fill="#0f172a" stroke="#cbd5e1" stroke-width="1.5" />
+                                <line x1="110" y1="45" x2="120" y2="39" stroke="#2dd4bf" stroke-width="2" stroke-linecap="round" />
+
+                                <circle cx="150" cy="45" r="14" fill="#0f172a" stroke="#cbd5e1" stroke-width="1.5" />
+                                <line x1="150" y1="45" x2="142" y2="53" stroke="#2dd4bf" stroke-width="2" stroke-linecap="round" />
+                                
+                                <!-- Slider/Toggle Switch -->
+                                <rect x="65" y="70" width="30" height="10" rx="3" fill="#0f172a" stroke="#475569" stroke-width="1" />
+                                <circle cx="85" cy="75" r="6" fill="#2dd4bf" />
+                                
+                                <rect x="125" y="70" width="30" height="10" rx="3" fill="#0f172a" stroke="#475569" stroke-width="1" />
+                                <circle cx="130" cy="75" r="6" fill="#cbd5e1" />
+                            </svg>
+                        </div>
+                        <!-- Content -->
+                        <div style="padding: 16px; flex-grow: 1; display: flex; flex-direction: column; justify-content: space-between;">
+                            <div>
+                                <h4 style="margin: 0 0 8px 0; color: #fff; font-size: 0.95rem; font-weight: bold; text-align: center;">
+                                    <span class="lang-ja">現代：積極的権利 (Active Right)</span>
+                                    <span class="lang-vi">Hiện tại: Quyền chủ động (Active Right)</span>
+                                </h4>
+                                <p style="margin: 0; font-size: 0.82rem; line-height: 1.5; color: var(--text-secondary); text-align: center;">
+                                    <span class="lang-ja">「自己に関する情報の流れをコントロールする権利」<br>データの流通を自ら把握し、支配する能動的な概念。</span>
+                                    <span class="lang-vi">"Quyền tự kiểm soát luồng thông tin liên quan đến bản thân"<br>Khái niệm chủ động theo dõi và tự chi phối dòng chảy dữ liệu.</span>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
             </div>
 
+            <!-- SECTION IV-2: Principles in Third-Party Information Provision (Slide 10) -->
+            <div class="grid-2col" style="gap: 24px; margin-bottom: 25px; align-items: stretch;">
+                
+                <!-- Left: Rules & Principles -->
+                <div class="card glass-card text-left" style="padding: 25px; border-top: 4px solid var(--accent-gold); display: flex; flex-direction: column; justify-content: space-between; margin-bottom: 0;">
+                    <div>
+                        <h3 style="color: var(--accent-gold); margin-top: 0; margin-bottom: 20px; font-size: 1.15rem; display: flex; align-items: center; gap: 8px;">
+                            <i class="fa-solid fa-handshake-angle"></i>
+                            <span class="lang-ja">第三者への提供制限と本人の意思</span>
+                            <span class="lang-vi">Hạn chế cung cấp cho bên thứ ba và Ý chí của bản thân</span>
+                        </h3>
+                        
+                        <div style="background: rgba(255,255,255,0.02); padding: 15px; border-left: 3px solid var(--accent-gold); border-radius: 4px; margin-bottom: 15px;">
+                            <h4 style="margin: 0 0 6px 0; color: #fff; font-size: 0.98rem; font-weight: bold;">
+                                <span class="lang-ja">第三者への情報提供のルール</span>
+                                <span class="lang-vi">Quy tắc cung cấp thông tin cho bên thứ ba</span>
+                            </h4>
+                            <p style="margin: 0; font-size: 0.88rem; line-height: 1.6; color: var(--text-secondary);">
+                                <span class="lang-ja">・<strong>情報提供先</strong>：他の医師/医療機関、家族、警察、民間保険会社など。<br>・<strong>必須条件</strong>：情報提供の目的や提供する内容について明確に説明すること。<br>・<strong>絶対原則</strong>：患者本人の意思（同意）に従うことが大前提。</span>
+                                <span class="lang-vi">・<strong>Nơi nhận</strong>: Bác sĩ khác/Cơ sở y tế khác, gia đình, cảnh sát, công ty bảo hiểm tư nhân...<br>・<strong>Điều kiện bắt buộc</strong>: Giải thích rõ ràng mục đích và nội dung cung cấp.<br>・<strong>Nguyên tắc tuyệt đối</strong>: Tuân theo ý chí (sự đồng ý) của chính bệnh nhân.</span>
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <div id="sbo122-gatekeeper-desc" style="padding: 12px; background: rgba(14, 165, 233, 0.08); border: 1px dashed rgba(14, 165, 233, 0.2); border-radius: 6px; font-size: 0.85rem; line-height: 1.4; color: #38bdf8;">
+                        <span class="lang-ja">💡 門番（ゲートキーパー）である患者本人が同意の鍵を開けることで、初めて第三者への情報提供が可能になります。右の図の鍵をクリックして試してみましょう。</span>
+                        <span class="lang-vi">💡 Bệnh nhân đóng vai trò người gác cổng (Gatekeeper). Chỉ khi họ mở khóa bằng "Khóa đồng ý" thì thông tin mới được cung cấp. Click vào các ổ khóa ở hình bên để thử nghiệm.</span>
+                    </div>
+                </div>
+
+                <!-- Right: Interactive Gatekeeper Model -->
+                <div class="card glass-card" style="padding: 20px; overflow: hidden; display: flex; flex-direction: column; justify-content: center; align-items: center; border: 1px solid rgba(255,255,255,0.08); background: rgba(15, 23, 42, 0.35); border-radius: 16px; margin-bottom: 0; min-height: 320px; position: relative;">
+                    
+                    <!-- Interactive Gatekeeper SVG -->
+                    <svg width="340" height="260" viewBox="0 0 340 260" style="overflow: visible;">
+                        <defs>
+                            <radialGradient id="gatekeeper-glow" cx="50%" cy="50%" r="50%">
+                                <stop offset="0%" stop-color="#0ea5e9" stop-opacity="0.3" />
+                                <stop offset="100%" stop-color="#0ea5e9" stop-opacity="0" />
+                            </radialGradient>
+                        </defs>
+                        
+                        <!-- Glow behind patient -->
+                        <circle cx="80" cy="130" r="60" fill="url(#gatekeeper-glow)" />
+
+                        <!-- Flow lines from Patient to Destinations -->
+                        <!-- Line 1: Doctors -->
+                        <path id="sbo122-flow-line-1" d="M 80 130 C 140 100 180 50 250 50" fill="none" stroke="rgba(255,255,255,0.12)" stroke-width="3.5" style="transition: stroke 0.3s ease;" />
+                        <!-- Line 2: Family -->
+                        <path id="sbo122-flow-line-2" d="M 80 130 C 140 130 180 130 250 130" fill="none" stroke="rgba(255,255,255,0.12)" stroke-width="3.5" style="transition: stroke 0.3s ease;" />
+                        <!-- Line 3: Police -->
+                        <path id="sbo122-flow-line-3" d="M 80 130 C 140 160 180 210 250 210" fill="none" stroke="rgba(255,255,255,0.12)" stroke-width="3.5" style="transition: stroke 0.3s ease;" />
+
+                        <!-- Center: Patient / Gatekeeper -->
+                        <circle cx="80" cy="130" r="42" fill="#0ea5e9" stroke="#38bdf8" stroke-width="2" />
+                        <text x="80" y="121" text-anchor="middle" font-size="13.5" font-weight="bold" fill="#fff">Patient</text>
+                        <text x="80" y="135" text-anchor="middle" font-size="9" fill="#e0f2fe" font-weight="bold">Gatekeeper</text>
+                        <text x="80" y="147" text-anchor="middle" font-size="8" fill="#bae6fd">同意の鍵</text>
+
+                        <!-- Interactive Lock Buttons on flow lines -->
+                        <!-- Lock 1: Doctors -->
+                        <g id="sbo122-lock-btn-1" style="cursor: pointer;" onclick="sbo122ToggleGate(1)">
+                            <circle cx="160" cy="85" r="15" fill="#1e293b" stroke="#cbd5e1" stroke-width="1.5" />
+                            <path id="sbo122-lock-icon-1" d="M156 86h8v6h-8zm1-4a3 3 0 0 1 6 0v4h-6z" fill="none" stroke="#ef4444" stroke-width="1.5" stroke-linecap="round" />
+                        </g>
+                        <!-- Lock 2: Family -->
+                        <g id="sbo122-lock-btn-2" style="cursor: pointer;" onclick="sbo122ToggleGate(2)">
+                            <circle cx="160" cy="130" r="15" fill="#1e293b" stroke="#cbd5e1" stroke-width="1.5" />
+                            <path id="sbo122-lock-icon-2" d="M156 131h8v6h-8zm1-4a3 3 0 0 1 6 0v4h-6z" fill="none" stroke="#ef4444" stroke-width="1.5" stroke-linecap="round" />
+                        </g>
+                        <!-- Lock 3: Police -->
+                        <g id="sbo122-lock-btn-3" style="cursor: pointer;" onclick="sbo122ToggleGate(3)">
+                            <circle cx="160" cy="175" r="15" fill="#1e293b" stroke="#cbd5e1" stroke-width="1.5" />
+                            <path id="sbo122-lock-icon-3" d="M156 176h8v6h-8zm1-4a3 3 0 0 1 6 0v4h-6z" fill="none" stroke="#ef4444" stroke-width="1.5" stroke-linecap="round" />
+                        </g>
+
+                        <!-- Destinations (Circles with Icons & Text) -->
+                        <!-- 1. Other Doctors -->
+                        <g transform="translate(250, 50)">
+                            <circle cx="0" cy="0" r="24" fill="rgba(30, 41, 59, 0.8)" stroke="#cbd5e1" stroke-width="1.5" />
+                            <path d="M-8 -6h16v12h-16zM0 -10v4" fill="none" stroke="#cbd5e1" stroke-width="1.5" />
+                            <text x="34" y="4" font-size="12" font-weight="bold" fill="#fff">
+                                <tspan class="lang-ja">他の医師/医療機関</tspan>
+                                <tspan class="lang-vi">Bác sĩ / Y tế khác</tspan>
+                            </text>
+                        </g>
+
+                        <!-- 2. Family -->
+                        <g transform="translate(250, 130)">
+                            <circle cx="0" cy="0" r="24" fill="rgba(30, 41, 59, 0.8)" stroke="#cbd5e1" stroke-width="1.5" />
+                            <!-- Simple family silhouette representation -->
+                            <circle cx="-4" cy="-4" r="3.5" fill="#cbd5e1" />
+                            <path d="M-9 7 C-9 2 -1 2 -1 7" fill="none" stroke="#cbd5e1" stroke-width="1.5" />
+                            <circle cx="5" cy="-2" r="3" fill="#cbd5e1" />
+                            <path d="M1 7 C1 3 9 3 9 7" fill="none" stroke="#cbd5e1" stroke-width="1.5" />
+                            <text x="34" y="4" font-size="12" font-weight="bold" fill="#fff">
+                                <tspan class="lang-ja">家族</tspan>
+                                <tspan class="lang-vi">Gia đình</tspan>
+                            </text>
+                        </g>
+
+                        <!-- 3. Police / Insurances -->
+                        <g transform="translate(250, 210)">
+                            <circle cx="0" cy="0" r="24" fill="rgba(30, 41, 59, 0.8)" stroke="#cbd5e1" stroke-width="1.5" />
+                            <!-- Police badge silhouette -->
+                            <path d="M0 -8 L6 -4 L4 4 L0 8 L-4 4 L-6 -4 Z" fill="none" stroke="#cbd5e1" stroke-width="1.5" />
+                            <text x="34" y="4" font-size="12" font-weight="bold" fill="#fff">
+                                <tspan class="lang-ja">警察/民間保険会社</tspan>
+                                <tspan class="lang-vi">Cảnh sát / Bảo hiểm</tspan>
+                            </text>
+                        </g>
+
+                    </svg>
+
+                </div>
+
+            </div>
+
+            <script>
+                // State holding consent doors
+                let sbo122Gates = { 1: false, 2: false, 3: false };
+                
+                function sbo122ToggleGate(id) {
+                    sbo122Gates[id] = !sbo122Gates[id];
+                    const active = sbo122Gates[id];
+                    
+                    // Update flow line stroke
+                    const line = document.getElementById('sbo122-flow-line-' + id);
+                    if (line) {
+                        line.style.stroke = active ? 'var(--accent-teal)' : 'rgba(255,255,255,0.12)';
+                    }
+                    
+                    // Update Lock Icon representation (Locked red vs Unlocked green)
+                    const icon = document.getElementById('sbo122-lock-icon-' + id);
+                    if (icon) {
+                        if (active) {
+                            // Draw unlocked path
+                            icon.setAttribute('d', 'M156 86h8v6h-8zm5-4a3 3 0 0 1 3 3v1'); 
+                            // Quick translate adjustment based on standard positions
+                            if (id === 2) icon.setAttribute('d', 'M156 131h8v6h-8zm5-4a3 3 0 0 1 3 3v1');
+                            if (id === 3) icon.setAttribute('d', 'M156 176h8v6h-8zm5-4a3 3 0 0 1 3 3v1');
+                            icon.style.stroke = 'var(--accent-teal)';
+                        } else {
+                            // Draw locked path
+                            icon.setAttribute('d', 'M156 86h8v6h-8zm1-4a3 3 0 0 1 6 0v4h-6z');
+                            if (id === 2) icon.setAttribute('d', 'M156 131h8v6h-8zm1-4a3 3 0 0 1 6 0v4h-6z');
+                            if (id === 3) icon.setAttribute('d', 'M156 176h8v6h-8zm1-4a3 3 0 0 1 6 0v4h-6z');
+                            icon.style.stroke = '#ef4444';
+                        }
+                    }
+                    
+                    // Update explanations text dynamically
+                    const desc = document.getElementById('sbo122-gatekeeper-desc');
+                    if (desc) {
+                        if (id === 1) {
+                            desc.innerHTML = active 
+                                ? '<span class="lang-ja">🔓 <strong>他の医師/医療機関（開）</strong>：医療連携に同意しました。円滑な紹介や照会が可能です。</span><span class="lang-vi">🔓 <strong>Bác sĩ khác (Mở)</strong>: Đã đồng ý liên kết y tế. Cho phép giới thiệu hồ sơ bệnh án thuận lợi.</span>'
+                                : '<span class="lang-ja">🔒 <strong>他の医師/医療機関（閉）</strong>：本人意思の確認中、または共有を留保しています。</span><span class="lang-vi">🔒 <strong>Bác sĩ khác (Khóa)</strong>: Đang xác nhận ý chí hoặc tạm giữ chia sẻ.</span>';
+                        } else if (id === 2) {
+                            desc.innerHTML = active 
+                                ? '<span class="lang-ja">🔓 <strong>家族（開）</strong>：家族への病状説明に同意しました。がん告知等の重大告知で連携します。</span><span class="lang-vi">🔓 <strong>Gia đình (Mở)</strong>: Đã đồng ý giải thích bệnh tình cho gia đình. Phối hợp khi có tin tức lớn.</span>'
+                                : '<span class="lang-ja">🔒 <strong>家族（閉）</strong>：家族であっても、患者本人の同意がない限り病状開示は不可（原則厳守）。</span><span class="lang-vi">🔒 <strong>Gia đình (Khóa)</strong>: Cho dù là gia đình, nếu không có sự đồng ý của bệnh nhân thì cấm tiết lộ thông tin bệnh án (nguyên tắc nghiêm ngặt).</span>';
+                        } else if (id === 3) {
+                            desc.innerHTML = active 
+                                ? '<span class="lang-ja">🔓 <strong>警察/民間保険会社（開）</strong>：本人の同意または令状等に基づき、限定的な開示を承認しました。</span><span class="lang-vi">🔓 <strong>Cảnh sát / Bảo hiểm (Mở)</strong>: Phê duyệt công khai có giới hạn dựa trên sự đồng ý hoặc lệnh từ tòa án.</span>'
+                                : '<span class="lang-ja">🔒 <strong>警察/民間保険会社（閉）</strong>：任意の開示請求に対しては厳格に拒否（刑事事件捜査であっても令状がない限り拒絶可能）。</span><span class="lang-vi">🔒 <strong>Cảnh sát / Bảo hiểm (Khóa)</strong>: Từ chối nghiêm khắc các yêu cầu tùy ý (dù điều tra vụ án hình sự vẫn có quyền từ chối nếu không có lệnh tòa).</span>';
+                        }
+                    }
+                }
+            </script>
+            
             <!-- 3. Quyền từ chối cung cấp thông tin -->
             <div class="card glass-card text-left" style="padding: 25px; border-left: 4px solid #ef4444; background: rgba(239, 68, 68, 0.01); margin-bottom: 25px;">
                 <h3 style="color: #ef4444; margin-top: 0; font-size: 1.15rem; display: flex; align-items: center; gap: 8px;">
@@ -791,6 +1039,97 @@ window.SBO_TEMPLATES['sbo122'] = `<div id="sbo122" class="sbo-section-wrapper">
                         <span class="lang-ja">適切な紹介・転院先での診療に役立てる目的であっても、原則として患者本人の同意（または明示的な非反対）が必要です。通常、紹介状（診療情報提供書）の作成時に説明し同意を得ます。</span>
                         <span class="lang-vi">Ngay cả khi nhằm phục vụ khám chữa bệnh tại nơi chuyển viện phù hợp, về nguyên tắc vẫn bắt buộc phải có sự đồng ý của bệnh nhân (hoặc không phản đối rõ ràng). Thông thường, sự đồng ý này sẽ được giải thích và lấy ý kiến trực tiếp khi lập Giấy chuyển viện.</span>
                     </p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- SECTION V: 総括：患者主体の医療情報管理へ (Slide 11) -->
+    <section id="sbo122-sec5" class="section" style="padding-top: 30px; padding-bottom: 50px; border-top: 1px solid rgba(255,255,255,0.05);">
+        <div class="container">
+            <div class="section-badge" style="margin-bottom: 12px;">
+                <span class="lang-ja">総括</span>
+                <span class="lang-vi">Tổng kết</span>
+            </div>
+            <h2 class="section-title" style="margin-bottom: 24px;">
+                <span class="lang-ja">患者主体の医療情報管理へ</span>
+                <span class="lang-vi">Hướng tới quản lý thông tin y tế lấy bệnh nhân làm chủ thể</span>
+            </h2>
+
+            <div class="card glass-card text-left" style="padding: 25px; margin-bottom: 0;">
+                <div class="grid-2col" style="gap: 30px; align-items: center;">
+                    
+                    <!-- Left Column: Pyramidal Hierarchy (Slide 11) -->
+                    <div style="display: flex; flex-direction: column; gap: 12px; width: 100%;">
+                        
+                        <!-- Peak Level (自己情報コントロール権) -->
+                        <div style="background: rgba(45, 212, 191, 0.08); border: 1.5px solid var(--accent-teal); border-radius: 8px; padding: 15px; text-align: center; position: relative;">
+                            <span style="position: absolute; left: 12px; top: 12px; background: var(--accent-teal); color: #0f172a; font-size: 0.72rem; font-weight: 900; padding: 2px 6px; border-radius: 3px; text-transform: uppercase;">Peak</span>
+                            <h4 style="margin: 0 0 6px 0; color: var(--accent-teal); font-size: 1.05rem; font-weight: bold;">
+                                <span class="lang-ja">自己情報コントロール権</span>
+                                <span class="lang-vi">Quyền kiểm soát thông tin cá nhân</span>
+                            </h4>
+                            <p style="margin: 0; font-size: 0.85rem; line-height: 1.5; color: var(--text-secondary);">
+                                <span class="lang-ja">患者自身が主役となり、医療を共に創る「究極の目標」。</span>
+                                <span class="lang-vi">Bệnh nhân đóng vai trò chủ đạo, cùng hợp tác xây dựng y tế - "Mục tiêu tối thượng".</span>
+                            </p>
+                        </div>
+                        
+                        <!-- Downward connector arrow -->
+                        <div style="text-align: center; color: rgba(255,255,255,0.2); font-size: 1.1rem; line-height: 1;"><i class="fa-solid fa-chevron-up"></i></div>
+
+                        <!-- Middle Level (アクセス権・開示) -->
+                        <div style="background: rgba(59, 130, 246, 0.08); border: 1.5px solid #3b82f6; border-radius: 8px; padding: 15px; text-align: center; position: relative;">
+                            <span style="position: absolute; left: 12px; top: 12px; background: #3b82f6; color: #fff; font-size: 0.72rem; font-weight: 900; padding: 2px 6px; border-radius: 3px; text-transform: uppercase;">Middle</span>
+                            <h4 style="margin: 0 0 6px 0; color: #93c5fd; font-size: 1.05rem; font-weight: bold;">
+                                <span class="lang-ja">アクセス権（開示）</span>
+                                <span class="lang-vi">Quyền truy cập (Công khai)</span>
+                            </h4>
+                            <p style="margin: 0; font-size: 0.85rem; line-height: 1.5; color: var(--text-secondary);">
+                                <span class="lang-ja">情報の透明性と、自身の健康状態の「把握」。</span>
+                                <span class="lang-vi">Tính minh bạch của thông tin và sự "nắm bắt" tình trạng sức khỏe bản thân.</span>
+                            </p>
+                        </div>
+
+                        <!-- Downward connector arrow -->
+                        <div style="text-align: center; color: rgba(255,255,255,0.2); font-size: 1.1rem; line-height: 1;"><i class="fa-solid fa-chevron-up"></i></div>
+
+                        <!-- Base Level (守秘義務 & 個人情報保護法) -->
+                        <div style="background: rgba(239, 68, 68, 0.08); border: 1.5px solid #ef4444; border-radius: 8px; padding: 15px; text-align: center; position: relative;">
+                            <span style="position: absolute; left: 12px; top: 12px; background: #ef4444; color: #fff; font-size: 0.72rem; font-weight: 900; padding: 2px 6px; border-radius: 3px; text-transform: uppercase;">Base</span>
+                            <h4 style="margin: 0 0 6px 0; color: #fca5a5; font-size: 1.05rem; font-weight: bold;">
+                                <span class="lang-ja">守秘義務 ＆ 個人情報保護法</span>
+                                <span class="lang-vi">Nghĩa vụ bảo mật & Luật bảo vệ thông tin cá nhân</span>
+                            </h4>
+                            <p style="margin: 0; font-size: 0.85rem; line-height: 1.5; color: var(--text-secondary);">
+                                <span class="lang-ja">強固なセキュリティと法整備による「信頼の土台」。</span>
+                                <span class="lang-vi">Nền tảng của sự tin cậy dựa trên bảo mật vững chắc và hành lang pháp lý hoàn thiện.</span>
+                            </p>
+                        </div>
+
+                    </div>
+
+                    <!-- Right Column: Upward Arrow (Empowerment & Trust) -->
+                    <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 20px; background: rgba(255,255,255,0.015); border: 1px solid rgba(255,255,255,0.06); border-radius: 12px; min-height: 280px; box-sizing: border-box; text-align: center; width: 100%;">
+                        
+                        <!-- SVG Upward Arrow matching Slide 11 -->
+                        <svg width="80" height="160" viewBox="0 0 80 160">
+                            <defs>
+                                <linearGradient id="up-arrow-grad" x1="0%" y1="100%" x2="0%" y2="0%">
+                                    <stop offset="0%" stop-color="#3b82f6" />
+                                    <stop offset="100%" stop-color="#2dd4bf" />
+                                </linearGradient>
+                            </defs>
+                            <!-- Large arrow shape -->
+                            <path d="M 40 10 L 75 60 L 55 60 L 55 150 L 25 150 L 25 60 L 5 60 Z" fill="url(#up-arrow-grad)" stroke="#2dd4bf" stroke-width="1.5" />
+                        </svg>
+
+                        <h4 style="margin: 15px 0 6px 0; color: var(--accent-teal); font-size: 1.1rem; font-weight: bold;">
+                            <span class="lang-ja">患者主体の実現</span>
+                            <span class="lang-vi">Hiện thực hóa vai trò chủ thể của bệnh nhân</span>
+                        </h4>
+                        <span style="font-size: 0.85rem; font-weight: 500; color: var(--text-muted); letter-spacing: 0.5px;">(Empowerment & Trust)</span>
+                    </div>
+
                 </div>
             </div>
         </div>
