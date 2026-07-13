@@ -444,7 +444,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const heroMainTitle = document.getElementById('hero-main-title');
     const heroSubDesc = document.getElementById('hero-sub-desc');
 
-    const activateSBO = (targetSbo, updateHash = true) => {
+    const activateSBO = (targetSbo, updateHash = true, scroll = true) => {
         if (typeof window.deactivateReviewMode === 'function') {
             window.deactivateReviewMode();
         }
@@ -604,12 +604,9 @@ document.addEventListener('DOMContentLoaded', () => {
                     });
                 });
 
-                // Initialize SBO 1.2.3 specific interactive functions if defined
-                if (typeof window.updateSbo123Matrix === 'function') {
-                    window.updateSbo123Matrix();
-                }
-                if (typeof window.updateSbo123Step === 'function') {
-                    window.updateSbo123Step();
+                // Initialize SBO 1.2.3 simulator
+                if (typeof window.initSbo123Simulator === 'function') {
+                    window.initSbo123Simulator();
                 }
             }
 
@@ -667,7 +664,9 @@ document.addEventListener('DOMContentLoaded', () => {
         if (updateHash) {
             window.location.hash = targetSbo;
         }
-        window.scrollTo({ top: 0, behavior: 'smooth' });
+        if (scroll) {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
     };
 
     sboNavLinks.forEach(link => {
@@ -680,17 +679,24 @@ document.addEventListener('DOMContentLoaded', () => {
     window.addEventListener('hashchange', () => {
         const targetSbo = window.location.hash.substring(1);
         if (targetSbo && sboHeaderData[targetSbo]) {
-            activateSBO(targetSbo, false);
+            activateSBO(targetSbo, false, true);
         }
     });
 
     // Initial load route checking
     const initialHash = window.location.hash.substring(1);
     if (initialHash && sboHeaderData[initialHash]) {
-        activateSBO(initialHash, false);
+        activateSBO(initialHash, false, true);
     } else {
-        activateSBO('sbo111', true);
+        activateSBO('sbo111', true, true);
     }
+
+    // Force scroll to top on page load / refresh
+    window.addEventListener('load', () => {
+        setTimeout(() => {
+            window.scrollTo(0, 0);
+        }, 50);
+    });
 
     // --- Sidebar Accordion Toggle Logic ---
     const chapterHeaders = document.querySelectorAll('.chapter-group-header');

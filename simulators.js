@@ -616,122 +616,155 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     };
 
-    const sbo123TabBtns = document.querySelectorAll('.sbo123-tab-btn');
-    const sbo123MatrixHeader = document.getElementById('sbo123-matrix-header');
-    const sbo123MatrixBody = document.getElementById('sbo123-matrix-body');
+    function initSbo123Simulator() {
+        const sbo123TabBtns = document.querySelectorAll('.sbo123-tab-btn');
+        const sbo123MatrixHeader = document.getElementById('sbo123-matrix-header');
+        const sbo123MatrixBody = document.getElementById('sbo123-matrix-body');
+        const icSteps = document.querySelectorAll('.ic-step');
+        const icProgress = document.getElementById('ic-progress');
+        const icStepTitle = document.getElementById('ic-step-title');
+        const icStepDesc = document.getElementById('ic-step-desc');
 
-    function updateSbo123Matrix() {
-        const activeTabBtn = document.querySelector('.sbo123-tab-btn.active');
-        if (!activeTabBtn || !sbo123MatrixBody) return;
-        const isVi = document.body.classList.contains('lang-vi');
-        const tab = activeTabBtn.getAttribute('data-tab');
-        const data = sbo123MatrixData[tab];
+        function updateSbo123Matrix() {
+            const activeTabBtn = document.querySelector('.sbo123-tab-btn.active');
+            if (!activeTabBtn || !sbo123MatrixBody) return;
+            const isVi = document.body.classList.contains('lang-vi');
+            const tab = activeTabBtn.getAttribute('data-tab');
+            const data = sbo123MatrixData[tab];
 
-        if (data) {
-            if (sbo123MatrixHeader) {
-                sbo123MatrixHeader.textContent = isVi ? data.headerVi : data.headerJa;
+            // Dynamic color highlights for matrix card based on active model
+            const matrixCard = document.getElementById('sbo123-matrix-card');
+            if (matrixCard) {
+                if (tab === 'paternalism') {
+                    matrixCard.style.borderTop = '4px solid #ef4444';
+                    matrixCard.style.background = 'rgba(239, 68, 68, 0.01)';
+                    if (sbo123MatrixHeader) sbo123MatrixHeader.style.color = '#fca5a5';
+                } else {
+                    matrixCard.style.borderTop = '4px solid var(--accent-teal)';
+                    matrixCard.style.background = 'rgba(45, 212, 191, 0.01)';
+                    if (sbo123MatrixHeader) sbo123MatrixHeader.style.color = 'var(--accent-teal)';
+                }
             }
-            sbo123MatrixBody.innerHTML = '';
-            data.rows.forEach(row => {
-                const tr = document.createElement('tr');
-                tr.style.borderBottom = '1px solid rgba(255, 255, 255, 0.05)';
-                tr.innerHTML = `
-                    <td style="padding: 12px; font-weight: bold; color: #94a3b8;">
-                        <span class="lang-ja">${row.labelJa}</span>
-                        <span class="lang-vi">${row.labelVi}</span>
-                    </td>
-                    <td style="padding: 12px; color: #e2e8f0;">
-                        <span class="lang-ja">${row.valJa}</span>
-                        <span class="lang-vi">${row.valVi}</span>
-                    </td>
-                `;
-                sbo123MatrixBody.appendChild(tr);
-            });
-            // trigger translation toggle on new elements
-            document.querySelectorAll('#sbo123-matrix-body .lang-ja').forEach(el => {
-                el.style.display = isVi ? 'none' : 'inline-block';
-            });
-            document.querySelectorAll('#sbo123-matrix-body .lang-vi').forEach(el => {
-                el.style.display = isVi ? 'inline-block' : 'none';
-            });
+
+            if (data) {
+                if (sbo123MatrixHeader) {
+                    const headerIcon = (tab === 'paternalism') ? '<i class="fa-solid fa-user-doctor" style="margin-right: 8px;"></i>' : '<i class="fa-solid fa-hospital-user" style="margin-right: 8px;"></i>';
+                    sbo123MatrixHeader.innerHTML = headerIcon + (isVi ? data.headerVi : data.headerJa);
+                }
+                sbo123MatrixBody.innerHTML = '';
+                const labelColor = (tab === 'paternalism') ? '#f87171' : 'var(--accent-teal)';
+                data.rows.forEach(row => {
+                    const tr = document.createElement('tr');
+                    tr.style.borderBottom = '1px solid rgba(255, 255, 255, 0.05)';
+                    tr.innerHTML = `
+                        <td style="padding: 12px; font-weight: bold; color: ${labelColor}; width: 35%;">
+                            <span class="lang-ja">${row.labelJa}</span>
+                            <span class="lang-vi">${row.labelVi}</span>
+                        </td>
+                        <td style="padding: 12px; color: #e2e8f0; line-height: 1.5;">
+                            <span class="lang-ja">${row.valJa}</span>
+                            <span class="lang-vi">${row.valVi}</span>
+                        </td>
+                    `;
+                    sbo123MatrixBody.appendChild(tr);
+                });
+                // trigger translation toggle on new elements
+                document.querySelectorAll('#sbo123-matrix-body .lang-ja').forEach(el => {
+                    el.style.display = isVi ? 'none' : 'inline-block';
+                });
+                document.querySelectorAll('#sbo123-matrix-body .lang-vi').forEach(el => {
+                    el.style.display = isVi ? 'inline-block' : 'none';
+                });
+            }
         }
-    }
 
-    sbo123TabBtns.forEach(btn => {
-        btn.addEventListener('click', () => {
-            sbo123TabBtns.forEach(b => {
-                b.classList.remove('active');
-                b.style.background = 'rgba(255, 255, 255, 0.05)';
-                b.style.borderColor = 'rgba(255, 255, 255, 0.1)';
-                b.style.color = '#e2e8f0';
-            });
-            btn.classList.add('active');
-            const tab = btn.getAttribute('data-tab');
-            if (tab === 'paternalism') {
-                btn.style.background = 'rgba(239, 68, 68, 0.2)';
-                btn.style.borderColor = '#ef4444';
-                btn.style.color = '#ef4444';
-            } else {
-                btn.style.background = 'rgba(16, 185, 129, 0.2)';
-                btn.style.borderColor = '#10b981';
-                btn.style.color = '#10b981';
+        function updateSbo123Step() {
+            const isVi = document.body.classList.contains('lang-vi');
+            const activeStep = document.querySelector('.ic-step.active');
+            if (activeStep) {
+                const stepNum = activeStep.getAttribute('data-step');
+                const data = sbo123StepsData[stepNum];
+                if (data && icStepTitle && icStepDesc) {
+                    icStepTitle.textContent = isVi ? data.titleVi : data.titleJa;
+                    icStepDesc.textContent = isVi ? data.descVi : data.descJa;
+                }
+                if (icProgress) {
+                    const percent = ((parseInt(stepNum) - 1) / 3) * 100;
+                    icProgress.style.width = `${percent}%`;
+                }
             }
-            updateSbo123Matrix();
+        }
+
+        sbo123TabBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                sbo123TabBtns.forEach(b => {
+                    b.classList.remove('active');
+                    b.style.background = 'rgba(255, 255, 255, 0.05)';
+                    b.style.borderColor = 'rgba(255, 255, 255, 0.1)';
+                    b.style.color = '#e2e8f0';
+                });
+                btn.classList.add('active');
+                const tab = btn.getAttribute('data-tab');
+                if (tab === 'paternalism') {
+                    btn.style.background = 'rgba(239, 68, 68, 0.2)';
+                    btn.style.borderColor = '#ef4444';
+                    btn.style.color = '#ef4444';
+                } else {
+                    btn.style.background = 'rgba(45, 212, 191, 0.2)';
+                    btn.style.borderColor = 'var(--accent-teal)';
+                    btn.style.color = 'var(--accent-teal)';
+                }
+                updateSbo123Matrix();
+            });
         });
-    });
 
-    const icSteps = document.querySelectorAll('.ic-step');
-    const icProgress = document.getElementById('ic-progress');
-    const icStepTitle = document.getElementById('ic-step-title');
-    const icStepDesc = document.getElementById('ic-step-desc');
+        icSteps.forEach(step => {
+            step.addEventListener('click', () => {
+                icSteps.forEach(s => {
+                    s.classList.remove('active');
+                    s.style.borderColor = 'rgba(255,255,255,0.15)';
+                    s.style.color = '#94a3b8';
+                    s.style.background = '#0f172a';
+                    s.style.boxShadow = 'none';
+                });
+                step.classList.add('active');
+                step.style.borderColor = 'var(--accent-teal)';
+                step.style.color = '#0f172a';
+                step.style.background = 'var(--accent-teal)';
+                step.style.boxShadow = '0 0 15px rgba(45, 212, 191, 0.5)';
 
-    function updateSbo123Step() {
-        const isVi = document.body.classList.contains('lang-vi');
-        const activeStep = document.querySelector('.ic-step.active');
-        if (activeStep) {
-            const stepNum = activeStep.getAttribute('data-step');
-            const data = sbo123StepsData[stepNum];
-            if (data && icStepTitle && icStepDesc) {
-                icStepTitle.textContent = isVi ? data.titleVi : data.titleJa;
-                icStepDesc.textContent = isVi ? data.descVi : data.descJa;
-            }
-            if (icProgress) {
-                const percent = ((parseInt(stepNum) - 1) / 3) * 100;
-                icProgress.style.width = `${percent}%`;
-            }
-        }
-    }
-
-    icSteps.forEach(step => {
-        step.addEventListener('click', () => {
-            icSteps.forEach(s => {
-                s.classList.remove('active');
-                s.querySelector('.step-num').style.borderColor = 'rgba(255,255,255,0.1)';
-                s.querySelector('.step-num').style.color = '#94a3b8';
-            });
-            step.classList.add('active');
-            step.querySelector('.step-num').style.borderColor = '#3b82f6';
-            step.querySelector('.step-num').style.color = '#3b82f6';
-
-            const stepCard = document.getElementById('ic-step-card');
-            if (stepCard) {
-                stepCard.style.opacity = '0.3';
-                setTimeout(() => {
+                const stepCard = document.getElementById('ic-step-card');
+                if (stepCard) {
+                    stepCard.style.opacity = '0.3';
+                    setTimeout(() => {
+                        updateSbo123Step();
+                        stepCard.style.opacity = '1';
+                    }, 200);
+                } else {
                     updateSbo123Step();
-                    stepCard.style.opacity = '1';
-                }, 200);
-            } else {
-                updateSbo123Step();
-            }
+                }
+            });
         });
-    });
 
-    // Initialize SBO 1.2.3 components
-    updateSbo123Matrix();
-    updateSbo123Step();
+        // Initialize state
+        updateSbo123Matrix();
+        updateSbo123Step();
 
-    window.updateSbo123Matrix = updateSbo123Matrix;
-    window.updateSbo123Step = updateSbo123Step;
+        // Style initial active step dot
+        const initialActiveStep = document.querySelector('.ic-step.step-dot[data-step="1"]');
+        if (initialActiveStep) {
+            initialActiveStep.style.borderColor = 'var(--accent-teal)';
+            initialActiveStep.style.color = '#0f172a';
+            initialActiveStep.style.background = 'var(--accent-teal)';
+            initialActiveStep.style.boxShadow = '0 0 15px rgba(45, 212, 191, 0.5)';
+        }
+
+        window.updateSbo123Matrix = updateSbo123Matrix;
+        window.updateSbo123Step = updateSbo123Step;
+    }
+
+    // Export to window
+    window.initSbo123Simulator = initSbo123Simulator;
 
 
     // --- 10. SBO 3.1.1: Organ Systems Selector Logic ---
