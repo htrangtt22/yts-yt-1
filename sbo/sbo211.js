@@ -24,7 +24,6 @@ window.SBO_TEMPLATES['sbo211'] = `<div id="sbo211" class="sbo-section-wrapper">
                             <!-- Text Details -->
                             <div>
                                 <h3 style="margin-top: 0; margin-bottom: 20px; font-size: 1.15rem; color: var(--accent-teal); display: flex; align-items: center; gap: 8px;">
-                                    <i class="fa-solid fa-hotel"></i>
                                     <span class="lang-ja">社会保障の概念と役割：国民の暮らしを支える基盤</span>
                                     <span class="lang-vi">Khái niệm &amp; Vai trò An sinh xã hội: Nền tảng nâng đỡ đời sống</span>
                                 </h3>
@@ -56,8 +55,8 @@ window.SBO_TEMPLATES['sbo211'] = `<div id="sbo211" class="sbo-section-wrapper">
                                 <!-- The 6 Pillars Content Block -->
                                 <div style="margin-top: 20px; border-top: 1px solid rgba(255,255,255,0.06); padding-top: 15px;">
                                     <h4 style="margin: 0 0 10px 0; color: var(--accent-teal); font-size: 0.95rem; font-weight: bold;">
-                                        <span class="lang-ja"><i class="fa-solid fa-circle-nodes"></i> 社会保障の6つの主要な支柱</span>
-                                        <span class="lang-vi"><i class="fa-solid fa-circle-nodes"></i> 6 Trụ cột chính của An sinh Xã hội</span>
+                                        <span class="lang-ja">社会保障の6つの主要な支柱</span>
+                                        <span class="lang-vi">6 Trụ cột chính của An sinh Xã hội</span>
                                     </h4>
                                     <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px;">
                                         <div style="background: rgba(255,255,255,0.02); padding: 8px 12px; border-radius: 6px; border-left: 3px solid var(--accent-teal);">
@@ -128,7 +127,6 @@ window.SBO_TEMPLATES['sbo211'] = `<div id="sbo211" class="sbo-section-wrapper">
                             <!-- Text Details -->
                             <div>
                                 <h3 style="margin-top: 0; margin-bottom: 20px; font-size: 1.15rem; color: var(--accent-gold); display: flex; align-items: center; gap: 8px;">
-                                    <i class="fa-solid fa-clock-rotate-left"></i>
                                     <span class="lang-ja">歴史的変遷：社会構造の変化に適応する制度の歩み</span>
                                     <span class="lang-vi">Tiến trình lịch sử: Sự thích ứng của hệ thống trước thay đổi xã hội</span>
                                 </h3>
@@ -171,8 +169,8 @@ window.SBO_TEMPLATES['sbo211'] = `<div id="sbo211" class="sbo-section-wrapper">
                         </div><!-- 3. Components of Social Security (わが国の社会保障の構成要素) -->
                         <div class="card glass-card" style="margin-top: 25px;">
                             <h3>
-                                <span class="lang-ja"><i class="fa-solid fa-cubes"></i> わが国の社会保障の構成要素</span>
-                                <span class="lang-vi"><i class="fa-solid fa-cubes"></i> Các thành phần chính cấu thành hệ thống</span>
+                                <span class="lang-ja">わが国の社会保障の構成要素</span>
+                                <span class="lang-vi">Các thành phần chính cấu thành hệ thống</span>
                             </h3>
                             <p class="small-desc" style="margin-top: 5px;">
                                 <span class="lang-ja">日本の社会保障制度は、主に以下の主要な仕組みを通じて国民の生涯を支えています。</span>
@@ -261,22 +259,19 @@ window.SBO_TEMPLATES['sbo211'] = `<div id="sbo211" class="sbo-section-wrapper">
                                 <div class="social-budget-chart" style="margin-top: 0;">
                                     <div class="chart-segment segment-pension active" data-sbo211-pillar="insurance"
                                         style="border-left: 6px solid #3b82f6;">
-                                        <span class="segment-label"><i class="fa-solid fa-shield-halved"></i> 
-                                            <span class="lang-ja">社会保険 (Social Insurance)</span>
+                                        <span class="segment-label"><span class="lang-ja">社会保険 (Social Insurance)</span>
                                             <span class="lang-vi">Bảo hiểm xã hội (Social Insurance)</span>
                                         </span>
                                     </div>
                                     <div class="chart-segment segment-medical" data-sbo211-pillar="assistance"
                                         style="border-left: 6px solid #ef4444;">
-                                        <span class="segment-label"><i class="fa-solid fa-hand-holding-hand"></i> 
-                                            <span class="lang-ja">公的扶助 (Public Assistance)</span>
+                                        <span class="segment-label"><span class="lang-ja">公的扶助 (Public Assistance)</span>
                                             <span class="lang-vi">Cứu tế công cộng (Public Assistance)</span>
                                         </span>
                                     </div>
                                     <div class="chart-segment segment-welfare" data-sbo211-pillar="welfare"
                                         style="border-left: 6px solid #10b981;">
-                                        <span class="segment-label"><i class="fa-solid fa-users"></i> 
-                                            <span class="lang-ja">社会福祉 (Social Welfare)</span>
+                                        <span class="segment-label"><span class="lang-ja">社会福祉 (Social Welfare)</span>
                                             <span class="lang-vi">Phúc lợi xã hội (Social Welfare)</span>
                                         </span>
                                     </div>
@@ -388,8 +383,8 @@ window.SBO_TEMPLATES['sbo211'] = `<div id="sbo211" class="sbo-section-wrapper">
                         <!-- Card 1: 5 Pillars Matrix (Full-Width) -->
                         <div class="card glass-card text-left" style="padding: 25px; border-top: 4px solid var(--accent-teal); margin-bottom: 25px;">
                             <h3>
-                                <span class="lang-ja"><i class="fa-solid fa-list-check"></i> 5つの公的保険制度（社会保険の5つの制度）</span>
-                                <span class="lang-vi"><i class="fa-solid fa-list-check"></i> Năm chế độ bảo hiểm xã hội công cộng cốt lõi</span>
+                                <span class="lang-ja">5つの公的保険制度（社会保険の5つの制度）</span>
+                                <span class="lang-vi">Năm chế độ bảo hiểm xã hội công cộng cốt lõi</span>
                             </h3>
                             <p style="font-size: 0.95rem; color: var(--text-secondary); margin-top: 8px; margin-bottom: 20px;">
                                 <span class="lang-ja">わが国の社会保険制度は、国民が生活の中で直面する様々な健康や就労のリスクに対し、社会全体で備えるため、以下の5つの公的保険から構成されています。</span>
@@ -400,8 +395,7 @@ window.SBO_TEMPLATES['sbo211'] = `<div id="sbo211" class="sbo-section-wrapper">
                                 <!-- Pillar 1: Pension -->
                                 <div class="sbo211-matrix-col">
                                     <div class="sbo211-pillar-icon-box" style="color: #60a5fa; background: rgba(96, 165, 250, 0.1); border-color: rgba(96, 165, 250, 0.2);">
-                                        <i class="fa-solid fa-people-roof"></i>
-                                    </div>
+                                        </div>
                                     <div class="sbo211-pillar-name">
                                         <span class="lang-ja">年金保険</span>
                                         <span class="lang-vi">Lương hưu</span>
@@ -477,8 +471,8 @@ window.SBO_TEMPLATES['sbo211'] = `<div id="sbo211" class="sbo-section-wrapper">
                         <!-- Card 2: Financial Resources & Function (Full-Width with Flow Diagram) -->
                         <div class="card glass-card text-left" style="padding: 25px; border-top: 4px solid var(--accent-gold); margin-bottom: 0;">
                             <h3>
-                                <span class="lang-ja"><i class="fa-solid fa-coins"></i> 財源構成と防貧的機能：事前の備えで貧困を防ぐ仕組み</span>
-                                <span class="lang-vi"><i class="fa-solid fa-coins"></i> Cơ cấu tài chính & Phòng nghèo: Cơ chế ngăn ngừa nghèo đói từ trước</span>
+                                <span class="lang-ja">財源構成と防貧的機能：事前の備えで貧困を防ぐ仕組み</span>
+                                <span class="lang-vi">Cơ cấu tài chính & Phòng nghèo: Cơ chế ngăn ngừa nghèo đói từ trước</span>
                             </h3>
                             
                             <div class="grid-2col" style="margin-top: 20px; align-items: center; gap: 25px;">
@@ -577,8 +571,8 @@ window.SBO_TEMPLATES['sbo211'] = `<div id="sbo211" class="sbo-section-wrapper">
                         <!-- Card 1: 3-Actor Relationship (Full-Width) -->
                         <div class="card glass-card" style="margin-bottom: 25px; padding: 25px; border-top: 4px solid var(--accent-teal);">
                             <h3>
-                                <span class="lang-ja"><i class="fa-solid fa-file-invoice-dollar"></i> 公的医療保険制度と国民皆保険</span>
-                                <span class="lang-vi"><i class="fa-solid fa-file-invoice-dollar"></i> Chế độ Bảo hiểm Y tế công cộng và Bảo hiểm toàn dân</span>
+                                <span class="lang-ja">公的医療保険制度と国民皆保険</span>
+                                <span class="lang-vi">Chế độ Bảo hiểm Y tế công cộng và Bảo hiểm toàn dân</span>
                             </h3>
                             
                             <div class="grid-2col" style="margin-top: 20px; align-items: center; gap: 25px;">
@@ -760,7 +754,7 @@ window.SBO_TEMPLATES['sbo211'] = `<div id="sbo211" class="sbo-section-wrapper">
                         <!-- Card 3: Public Pension Section -->
                         <div class="card glass-card" style="margin-top: 25px; padding: 25px; border-top: 4px solid var(--accent-gold);">
                             <h3>
-                                <span class="lang-ja"><i class="fa-solid fa-users-line"></i> 公的年金制度と国民皆年金：世代間で支え合う老後の安心</span>
+                                <span class="lang-ja">公的年金制度と国民皆年金：世代間で支え合う老後の安心</span>
                                 <span class="lang-vi">Hưu trí Công cộng và Hưu trí Toàn dân: An tâm tuổi già nhờ hỗ trợ giữa các thế hệ</span>
                             </h3>
                             
@@ -768,7 +762,7 @@ window.SBO_TEMPLATES['sbo211'] = `<div id="sbo211" class="sbo-section-wrapper">
                                 <!-- Left Side: 2-Tier Pension Structure visualizer & details -->
                                 <div>
                                     <h4 style="margin: 0 0 15px 0; color: var(--accent-teal); font-size: 0.95rem; font-weight: bold;">
-                                        <span class="lang-ja"><i class="fa-solid fa-layer-group"></i> 公的年金の「2階建て構造」</span>
+                                        <span class="lang-ja">公的年金の「2階建て構造」</span>
                                         <span class="lang-vi">"Cấu trúc hai tầng" của Lương hưu Công cộng</span>
                                     </h4>
                                     
@@ -797,7 +791,7 @@ window.SBO_TEMPLATES['sbo211'] = `<div id="sbo211" class="sbo-section-wrapper">
                                     <!-- Insured Classifications list -->
                                     <div style="background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.05); border-radius: 8px; padding: 15px;">
                                         <div style="font-weight: bold; font-size: 0.95rem; margin-bottom: 8px; color: var(--accent-gold);">
-                                            <span class="lang-ja"><i class="fa-solid fa-users"></i> 被保険者の分類 (国民皆年金)</span>
+                                            <span class="lang-ja">被保険者の分類 (国民皆年金)</span>
                                             <span class="lang-vi">Phân loại đối tượng tham gia</span>
                                         </div>
                                         <div style="display: flex; flex-direction: column; gap: 8px; font-size: 0.95rem; line-height: 1.6; color: #ffffff;">
@@ -885,8 +879,8 @@ window.SBO_TEMPLATES['sbo211'] = `<div id="sbo211" class="sbo-section-wrapper">
                             <span class="lang-vi">Phúc lợi xã hội, Cứu tế công cộng & Bảo sản</span>
                         </div>
                         <h2 class="section-title">
-                            <span class="lang-ja"><i class="fa-solid fa-hands-holding-child"></i> 4. 社会福祉・公的扶助・母子保健の仕組み</span>
-                            <span class="lang-vi"><i class="fa-solid fa-hands-holding-child"></i> 4. Phúc lợi xã hội, Cứu tế công cộng và Bảo vệ sức khỏe mẹ & bé</span>
+                            <span class="lang-ja">社会福祉・公的扶助・母子保健の仕組み</span>
+                            <span class="lang-vi"><i class="fa-solid fa-hands-holding-child"></i> Phúc lợi xã hội, Cứu tế công cộng và Bảo vệ sức khỏe mẹ & bé</span>
                         </h2>
                         <p class="section-desc">
                             <span class="lang-ja">ハンディキャップの克服、最低限度の生活保障、そして次世代のすこやかな育成を支える福祉・保健制度です。</span>
@@ -1181,8 +1175,8 @@ window.SBO_TEMPLATES['sbo211'] = `<div id="sbo211" class="sbo-section-wrapper">
                             <span class="lang-vi">Hệ thống Chăm sóc Toàn diện Khu vực</span>
                         </div>
                         <h2 class="section-title">
-                            <span class="lang-ja"><i class="fa-solid fa-house-chimney-medical"></i> 5. 地域包括ケアシステムと2025年問題</span>
-                            <span class="lang-vi"><i class="fa-solid fa-house-chimney-medical"></i> 5. Hệ thống Chăm sóc Toàn diện Khu vực và Vấn đề năm 2025</span>
+                            <span class="lang-ja">地域包括ケアシステムと2025年問題</span>
+                            <span class="lang-vi">Hệ thống Chăm sóc Toàn diện Khu vực và Vấn đề năm 2025</span>
                         </h2>
                         <p class="section-desc">
                             <span class="lang-ja">団塊の世代が75歳以上となる「2025年問題」に対応するため、病院完結型から地域全体で支える「地域完結型」への転換を進めています。</span>
@@ -1284,8 +1278,8 @@ window.SBO_TEMPLATES['sbo211'] = `<div id="sbo211" class="sbo-section-wrapper">
                         <!-- Summary Card: 日本の社会保障の全体像 (SBO 2.1.1 総括) -->
                         <div class="card glass-card text-left" style="padding: 25px; border-top: 4px solid var(--accent-gold); margin-top: 25px;">
                             <h3>
-                                <span class="lang-ja"><i class="fa-solid fa-graduation-cap"></i> まとめ：日本の社会保障の全体像 (SBO 2.1.1 総括)</span>
-                                <span class="lang-vi"><i class="fa-solid fa-graduation-cap"></i> Tổng kết: Toàn cảnh An sinh xã hội Nhật Bản</span>
+                                <span class="lang-ja">まとめ：日本の社会保障の全体像 (SBO 2.1.1 総括)</span>
+                                <span class="lang-vi">Tổng kết: Toàn cảnh An sinh xã hội Nhật Bản</span>
                             </h3>
                             
                             <div class="sbo211-split-container" style="margin-top: 20px; align-items: center;">

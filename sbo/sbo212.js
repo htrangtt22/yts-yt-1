@@ -9,8 +9,8 @@ window.SBO_TEMPLATES['sbo212'] = `<div id="sbo212" class="sbo-section-wrapper">
                 <span class="lang-vi">Khái quát về Hệ thống Y tế</span>
             </div>
             <h2 class="section-title">
-                <span class="lang-ja"><i class="fa-solid fa-hospital"></i> 日本の医療制度の概要</span>
-                <span class="lang-vi"><i class="fa-solid fa-hospital"></i> Khái quát về Hệ thống Y tế Nhật Bản</span>
+                <span class="lang-ja">日本の医療制度の概要</span>
+                <span class="lang-vi">Khái quát về Hệ thống Y tế Nhật Bản</span>
             </h2>
             <p class="section-desc">
                 <span class="lang-ja">日本の医療制度は、すべての国民が安心して質の高い医療を適切な費用で受けられる環境を保障するために構築されています。</span>
@@ -20,7 +20,6 @@ window.SBO_TEMPLATES['sbo212'] = `<div id="sbo212" class="sbo-section-wrapper">
             <!-- 1. Core Features -->
             <div class="card glass-card" style="margin-bottom: 25px; padding: 25px;">
                 <h3 style="color: var(--accent-teal); border-bottom: 1px solid rgba(255,255,255,0.08); padding-bottom: 8px; margin-bottom: 20px;">
-                    <i class="fa-solid fa-circle-info"></i>
                     <span class="lang-ja">医療提供体制の主な特徴</span>
                     <span class="lang-vi">Các đặc trưng cốt lõi của Hệ thống Y tế Nhật Bản</span>
                 </h3>
@@ -28,7 +27,7 @@ window.SBO_TEMPLATES['sbo212'] = `<div id="sbo212" class="sbo-section-wrapper">
                 <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px;">
                     <!-- Core 1 -->
                     <div style="background: rgba(255,255,255,0.02); padding: 15px; border-radius: 8px; border-top: 3px solid var(--accent-teal); display: flex; flex-direction: column; gap: 8px;">
-                        <span style="color: var(--accent-teal); font-size: 1.2rem;"><i class="fa-solid fa-users"></i></span>
+                        <span style="color: var(--accent-teal); font-size: 1.2rem;"></span>
                         <strong style="color: #ffffff; font-size: 0.95rem;">
                             <span class="lang-ja">国民皆保険制度</span>
                             <span class="lang-vi">Bảo hiểm toàn dân</span>
@@ -41,7 +40,7 @@ window.SBO_TEMPLATES['sbo212'] = `<div id="sbo212" class="sbo-section-wrapper">
 
                     <!-- Core 2 -->
                     <div style="background: rgba(255,255,255,0.02); padding: 15px; border-radius: 8px; border-top: 3px solid var(--accent-teal); display: flex; flex-direction: column; gap: 8px;">
-                        <span style="color: var(--accent-teal); font-size: 1.2rem;"><i class="fa-solid fa-magnifying-glass-location"></i></span>
+                        <span style="color: var(--accent-teal); font-size: 1.2rem;"></span>
                         <strong style="color: #ffffff; font-size: 0.95rem;">
                             <span class="lang-ja">フリーアクセス</span>
                             <span class="lang-vi">Tự do tiếp cận</span>
@@ -98,7 +97,6 @@ window.SBO_TEMPLATES['sbo212'] = `<div id="sbo212" class="sbo-section-wrapper">
                 <!-- Chuyển dịch mô hình -->
                 <div class="card glass-card" style="height: 100%;">
                     <h3 style="color: var(--accent-gold); border-bottom: 1px solid rgba(255,255,255,0.08); padding-bottom: 8px; margin-bottom: 15px;">
-                        <i class="fa-solid fa-arrows-spin"></i>
                         <span class="lang-ja">提供体制の転換</span>
                         <span class="lang-vi">Sự dịch chuyển mô hình: Từ Bệnh viện về Khu vực</span>
                     </h3>
@@ -121,7 +119,6 @@ window.SBO_TEMPLATES['sbo212'] = `<div id="sbo212" class="sbo-section-wrapper">
                 <!-- Khung pháp lý -->
                 <div class="card glass-card" style="height: 100%;">
                     <h3 style="color: var(--accent-teal); border-bottom: 1px solid rgba(255,255,255,0.08); padding-bottom: 8px; margin-bottom: 15px;">
-                        <i class="fa-solid fa-gavel"></i>
                         <span class="lang-ja">医療制度を規定する法体系</span>
                         <span class="lang-vi">Khung pháp lý điều tiết hệ thống</span>
                     </h3>
@@ -160,8 +157,8 @@ window.SBO_TEMPLATES['sbo212'] = `<div id="sbo212" class="sbo-section-wrapper">
                 <span class="lang-vi">Luật Y tế &amp; Phân loại cơ sở</span>
             </div>
             <h2 class="section-title">
-                <span class="lang-ja"><i class="fa-solid fa-gavel"></i> 医療法と医療機関の分類</span>
-                <span class="lang-vi"><i class="fa-solid fa-gavel"></i> Luật Y tế và Phân loại Cơ sở Y tế</span>
+                <span class="lang-ja">医療法と医療機関の分類</span>
+                <span class="lang-vi">Luật Y tế và Phân loại Cơ sở Y tế</span>
             </h2>
             <p class="section-desc">
                 <span class="lang-ja">医療法（1948年制定）は良質かつ適切な医療の効率的な提供体制の確保を図り、医療機関を病床数や役割に基づき厳格に規定しています。</span>
@@ -172,7 +169,6 @@ window.SBO_TEMPLATES['sbo212'] = `<div id="sbo212" class="sbo-section-wrapper">
                 <!-- 1. Luật Y tế -->
                 <div class="card glass-card" style="height: 100%;">
                     <h3 style="color: var(--accent-teal); border-bottom: 1px solid rgba(255,255,255,0.08); padding-bottom: 8px; margin-bottom: 15px;">
-                        <i class="fa-solid fa-scale-balanced"></i>
                         <span class="lang-ja">医療法の目的と有機的な連携</span>
                         <span class="lang-vi">Mục đích Luật Y tế &amp; Liên kết hữu cơ</span>
                     </h3>
@@ -189,7 +185,6 @@ window.SBO_TEMPLATES['sbo212'] = `<div id="sbo212" class="sbo-section-wrapper">
                 <!-- 2. Bệnh viện vs Phòng khám -->
                 <div class="card glass-card" style="height: 100%;">
                     <h3 style="color: var(--accent-gold); border-bottom: 1px solid rgba(255,255,255,0.08); padding-bottom: 8px; margin-bottom: 15px;">
-                        <i class="fa-solid fa-shapes"></i>
                         <span class="lang-ja">医療機関の分類（病床数による規定）</span>
                         <span class="lang-vi">Phân loại Cơ sở y tế theo giường bệnh</span>
                     </h3>
@@ -229,7 +224,6 @@ window.SBO_TEMPLATES['sbo212'] = `<div id="sbo212" class="sbo-section-wrapper">
             <!-- 3. Types of Hospitals -->
             <div class="card glass-card" style="padding: 25px;">
                 <h3 style="color: var(--accent-teal); border-bottom: 1px solid rgba(255,255,255,0.08); padding-bottom: 8px; margin-bottom: 20px;">
-                    <i class="fa-solid fa-hospital-user"></i>
                     <span class="lang-ja">医療法における病院の類型</span>
                     <span class="lang-vi">Các loại hình Bệnh viện theo Luật Y tế</span>
                 </h3>
@@ -237,7 +231,7 @@ window.SBO_TEMPLATES['sbo212'] = `<div id="sbo212" class="sbo-section-wrapper">
                 <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 15px;">
                     <!-- Type 1 -->
                     <div style="background: rgba(255,255,255,0.02); padding: 12px; border-radius: 8px; border-left: 3.5px solid var(--accent-teal); display: flex; gap: 10px; align-items: flex-start;">
-                        <span style="color: var(--accent-teal); font-size: 1.1rem; margin-top: 2px;"><i class="fa-solid fa-hospital"></i></span>
+                        <span style="color: var(--accent-teal); font-size: 1.1rem; margin-top: 2px;"></span>
                         <div style="display: flex; flex-direction: column; gap: 4px;">
                             <strong style="color: #ffffff; font-size: 0.95rem;">
                                 <span class="lang-ja">一般病院</span>
@@ -252,7 +246,7 @@ window.SBO_TEMPLATES['sbo212'] = `<div id="sbo212" class="sbo-section-wrapper">
 
                     <!-- Type 2 -->
                     <div style="background: rgba(255,255,255,0.02); padding: 12px; border-radius: 8px; border-left: 3.5px solid var(--accent-teal); display: flex; gap: 10px; align-items: flex-start;">
-                        <span style="color: var(--accent-teal); font-size: 1.1rem; margin-top: 2px;"><i class="fa-solid fa-microscope"></i></span>
+                        <span style="color: var(--accent-teal); font-size: 1.1rem; margin-top: 2px;"></span>
                         <div style="display: flex; flex-direction: column; gap: 4px;">
                             <strong style="color: #ffffff; font-size: 0.95rem;">
                                 <span class="lang-ja">特定機能病院</span>
@@ -337,8 +331,8 @@ window.SBO_TEMPLATES['sbo212'] = `<div id="sbo212" class="sbo-section-wrapper">
                 <span class="lang-vi">Phân tuyến giường bệnh</span>
             </div>
             <h2 class="section-title">
-                <span class="lang-ja"><i class="fa-solid fa-bed"></i> 病床の機能分化と病床機能報告制度</span>
-                <span class="lang-vi"><i class="fa-solid fa-bed"></i> Phân tuyến chức năng giường bệnh và Chế độ Báo cáo</span>
+                <span class="lang-ja">病床の機能分化と病床機能報告制度</span>
+                <span class="lang-vi">Phân tuyến chức năng giường bệnh và Chế độ Báo cáo</span>
             </h2>
             <p class="section-desc">
                 <span class="lang-ja">医療ニーズに合わせた最適な医療資源の配置を行うため、法的な病床分類と実際の臨床機能を区別し、PDCAサイクルによる管理が行われています。</span>
@@ -349,7 +343,6 @@ window.SBO_TEMPLATES['sbo212'] = `<div id="sbo212" class="sbo-section-wrapper">
                 <!-- 1. Phân tuyến chức năng giường bệnh -->
                 <div class="card glass-card" style="height: 100%;">
                     <h3 style="color: var(--accent-teal); border-bottom: 1px solid rgba(255,255,255,0.08); padding-bottom: 8px; margin-bottom: 15px;">
-                        <i class="fa-solid fa-hotel"></i>
                         <span class="lang-ja">病床の機能分化</span>
                         <span class="lang-vi">Phân tuyến chức năng giường bệnh</span>
                     </h3>
@@ -403,8 +396,8 @@ window.SBO_TEMPLATES['sbo212'] = `<div id="sbo212" class="sbo-section-wrapper">
                     <!-- Giường bệnh Chăm sóc Toàn diện Khu vực -->
                     <div style="padding: 10px; background: rgba(255,255,255,0.03); border-radius: 6px; border: 1px dashed rgba(255,255,255,0.1); font-size: 0.88rem; line-height: 1.5;">
                         <strong style="color: var(--accent-teal); display: block; margin-bottom: 2px;">
-                            <span class="lang-ja"><i class="fa-solid fa-house-medical"></i> 地域包括ケア病棟</span>
-                            <span class="lang-vi"><i class="fa-solid fa-house-medical"></i> Giường bệnh Chăm sóc Toàn diện Khu vực</span>
+                            <span class="lang-ja">地域包括ケア病棟</span>
+                            <span class="lang-vi">Giường bệnh Chăm sóc Toàn diện Khu vực</span>
                         </strong>
                         <span style="color: var(--text-secondary);">
                             <span class="lang-ja">急性期治療を終えた患者の在宅復帰支援、リハビリの提供、および在宅限界患者の緊急受入等を担う病床です。</span>
@@ -416,7 +409,6 @@ window.SBO_TEMPLATES['sbo212'] = `<div id="sbo212" class="sbo-section-wrapper">
                 <!-- 2. Chế độ Báo cáo Chức năng Giường bệnh -->
                 <div class="card glass-card" style="height: 100%;">
                     <h3 style="color: var(--accent-gold); border-bottom: 1px solid rgba(255,255,255,0.08); padding-bottom: 8px; margin-bottom: 15px;">
-                        <i class="fa-solid fa-bullhorn"></i>
                         <span class="lang-ja">病床機能報告制度</span>
                         <span class="lang-vi">Chế độ Báo cáo Chức năng Giường bệnh</span>
                     </h3>
@@ -461,8 +453,8 @@ window.SBO_TEMPLATES['sbo212'] = `<div id="sbo212" class="sbo-section-wrapper">
                 <span class="lang-vi">Kế hoạch Y tế khu vực</span>
             </div>
             <h2 class="section-title">
-                <span class="lang-ja"><i class="fa-solid fa-map-location-dot"></i> 地域医療計画と地域包括ケアシステム</span>
-                <span class="lang-vi"><i class="fa-solid fa-map-location-dot"></i> Hoạch định vĩ mô và Chăm sóc tích hợp</span>
+                <span class="lang-ja">地域医療計画と地域包括ケアシステム</span>
+                <span class="lang-vi">Hoạch định vĩ mô và Chăm sóc tích hợp</span>
             </h2>
             <p class="section-desc">
                 <span class="lang-ja">都道府県主体の医療計画と、住み慣れた地域で最期まで自分らしく暮らせる包括支援体制の構築が進められています。</span>
@@ -475,7 +467,6 @@ window.SBO_TEMPLATES['sbo212'] = `<div id="sbo212" class="sbo-section-wrapper">
                     <!-- 1. Kế hoạch Y tế Khu vực và Tầm nhìn Y tế Khu vực -->
                     <div class="card glass-card" style="margin: 0; padding: 20px;">
                         <h3 style="color: var(--accent-teal); border-bottom: 1px solid rgba(255,255,255,0.08); padding-bottom: 8px; margin-bottom: 12px; font-size: 1.05rem;">
-                            <i class="fa-solid fa-route"></i>
                             <span class="lang-ja">地域医療計画と地域医療構想</span>
                             <span class="lang-vi">Kế hoạch &amp; Tầm nhìn Y tế Khu vực</span>
                         </h3>
@@ -504,7 +495,6 @@ window.SBO_TEMPLATES['sbo212'] = `<div id="sbo212" class="sbo-section-wrapper">
                     <!-- 3. Sự gắn kết hữu cơ và Viện Chăm sóc Y tế -->
                     <div class="card glass-card" style="margin: 0; padding: 20px;">
                         <h3 style="color: var(--accent-teal); border-bottom: 1px solid rgba(255,255,255,0.08); padding-bottom: 8px; margin-bottom: 12px; font-size: 1.05rem;">
-                            <i class="fa-solid fa-handshake-angle"></i>
                             <span class="lang-ja">保健・医療・福祉の有機的な連携</span>
                             <span class="lang-vi">Liên kết hữu cơ &amp; Chăm sóc cuối đời</span>
                         </h3>
@@ -532,7 +522,6 @@ window.SBO_TEMPLATES['sbo212'] = `<div id="sbo212" class="sbo-section-wrapper">
                     <!-- 2. Hệ thống Chăm sóc Toàn diện Khu vực -->
                     <div class="card glass-card" style="margin: 0; padding: 20px;">
                         <h3 style="color: var(--accent-gold); border-bottom: 1px solid rgba(255,255,255,0.08); padding-bottom: 8px; margin-bottom: 12px; font-size: 1.05rem;">
-                            <i class="fa-solid fa-hands-holding-circle"></i>
                             <span class="lang-ja">地域包括ケアシステムと2025年問題</span>
                             <span class="lang-vi">Hệ thống Chăm sóc Toàn diện Khu vực (Vấn đề 2025)</span>
                         </h3>
@@ -561,7 +550,6 @@ window.SBO_TEMPLATES['sbo212'] = `<div id="sbo212" class="sbo-section-wrapper">
                     <!-- 4. Đòn bẩy tài chính và Nền tảng dữ liệu số -->
                     <div class="card glass-card" style="margin: 0; padding: 20px;">
                         <h3 style="color: var(--accent-gold); border-bottom: 1px solid rgba(255,255,255,0.08); padding-bottom: 8px; margin-bottom: 12px; font-size: 1.05rem;">
-                            <i class="fa-solid fa-database"></i>
                             <span class="lang-ja">財源と科学的介護（データ連携）</span>
                             <span class="lang-vi">Đòn bẩy tài chính &amp; Nền tảng dữ liệu số</span>
                         </h3>
@@ -596,8 +584,8 @@ window.SBO_TEMPLATES['sbo212'] = `<div id="sbo212" class="sbo-section-wrapper">
                 <span class="lang-vi">Bộ mô phỏng</span>
             </div>
             <h2 class="section-title">
-                <span class="lang-ja"><i class="fa-solid fa-laptop-medical"></i> 患者搬送・病床選定シミュレータ</span>
-                <span class="lang-vi"><i class="fa-solid fa-laptop-medical"></i> Bộ mô phỏng Phân luồng Bệnh nhân &amp; Chọn Giường</span>
+                <span class="lang-ja">患者搬送・病床選定シミュレータ</span>
+                <span class="lang-vi">Bộ mô phỏng Phân luồng Bệnh nhân &amp; Chọn Giường</span>
             </h2>
             <p class="section-desc">
                 <span class="lang-ja">患者の病状や状態を選択し、日本の医療制度（医療法および病床の機能区分）においてどの医療機関および病床が適切に選定されるかを体験します。</span>
@@ -663,7 +651,6 @@ window.SBO_TEMPLATES['sbo212'] = `<div id="sbo212" class="sbo-section-wrapper">
         <div class="container">
             <div class="card glass-card text-left" style="padding: 25px; border-top: 4px solid var(--accent-gold); margin-top: 25px;">
                 <h3 style="color: var(--accent-gold); border-bottom: 1px solid rgba(255,255,255,0.08); padding-bottom: 8px; margin-bottom: 15px;">
-                    <i class="fa-solid fa-graduation-cap"></i>
                     <span class="lang-ja">まとめ：日本の医療制度の要点 (SBO 2.1.2 総括)</span>
                     <span class="lang-vi">Tóm tắt: Điểm cốt lõi của Hệ thống Y tế Nhật Bản</span>
                 </h3>
