@@ -1731,8 +1731,26 @@ document.addEventListener('DOMContentLoaded', () => {
         const sbo211AgeTabs = document.querySelectorAll('[data-sbo211-age]');
         sbo211AgeTabs.forEach(tab => {
             tab.addEventListener('click', () => {
-                sbo211AgeTabs.forEach(t => t.classList.remove('active'));
+                // Reset all tabs to their own subtle inactive style
+                sbo211AgeTabs.forEach(t => {
+                    const c = t.getAttribute('data-color') || '#ffffff';
+                    const r = parseInt(c.slice(1,3),16), g = parseInt(c.slice(3,5),16), b = parseInt(c.slice(5,7),16);
+                    t.classList.remove('active');
+                    t.style.background = `rgba(${r},${g},${b},0.05)`;
+                    t.style.borderColor = `rgba(${r},${g},${b},0.3)`;
+                    t.style.color = 'var(--text-secondary)';
+                    t.style.boxShadow = 'none';
+                    t.style.transform = 'none';
+                });
+                // Apply active style using this tab's color
+                const color = tab.getAttribute('data-color') || '#2dd4bf';
+                const r = parseInt(color.slice(1,3),16), g = parseInt(color.slice(3,5),16), b = parseInt(color.slice(5,7),16);
                 tab.classList.add('active');
+                tab.style.background = `rgba(${r},${g},${b},0.22)`;
+                tab.style.borderColor = color;
+                tab.style.color = '#ffffff';
+                tab.style.boxShadow = `0 0 16px ${color}55`;
+                tab.style.transform = 'translateY(-2px)';
                 updateSbo211Copay();
             });
         });

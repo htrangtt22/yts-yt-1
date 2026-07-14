@@ -1,4 +1,18 @@
 document.addEventListener('DOMContentLoaded', () => {
+    // Keep sidebar accordion groups always expanded and open
+    const expandAllSidebarGroups = () => {
+        document.querySelectorAll('.chapter-group').forEach(el => el.classList.add('active'));
+        document.querySelectorAll('.gio-group').forEach(el => {
+            el.classList.add('active');
+            const folder = el.querySelector('.folder-icon');
+            if (folder) {
+                folder.className = 'fa-solid fa-folder-open folder-icon';
+            }
+        });
+    };
+    expandAllSidebarGroups();
+    window.addEventListener('hashchange', expandAllSidebarGroups);
+
     // Language Switcher Setup
     if (!document.body.classList.contains('lang-vi') && !document.body.classList.contains('lang-ja')) {
         document.body.classList.add('lang-ja');
@@ -698,32 +712,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }, 50);
     });
 
-    // --- Sidebar Accordion Toggle Logic ---
-    const chapterHeaders = document.querySelectorAll('.chapter-group-header');
-    chapterHeaders.forEach(header => {
-        header.addEventListener('click', () => {
-            const group = header.parentElement;
-            if (group) {
-                group.classList.toggle('active');
-            }
-        });
-    });
 
-    const gioHeaders = document.querySelectorAll('.gio-group-header');
-    gioHeaders.forEach(header => {
-        header.addEventListener('click', () => {
-            const group = header.parentElement;
-            if (group) {
-                const isActive = group.classList.toggle('active');
-                const folderIcon = group.querySelector('.folder-icon');
-                if (folderIcon) {
-                    folderIcon.className = isActive 
-                        ? 'fa-solid fa-folder-open folder-icon' 
-                        : 'fa-solid fa-folder folder-icon';
-                }
-            }
-        });
-    });
 
 
     // --- Mobile Sidebar Hamburger Toggle Logic ---

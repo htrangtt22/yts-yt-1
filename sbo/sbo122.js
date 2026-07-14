@@ -34,22 +34,22 @@ window.SBO_TEMPLATES['sbo122'] = `<div id="sbo122" class="sbo-section-wrapper">
                 <!-- Interactive Chassis & Wheels Graphic -->
                 <div style="background: rgba(15, 23, 42, 0.4); border-radius: 16px; padding: 30px 20px; border: 1px solid rgba(255,255,255,0.04); margin-bottom: 25px; display: flex; flex-direction: column; align-items: center; justify-content: center; box-sizing: border-box; width: 100%;">
                     
-                    <!-- SVG Visualizer -->
-                    <div style="position: relative; width: 100%; max-width: 500px; height: 160px; margin: 10px 0;">
-                        <!-- Connection Shaft (Chassis) -->
-                        <rect x="100" y="72" width="300" height="16" rx="4" fill="rgba(255,255,255,0.1)" stroke="rgba(255,255,255,0.2)" stroke-width="1.5" />
-                        <line x1="100" y1="80" x2="400" y2="80" stroke="#38bdf8" stroke-width="2" stroke-dasharray="8 6" style="animation: shaft-pulse 2s linear infinite;" />
+                    <!-- SVG Visualizer (Fully responsive single SVG container) -->
+                    <div style="width: 100%; max-width: 500px; margin: 10px 0;">
+                        <svg viewBox="0 0 500 170" width="100%" height="auto" style="overflow: visible;">
+                            <!-- Connection Shaft (Chassis) -->
+                            <rect x="100" y="72" width="300" height="16" rx="4" fill="rgba(255,255,255,0.1)" stroke="rgba(255,255,255,0.2)" stroke-width="1.5" />
+                            <line x1="100" y1="80" x2="400" y2="80" stroke="#38bdf8" stroke-width="2" stroke-dasharray="8 6" style="animation: shaft-pulse 2s linear infinite;" />
 
-                        <!-- Center Carriage (Patient Centricity) -->
-                        <g transform="translate(180, 45)">
-                            <rect x="0" y="0" width="140" height="54" rx="8" fill="#0f172a" stroke="#0ea5e9" stroke-width="2" filter="drop-shadow(0 0 8px rgba(14,165,233,0.3))" />
-                            <text x="70" y="24" fill="#38bdf8" font-size="10.5" font-weight="900" text-anchor="middle" letter-spacing="0.5">患者中心の医療</text>
-                            <text x="70" y="40" fill="#94a3b8" font-size="8" font-weight="700" text-anchor="middle">Patient-Centric Care</text>
-                        </g>
+                            <!-- Center Carriage (Patient Centricity) -->
+                            <g transform="translate(180, 45)">
+                                <rect x="0" y="0" width="140" height="54" rx="8" fill="#0f172a" stroke="#0ea5e9" stroke-width="2" filter="drop-shadow(0 0 8px rgba(14,165,233,0.3))" />
+                                <text x="70" y="24" fill="#38bdf8" font-size="10.5" font-weight="900" text-anchor="middle" letter-spacing="0.5">患者中心の医療</text>
+                                <text x="70" y="40" fill="#94a3b8" font-size="8" font-weight="700" text-anchor="middle">Patient-Centric Care</text>
+                            </g>
 
-                        <!-- Left Wheel (Vault) - Interactive Group -->
-                        <div id="sbo122-wheel-left" class="sbo122-interactive-wheel active" style="position: absolute; left: 50px; top: 30px; width: 100px; height: 100px; cursor: pointer; transition: all 0.3s ease;">
-                            <svg width="100" height="100" viewBox="0 0 100 100" style="overflow: visible;">
+                            <!-- Left Wheel (Vault) - Interactive Group -->
+                            <svg x="50" y="30" width="100" height="100" viewBox="0 0 100 100" id="sbo122-wheel-left" class="sbo122-interactive-wheel active" style="overflow: visible; cursor: pointer;">
                                 <!-- Glowing Outer Ring -->
                                 <circle cx="50" cy="50" r="44" fill="rgba(15,23,42,0.9)" stroke="var(--accent-gold)" stroke-width="2.5" class="wheel-ring" style="transition: all 0.3s ease;" />
                                 <!-- Spoke indicators -->
@@ -62,13 +62,11 @@ window.SBO_TEMPLATES['sbo122'] = `<div id="sbo122" class="sbo-section-wrapper">
                                     <circle cx="12" cy="12" r="3" fill="var(--accent-gold)" />
                                 </g>
                             </svg>
-                            <!-- Tooltip/Label -->
-                            <div style="position: absolute; bottom: -24px; left: 50%; transform: translateX(-50%); white-space: nowrap; font-size: 0.8rem; font-weight: bold; color: var(--accent-gold);">守秘・保護 (Vault)</div>
-                        </div>
+                            <!-- Label Left -->
+                            <text x="100" y="155" text-anchor="middle" font-size="11" font-weight="bold" fill="var(--accent-gold)">守秘・保護 (Vault)</text>
 
-                        <!-- Right Wheel (Transparent) - Interactive Group -->
-                        <div id="sbo122-wheel-right" class="sbo122-interactive-wheel" style="position: absolute; right: 50px; top: 30px; width: 100px; height: 100px; cursor: pointer; transition: all 0.3s ease;">
-                            <svg width="100" height="100" viewBox="0 0 100 100" style="overflow: visible;">
+                            <!-- Right Wheel (Transparent) - Interactive Group -->
+                            <svg x="350" y="30" width="100" height="100" viewBox="0 0 100 100" id="sbo122-wheel-right" class="sbo122-interactive-wheel" style="overflow: visible; cursor: pointer;">
                                 <!-- Glowing Outer Ring -->
                                 <circle cx="50" cy="50" r="44" fill="rgba(15,23,42,0.9)" stroke="var(--accent-teal)" stroke-width="2.5" class="wheel-ring" style="transition: all 0.3s ease;" />
                                 <!-- Spoke indicators -->
@@ -80,10 +78,9 @@ window.SBO_TEMPLATES['sbo122'] = `<div id="sbo122" class="sbo-section-wrapper">
                                     <path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z" fill="var(--accent-teal)" />
                                 </g>
                             </svg>
-                            <!-- Tooltip/Label -->
-                            <div style="position: absolute; bottom: -24px; left: 50%; transform: translateX(-50%); white-space: nowrap; font-size: 0.8rem; font-weight: bold; color: var(--accent-teal);">開示・共有 (Transparent)</div>
-                        </div>
-
+                            <!-- Label Right -->
+                            <text x="400" y="155" text-anchor="middle" font-size="11" font-weight="bold" fill="var(--accent-teal)">開示・共有 (Transparent)</text>
+                        </svg>
                     </div>
 
                     <style>

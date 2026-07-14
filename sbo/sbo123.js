@@ -208,103 +208,132 @@ window.SBO_TEMPLATES['sbo123'] = `<div id="sbo123" class="sbo-section-wrapper">
                 </div>
             </div>
 
-            <!-- 2. Partnership and Team Medicine detailed -->
-            <div class="grid-2col" style="gap: 24px; align-items: stretch; margin-bottom: 25px;">
-                
-                <!-- Partner card (with Interactive Venn & Transition Diagram) -->
-                <div class="card glass-card text-left" style="padding: 25px; border-top: 4px solid var(--accent-gold); display: flex; flex-direction: column; justify-content: space-between; margin-bottom: 0;">
-                    <div>
-                        <h3 style="color: var(--accent-gold); margin-top: 0; margin-bottom: 15px; font-size: 1.15rem; display: flex; align-items: center; gap: 8px;">
-                            <i class="fa-solid fa-handshake-angle"></i>
-                            <span class="lang-ja">医療者と患者の新たなパートナーシップ</span>
-                            <span class="lang-vi">Quan hệ đối tác mới giữa Nhân viên y tế & Bệnh nhân</span>
-                        </h3>
-                        
-                        <!-- Venn Diagram (Slide 1) -->
-                        <!-- Partnership Equation Layout (Modern Card Flow) -->
-                        <div style="display: flex; align-items: center; justify-content: center; gap: 8px; margin-bottom: 25px; background: rgba(255,255,255,0.01); border: 1px solid rgba(255,255,255,0.03); padding: 15px 10px; border-radius: 10px; box-sizing: border-box; width: 100%;">
+            <!-- 2. Partnership and Team Medicine detailed (Restructured to full-width cards with internal grids) -->
+            <style>
+            .sbo123-sec1-grid {
+                display: grid;
+                grid-template-columns: 1.1fr 1.3fr;
+                gap: 30px;
+                align-items: start;
+            }
+            @media (max-width: 991px) {
+                .sbo123-sec1-grid {
+                    grid-template-columns: 1fr;
+                    gap: 20px;
+                }
+            }
+            </style>
+
+            <!-- Card 1: Partnership (Full-Width Card with Internal Grid) -->
+            <div class="card glass-card text-left" style="padding: 25px; border-top: 4px solid var(--accent-gold); margin-bottom: 25px;">
+                <div class="sbo123-sec1-grid">
+                    
+                    <!-- Left Column: Title, Equation, Key Takeaway -->
+                    <div style="display: flex; flex-direction: column; height: 100%; justify-content: space-between; gap: 20px;">
+                        <div>
+                            <h3 style="color: var(--accent-gold); margin-top: 0; margin-bottom: 15px; font-size: 1.15rem; display: flex; align-items: center; gap: 8px;">
+                                <i class="fa-solid fa-handshake-angle"></i>
+                                <span class="lang-ja">医療者と患者の新たなパートナーシップ</span>
+                                <span class="lang-vi">Quan hệ đối tác mới giữa Nhân viên y tế & Bệnh nhân</span>
+                            </h3>
                             
-                            <!-- Box 1: Medical Professional -->
-                            <div style="flex: 1; max-width: 120px; background: rgba(59, 130, 246, 0.05); border: 1px solid rgba(59, 130, 246, 0.2); border-radius: 6px; padding: 10px 5px; text-align: center;">
-                                <i class="fa-solid fa-user-doctor" style="font-size: 1.2rem; color: #93c5fd; margin-bottom: 5px;"></i>
-                                <h4 style="margin: 0; font-size: 0.8rem; font-weight: bold; color: #fff;">
-                                    <span class="lang-ja">医療専門職</span>
-                                    <span class="lang-vi">Chuyên môn Y tế</span>
-                                </h4>
-                                <span style="font-size: 0.65rem; color: #93c5fd; font-weight: 700; text-transform: uppercase; margin-top: 2px; display: block;">Expertise</span>
-                            </div>
-                            
-                            <!-- Plus Sign -->
-                            <div style="font-size: 1.1rem; color: var(--text-muted); font-weight: bold; text-align: center; width: 15px;">+</div>
-                            
-                            <!-- Box 2: Patient Dignity -->
-                            <div style="flex: 1; max-width: 120px; background: rgba(245, 158, 11, 0.05); border: 1px solid rgba(245, 158, 11, 0.2); border-radius: 6px; padding: 10px 5px; text-align: center;">
-                                <i class="fa-solid fa-hospital-user" style="font-size: 1.2rem; color: var(--accent-gold); margin-bottom: 5px;"></i>
-                                <h4 style="margin: 0; font-size: 0.8rem; font-weight: bold; color: #fff;">
-                                    <span class="lang-ja">患者の尊厳</span>
-                                    <span class="lang-vi">Tôn trọng & Nhân phẩm</span>
-                                </h4>
-                                <span style="font-size: 0.65rem; color: var(--accent-gold); font-weight: 700; text-transform: uppercase; margin-top: 2px; display: block;">Dignity</span>
-                            </div>
-                            
-                            <!-- Equal Arrow -->
-                            <div style="font-size: 1.1rem; color: var(--accent-teal); font-weight: bold; text-align: center; width: 15px; display: flex; align-items: center; justify-content: center;">
-                                <i class="fa-solid fa-chevron-right"></i>
-                            </div>
-                            
-                            <!-- Box 3: Partnership -->
-                            <div style="flex: 1.3; max-width: 170px; background: rgba(45, 212, 191, 0.1); border: 1px solid var(--accent-teal); border-radius: 6px; padding: 10px 5px; text-align: center; box-shadow: 0 4px 15px rgba(45, 212, 191, 0.15);">
-                                <i class="fa-solid fa-handshake-angle" style="font-size: 1.2rem; color: var(--accent-teal); margin-bottom: 5px;"></i>
-                                <h4 style="margin: 0; font-size: 0.82rem; font-weight: 800; color: #fff;">
-                                    <span class="lang-ja">共創の医療</span>
-                                    <span class="lang-vi">Đối tác đồng sáng tạo</span>
-                                </h4>
-                                <span style="font-size: 0.65rem; color: var(--accent-teal); font-weight: 700; text-transform: uppercase; margin-top: 2px; display: block;">Partnership</span>
-                            </div>
-                            
-                        </div>
-                        <!-- Transition Diagram (Slide 3) -->
-                        <div style="display: flex; flex-wrap: wrap; gap: 20px; margin-bottom: 20px; align-items: start;">
-                            
-                            <!-- Left: Paternalism Visual Diagram -->
-                            <div style="flex: 1; min-width: 200px; background: rgba(255,255,255,0.015); border: 1px solid rgba(255,255,255,0.05); border-radius: 8px; padding: 15px; text-align: center;">
-                                <div style="font-size: 0.82rem; font-weight: 700; color: #ef4444; background: rgba(239, 68, 68, 0.1); padding: 2px 8px; border-radius: 4px; display: inline-block; margin-bottom: 15px;">
-                                    <span class="lang-ja">パターナリズム（父権主義）</span>
-                                    <span class="lang-vi">Chủ nghĩa gia trưởng (Paternalism)</span>
+                            <!-- Description -->
+                            <p style="font-size: 0.88rem; line-height: 1.7; color: var(--text-secondary); margin: 0 0 20px 0;">
+                                <span class="lang-ja">現代の医療は、医師の一方的な決定（パターナリズム）から、双方の専門的知見と尊厳を統合した「共創のパートナーシップ」へとシフトしています。</span>
+                                <span class="lang-vi">Y tế hiện đại chuyển dịch từ quyết định đơn phương của bác sĩ (Chủ nghĩa gia trưởng) sang "Mối quan hệ đối tác đồng sáng tạo" tích hợp kiến thức chuyên môn và sự tôn trọng của cả hai bên.</span>
+                            </p>
+
+                            <!-- Partnership Equation Layout -->
+                            <div style="display: flex; align-items: center; justify-content: center; gap: 8px; background: rgba(255,255,255,0.015); border: 1px solid rgba(255,255,255,0.04); padding: 15px 10px; border-radius: 10px; box-sizing: border-box; width: 100%;">
+                                <!-- Box 1: Medical Professional -->
+                                <div style="flex: 1; max-width: 120px; background: rgba(59, 130, 246, 0.05); border: 1px solid rgba(59, 130, 246, 0.2); border-radius: 6px; padding: 10px 5px; text-align: center;">
+                                    <i class="fa-solid fa-user-doctor" style="font-size: 1.2rem; color: #93c5fd; margin-bottom: 5px;"></i>
+                                    <h4 style="margin: 0; font-size: 0.8rem; font-weight: bold; color: #fff;">
+                                        <span class="lang-ja">医療専門職</span>
+                                        <span class="lang-vi">Chuyên môn Y tế</span>
+                                    </h4>
+                                    <span style="font-size: 0.65rem; color: #93c5fd; font-weight: 700; text-transform: uppercase; margin-top: 2px; display: block;">Expertise</span>
                                 </div>
                                 
-                                <div style="display: flex; justify-content: center; align-items: center;">
-                                    <svg width="180" height="180" viewBox="0 0 180 180" style="max-width: 100%;">
-                                        <!-- Background Triangle -->
-                                        <polygon points="90,15 25,155 155,155" fill="rgba(255,255,255,0.01)" stroke="rgba(255,255,255,0.05)" stroke-width="1.5" />
-                                        
-                                        <!-- Doctor Circle (Top) -->
-                                        <circle cx="90" cy="38" r="24" fill="#3b82f6" stroke="#93c5fd" stroke-width="1.5" />
-                                        <text x="90" y="42" fill="#fff" font-size="10.5" font-weight="bold" text-anchor="middle">医師</text>
-                                        
-                                        <!-- Down Arrow -->
-                                        <defs>
-                                            <marker id="arrowRed" markerWidth="10" markerHeight="10" refX="6" refY="3" orient="auto" markerUnits="strokeWidth">
-                                                <path d="M0,0 L0,6 L6,3 Z" fill="#ef4444" />
-                                            </marker>
-                                        </defs>
-                                        <line x1="90" y1="70" x2="90" y2="100" stroke="#ef4444" stroke-width="3" marker-end="url(#arrowRed)" />
-                                        
-                                        <!-- Asymmetry Label -->
-                                        <text x="100" y="90" fill="#fca5a5" font-size="9" text-anchor="start" font-weight="bold">
-                                            <tspan class="lang-ja" x="102" dy="0">非対称性・情報格差</tspan>
-                                            <tspan class="lang-vi" x="102" dy="0">Bất đối xứng / Lệch thông tin</tspan>
-                                        </text>
-                                        
-                                        <!-- Patient Circle (Bottom) -->
-                                        <circle cx="90" cy="132" r="20" fill="#64748b" stroke="#cbd5e1" stroke-width="1.5" />
-                                        <text x="90" y="136" fill="#fff" font-size="10" font-weight="bold" text-anchor="middle">患者</text>
-                                    </svg>
+                                <!-- Plus Sign -->
+                                <div style="font-size: 1.1rem; color: var(--text-muted); font-weight: bold; text-align: center; width: 15px;">+</div>
+                                
+                                <!-- Box 2: Patient Dignity -->
+                                <div style="flex: 1; max-width: 120px; background: rgba(245, 158, 11, 0.05); border: 1px solid rgba(245, 158, 11, 0.2); border-radius: 6px; padding: 10px 5px; text-align: center;">
+                                    <i class="fa-solid fa-hospital-user" style="font-size: 1.2rem; color: var(--accent-gold); margin-bottom: 5px;"></i>
+                                    <h4 style="margin: 0; font-size: 0.8rem; font-weight: bold; color: #fff;">
+                                        <span class="lang-ja">患者の尊厳</span>
+                                        <span class="lang-vi">Tôn trọng & Nhân phẩm</span>
+                                    </h4>
+                                    <span style="font-size: 0.65rem; color: var(--accent-gold); font-weight: 700; text-transform: uppercase; margin-top: 2px; display: block;">Dignity</span>
+                                </div>
+                                
+                                <!-- Equal Arrow -->
+                                <div style="font-size: 1.1rem; color: var(--accent-teal); font-weight: bold; text-align: center; width: 15px; display: flex; align-items: center; justify-content: center;">
+                                    <i class="fa-solid fa-chevron-right"></i>
+                                </div>
+                                
+                                <!-- Box 3: Partnership -->
+                                <div style="flex: 1.3; max-width: 170px; background: rgba(45, 212, 191, 0.1); border: 1px solid var(--accent-teal); border-radius: 6px; padding: 10px 5px; text-align: center; box-shadow: 0 4px 15px rgba(45, 212, 191, 0.15);">
+                                    <i class="fa-solid fa-handshake-angle" style="font-size: 1.2rem; color: var(--accent-teal); margin-bottom: 5px;"></i>
+                                    <h4 style="margin: 0; font-size: 0.82rem; font-weight: 800; color: #fff;">
+                                        <span class="lang-ja">共創の医療</span>
+                                        <span class="lang-vi">Đối tác đồng sáng tạo</span>
+                                    </h4>
+                                    <span style="font-size: 0.65rem; color: var(--accent-teal); font-weight: 700; text-transform: uppercase; margin-top: 2px; display: block;">Partnership</span>
                                 </div>
                             </div>
+                        </div>
+
+                        <!-- Takeaway Banner -->
+                        <div style="background: rgba(245, 158, 11, 0.05); border-left: 3px solid var(--accent-gold); padding: 12px 15px; border-radius: 0 8px 8px 0; font-size: 0.85rem; line-height: 1.5; color: #fde047;">
+                            <span class="lang-ja"><strong>Key Takeaway:</strong> 「すべてを医師に任せる」から「最優先される患者の意向」へのパラダイムシフト。</span>
+                            <span class="lang-vi"><strong>Điểm cốt lõi:</strong> Dịch chuyển mô hình từ "Phó thác hoàn toàn cho bác sĩ" sang "Ý chí của bệnh nhân là ưu tiên hàng đầu".</span>
+                        </div>
+                    </div>
+
+                    <!-- Right Column: Transition Diagrams (Paternalism vs Partnership) -->
+                    <div style="display: flex; flex-wrap: wrap; gap: 20px; align-items: start; width: 100%;">
+                        <!-- Left: Paternalism Visual Diagram -->
+                        <div style="flex: 1; min-width: 200px; background: rgba(255,255,255,0.015); border: 1px solid rgba(255,255,255,0.05); border-radius: 8px; padding: 15px; text-align: center;">
+                            <div style="font-size: 0.82rem; font-weight: 700; color: #ef4444; background: rgba(239, 68, 68, 0.1); padding: 2px 8px; border-radius: 4px; display: inline-block; margin-bottom: 10px;">
+                                <span class="lang-ja">パターナリズム（父権主義）</span>
+                                <span class="lang-vi">Chủ nghĩa gia trưởng (Paternalism)</span>
+                            </div>
                             
-                            <!-- Right: Partnership Visual Diagram -->
-                            <div style="flex: 1.2; min-width: 240px; background: rgba(255,255,255,0.015); border: 1px solid rgba(255,255,255,0.05); border-radius: 8px; padding: 15px;">
+                            <div style="display: flex; justify-content: center; align-items: center;">
+                                <svg width="180" height="170" viewBox="0 0 180 170" style="max-width: 100%;">
+                                    <!-- Background Triangle -->
+                                    <polygon points="90,15 25,155 155,155" fill="rgba(255,255,255,0.01)" stroke="rgba(255,255,255,0.05)" stroke-width="1.5" />
+                                    
+                                    <!-- Doctor Circle (Top) -->
+                                    <circle cx="90" cy="38" r="24" fill="#3b82f6" stroke="#93c5fd" stroke-width="1.5" />
+                                    <text x="90" y="42" fill="#fff" font-size="10.5" font-weight="bold" text-anchor="middle">医師</text>
+                                    
+                                    <!-- Down Arrow -->
+                                    <defs>
+                                        <marker id="arrowRed" markerWidth="10" markerHeight="10" refX="6" refY="3" orient="auto" markerUnits="strokeWidth">
+                                            <path d="M0,0 L0,6 L6,3 Z" fill="#ef4444" />
+                                        </marker>
+                                    </defs>
+                                    <line x1="90" y1="70" x2="90" y2="100" stroke="#ef4444" stroke-width="3" marker-end="url(#arrowRed)" />
+                                    
+                                    <!-- Asymmetry Label -->
+                                    <text x="100" y="90" fill="#fca5a5" font-size="9" text-anchor="start" font-weight="bold">
+                                        <tspan class="lang-ja" x="102" dy="0">非対称性・情報格差</tspan>
+                                        <tspan class="lang-vi" x="102" dy="0">Bất đối xứng / Lệch thông tin</tspan>
+                                    </text>
+                                    
+                                    <!-- Patient Circle (Bottom) -->
+                                    <circle cx="90" cy="132" r="20" fill="#64748b" stroke="#cbd5e1" stroke-width="1.5" />
+                                    <text x="90" y="136" fill="#fff" font-size="10" font-weight="bold" text-anchor="middle">患者</text>
+                                </svg>
+                            </div>
+                        </div>
+                        
+                        <!-- Right: Partnership Visual Diagram -->
+                        <div style="flex: 1.2; min-width: 240px; background: rgba(255,255,255,0.015); border: 1px solid rgba(255,255,255,0.05); border-radius: 8px; padding: 15px; display: flex; flex-direction: column; justify-content: space-between; height: 100%; min-height: 220px; box-sizing: border-box;">
+                            <div>
                                 <div style="text-align: center; margin-bottom: 15px;">
                                     <div style="font-size: 0.82rem; font-weight: 700; color: var(--accent-teal); background: rgba(45, 212, 191, 0.1); padding: 2px 8px; border-radius: 4px; display: inline-block;">
                                         <span class="lang-ja">パートナーシップ</span>
@@ -343,60 +372,70 @@ window.SBO_TEMPLATES['sbo123'] = `<div id="sbo123" class="sbo-section-wrapper">
                                         <text x="246" y="44" fill="#fff" font-size="10.5" font-weight="bold" text-anchor="middle">患者</text>
                                     </svg>
                                 </div>
-                                
-                                <!-- Bullet list -->
-                                <ul style="margin: 0; padding-left: 15px; font-size: 0.8rem; line-height: 1.6; color: var(--text-secondary); display: flex; flex-direction: column; gap: 4px;">
-                                    <li>
-                                        <span class="lang-ja">病を得た患者の「苦痛と不安」への共感</span>
-                                        <span class="lang-vi">Đồng cảm sâu sắc với "đau đớn và lo âu" khi mắc bệnh của bệnh nhân.</span>
-                                    </li>
-                                    <li>
-                                        <span class="lang-ja">患者の尊厳の保持</span>
-                                        <span class="lang-vi">Luôn luôn tôn trọng và gìn giữ nhân phẩm người bệnh.</span>
-                                    </li>
-                                </ul>
                             </div>
                             
-                        </div>
-<!-- Takeaway Banner -->
-                        <div style="background: rgba(245, 158, 11, 0.05); border-left: 3px solid var(--accent-gold); padding: 12px 15px; border-radius: 0 8px 8px 0; font-size: 0.85rem; line-height: 1.5; color: #fde047;">
-                            <span class="lang-ja"><strong>Key Takeaway:</strong> 「すべてを医師に任せる」から「最優先される患者の意向」へのパラダイムシフト。</span>
-                            <span class="lang-vi"><strong>Điểm cốt lõi:</strong> Dịch chuyển mô hình từ "Phó thác hoàn toàn cho bác sĩ" sang "Ý chí của bệnh nhân là ưu tiên hàng đầu".</span>
+                            <!-- Bullet list -->
+                            <ul style="margin: 0; padding-left: 15px; font-size: 0.8rem; line-height: 1.6; color: var(--text-secondary); display: flex; flex-direction: column; gap: 4px;">
+                                <li>
+                                    <span class="lang-ja">病を得た患者の「苦痛と不安」への共感</span>
+                                    <span class="lang-vi">Đồng cảm sâu sắc với "đau đớn và lo âu" khi mắc bệnh của bệnh nhân.</span>
+                                </li>
+                                <li>
+                                    <span class="lang-ja">患者の尊厳の保持</span>
+                                    <span class="lang-vi">Luôn luôn tôn trọng và gìn giữ nhân phẩm người bệnh.</span>
+                                </li>
+                            </ul>
                         </div>
                     </div>
-                </div>
 
-                <!-- Team Medicine card (Interactive circle map - Slide 4) -->
-                <div class="card glass-card text-left" style="padding: 25px; border-top: 4px solid #3b82f6; display: flex; flex-direction: column; justify-content: space-between; margin-bottom: 0;">
-                    <div>
-                        <h3 style="color: #93c5fd; margin-top: 0; margin-bottom: 15px; font-size: 1.15rem; display: flex; align-items: center; gap: 8px;">
-                            <i class="fa-solid fa-users-gear"></i>
-                            <span class="lang-ja">チーム医療における患者の役割</span>
-                            <span class="lang-vi">Vai trò của bệnh nhân trong "Y tế theo nhóm"</span>
-                        </h3>
-                        
-                        <!-- Slide text highlights -->
-                        <div style="font-size: 0.82rem; line-height: 1.5; color: var(--text-secondary); margin-bottom: 12px; display: flex; flex-direction: column; gap: 8px;">
-                            <div>
-                                <strong style="color: #93c5fd; display: block; margin-bottom: 2px;">
-                                    <span class="lang-ja">■ チーム医療とは</span>
-                                    <span class="lang-vi">■ Y tế theo nhóm là gì?</span>
-                                </strong>
-                                <span class="lang-ja">多職種が協同して一人の患者をケアする医療体制。</span>
-                                <span class="lang-vi">Mô hình chăm sóc trong đó nhiều bộ phận chuyên môn phối hợp chặt chẽ xung quanh người bệnh.</span>
-                            </div>
-                            <div>
-                                <strong style="color: #93c5fd; display: block; margin-bottom: 2px;">
-                                    <span class="lang-ja">■ 患者の役割</span>
-                                    <span class="lang-vi">■ Vai trò của bệnh nhân</span>
-                                </strong>
-                                <span class="lang-ja">患者自身もチームの中心（コアメンバー）であり、方針を共有し、自ら守るべきことを実行する。</span>
-                                <span class="lang-vi">Bản thân bệnh nhân là trung tâm (thành viên cốt lõi) của nhóm y tế, chia sẻ kế hoạch điều trị và chủ động thực hiện trách nhiệm của mình.</span>
+                </div>
+            </div>
+
+            <!-- Card 2: Team Medicine (Full-Width Card with Internal Grid) -->
+            <div class="card glass-card text-left" style="padding: 25px; border-top: 4px solid #3b82f6; margin-bottom: 25px;">
+                <div class="sbo123-sec1-grid">
+                    
+                    <!-- Left Column: Title, Text highlights, Takeaway -->
+                    <div style="display: flex; flex-direction: column; height: 100%; justify-content: space-between; gap: 20px;">
+                        <div>
+                            <h3 style="color: #93c5fd; margin-top: 0; margin-bottom: 15px; font-size: 1.15rem; display: flex; align-items: center; gap: 8px;">
+                                <i class="fa-solid fa-users-gear"></i>
+                                <span class="lang-ja">チーム医療における患者の役割</span>
+                                <span class="lang-vi">Vai trò của bệnh nhân trong "Y tế theo nhóm"</span>
+                            </h3>
+                            
+                            <!-- Slide text highlights -->
+                            <div style="font-size: 0.85rem; line-height: 1.7; color: var(--text-secondary); display: flex; flex-direction: column; gap: 15px;">
+                                <div>
+                                    <strong style="color: #93c5fd; display: block; margin-bottom: 4px; font-size: 0.95rem;">
+                                        <span class="lang-ja">■ チーム医療とは</span>
+                                        <span class="lang-vi">■ Y tế theo nhóm là gì?</span>
+                                    </strong>
+                                    <span class="lang-ja">多職種が協同して一人の患者をケアする医療体制。</span>
+                                    <span class="lang-vi">Mô hình chăm sóc trong đó nhiều bộ phận chuyên môn phối hợp chặt chẽ xung quanh người bệnh.</span>
+                                </div>
+                                <div>
+                                    <strong style="color: #93c5fd; display: block; margin-bottom: 4px; font-size: 0.95rem;">
+                                        <span class="lang-ja">■ 患者の役割</span>
+                                        <span class="lang-vi">■ Vai trò của bệnh nhân</span>
+                                    </strong>
+                                    <span class="lang-ja">患者自身もチームの中心（コアメンバー）であり、方針を共有し、自ら守るべきことを実行する。</span>
+                                    <span class="lang-vi">Bản thân bệnh nhân là trung tâm (thành viên cốt lõi) của nhóm y tế, chia sẻ kế hoạch điều trị và chủ động thực hiện trách nhiệm của mình.</span>
+                                </div>
                             </div>
                         </div>
 
+                        <!-- Key Takeaway Banner Slide 4 -->
+                        <div style="background: rgba(245, 158, 11, 0.05); border-left: 3px solid var(--accent-gold); padding: 12px 15px; border-radius: 0 8px 8px 0; font-size: 0.85rem; line-height: 1.5; color: #fde047; margin-top: 10px;">
+                            <span class="lang-ja"><strong>Key Takeaway:</strong> 患者はケアの「受け手」であると同時に、チームの「不可欠な一員」である。</span>
+                            <span class="lang-vi"><strong>Điểm cốt lõi:</strong> Bệnh nhân vừa là "người nhận" chăm sóc, vừa là "thành viên không thể thiếu" của nhóm y tế.</span>
+                        </div>
+                    </div>
+
+                    <!-- Right Column: Circular Diagram and Description Panel -->
+                    <div style="display: flex; flex-direction: column; align-items: center; width: 100%; justify-content: center;">
                         <!-- Circular Diagram with outer dashed circular line connecting nodes -->
-                        <div style="position: relative; width: 280px; height: 230px; margin: 10px auto 15px auto; background: rgba(0,0,0,0.15); border-radius: 12px; border: 1px solid rgba(255,255,255,0.03); overflow: hidden; display: flex; align-items: center; justify-content: center; box-shadow: inset 0 0 20px rgba(0,0,0,0.3);">
+                        <div style="position: relative; width: 280px; height: 230px; margin: 0 auto 15px auto; background: rgba(0,0,0,0.15); border-radius: 12px; border: 1px solid rgba(255,255,255,0.03); overflow: hidden; display: flex; align-items: center; justify-content: center; box-shadow: inset 0 0 20px rgba(0,0,0,0.3);">
                             <!-- Connection lines SVG in background -->
                             <svg width="280" height="230" style="position: absolute; top: 0; left: 0; z-index: 1; pointer-events: none;">
                                 <!-- Curved dashed line connecting surrounding nodes in a circle -->
@@ -444,19 +483,14 @@ window.SBO_TEMPLATES['sbo123'] = `<div id="sbo123" class="sbo-section-wrapper">
                         </div>
 
                         <!-- Team Role description pane -->
-                        <div id="sbo123-team-desc" class="card glass-card" style="padding: 12px; margin-bottom: 12px; background: rgba(59, 130, 246, 0.05); border: 1px dashed rgba(59, 130, 246, 0.2); min-height: 55px; font-size: 0.8rem; line-height: 1.5; color: #93c5fd;">
+                        <div id="sbo123-team-desc" class="card glass-card" style="padding: 12px; margin-bottom: 0; background: rgba(59, 130, 246, 0.05); border: 1px dashed rgba(59, 130, 246, 0.2); min-height: 55px; font-size: 0.8rem; line-height: 1.5; color: #93c5fd; width: 100%; box-sizing: border-box; text-align: left;">
                             <span class="lang-ja">💡 周辺の専門職をタップすると、それぞれの専門役割が表示されます。患者・家族自身がチームの中心です。</span>
                             <span class="lang-vi">💡 Nhấn vào các thành viên xung quanh để xem vai trò cụ thể. Bản thân người bệnh & gia đình là trung tâm của đội ngũ.</span>
                         </div>
-
-                        <!-- Key Takeaway Banner Slide 4 -->
-                        <div style="background: rgba(245, 158, 11, 0.05); border-left: 3px solid var(--accent-gold); padding: 10px 12px; border-radius: 0 6px 6px 0; font-size: 0.82rem; line-height: 1.4; color: #fde047;">
-                            <span class="lang-ja"><strong>Key Takeaway:</strong> 患者はケアの「受け手」であると同時に、チームの「不可欠な一員」である。</span>
-                            <span class="lang-vi"><strong>Điểm cốt lõi:</strong> Bệnh nhân vừa là "người nhận" chăm sóc, vừa là "thành viên không thể thiếu" của nhóm y tế.</span>
-                        </div>
                     </div>
+
                 </div>
-            </div> <!-- Close Section I grid-2col -->
+            </div>
         </div> <!-- Close Section I container -->
     </section><!-- SECTION II: 患者の自己決定を支える仕組み -->
     <section id="sbo123-sec2" class="section" style="padding-top: 20px; padding-bottom: 30px; border-top: 1px solid rgba(255,255,255,0.05);">
